@@ -1,0 +1,78 @@
+{
+  "$schema": "rogdi-test-fixture-v0.1",
+  "gene": "ROGDI",
+  "aliases": ["GMPR2", "KIAA0267"],
+  "omim_id": "226750",
+  "omim_gene_id": "137260",
+  "uniprot_id": "Q9P2T1",
+  "orphanet_id": "ORPHA:916",
+  "disease_name": "Kohlschutter-Tonz syndrome",
+  "chromosome": "16p12.1",
+  "exon_count": 11,
+  "cds_length_bp": 1044,
+  "aa_length": 348,
+  "molecular_weight_da": 37874,
+  "protein_name": "GMP reductase 2",
+  "domains": ["IMPDH"],
+  "go_terms": [
+    "cytosol",
+    "GMP reductase complex",
+    "GMP reductase activity",
+    "metal ion binding",
+    "GMP metabolic process",
+    "purine nucleobase metabolic process"
+  ],
+  "keywords": [
+    "Oxidoreductase",
+    "Purine metabolism",
+    "Metal-binding",
+    "NADP",
+    "Reference proteome"
+  ],
+  "subcellular_location": ["cytosol", "GMP reductase complex", "presynaptic terminals"],
+  "is_secreted": false,
+  "afdb_id": "Q9P2T1",
+  "cell_types_targeted": [
+    "hippocampus neurons (presynaptic)",
+    "ameloblasts",
+    "renal tubule cells"
+  ],
+  "phenotype": [
+    "amelogenesis imperfecta",
+    "psychomotor delay / regression",
+    "epilepsy (early-onset, often refractory)",
+    "nephrocalcinosis"
+  ],
+  "inheritance": "autosomal recessive",
+  "active_gt_trials": 0,
+  "prevalence": "<1 / 1,000,000",
+  "aav_compatible": true,
+  "preferred_aav_serotypes": [
+    "AAV9 (CNS, crosses BBB)",
+    "AAV8 (CNS, retina, liver)",
+    "AAVrh.10 (CNS, systemic)",
+    "AAV-DJ (broad, engineered)"
+  ],
+  "delivery_notes": [
+    "CNS targets: systemic IV (AAV9/AAVrh.10) or direct ICV/intrathecal for hippocampal neurons.",
+    "Ameloblasts: potentially accessible via local intraoral injection (no CNS crossing needed).",
+    "Dual targeting needed: enamel + CNS is an unresolved delivery paradox for a single vector program."
+  ],
+  "overexpression_concern": "moderate",
+  "overexpression_rationale": "GMP reductase is a metabolic enzyme in purine metabolism; constitutive overexpression could perturb guanine nucleotide pools. Tissue-specific or weak promoter may be preferable.",
+  "cross_correction_potential": "low",
+  "cross_correction_rationale": "ROGDI is intracellular (cytosolic, presynaptic). No secreted form known. Cell-autonomous rescue required in each target cell type.",
+  "standardised_gt_protocol_preview": {
+    "cargo_cdna": "Codon-optimized human ROGDI (hROGDI) cDNA",
+    "vector_serotype": "AAV9 (systemic CNS targeting)",
+    "promoter": "hSYN1 (neuron-specific) or CamKIIα (forebrain biased)",
+    "delivery_route": "IV systemic (neonatal or early childhood)",
+    "regulatory_pathway": "RMAT or IND with orphan drug designation",
+    "risk_mitigations": [
+      "Use self-complementary AAV (scAAV) for faster expression in neurons",
+      "Monitor guanine nucleotide metabolites (GMP, GDP, GTP) as PD biomarker",
+      "Consider dual-promoter construct for ameloblast rescue (K14 or AMELX promoter)",
+      "Immunogenicity screen anti-AAV9 capsid and anti-ROGDI T-cell epitopes pre-dosing"
+    ]
+  }
+}
