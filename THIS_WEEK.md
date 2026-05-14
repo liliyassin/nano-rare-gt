@@ -14,6 +14,11 @@
   - `Match` (disease, gene, vector, surrogate_program, scores{})
   - `ScoreBreakdown` (structural, size, tissue, roa, promoter, localization, immuno, toxicity, cai)
 - [ ] Define SQLite schema in `src/nanogt/schema.sql`
+- [ ] **ROGDI seed:** Create `data/rogdi_test_fixture.json` with validated facts:
+  - gene=ROGDI/GMPR2, omim=226750, uniprot=Q9P2T1, aa=348, cds_bp~1044
+  - domains=[IMPDH], go=[cytosol, GMP reductase complex]
+  - cell_types=[hippocampus neurons, ameloblasts, renal tubules]
+  - phenotype=[amelogenesis imperfecta, epilepsy, psychomotor regression]
 
 ## Tuesday: Disease Discovery Module
 
@@ -24,7 +29,7 @@
   - `link_to_omim(disease)` → resolve OMIM gene entry
 - [ ] Add `requests-cache` to all HTTP clients (7-day TTL default)
 - [ ] Unit tests in `tests/test_disease.py` with mocked Orphanet/OMIM responses
-- [ ] Save sample output to `data/sample_diseases.jsonl`
+- [ ] **ROGDI test:** Verify ORPHA:916 resolves to Kohlschütter-Tönz syndrome with OMIM 226750
 
 ## Wednesday: Protein + Structure Linkage
 
@@ -35,6 +40,7 @@
   - `sequence_identity(a, b)` → global + local alignment scores
 - [ ] Store in SQLite via `src/nanogt/db.py` (Connection manager, insert/update/query)
 - [ ] Unit tests in `tests/test_homology.py`
+- [ ] **ROGDI validation:** Verify Q9P2T1 → 348 aa, IMPDH domain, cytosol localization, presynaptic
 
 ## Thursday: Vector Sizing + Serotype Check
 
@@ -45,19 +51,23 @@
   - `precedent_count(serotype, promoter)` → platform depth metric
 - [ ] Build `data/serotype_map.json` from literature
 - [ ] Unit tests in `tests/test_vector.py`
+- [ ] **ROGDI sizing:** Confirm ~1044 bp CDS fits comfortably in all AAV serotypes. Evaluate AAV9 (CNS-biased) vs AAV-DJ (broad) vs AAV8 (CNS) vs AAVrh.10 (CNS + ameloblast potential)
 
 ## Friday: CLI Integration + v0.1 End-to-End
 
 - [ ] Implement `src/nanogt/cli.py` (Typer):
-  - `nanogt match --disease ORPHA:324 --output report.md`
+  - `nanogt match --disease ORPHA:916 --output report.md`  # ROGDI as primary example
   - `nanogt init` → create ~/.nanogt/ directory + SQLite DB
   - `nanogt status` → check DB health, API connectivity
 - [ ] Implement `src/nanogt/report.py`:
   - Markdown output (Jinja2 template)
   - JSONL for downstream analysis
-- [ ] Run single end-to-end test: `nanogt match --disease ORPHA:324`
+  - ROGDI-specific sections: cell-type targeting, delivery routes, therapeutic window
+- [ ] Run single end-to-end test: `nanogt match --disease ORPHA:916 --output rogdi_report.md`
   - Must complete in < 2 min
-  - Must produce `report.md` with plausible surrogate match
+  - Must produce report with plausible surrogate match for KTS
+  - Must include: gene size, AAV compatibility, CNS + dental targeting assessment
+- [ ] Supervisor review: Deliver ROGDI report as proof-of-concept
 - [ ] Fix all blockers, tag `v0.1-PoC`
 - [ ] Run `pytest` — all tests green
 - [ ] Run `mypy src/` — clean

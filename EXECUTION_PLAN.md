@@ -13,15 +13,16 @@ concentrated 2-week MVP sprint for Week 1-2. The architecture is modular Python
 | Milestone | Week | Deliverable |
 |-----------|------|-------------|
 | M1 — PoC Pipeline | 1-2 | Single-disease end-to-end match via CLI |
+| M1b — ROGDI Deep-Dive | 2-3 | Full 9-dimension analysis + Standardised GT Protocol for ROGDI |
 | M2 — Multi-Disease Batch | 3-4 | Batch query Orphanet + OMIM, ranked output |
 | M3 — Full Scoring Matrix | 5-6 | All 9 dimensions implemented + weighted aggregation |
-| M4 — Regulatory Brief | 7-8 | Auto-generated Standardised Gene Therapy Protocol |
-| M5 — Validation Case Study | 9-10 | Retrospective validation + literature review |
-| M6 — Public Release | 11-12 | Open-source publication, documentation, preprint |
+| M4 — Regulatory Brief | 7-8 | Auto-generated Standardised Gene Therapy Protocol (ROGDI first) |
+| M5 — Validation | 9-10 | Retrospective validation case studies (ROGDI illustrative) |
+| M6 — Public Release | 11-12 | Open-source publication, documentation, preprint with ROGDI results |
 
 ---
 
-## M1: PoC Pipeline (Week 1-2) — Current Sprint
+## M1: PoC Pipeline (Week 1-2)
 
 ### Week 1: Foundation + Disease Query Module
 
@@ -30,6 +31,7 @@ concentrated 2-week MVP sprint for Week 1-2. The architecture is modular Python
 - Set up `pytest` + `pre-commit` (black, ruff, mypy)
 - Define Pydantic models: `Disease`, `Gene`, `Match`, `Score`, `Report`
 - Write ADR-001: Architecture Decision Record (SQLite v1, Pydantic models, CLI via Typer)
+- **ROGDI data seed:** Hardcode ROGDI facts into test fixtures for validation
 
 **Tuesday: Orphanet + OMIM Integration**
 - Implement `disease.py`: query Orphanet API for rare diseases
@@ -37,43 +39,53 @@ concentrated 2-week MVP sprint for Week 1-2. The architecture is modular Python
 - Cross-reference OMIM for gene mapping + inheritance
 - Cache layer: `requests-cache` for all external APIs
 - Unit tests with mocked HTTP responses
+- **ROGDI test:** Verify ORPHA:916 plus OMIM 226750 resolves correctly
 
 **Wednesday: UniProt + AlphaFold Linkage**
 - Implement `homology.py`: map gene → UniProt entry → AlphaFold structure
 - Fetch protein sequence, domains, GO terms
 - Store in local SQLite (schema design + `alembic` migration)
 - Unit tests for protein data pipeline
+- **ROGDI validation:** Verify Q9P2T1 → 348 aa, IMPDH domain, cytosol localization
 
 **Thursday: Vector Sizing + Serotype Check**
 - Implement `vector.py`: calculate CDS length, flag AAV packaging limits
 - Build serotype-to-tissue mapping from literature (static JSON asset v1)
 - Hard gate: genes > 4.7kb = auto-lower match score
-- Unit tests for edge cases (oversized genes, missing data)
+- **ROGDI sizing:** Confirm ~1044 bp CDS fits comfortably in all AAV serotypes
 
-**Friday: CLI Integration (End-to-End)**
+**Friday: CLI Integration + v0.1 End-to-End**
 - Wire modules into `nanogt match --disease <orphanet_id>`
-- Single-disease test case: pick a known well-characterized disease
+- Single-disease test case: **ROGDI as primary worked example**
 - Output: JSONL + Markdown report (Jinja2 template)
-- End-to-end test: from disease ID → report in < 2 minutes
+- End-to-end test: from ROGDI disease ID → report in < 2 minutes
+- Report must include: gene size, AAV compatibility, cell-type targeting, structural homologs
 
-### Week 2: Scoring Shell + First Match
+### Week 2: Scoring Shell + ROGDI Deep-Dive
 
-**Monday- Wednesday: Scoring Framework**
+**Monday-Tuesday: Scoring Framework**
 - Implement `scoring.py`: tiered scoring (must-pass → weighted → bonus)
 - Default weights v0.1 (equal across dimensions for baseline)
 - Manual override system: `--weights-file weights.json`
 - Top-N ranking with confidence intervals
 
-**Thursday: Expression Data (GEO/GTEx)**
-- Implement `expression.py`: query GTEx median expression by tissue
-- Map target cell types from literature to GTEx RNASeq
-- Static mapping table (AAV serotype → tissue → cell type)
+**Wednesday-Thursday: ROGDI Deep-Dive Analysis**
+- Run all 9 scoring dimensions on ROGDI / KTS
+- Identify closest structural homologs (Foldseek run if available)
+- Map target cell types: neurons (hippocampus), ameloblasts, renal tubules
+- Assess delivery routes: IV vs ICV vs intra-oral injection
+- Evaluate therapeutic window: ROGDI is a metabolic enzyme — overexpression risk vs rescue needed
+- Immunogenicity: IEDB epitope scan on ROGDI protein sequence
+- Codon optimization: CAI for human neurons + ameloblasts
+- Generate first-pass "Standardised Gene Therapy Protocol" for ROGDI
+- Document: recommended serotype, promoter, RoA, risk mitigations
 
 **Friday: v0.1 Integration Test**
-- Run full pipeline on 5 hand-picked diseases
-- Manually validate top match against literature
-- Fix any blocking bugs, document known gaps
+- Run full pipeline on **ROGDI + 4 additional hand-picked diseases**
+- Validate ROGDI top match quality against literature
+- Fix blocking bugs, document known gaps
 - Tag `v0.1-PoC` release
+- Supervisor review checkpoint: ROGDI report
 
 ---
 
