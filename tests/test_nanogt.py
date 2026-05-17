@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 from nanogt.db import DB
-from nanogt.models import Disease, Gene, Protein, ScoreBreakdown, Vector
+from nanogt.models import Disease, ScoreBreakdown
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
