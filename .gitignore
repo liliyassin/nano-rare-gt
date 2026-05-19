@@ -1,6 +1,8 @@
-.venv
 .venv_(my_python_environment)/
 .Rhistory
 .DS_Store
+
 __pycache__/
 *.pyc
+.venv/
+.pytest_cache/
