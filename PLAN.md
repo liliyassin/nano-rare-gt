@@ -12,26 +12,27 @@ Create a systematic multi-parameter computational framework that matches untreat
 
 ## Primary Case Study: ROGDI / Kohlschütter-Tönz Syndrome
 
-**Why ROGDI:** Requested by supervisor as the illustrative deep-dive. KTS represents an ideal nano-rare target: AR inheritance, well-defined gene (ROGDI/GMPR2, 348 aa, CDS ~1.0 kb — well under AAV capacity), CNS + dental (ameloblast) phenotype with no current disease-modifying therapy, and a clear biology link (presynaptic protein, hippocampal expression, GMP reductase activity). The framework must produce a full Standardised Gene Therapy Protocol for ROGDI as its first validated output.
+**Why ROGDI:** Requested by supervisor as the illustrative deep-dive. KTS represents a strong but challenging nano-rare target: AR inheritance, well-defined gene (ROGDI; UniProt Q9GZN7; 287 aa; amino-acid coding region ~861 bp / 864 bp including stop codon — well under AAV capacity), CNS + dental phenotype, no current disease-modifying therapy, and emerging biology linking ROGDI to Rabconnectin-3 / V-ATPase-associated intracellular function. The framework must produce a full Standardised Gene Therapy Protocol for ROGDI as its first validated output, while being explicit that this is a CNS-first, cell-autonomous rescue problem rather than a simple enzyme-replacement program.
 
 **ROGDI Quick Facts:**
-- Gene: ROGDI (aliases: GMPR2) — chr16, 11 exons
-- OMIM: 226750 (Kohlschütter-Tönz syndrome)
-- UniProt: Q9P2T1 — GMP reductase 2
-- Protein: 348 aa, ~37.9 kDa, intracellular (cytosol, presynaptic terminals)
-- Domain: IMPDH/GMP reductase domain (Pfam)
-- Estimated CDS: ~1044 bp — **well within AAV packaging**
-- Expression: Hippocampus (high), brain-wide, ameloblasts (dental enamel)
-- Phenotype: Amelogenesis imperfecta, psychomotor delay, epilepsy, nephrocalcinosis
-- Inheritance: Autosomal recessive (homozygous LoF target)
-- No active gene therapy clinical trials
+- Gene: ROGDI (aliases include KIAA0267, FLJ22386, RAV2) — chr16p12.1, 11 exons
+- Orphanet: ORPHA:1946 (Kohlschütter-Tönz syndrome / amelocerebrohypohidrotic syndrome)
+- OMIM phenotype: 226750; OMIM gene: 614574
+- UniProt: Q9GZN7 — Protein rogdi homolog
+- Protein: 287 aa, ~32.3 kDa, intracellular/non-secreted
+- Structural/domain evidence: PDB 5XQH/5XQI; InterPro IPR028241; Pfam PF10259; ROGDI/RAVE2-like scaffold/adaptor biology
+- Estimated amino-acid coding region: ~861 bp, or 864 bp if including stop codon — **well within AAV packaging**
+- Relevant tissues/cells: CNS neurons/presynaptic compartments, ameloblast-lineage tooth tissue during enamel development, possibly renal tubules in cases with nephrocalcinosis
+- Phenotype: Amelogenesis imperfecta, early-onset epilepsy, severe developmental delay / intellectual disability / regression, spasticity, hypohidrosis, nephrocalcinosis reported in some cases
+- Inheritance: Autosomal recessive loss-of-function-compatible target
+- No active gene therapy clinical trials identified for ROGDI/KTS
 
 **Cell types to target:**
 1. **Neurons** (CNS) — presynaptic terminals (hippocampus, cortex)
 2. **Ameloblasts** — dental enamel formation
 3. **Renal tubule cells** — nephrocalcinosis
 
-**Delivery challenge:** Both CNS (BBB crossing) and peripheral (ameloblasts accessible via local injection). Dual-target paradox.
+**Delivery challenge:** CNS rescue and dental/enamel rescue are mismatched problems. ROGDI is intracellular/non-secreted, so cross-correction is expected to be low. A CNS-directed AAV route may address neurological morbidity but is unlikely to reverse established enamel defects; ameloblast targeting/timing remains unresolved.
 
 ## Dimensions to Evaluate (The Algorithm)
 

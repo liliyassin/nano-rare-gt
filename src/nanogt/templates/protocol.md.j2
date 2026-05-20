@@ -7,7 +7,7 @@
 **Inheritance:** {{ disease.inheritance }}  
 **Prevalence:** {{ disease.prevalence }}  
 **Report Generated:** {{ generated_at }}  
-**Framework Version:** nano-rare-gt v0.1  
+**Framework Version:** nano-rare-gt v0.2 source-audited  
 
 ---
 
@@ -137,15 +137,15 @@ This protocol evaluates {{ gene.symbol }} as a gene therapy target for {{ diseas
 
 ## 8. Framework Scoring Breakdown
 
-The following scores evaluate {{ gene.symbol }} against the 9 dimensions of the nano-rare GT matching framework:
+The following scores evaluate {{ gene.symbol }} against the 12 dimensions of the nano-rare GT matching framework:
 
 | Dimension | Score (0–1) | Weight | Weighted Score | Notes |
 |-----------|-------------|--------|----------------|-------|
 {% for dim in scoring_dimensions %}
-| {{ dim.name }} | {{ "%.2f" | format(dim.score) }} | {{ dim.weight }} | {{ "%.2f" | format(dim.score * dim.weight) }} | {{ dim.notes }} |
+| {{ dim.name }} | {{ dim.score | score(2) }} | {{ dim.weight | score(1) }} | {{ (dim.score * dim.weight) | score(2) }} | {{ dim.notes }} |
 {% endfor %}
 
-**Composite Score:** {{ "%.3f" | format(composite_score) }}  
+**Composite Score:** {{ composite_score | score(3) }}
 **Confidence:** {{ confidence }}  
 **Gate Status:** {{ gate_status }}
 

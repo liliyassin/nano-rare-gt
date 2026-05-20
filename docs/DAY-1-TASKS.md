@@ -21,28 +21,28 @@
 
 ## Task 2: Deepen the ROGDI Knowledge Base (2 hours)
 
-- [ ] Query UniProt Q9P2T1 programmatically — fetch full JSON, extract all fields
-- [ ] Query OMIM 137260 (ROGDI gene) and OMIM 226750 (KTS phenotype)
+- [ ] Query UniProt by gene symbol (`gene:ROGDI AND organism_id:9606`) and verify Q9GZN7 programmatically — fetch full JSON, extract accession, protein name, gene name, sequence length, mass, PDB, InterPro, and Pfam fields
+- [ ] Query OMIM 614574 (ROGDI gene) and OMIM 226750 (KTS phenotype)
 - [ ] Research Kohlschütter-Tönz syndrome in depth:
   - [ ] Natural history and clinical course
-  - [ ] Known pathophysiology (GMP reductase deficiency → purine imbalance)
+  - [ ] Known pathophysiology: ROGDI loss/disruption → Rabconnectin-3 / V-ATPase-linked intracellular dysfunction → neuronal/endosomal/lysosomal or synaptic-vesicle biology → epilepsy/neurodevelopmental disease, plus enamel-development effects
   - [ ] All affected tissues: brain, teeth, kidney, retina?
   - [ ] Age of onset, progression, life expectancy
   - [ ] Current standard of care (none? supportive only?)
   - [ ] Why no gene therapy exists yet (what are the barriers?)
 - [ ] Research ROGDI protein function:
-  - [ ] IMPDH/GMP reductase enzyme — role in purine metabolism
+  - [ ] Non-secreted intracellular scaffold/adaptor-like ROGDI/RAVE2 protein — do not treat it as a catalytic purine-metabolism protein
   - [ ] Why intracellular/cytosolic localization matters for GT
   - [ ] Presynaptic terminal localization — why this matters for CNS rescue
-  - [ ] Overexpression risk: enzyme activity vs. stoichiometry
+  - [ ] Overexpression risk: stoichiometry, mislocalization, and disrupted protein-complex assembly
 - [ ] Research AAV delivery to ROGDI-relevant tissues:
-  - [ ] CNS: AAV9 IV vs. ICV vs. intrathecal — what does LCA2/RPE65 tell us?
-  - [ ] Dental/am eloblasts: has any AAV ever targeted enamel organ?
-  - [ ] Kidney: AAV9 capsid engineering for renal targeting
-- [ ] Structural homology search — what proteins are closest to ROGDI?
-  - [ ] IMPDH1, IMPDH2 ( known GT targets? approved therapies?)
-  - [ ] GMPR1 (the other GMP reductase isoform)
-  - [ ] Any other IMPDH-domain proteins with clinical programs?
+  - [ ] CNS: AAV9 IV vs. ICV vs. intrathecal — use CNS-relevant precedent such as systemic AAV9 in SMA/Zolgensma and intrathecal CNS programs, not retinal-disease precedent as the main analogy
+  - [ ] Dental/ameloblasts: has any AAV ever targeted enamel organ, and is the developmental timing realistic?
+  - [ ] Kidney: assess whether renal involvement is consistent enough to justify a delivery endpoint; do not assume renal targeting is primary
+- [ ] Structural homology search — what proteins/complexes are closest to corrected ROGDI biology?
+  - [ ] ROGDI/RAVE2-like domain proteins and Rabconnectin-3 / V-ATPase-associated components
+  - [ ] PDB 5XQH and 5XQI structural features and whether Foldseek finds meaningful non-enzyme structural neighbors
+  - [ ] Non-catalytic GT precedent programs for scaffold/structural intracellular proteins, rather than forcing unrelated purine-metabolism surrogates
 
 **Deliverable:** A comprehensive ROGDI knowledge document (`docs/ROGDI-deep-dive.md`) with citations, sufficient for a supervisor review.
 
@@ -72,7 +72,7 @@
 - [ ] Sections to include:
   1. **Indication Summary** — disease, prevalence, unmet need
   2. **Target Biology** — ROGDI gene, protein function, affected cell types
-  3. **Therapeutic Rationale** — why GT is appropriate (AR, LoF, small gene, no cross-correction needed vs. reality)
+  3. **Therapeutic Rationale** — why GT is appropriate (AR, LoF-compatible, very small gene) and why it is hard (intracellular/non-secreted ROGDI means low cross-correction; direct transduction likely needed)
   4. **Vector Selection** — recommended serotype(s) with justification
   5. **Promoter Design** — tissue-specific vs. ubiquitous, why hSYN1 or CamKIIα or other
   6. **Delivery Route** — systemic IV vs. CNS-directed, age at dosing
@@ -91,7 +91,7 @@
 
 ## Task 5: Make It Usable from the CLI (30 min)
 
-- [ ] Wire `report.py` into `cli.py` so `nanogt match --disease ORPHA:916 --output rogdi_report.md` works
+- [ ] Wire `report.py` into `cli.py` so `nanogt match --disease ORPHA:1946 --output rogdi_report.md` works
 - [ ] The command should:
   1. Load the deep ROGDI data (from fixture + live APIs if available)
   2. Render the report through the template system
@@ -119,7 +119,7 @@
 
 At the end of today, a supervisor should be able to:
 
-1. Run `nanogt match --disease ORPHA:916 --output rogdi_report.md` and get a **real file**
+1. Run `nanogt match --disease ORPHA:1946 --output rogdi_report.md` and get a **real file**
 2. Open that file and read a **comprehensive, citation-backed Standardised Gene Therapy Protocol** for ROGDI
 3. See how every section maps to the framework's 9 scoring dimensions
 4. Understand why ROGDI is a compelling (but challenging) GT candidate

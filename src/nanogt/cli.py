@@ -30,10 +30,10 @@ def _ensure_db(db_path: Path) -> DB:
 
 
 def _load_rogdi_data() -> tuple[Disease, Gene, Protein, Vector, ScoreBreakdown]:
-    """Load the validated ROGDI deep-dive dataset."""
+    """Load the source-audited ROGDI/KTS deep-dive dataset."""
     disease = Disease(
-        orphanet_id="ORPHA:916",
-        name="Kohlsch\u00fctter-T\u00f6nz syndrome",
+        orphanet_id="ORPHA:1946",
+        name="Kohlsch\u00fctter-T\u00f6nz syndrome / amelocerebrohypohidrotic syndrome",
         omim_id="226750",
         prevalence="<1 / 1,000,000",
         morbidity_flag=True,
@@ -42,46 +42,60 @@ def _load_rogdi_data() -> tuple[Disease, Gene, Protein, Vector, ScoreBreakdown]:
         phenotype_terms=[
             "amelogenesis imperfecta",
             "early-onset epilepsy",
-            "psychomotor delay / regression",
-            "nephrocalcinosis",
+            "severe developmental delay / intellectual disability / regression",
+            "spasticity",
             "hypohidrosis",
+            "nephrocalcinosis reported in some cases",
         ],
     )
     gene = Gene(
         symbol="ROGDI",
-        aliases=["GMPR2", "KIAA0267", "FLJ22386", "RAV2"],
+        aliases=["KIAA0267", "FLJ22386", "RAV2"],
         omim_id="614574",
-        uniprot_id="Q9P2T1",
+        uniprot_id="Q9GZN7",
         chromosome="16p12.1",
         exon_count=11,
-        cds_length_bp=1044,
-        aa_length=348,
-        molecular_weight_da=37874.0,
+        cds_length_bp=861,
+        aa_length=287,
+        molecular_weight_da=32254.0,
     )
     protein = Protein(
-        uniprot_id="Q9P2T1",
-        name="GMP reductase 2",
-        domains=["IMPDH_GMPR"],
+        uniprot_id="Q9GZN7",
+        name="Protein rogdi homolog",
+        domains=["RAVE2/Rogdi", "Rogdi_lz", "atypical leucine zipper-like scaffold"],
         go_terms=[
-            "cytosol",
-            "GMP reductase complex",
-            "GMP reductase activity",
-            "metal ion binding",
-            "GMP metabolic process",
-            "purine nucleobase metabolic process",
+            "nuclear envelope",
+            "presynapse",
+            "axon",
+            "perikaryon",
+            "dendrite",
+            "synaptic vesicle",
+            "Rabconnectin-3 complex interaction",
+            "V-ATPase assembly/regulation",
         ],
         keywords=[
-            "Oxidoreductase",
-            "Purine metabolism",
-            "Metal-binding",
-            "NADP",
+            "3D-structure",
+            "Amelogenesis imperfecta",
+            "Cytoplasmic vesicle",
+            "Epilepsy",
+            "Nucleus",
             "Reference proteome",
-            "Presynaptic",
+            "Synapse",
+            "Rabconnectin-3",
+            "V-ATPase",
         ],
-        subcellular_location=["cytosol", "GMP reductase complex", "presynaptic terminals"],
+        subcellular_location=[
+            "nuclear envelope",
+            "presynapse",
+            "axon",
+            "perikaryon",
+            "dendrite",
+            "synaptic vesicle",
+            "lysosomal fraction / acidic perinuclear lysosome context",
+        ],
         is_secreted=False,
-        afdb_id="Q9P2T1",
-        afdb_url="https://alphafold.ebi.ac.uk/entry/Q9P2T1",
+        afdb_id="Q9GZN7",
+        afdb_url="https://alphafold.ebi.ac.uk/entry/Q9GZN7",
     )
     vector = Vector(
         serotype="AAV9",
@@ -94,20 +108,20 @@ def _load_rogdi_data() -> tuple[Disease, Gene, Protein, Vector, ScoreBreakdown]:
         clinical_precedents=25,
         freely_available=True,
     )
-    # First-pass scores for ROGDI (v0.1)
+    # First-pass scores for corrected ROGDI biology (v0.2 source-audited)
     scores = ScoreBreakdown(
-        structural_homology=0.55,
-        sequence_identity=0.65,
-        domain_similarity=0.70,
-        size_compatibility=0.95,
+        structural_homology=0.50,
+        sequence_identity=0.35,
+        domain_similarity=0.55,
+        size_compatibility=0.98,
         tissue_tropism=0.45,
         roa_precedent=0.80,
-        promoter_match=0.75,
-        localization_match=0.50,
+        promoter_match=0.70,
+        localization_match=0.45,
         immunogenicity=0.60,
         therapeutic_window=0.55,
         codon_optimization=0.85,
-        platform_depth=0.75,
+        platform_depth=0.70,
     )
     return disease, gene, protein, vector, scores
 
@@ -123,7 +137,7 @@ def init(
 
 @app.command()
 def match(
-    disease: Annotated[str, typer.Option("--disease", help="Orphanet ID e.g. ORPHA:916")],
+    disease: Annotated[str, typer.Option("--disease", help="Orphanet ID e.g. ORPHA:1946")],
     output: Annotated[Path, typer.Option("--output", "-o", help="Output markdown path")] = Path("report.md"),
     db_path: Annotated[Path, typer.Option("--db", help="Database path")] = DEFAULT_DB,
     deep_dive: Annotated[bool, typer.Option("--deep-dive", help="Generate full protocol with analysis")] = False,
@@ -131,13 +145,13 @@ def match(
     """Run the matching pipeline for a single disease."""
     db = _ensure_db(db_path)
 
-    # v0.1: Hardcoded ROGDI path for the primary case study
-    if disease == "ORPHA:916":
+    # v0.2: Hardcoded source-audited ROGDI path for the primary case study
+    if disease == "ORPHA:1946":
         disease_obj, gene, protein, vector, scores = _load_rogdi_data()
     else:
         row = db.get_disease_by_orphanet(disease)
         if row is None:
-            console.print(f"[red]Disease {disease} not yet supported in v0.1. Only ORPHA:916 (ROGDI/KTS) is available for deep-dive.[/red]")
+            console.print(f"[red]Disease {disease} not yet supported in v0.2. Only ORPHA:1946 (ROGDI/KTS) is available for deep-dive.[/red]")
             raise typer.Exit(1)
         # Placeholder for future diseases
         disease_obj = Disease.model_validate(row)

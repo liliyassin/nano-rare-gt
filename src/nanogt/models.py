@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 class Disease(BaseModel):
     """A rare disease entry from Orphanet / OMIM."""
 
-    orphanet_id: str = Field(..., description="Orphanet ID, e.g. ORPHA:916")
+    orphanet_id: str = Field(..., description="Orphanet ID, e.g. ORPHA:1946")
     name: str = Field(..., description="Disease name")
     omim_id: str | None = Field(None, description="OMIM ID, e.g. 226750")
     prevalence: str | None = Field(None, description="Prevalence class")
@@ -25,7 +25,7 @@ class Gene(BaseModel):
     symbol: str = Field(..., description="HGNC symbol, e.g. ROGDI")
     aliases: list[str] = Field(default_factory=list, description="Alternative symbols")
     omim_id: str | None = Field(None, description="OMIM gene ID")
-    uniprot_id: str | None = Field(None, description="UniProt accession, e.g. Q9P2T1")
+    uniprot_id: str | None = Field(None, description="UniProt accession, e.g. Q9GZN7")
     chromosome: str | None = Field(None, description="Cytogenetic location")
     exon_count: int | None = Field(None)
     cds_length_bp: int | None = Field(None, description=" Coding sequence length in bp")

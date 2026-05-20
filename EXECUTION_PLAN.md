@@ -39,20 +39,20 @@ concentrated 2-week MVP sprint for Week 1-2. The architecture is modular Python
 - Cross-reference OMIM for gene mapping + inheritance
 - Cache layer: `requests-cache` for all external APIs
 - Unit tests with mocked HTTP responses
-- **ROGDI test:** Verify ORPHA:916 plus OMIM 226750 resolves correctly
+- **ROGDI test:** Verify ORPHA:1946 plus OMIM phenotype 226750 and OMIM gene 614574 resolves correctly
 
 **Wednesday: UniProt + AlphaFold Linkage**
 - Implement `homology.py`: map gene → UniProt entry → AlphaFold structure
 - Fetch protein sequence, domains, GO terms
 - Store in local SQLite (schema design + `alembic` migration)
 - Unit tests for protein data pipeline
-- **ROGDI validation:** Verify Q9P2T1 → 348 aa, IMPDH domain, cytosol localization
+- **ROGDI validation:** Verify ROGDI gene-symbol search → UniProt Q9GZN7, 287 aa, Protein rogdi homolog, PDB 5XQH/5XQI, InterPro IPR028241, Pfam PF10259; explicitly reject obsolete reductase-style scaffold annotations
 
 **Thursday: Vector Sizing + Serotype Check**
 - Implement `vector.py`: calculate CDS length, flag AAV packaging limits
 - Build serotype-to-tissue mapping from literature (static JSON asset v1)
 - Hard gate: genes > 4.7kb = auto-lower match score
-- **ROGDI sizing:** Confirm ~1044 bp CDS fits comfortably in all AAV serotypes
+- **ROGDI sizing:** Confirm ~861 bp amino-acid coding region (~864 bp including stop codon) fits comfortably within AAV capacity
 
 **Friday: CLI Integration + v0.1 End-to-End**
 - Wire modules into `nanogt match --disease <orphanet_id>`
@@ -74,7 +74,7 @@ concentrated 2-week MVP sprint for Week 1-2. The architecture is modular Python
 - Identify closest structural homologs (Foldseek run if available)
 - Map target cell types: neurons (hippocampus), ameloblasts, renal tubules
 - Assess delivery routes: IV vs ICV vs intra-oral injection
-- Evaluate therapeutic window: ROGDI is a metabolic enzyme — overexpression risk vs rescue needed
+- Evaluate therapeutic window: ROGDI is an intracellular, non-secreted scaffold/adaptor-like protein linked to Rabconnectin-3 / V-ATPase biology — overexpression risk is stoichiometry/mislocalization/complex-disruption risk, not metabolic-catalysis toxicity
 - Immunogenicity: IEDB epitope scan on ROGDI protein sequence
 - Codon optimization: CAI for human neurons + ameloblasts
 - Generate first-pass "Standardised Gene Therapy Protocol" for ROGDI

@@ -1,0 +1,95 @@
+# Batch Match Report: {{ report.query_disease.name }}
+
+**Query:** {{ report.query_disease.orphanet_id }}  
+**Generated at:** {{ report.generated_at or "n/a" }}  
+**Query time:** {{ report.query_time_s | score(2) }}s
+
+---
+
+## Matches ({{ report.matches | length }} total)
+
+| Rank | Vector | Surrogate | Composite | Confidence |
+|---|---|---|---|---|
+{% for match in report.matches %}
+| {{ loop.index }} | {{ match.vector.serotype }} | {{ match.surrogate_program }} | {{ match.composite_score | score(3) }} | {{ match.confidence }} |
+{% endfor %}
+
+{% if report.top_match %}
+---
+
+## Top Match Detail
+
+# Match Report: {{ report.query_disease.name }} -> {{ report.top_match.surrogate_program }}
+
+**Orphanet ID:** {{ report.query_disease.orphanet_id }}  
+**OMIM ID:** {{ report.query_disease.omim_id }}  
+**Gene:** {{ report.top_match.gene.symbol }}{% if report.top_match.gene.uniprot_id %} ({{ report.top_match.gene.uniprot_id }}){% endif %}  
+**Vector:** {{ report.top_match.vector.serotype }}  
+**Composite Score:** {{ report.top_match.composite_score | score(3) }} ({{ report.top_match.confidence }} confidence)
+
+---
+
+## Executive Summary
+
+| Dimension | Score |
+|---|---|
+{% for row in score_rows %}
+| {{ row.label }} | {{ row.score | score(2) }} |
+{% endfor %}
+
+---
+
+## Disease Background
+
+**Name:** {{ report.query_disease.name }}  
+**Inheritance:** {{ report.query_disease.inheritance }}  
+**Prevalence:** {{ report.query_disease.prevalence }}  
+**Active GT trials:** {{ report.query_disease.active_gt_trials }}  
+
+### Phenotype terms
+
+{% for term in report.query_disease.phenotype_terms %}
+- {{ term }}
+{% endfor %}
+
+---
+
+## Gene & Protein Profile
+
+| Feature | Value |
+|---|---|
+| HGNC symbol | {{ report.top_match.gene.symbol }} |
+| UniProt | {{ report.top_match.gene.uniprot_id or "n/a" }} |
+| CDS length | {{ report.top_match.gene.cds_length_bp or "n/a" }} bp |
+| AA length | {{ report.top_match.gene.aa_length or "n/a" }} |
+| Chromosome | {{ report.top_match.gene.chromosome or "n/a" }} |
+
+---
+
+## Surrogate Precedent
+
+**Program:** {{ report.top_match.surrogate_program }}  
+**Notes:** {{ report.top_match.notes | join("; ") if report.top_match.notes else "None" }}
+
+---
+
+## Auto-Generated Protocol Sections
+
+{% if report.top_match.protocol_sections %}
+{% for title, body in report.top_match.protocol_sections.items() %}
+### {{ title }}
+
+{{ body }}
+{% endfor %}
+{% else %}
+_No protocol sections generated._
+{% endif %}
+
+---
+
+## Hard Gates
+
+{% for gate, passed in report.top_match.scores.must_pass_gates.items() %}
+- {{ gate }}: {{ "PASS" if passed else "FAIL" }}
+{% endfor %}
+{% endif %}

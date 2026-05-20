@@ -2,6 +2,8 @@
 
 **Rule:** Sleep is non-negotiable. 12 hours of focused work is only sustainable with 8 hours of sleep and one walk per day.
 
+(if i want to see in nice table view cmd+shift+v)
+
 ---
 
 ## Schedule
