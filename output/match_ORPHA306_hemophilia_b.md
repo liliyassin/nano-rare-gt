@@ -12,31 +12,158 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | DTX201 | AAV8 | 9.6/10 | 🟢 High | phase2 |
-| 2 | Hemgenix | AAV5 | 9.5/10 | 🟢 High | approved |
-| 3 | Roctavian | AAV5 | 9.5/10 | 🟢 High | approved |
-| 4 | SPK-8011 | AAVrh10 | 9.3/10 | 🟢 High | phase3 |
-| 5 | RGX-121 | AAV9 | 8.3/10 | 🟢 High | phase3 |
+| 1 | Hemgenix | AAV5 | 9.1/10 | 🟢 High | approved |
+| 2 | Roctavian | AAV5 | 9.1/10 | 🟢 High | approved |
+| 3 | SPK-8011 | AAVrh10 | 8.7/10 | 🟢 High | phase3 |
+| 4 | DTX201 | AAV8 | 8.3/10 | 🟢 High | phase2 |
+| 5 | ST-920 | AAV2/6 | 7.7/10 | 🟢 High | phase1/2 |
 
 ---
 
-## Match #1: DTX201
+## Match #1: Hemgenix
+
+**Precedent disease:** Hemophilia B  
+**Vector:** AAV5  
+**Tissue target:** liver  
+**Composite score:** 9.1 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.80 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **9.06** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1383bp / cargo 4700bp (29% utilized)
+- Vector tropism plus precedent target match: liver
+- Both secreted proteins — systemic delivery viable
+- Inheritance match (X-linked recessive <-> XL)
+- Pathway match: coagulation
+- Approval status: approved
+- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Secreted protein — systemic cross-correction via bloodstream; all cells can benefit from a minority of transduced cells
+- Immune privilege: moderate-high privilege — tolerogenic microenvironment (Kupffer cells, IL-10, PD-L1)
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #2: Roctavian
+
+**Precedent disease:** Hemophilia A  
+**Vector:** AAV5  
+**Tissue target:** liver  
+**Composite score:** 9.1 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.80 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **9.06** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1383bp / cargo 4700bp (29% utilized)
+- Vector tropism plus precedent target match: liver
+- Both secreted proteins — systemic delivery viable
+- Inheritance match (X-linked recessive <-> XL)
+- Pathway match: coagulation
+- Approval status: approved
+- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Secreted protein — systemic cross-correction via bloodstream; all cells can benefit from a minority of transduced cells
+- Immune privilege: moderate-high privilege — tolerogenic microenvironment (Kupffer cells, IL-10, PD-L1)
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #3: SPK-8011
+
+**Precedent disease:** Hemophilia A  
+**Vector:** AAVrh10  
+**Tissue target:** liver  
+**Composite score:** 8.7 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 0.80 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.50 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.80 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **8.67** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1383bp / cargo 4700bp (29% utilized)
+- Vector tropism plus precedent target match: liver
+- Both secreted proteins — systemic delivery viable
+- Inheritance match (X-linked recessive <-> XL)
+- Pathway match: coagulation
+- Approval status: phase3
+- Vector immunogenicity (AAVrh10): moderate (~10%) — significant proportion may require pre-screening or exclusion
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Secreted protein — systemic cross-correction via bloodstream; all cells can benefit from a minority of transduced cells
+- Immune privilege: moderate-high privilege — tolerogenic microenvironment (Kupffer cells, IL-10, PD-L1)
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #4: DTX201
 
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV8  
 **Tissue target:** liver  
-**Composite score:** 9.6 / 10  
+**Composite score:** 8.3 / 10  
 
 ### Score Breakdown
 
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 2.0 | 2.0 |
-| Protein class | 2.0 | 2.0 |
-| Pathway similarity | 2.0 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 0.6 | 1.0 |
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 0.60 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.80 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **8.28** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
@@ -46,105 +173,37 @@
 - Inheritance match (X-linked recessive <-> XL)
 - Pathway match: coagulation
 - Approval status: phase2
+- Vector immunogenicity (AAV8): high (~30%) — substantial patient exclusion expected; immunodepletion protocols may be needed
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Secreted protein — systemic cross-correction via bloodstream; all cells can benefit from a minority of transduced cells
+- Immune privilege: moderate-high privilege — tolerogenic microenvironment (Kupffer cells, IL-10, PD-L1)
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
 
-## Match #2: Hemgenix
+## Match #5: ST-920
 
-**Precedent disease:** Hemophilia B  
-**Vector:** AAV5  
+**Precedent disease:** Fabry disease  
+**Vector:** AAV2/6  
 **Tissue target:** liver  
-**Composite score:** 9.5 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 1.5 | 2.0 |
-| Protein class | 2.0 | 2.0 |
-| Pathway similarity | 2.0 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 1.0 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1383bp / cargo 4700bp (29% utilized)
-- Precedent target match: liver
-- Both secreted proteins — systemic delivery viable
-- Inheritance match (X-linked recessive <-> XL)
-- Pathway match: coagulation
-- Approval status: approved
-
-## Match #3: Roctavian
-
-**Precedent disease:** Hemophilia A  
-**Vector:** AAV5  
-**Tissue target:** liver  
-**Composite score:** 9.5 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 1.5 | 2.0 |
-| Protein class | 2.0 | 2.0 |
-| Pathway similarity | 2.0 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 1.0 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1383bp / cargo 4700bp (29% utilized)
-- Precedent target match: liver
-- Both secreted proteins — systemic delivery viable
-- Inheritance match (X-linked recessive <-> XL)
-- Pathway match: coagulation
-- Approval status: approved
-
-## Match #4: SPK-8011
-
-**Precedent disease:** Hemophilia A  
-**Vector:** AAVrh10  
-**Tissue target:** liver  
-**Composite score:** 9.3 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 1.5 | 2.0 |
-| Protein class | 2.0 | 2.0 |
-| Pathway similarity | 2.0 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 0.8 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1383bp / cargo 4700bp (29% utilized)
-- Precedent target match: liver
-- Both secreted proteins — systemic delivery viable
-- Inheritance match (X-linked recessive <-> XL)
-- Pathway match: coagulation
-- Approval status: phase3
-
-## Match #5: RGX-121
-
-**Precedent disease:** Mucopolysaccharidosis type II  
-**Vector:** AAV9  
-**Tissue target:** CNS/liver  
-**Composite score:** 8.3 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 2.0 | 2.0 |
-| Protein class | 2.0 | 2.0 |
-| Pathway similarity | 0.5 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 0.8 | 1.0 |
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 0.50 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 0.50 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.50 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.80 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.67** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
@@ -153,4 +212,10 @@
 - Both secreted proteins — systemic delivery viable
 - Inheritance match (X-linked recessive <-> XL)
 - Different pathway (coagulation vs lysosomal_storage)
-- Approval status: phase3
+- Approval status: phase1/2
+- Vector immunogenicity (AAV2/6): moderate (~17%) — significant proportion may require pre-screening or exclusion
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Secreted protein — systemic cross-correction via bloodstream; all cells can benefit from a minority of transduced cells
+- Immune privilege: moderate-high privilege — tolerogenic microenvironment (Kupffer cells, IL-10, PD-L1)
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs

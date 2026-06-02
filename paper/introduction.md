@@ -1,23 +1,33 @@
 # Introduction
 
-<!-- Target: ~1200 words -->
+## The Rare Disease Treatment Gap
 
-## The Genomic Revolution and the Therapeutic Gap
-<!-- ~150 words: Open with the scale of the problem. Over 6,000 monogenic diseases identified. Approved gene therapies: fewer than 50. -->
+Approximately 7,000 distinct rare diseases have been identified to date, of which an estimated 6,000 are monogenic — caused by pathogenic variants in a single gene [CITATION: Orphanet]. Collectively, these diseases affect an estimated 300 million people worldwide [CITATION: Global Genes], yet fewer than 5% have any approved pharmacological treatment [CITATION: Orphanet]. The gap between the number of identifiable diseases and the number with effective therapies represents one of the most significant unmet needs in modern medicine.
 
-## The Nano-Rare Crisis
-<!-- ~300 words: Define nano-rare (prevalence <1/1,000,000). Why these diseases are specifically abandoned. Economic rationale vs moral imperative. -->
+The causes of this treatment gap are predominantly economic and logistical rather than biological. Rare disease drug development is expensive — regulatory costs, manufacturing scale-up, and clinical trial execution must be amortised across patient populations that may number only in the hundreds or low thousands globally. For the most extreme cases — diseases with a prevalence below 1 in 1,000,000, sometimes termed ultra-rare or nano-rare — the commercial return is vanishingly small relative to development costs, and these diseases are systematically deprioritised or abandoned by industry [CITATION]. Children and adults with these conditions have no approved treatment options, often no active clinical trials, and frequently no funded research programme at all.
 
-## Current Approaches and Their Limitations
-<!-- ~200 words: Existing work. Schilder et al. expression mapping. Databases (ASGCT, FDA). Computational homology tools. Why no one has integrated delivery parameters with disease matching. -->
+## Gene Therapy as a Potential Platform Solution
 
-## Hypothesis and Rationale
-<!-- ~150 words: If a disease shares structural similarity with an approved GT target AND target tissue/expression/cargo are compatible with the same vector system, development risk is partially transferable. -->
+Among the therapeutic modalities that have emerged over the past two decades, gene therapy occupies a uniquely promising position for rare monogenic diseases. By delivering a functional copy of a defective gene directly to the affected cells, gene therapy addresses the root cause of loss-of-function disorders rather than managing downstream symptoms. The approval of Luxturna (voretigene neparvovec, 2017) for RPE65-associated retinal dystrophy, Zolgensma (onasemnogene abeparvovec, 2019) for spinal muscular atrophy, and Hemgenix (etranacogene dezaparvovec, 2022) for haemophilia B established proof of concept that single-administration gene therapy can produce durable correction across a range of tissue targets and disease types.
 
-## Our Contribution
-<!-- ~200 words: First integrated multi-parameter framework. Eleven scoring dimensions. Automated protocol generation. Validation against approved therapies. Generalizable across monogenic classes. -->
+Critically, gene therapy is increasingly understood to function as a platform technology. The biological and regulatory work required to bring a gene therapy to market — establishing the safety of a vector serotype in a given tissue, validating a tissue-specific promoter, demonstrating an acceptable immunogenicity profile, qualifying the manufacturing process — does not disappear once a therapy is approved. This body of evidence becomes a shared resource: a subsequent gene therapy program using the same vector and delivery approach to treat a different disease in the same tissue can leverage this established precedent. The regulatory frameworks of both the FDA and EMA recognise this principle [CITATION: FDA gene therapy guidance; EMA ATMP guidance], and approved programs increasingly cite earlier approvals as safety and manufacturing precedents. The implication is significant: for many untreated rare diseases, the foundational work needed to begin clinical development may already have been done, just for a different disease.
 
-## Paper Roadmap
-<!-- ~200 words: Summarize Methods, Results, Discussion structure for the reader. -->
+## The Precedent Identification Problem
 
-### NOTE — Write in active voice where possible. Avoid "it was found that…" Use "we identified…" or "the framework revealed…"
+Realising this opportunity in practice requires answering a question that is deceptively difficult: for a given untreated rare disease, which existing approved or late-stage gene therapy program is the best biological and regulatory precedent? The answer depends on multiple parameters simultaneously — whether the delivery vector reaches the affected tissue, whether the target gene fits within the vector's packaging capacity, whether the protein biology allows for cross-correction of untransduced cells, whether the patient population is likely to carry pre-existing neutralising antibodies against the vector, whether validated promoters exist for the target tissue, and whether the natural history of the disease allows sufficient time for treatment to be administered before irreversible damage occurs, among others.
+
+Currently, this assessment is performed manually by expert teams at academic centres and biotechnology companies, on a disease-by-disease basis. The process is time-consuming, resource-intensive, and inaccessible to small patient advocacy groups and academic researchers who may have identified a compelling scientific case for gene therapy in a specific disease but lack the specialist expertise or funding to conduct a formal feasibility analysis. No publicly available computational tool systematically integrates the full range of biologically and clinically relevant parameters required to make this assessment across the breadth of the monogenic disease landscape.
+
+Several databases catalogue approved and investigational gene therapy programs [CITATION: ASGCT; ClinicalTrials.gov], and individual studies have mapped gene expression profiles of disease-relevant tissues to potential vector serotypes [CITATION: Schilder et al.]. However, these resources address isolated aspects of the feasibility question and have not been integrated into a unified scoring framework capable of ranking candidate precedents across multiple dimensions simultaneously.
+
+## The NanoGT Framework
+
+This study describes NanoGT, a computational framework designed to systematically address the precedent identification problem for monogenic rare diseases. For any disease with an Orphanet identifier, the framework queries public biological databases to characterise the disease and its causal gene, scores all programs in a curated surrogate database across twelve biologically and clinically relevant dimensions, and returns a ranked list of precedent matches with a composite score, confidence classification, and plain-language rationale for each dimension score.
+
+The twelve scoring dimensions were selected to capture the principal determinants of gene therapy transferability: gene packaging fit within the vector, tissue tropism of the delivery vector, protein class and cross-correction potential, biological pathway similarity, inheritance pattern compatibility, regulatory approval stage of the precedent, pre-existing vector immunogenicity in the general population, the therapeutic window available before irreversible disease progression, immune privilege of the target tissue, availability of validated tissue-specific promoters, and feasibility of the required delivery route. Together, these dimensions address the biological, clinical, and regulatory dimensions of precedent transferability in a single integrated score.
+
+The framework was validated against two diseases with existing approved gene therapies and applied prospectively to eight additional diseases for which no approved therapy exists. The surrogate database comprises 18 approved and late-stage gene therapy programs across six disease areas, delivered via eight vector types.
+
+## Paper Structure
+
+The Methods section describes the system architecture, data sources, surrogate database, and scoring logic for each of the twelve dimensions. The Results section presents the retrospective validation results, the eight prospective disease analyses, and the overall score distribution. The Discussion addresses the implications of the findings for rare disease drug development, the limitations of the current approach, and directions for future development.

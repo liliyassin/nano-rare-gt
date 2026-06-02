@@ -1,8 +1,29 @@
 """Static catalog data: vectors and GT programs."""
 
+# ── What this file is ──────────────────────────────────────────────────────
+# YOUR DATASET. Two hand-curated lists:
+#   VECTORS     → 8 AAV/LV vectors with their properties
+#   GT_PROGRAMS → 18 real gene therapy programs used as precedents
+#
+# This is static data (hardcoded here) that gets loaded into the SQLite
+# database the first time you run `nanogt init`. Nothing here is fetched
+# from the internet — it was all researched and entered manually.
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VECTORS — the delivery vehicles
+# ══════════════════════════════════════════════════════════════════════════════
+# cargo_limit_bp  → how many base pairs of gene the vector can carry (~4700 for most AAVs)
+# tissue_tropism  → which tissues the vector naturally infects
+# cns_tropic      → 1 = crosses blood-brain barrier and reaches CNS
+# hepatic_tropic  → 1 = reaches the liver
+# muscle_tropic   → 1 = reaches muscle
+# clinical_precedents → how many clinical programs have used this vector (more = more trust)
+# freely_available    → 0 = patent-restricted (needs a licence to use)
+
 VECTORS = [
     {
-        "serotype": "AAV1",
+        "serotype": "AAV1",          # ← first AAV type developed; mainly muscle and CNS
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["muscle", "CNS"],
         "cns_tropic": 1,
@@ -13,7 +34,7 @@ VECTORS = [
         "freely_available": 1,
     },
     {
-        "serotype": "AAV2",
+        "serotype": "AAV2",          # ← most studied AAV; retina, liver, CNS; used in Luxturna (blindness)
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["retina", "liver", "CNS"],
         "cns_tropic": 1,
@@ -24,7 +45,7 @@ VECTORS = [
         "freely_available": 1,
     },
     {
-        "serotype": "AAV5",
+        "serotype": "AAV5",          # ← liver and CNS; used in Hemgenix (haemophilia B) and Roctavian
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["liver", "lung", "CNS"],
         "cns_tropic": 1,
@@ -32,10 +53,10 @@ VECTORS = [
         "hepatic_tropic": 1,
         "muscle_tropic": 0,
         "clinical_precedents": 12,
-        "freely_available": 0,
+        "freely_available": 0,       # ← patent-restricted
     },
     {
-        "serotype": "AAV8",
+        "serotype": "AAV8",          # ← liver-tropic workhorse; high transduction efficiency in liver
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["liver", "muscle"],
         "cns_tropic": 0,
@@ -43,21 +64,21 @@ VECTORS = [
         "hepatic_tropic": 1,
         "muscle_tropic": 1,
         "clinical_precedents": 10,
-        "freely_available": 0,
+        "freely_available": 0,       # ← patent-restricted
     },
     {
-        "serotype": "AAV9",
+        "serotype": "AAV9",          # ← broadest tropism; used in Zolgensma (SMA); crosses blood-brain barrier
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["CNS", "muscle", "liver", "heart"],
         "cns_tropic": 1,
         "retinal_tropic": 0,
         "hepatic_tropic": 1,
         "muscle_tropic": 1,
-        "clinical_precedents": 18,
+        "clinical_precedents": 18,   # ← most clinical experience of any AAV
         "freely_available": 1,
     },
     {
-        "serotype": "AAVrh10",
+        "serotype": "AAVrh10",       # ← rhesus macaque-derived; strong CNS penetration, less immune response
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["CNS", "liver"],
         "cns_tropic": 1,
@@ -68,7 +89,7 @@ VECTORS = [
         "freely_available": 0,
     },
     {
-        "serotype": "AAV2/6",
+        "serotype": "AAV2/6",        # ← hybrid of AAV2 and AAV6 capsid; efficient in liver and muscle
         "cargo_limit_bp": 4700,
         "tissue_tropism": ["liver", "muscle"],
         "cns_tropic": 0,
@@ -79,56 +100,73 @@ VECTORS = [
         "freely_available": 0,
     },
     {
-        "serotype": "LV",
-        "cargo_limit_bp": 8000,
-        "tissue_tropism": ["hematopoietic", "liver"],
+        "serotype": "LV",            # ← Lentiviral vector (NOT an AAV); larger cargo (8000bp); integrates into genome
+        "cargo_limit_bp": 8000,      # ← can carry much larger genes than AAV
+        "tissue_tropism": ["hematopoietic", "liver"],  # ← mainly used for blood stem cells (ex vivo)
         "cns_tropic": 0,
         "retinal_tropic": 0,
         "hepatic_tropic": 1,
         "muscle_tropic": 0,
-        "clinical_precedents": 20,
+        "clinical_precedents": 20,   # ← most clinical experience of all vectors (ADA-SCID, beta-thal, etc.)
         "freely_available": 1,
     },
 ]
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GT_PROGRAMS — the 18 precedent gene therapy programs
+# ══════════════════════════════════════════════════════════════════════════════
+# name             → brand/trial name
+# disease          → what disease it treats
+# gene_symbol      → which gene is replaced/delivered
+# vector           → which vector serotype is used
+# tissue_target    → where in the body the gene is delivered
+# cds_bp           → coding sequence size in base pairs (used in packaging check)
+# approval_status  → "approved", "phase2", "phase3", etc.
+# approval_year    → year of approval (None = not yet approved)
+# mechanism        → always "gene_replacement" in this catalog
+# protein_class    → "secreted", "lysosomal", "intracellular", "membrane", "secreted_lysosomal"
+# inheritance      → "AR" (autosomal recessive) or "XL" (X-linked)
+# pathway          → biological pathway label (must match keys in scoring._PATHWAY_GROUPS)
+
 GT_PROGRAMS = [
     {
-        "name": "Zolgensma",
-        "disease": "Spinal Muscular Atrophy",
-        "gene_symbol": "SMN1",
-        "vector": "AAV9",
+        "name": "Zolgensma",                      # ← onasemnogene abeparvovec; approved 2019 (US)
+        "disease": "Spinal Muscular Atrophy",     # ← SMA type 1; most severe form
+        "gene_symbol": "SMN1",                    # ← survival motor neuron 1; tiny gene (891bp)
+        "vector": "AAV9",                         # ← AAV9 chosen for CNS penetration
         "tissue_target": "CNS/motor neuron",
-        "cds_bp": 891,
+        "cds_bp": 891,                            # ← very small gene → perfect packaging score
         "approval_status": "approved",
         "approval_year": 2019,
         "mechanism": "gene_replacement",
-        "protein_class": "intracellular",
-        "inheritance": "AR",
+        "protein_class": "intracellular",         # ← SMN1 protein stays inside the cell (nucleus)
+        "inheritance": "AR",                      # ← autosomal recessive
         "pathway": "motor_neuron",
         "notes": None,
     },
     {
-        "name": "Hemgenix",
-        "disease": "Hemophilia B",
-        "gene_symbol": "FIX",
+        "name": "Hemgenix",                       # ← etranacogene dezaparvovec; approved 2022 (US/EU)
+        "disease": "Hemophilia B",                # ← Factor IX deficiency
+        "gene_symbol": "FIX",                     # ← Factor 9 coagulation gene
         "vector": "AAV5",
-        "tissue_target": "liver",
+        "tissue_target": "liver",                 # ← liver makes and secretes clotting factors
         "cds_bp": 1383,
         "approval_status": "approved",
         "approval_year": 2022,
         "mechanism": "gene_replacement",
-        "protein_class": "secreted",
-        "inheritance": "XL",
+        "protein_class": "secreted",              # ← FIX is secreted into bloodstream → works body-wide
+        "inheritance": "XL",                      # ← X-linked recessive
         "pathway": "coagulation",
         "notes": None,
     },
     {
-        "name": "Roctavian",
-        "disease": "Hemophilia A",
+        "name": "Roctavian",                      # ← valoctocogene roxaparvovec; approved 2023 (EU)
+        "disease": "Hemophilia A",                # ← Factor VIII deficiency (more severe than B)
         "gene_symbol": "F8",
         "vector": "AAV5",
         "tissue_target": "liver",
-        "cds_bp": 4374,
+        "cds_bp": 4374,                           # ← large gene → fills almost 93% of AAV5 capacity
         "approval_status": "approved",
         "approval_year": 2023,
         "mechanism": "gene_replacement",
@@ -138,11 +176,11 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "Luxturna",
+        "name": "Luxturna",                       # ← voretigene neparvovec; approved 2017 (US/EU); FIRST AAV approval
         "disease": "Leber congenital amaurosis type 2",
         "gene_symbol": "RPE65",
-        "vector": "AAV2",
-        "tissue_target": "retina/RPE",
+        "vector": "AAV2",                         # ← AAV2 has strong retinal tropism
+        "tissue_target": "retina/RPE",            # ← injected directly into the eye (subretinal)
         "cds_bp": 2646,
         "approval_status": "approved",
         "approval_year": 2017,
@@ -153,13 +191,13 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "Glybera",
+        "name": "Glybera",                        # ← alipogene tiparvovec; approved EU 2012, withdrawn 2017 (no demand)
         "disease": "Lipoprotein lipase deficiency",
         "gene_symbol": "LPL",
         "vector": "AAV1",
-        "tissue_target": "muscle",
+        "tissue_target": "muscle",                # ← injected into muscle; LPL acts locally
         "cds_bp": 1527,
-        "approval_status": "withdrawn",
+        "approval_status": "withdrawn",           # ← first gene therapy approved in West; withdrawn due to price/demand
         "approval_year": 2012,
         "mechanism": "gene_replacement",
         "protein_class": "secreted",
@@ -168,7 +206,7 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "AT132",
+        "name": "AT132",                          # ← also known as resamirigene bilparvovec; Phase 3
         "disease": "X-linked myotubular myopathy",
         "gene_symbol": "MTM1",
         "vector": "AAV8",
@@ -183,23 +221,23 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "SRP-9001",
+        "name": "SRP-9001",                       # ← delandistrogene moxeparvovec (Elevidys); approved 2023 (US)
         "disease": "Duchenne muscular dystrophy",
-        "gene_symbol": "DMD_micro",
+        "gene_symbol": "DMD_micro",               # ← "micro-dystrophin": synthetic shortened version that fits in AAV
         "vector": "AAV9",
         "tissue_target": "muscle",
         "cds_bp": 3825,
         "approval_status": "approved",
         "approval_year": 2023,
         "mechanism": "gene_replacement",
-        "protein_class": "membrane",
+        "protein_class": "membrane",              # ← dystrophin anchors to the muscle cell membrane
         "inheritance": "XL",
         "pathway": "myopathy",
         "notes": None,
     },
     {
-        "name": "BMN 307",
-        "disease": "Phenylketonuria",
+        "name": "BMN 307",                        # ← pegvaliase gene therapy; Phase 2 for PKU
+        "disease": "Phenylketonuria",             # ← PAH enzyme deficiency → can't break down phenylalanine
         "gene_symbol": "PAH",
         "vector": "AAV5",
         "tissue_target": "liver",
@@ -207,32 +245,32 @@ GT_PROGRAMS = [
         "approval_status": "phase2",
         "approval_year": None,
         "mechanism": "gene_replacement",
-        "protein_class": "intracellular",
+        "protein_class": "intracellular",         # ← PAH enzyme works inside liver cells
         "inheritance": "AR",
-        "pathway": "amino_acid_metabolism",
+        "pathway": "amino_acid_metabolism",       # ← same pathway as Crigler-Najjar (liver enzyme deficiency)
         "notes": None,
     },
     {
-        "name": "GS010",
+        "name": "GS010",                          # ← lenadogene nolparvovec; approved EU 2021 (LHON)
         "disease": "Leber hereditary optic neuropathy",
-        "gene_symbol": "ND4",
+        "gene_symbol": "ND4",                     # ← mitochondrial gene; unusual — normally impossible to deliver
         "vector": "AAV2",
-        "tissue_target": "retina/RGC",
+        "tissue_target": "retina/RGC",            # ← retinal ganglion cells
         "cds_bp": 1378,
         "approval_status": "approved",
         "approval_year": 2021,
         "mechanism": "gene_replacement",
         "protein_class": "intracellular",
-        "inheritance": "mitochondrial",
+        "inheritance": "mitochondrial",           # ← only inheritance type that isn't AR or XL
         "pathway": "mitochondrial_complex",
         "notes": None,
     },
     {
-        "name": "OAV101-IT",
+        "name": "OAV101-IT",                      # ← intrathecal version of Zolgensma (same gene, different route)
         "disease": "Spinal Muscular Atrophy",
         "gene_symbol": "SMN1",
         "vector": "AAV9",
-        "tissue_target": "CNS/spinal cord",
+        "tissue_target": "CNS/spinal cord",       # ← injected into spinal fluid (intrathecal) rather than IV
         "cds_bp": 891,
         "approval_status": "approved",
         "approval_year": 2020,
@@ -243,26 +281,26 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "RGX-121",
+        "name": "RGX-121",                        # ← intrathecal AAV9 for MPS II (Hunter syndrome); Phase 3
         "disease": "Mucopolysaccharidosis type II",
-        "gene_symbol": "IDS",
+        "gene_symbol": "IDS",                     # ← iduronate-2-sulfatase; lysosomal enzyme
         "vector": "AAV9",
         "tissue_target": "CNS/liver",
         "cds_bp": 1659,
         "approval_status": "phase3",
         "approval_year": None,
         "mechanism": "gene_replacement",
-        "protein_class": "secreted_lysosomal",
+        "protein_class": "secreted_lysosomal",    # ← IDS is both secreted AND works in lysosomes → cross-correction possible
         "inheritance": "XL",
         "pathway": "lysosomal_storage",
         "notes": None,
     },
     {
-        "name": "ABO-101",
+        "name": "ABO-101",                        # ← AAV9 for MPS IIIB (Sanfilippo B); Phase 1/2
         "disease": "Mucopolysaccharidosis type IIIB",
         "gene_symbol": "NAGLU",
         "vector": "AAV9",
-        "tissue_target": "CNS",
+        "tissue_target": "CNS",                  # ← CNS is the main target for Sanfilippo
         "cds_bp": 2238,
         "approval_status": "phase1/2",
         "approval_year": None,
@@ -273,11 +311,11 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "AVR-RD-01",
-        "disease": "Fabry disease",
+        "name": "AVR-RD-01",                      # ← lentiviral ex vivo approach for Fabry; Phase 1/2
+        "disease": "Fabry disease",               # ← GLA enzyme deficiency; lysosomal storage
         "gene_symbol": "GLA",
-        "vector": "LV",
-        "tissue_target": "hematopoietic",
+        "vector": "LV",                           # ← lentiviral, not AAV; modifies blood stem cells outside body then reinfuses
+        "tissue_target": "hematopoietic",         # ← stem cells in bone marrow
         "cds_bp": 1290,
         "approval_status": "phase1/2",
         "approval_year": None,
@@ -288,10 +326,10 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "ST-920",
+        "name": "ST-920",                         # ← AAV2/6 liver-targeted approach for Fabry; Phase 1/2
         "disease": "Fabry disease",
         "gene_symbol": "GLA",
-        "vector": "AAV2/6",
+        "vector": "AAV2/6",                       # ← hybrid AAV; good liver transduction
         "tissue_target": "liver",
         "cds_bp": 1290,
         "approval_status": "phase1/2",
@@ -303,7 +341,7 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "DTX301",
+        "name": "DTX301",                         # ← AAV8 for OTC deficiency (urea cycle); Phase 2
         "disease": "Ornithine transcarbamylase deficiency",
         "gene_symbol": "OTC",
         "vector": "AAV8",
@@ -314,31 +352,31 @@ GT_PROGRAMS = [
         "mechanism": "gene_replacement",
         "protein_class": "intracellular",
         "inheritance": "XL",
-        "pathway": "urea_cycle",
+        "pathway": "urea_cycle",                  # ← urea cycle = same pathway group as amino_acid_metabolism
         "notes": None,
     },
     {
-        "name": "CPCB-RPE1",
+        "name": "CPCB-RPE1",                      # ← for achromatopsia (colour blindness); Phase 2/3
         "disease": "Achromatopsia",
         "gene_symbol": "CNGB3",
         "vector": "AAV8",
-        "tissue_target": "retina/photoreceptor",
+        "tissue_target": "retina/photoreceptor",  # ← photoreceptors (rods/cones)
         "cds_bp": 2499,
         "approval_status": "phase2/3",
         "approval_year": None,
         "mechanism": "gene_replacement",
-        "protein_class": "membrane",
+        "protein_class": "membrane",              # ← CNGB3 is an ion channel in the photoreceptor membrane
         "inheritance": "AR",
         "pathway": "retinal_phototransduction",
         "notes": None,
     },
     {
-        "name": "SPK-8011",
+        "name": "SPK-8011",                       # ← AAVrh10 for Haemophilia A; Phase 3
         "disease": "Hemophilia A",
         "gene_symbol": "F8",
         "vector": "AAVrh10",
         "tissue_target": "liver",
-        "cds_bp": 4374,
+        "cds_bp": 4374,                           # ← F8 is huge; fills 93% of AAVrh10 capacity
         "approval_status": "phase3",
         "approval_year": None,
         "mechanism": "gene_replacement",
@@ -348,7 +386,7 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "DTX201",
+        "name": "DTX201",                         # ← AAV8 for Haemophilia A; Phase 2
         "disease": "Hemophilia A",
         "gene_symbol": "F8",
         "vector": "AAV8",

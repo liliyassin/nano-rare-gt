@@ -12,145 +12,210 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | OAV101-IT | AAV9 | 8.0/10 | 🟢 High | approved |
-| 2 | Zolgensma | AAV9 | 8.0/10 | 🟢 High | approved |
-| 3 | Luxturna | AAV2 | 7.8/10 | 🟢 High | approved |
-| 4 | DTX301 | AAV8 | 7.3/10 | 🟡 Medium | phase2 |
-| 5 | BMN 307 | AAV5 | 7.1/10 | 🟡 Medium | phase2 |
+| 1 | BMN 307 | AAV5 | 7.6/10 | 🟢 High | phase2 |
+| 2 | OAV101-IT | AAV9 | 7.3/10 | 🟡 Medium | approved |
+| 3 | Zolgensma | AAV9 | 7.3/10 | 🟡 Medium | approved |
+| 4 | Hemgenix | AAV5 | 7.1/10 | 🟡 Medium | approved |
+| 5 | Roctavian | AAV5 | 7.1/10 | 🟡 Medium | approved |
 
 ---
 
-## Match #1: OAV101-IT
+## Match #1: BMN 307
 
-**Precedent disease:** Spinal Muscular Atrophy  
-**Vector:** AAV9  
-**Tissue target:** CNS/spinal cord  
-**Composite score:** 8.0 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 2.0 | 2.0 |
-| Protein class | 1.5 | 2.0 |
-| Pathway similarity | 0.5 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 1.0 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1335bp / cargo 4700bp (28% utilized)
-- Vector tropism plus precedent target match: cns
-- Both intracellular proteins
-- Inheritance match (Autosomal recessive <-> AR)
-- Different pathway (mitochondrial_complex vs motor_neuron)
-- Approval status: approved
-
-## Match #2: Zolgensma
-
-**Precedent disease:** Spinal Muscular Atrophy  
-**Vector:** AAV9  
-**Tissue target:** CNS/motor neuron  
-**Composite score:** 8.0 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 2.0 | 2.0 |
-| Protein class | 1.5 | 2.0 |
-| Pathway similarity | 0.5 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 1.0 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1335bp / cargo 4700bp (28% utilized)
-- Vector tropism plus precedent target match: cns
-- Both intracellular proteins
-- Inheritance match (Autosomal recessive <-> AR)
-- Different pathway (mitochondrial_complex vs motor_neuron)
-- Approval status: approved
-
-## Match #3: Luxturna
-
-**Precedent disease:** Leber congenital amaurosis type 2  
-**Vector:** AAV2  
-**Tissue target:** retina/RPE  
-**Composite score:** 7.8 / 10  
-
-### Score Breakdown
-
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 0.3 | 2.0 |
-| Protein class | 1.5 | 2.0 |
-| Pathway similarity | 2.0 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 1.0 | 1.0 |
-
-### Rationale
-
-- Gene CDS 1335bp / cargo 4700bp (28% utilized)
-- No tissue overlap (disease: ['liver', 'CNS'], vector: [])
-- Both intracellular proteins
-- Inheritance match (Autosomal recessive <-> AR)
-- Pathway match: retinal_visual_cycle
-- Approval status: approved
-
-## Match #4: DTX301
-
-**Precedent disease:** Ornithine transcarbamylase deficiency  
-**Vector:** AAV8  
+**Precedent disease:** Phenylketonuria  
+**Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.3 / 10  
+**Composite score:** 7.6 / 10  
 
 ### Score Breakdown
 
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 2.0 | 2.0 |
-| Protein class | 1.5 | 2.0 |
-| Pathway similarity | 0.5 | 2.0 |
-| Inheritance compatibility | 0.7 | 1.0 |
-| Approval precedent | 0.6 | 1.0 |
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 0.60 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.61** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
 - Gene CDS 1335bp / cargo 4700bp (28% utilized)
 - Vector tropism plus precedent target match: liver
 - Both intracellular proteins
-- LOF inheritance — compatible for gene replacement
-- Different pathway (mitochondrial_complex vs urea_cycle)
+- Inheritance match (Autosomal recessive <-> AR)
+- Unknown pathway — neutral score
 - Approval status: phase2
+- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
 
-## Match #5: BMN 307
+## Match #2: OAV101-IT
 
-**Precedent disease:** Phenylketonuria  
+**Precedent disease:** Spinal Muscular Atrophy  
+**Vector:** AAV9  
+**Tissue target:** CNS/spinal cord  
+**Composite score:** 7.3 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.28** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1335bp / cargo 4700bp (28% utilized)
+- Vector tropism plus precedent target match: cns
+- Both intracellular proteins
+- Inheritance match (Autosomal recessive <-> AR)
+- Unknown pathway — neutral score
+- Approval status: approved
+- Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #3: Zolgensma
+
+**Precedent disease:** Spinal Muscular Atrophy  
+**Vector:** AAV9  
+**Tissue target:** CNS/motor neuron  
+**Composite score:** 7.3 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.28** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1335bp / cargo 4700bp (28% utilized)
+- Vector tropism plus precedent target match: cns
+- Both intracellular proteins
+- Inheritance match (Autosomal recessive <-> AR)
+- Unknown pathway — neutral score
+- Approval status: approved
+- Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #4: Hemgenix
+
+**Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
 **Composite score:** 7.1 / 10  
 
 ### Score Breakdown
 
-| Dimension | Score | Max |
-|-----------|-------|-----|
-| Packaging fit | 2.0 | 2.0 |
-| Tissue tropism | 1.5 | 2.0 |
-| Protein class | 1.5 | 2.0 |
-| Pathway similarity | 0.5 | 2.0 |
-| Inheritance compatibility | 1.0 | 1.0 |
-| Approval precedent | 0.6 | 1.0 |
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.11** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
 - Gene CDS 1335bp / cargo 4700bp (28% utilized)
-- Precedent target match: liver
-- Both intracellular proteins
-- Inheritance match (Autosomal recessive <-> AR)
-- Different pathway (mitochondrial_complex vs amino_acid_metabolism)
-- Approval status: phase2
+- Vector tropism plus precedent target match: liver
+- Protein class mismatch
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Approval status: approved
+- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+
+## Match #5: Roctavian
+
+**Precedent disease:** Hemophilia A  
+**Vector:** AAV5  
+**Tissue target:** liver  
+**Composite score:** 7.1 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
+| **TOTAL (normalised)** | **7.11** | **10.0** | Raw sum / 18 × 10 |
+
+### Rationale
+
+- Gene CDS 1335bp / cargo 4700bp (28% utilized)
+- Vector tropism plus precedent target match: liver
+- Protein class mismatch
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Approval status: approved
+- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
+- Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
