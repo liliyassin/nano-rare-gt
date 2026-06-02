@@ -1,193 +1,184 @@
-# cli.py — Nano-rare GT Framework CLI
-"""Typer CLI entry point."""
-
+"""nanogt CLI — gene therapy precedent matching for rare diseases."""
 from __future__ import annotations
-
-from pathlib import Path
-from typing import Annotated
+import pathlib
+from typing import Optional
 
 import typer
 from rich.console import Console
 from rich.table import Table
+from rich import print as rprint
 
-from nanogt.db import DB
-from nanogt.models import Disease, Gene, Protein, ScoreBreakdown, Vector
-from nanogt.report import ReportRenderer
+from .db import setup, get_db_path
+from .disease import fetch_disease
+from .gene import fetch_gene, GeneInfo
+from .scoring import rank_programs
+from .report import MatchResult, generate_report, save_report
 
-app = typer.Typer(help="Nano-Rare Gene Therapy Matching Framework")
+app = typer.Typer(
+    name="nanogt",
+    help="Gene therapy precedent matching for rare diseases.",
+    add_completion=False,
+)
 console = Console()
 
-DEFAULT_DB = Path.home() / ".nanogt" / "nanogt.db"
 
-
-def _ensure_db(db_path: Path) -> DB:
-    if not db_path.exists():
-        db_path.parent.mkdir(parents=True, exist_ok=True)
-        db = DB(db_path)
-        db.seed_vectors()
-        console.print(f"[dim]Initialized {db_path}[/dim]")
-    return DB(db_path)
-
-
-def _load_rogdi_data() -> tuple[Disease, Gene, Protein, Vector, ScoreBreakdown]:
-    """Load the source-audited ROGDI/KTS deep-dive dataset."""
-    disease = Disease(
-        orphanet_id="ORPHA:1946",
-        name="Kohlsch\u00fctter-T\u00f6nz syndrome / amelocerebrohypohidrotic syndrome",
-        omim_id="226750",
-        prevalence="<1 / 1,000,000",
-        morbidity_flag=True,
-        inheritance="autosomal recessive",
-        active_gt_trials=0,
-        phenotype_terms=[
-            "amelogenesis imperfecta",
-            "early-onset epilepsy",
-            "severe developmental delay / intellectual disability / regression",
-            "spasticity",
-            "hypohidrosis",
-            "nephrocalcinosis reported in some cases",
-        ],
-    )
-    gene = Gene(
-        symbol="ROGDI",
-        aliases=["KIAA0267", "FLJ22386", "RAV2"],
-        omim_id="614574",
-        uniprot_id="Q9GZN7",
-        chromosome="16p12.1",
-        exon_count=11,
-        cds_length_bp=861,
-        aa_length=287,
-        molecular_weight_da=32254.0,
-    )
-    protein = Protein(
-        uniprot_id="Q9GZN7",
-        name="Protein rogdi homolog",
-        domains=["RAVE2/Rogdi", "Rogdi_lz", "atypical leucine zipper-like scaffold"],
-        go_terms=[
-            "nuclear envelope",
-            "presynapse",
-            "axon",
-            "perikaryon",
-            "dendrite",
-            "synaptic vesicle",
-            "Rabconnectin-3 complex interaction",
-            "V-ATPase assembly/regulation",
-        ],
-        keywords=[
-            "3D-structure",
-            "Amelogenesis imperfecta",
-            "Cytoplasmic vesicle",
-            "Epilepsy",
-            "Nucleus",
-            "Reference proteome",
-            "Synapse",
-            "Rabconnectin-3",
-            "V-ATPase",
-        ],
-        subcellular_location=[
-            "nuclear envelope",
-            "presynapse",
-            "axon",
-            "perikaryon",
-            "dendrite",
-            "synaptic vesicle",
-            "lysosomal fraction / acidic perinuclear lysosome context",
-        ],
-        is_secreted=False,
-        afdb_id="Q9GZN7",
-        afdb_url="https://alphafold.ebi.ac.uk/entry/Q9GZN7",
-    )
-    vector = Vector(
-        serotype="AAV9",
-        cargo_limit_bp=4700,
-        tissue_tropism=["CNS", "heart", "liver", "muscle", "retina"],
-        cns_tropic=True,
-        retinal_tropic=True,
-        hepatic_tropic=True,
-        muscle_tropic=True,
-        clinical_precedents=25,
-        freely_available=True,
-    )
-    # First-pass scores for corrected ROGDI biology (v0.2 source-audited)
-    scores = ScoreBreakdown(
-        structural_homology=0.50,
-        sequence_identity=0.35,
-        domain_similarity=0.55,
-        size_compatibility=0.98,
-        tissue_tropism=0.45,
-        roa_precedent=0.80,
-        promoter_match=0.70,
-        localization_match=0.45,
-        immunogenicity=0.60,
-        therapeutic_window=0.55,
-        codon_optimization=0.85,
-        platform_depth=0.70,
-    )
-    return disease, gene, protein, vector, scores
+def _require_db():
+    """Return a ready DB connection (init + seed if needed)."""
+    return setup()
 
 
 @app.command()
 def init(
-    db_path: Annotated[Path, typer.Option("--db", help="Database path")] = DEFAULT_DB,
-) -> None:
-    """Initialize the local database."""
-    _ensure_db(db_path)
-    console.print(f"[green]Database ready at {db_path}[/green]")
+    db_path: Optional[pathlib.Path] = typer.Option(None, help="Path to SQLite DB"),
+):
+    """Initialise the database and seed vector/program catalog."""
+    conn = setup(db_path)
+    n_programs = conn.execute("SELECT COUNT(*) FROM gt_programs").fetchone()[0]
+    n_vectors = conn.execute("SELECT COUNT(*) FROM vectors").fetchone()[0]
+    console.print(f"[green]Database ready at [bold]{get_db_path()}[/bold][/green]")
+    console.print(f"  {n_vectors} vectors, {n_programs} GT programs loaded.")
 
 
 @app.command()
 def match(
-    disease: Annotated[str, typer.Option("--disease", help="Orphanet ID e.g. ORPHA:1946")],
-    output: Annotated[Path, typer.Option("--output", "-o", help="Output markdown path")] = Path("report.md"),
-    db_path: Annotated[Path, typer.Option("--db", help="Database path")] = DEFAULT_DB,
-    deep_dive: Annotated[bool, typer.Option("--deep-dive", help="Generate full protocol with analysis")] = False,
-) -> None:
-    """Run the matching pipeline for a single disease."""
-    db = _ensure_db(db_path)
+    disease: str = typer.Argument(..., help="Orphanet ID, e.g. ORPHA:324"),
+    top: int = typer.Option(5, help="Number of top matches to show"),
+    output: Optional[pathlib.Path] = typer.Option(None, "-o", help="Save report to directory"),
+    gene_symbol: Optional[str] = typer.Option(None, "--gene", help="Override gene symbol"),
+):
+    """Match a disease to the best gene therapy precedents."""
+    conn = _require_db()
 
-    # v0.2: Hardcoded source-audited ROGDI path for the primary case study
-    if disease == "ORPHA:1946":
-        disease_obj, gene, protein, vector, scores = _load_rogdi_data()
-    else:
-        row = db.get_disease_by_orphanet(disease)
-        if row is None:
-            console.print(f"[red]Disease {disease} not yet supported in v0.2. Only ORPHA:1946 (ROGDI/KTS) is available for deep-dive.[/red]")
-            raise typer.Exit(1)
-        # Placeholder for future diseases
-        disease_obj = Disease.model_validate(row)
-        gene = Gene(symbol="UNKNOWN", aliases=[])
-        protein = Protein(uniprot_id="UNKNOWN")
-        vector = Vector(serotype="UNKNOWN")
-        scores = ScoreBreakdown()
+    with console.status(f"[bold]Looking up {disease}...[/bold]"):
+        disease_info = fetch_disease(disease)
 
-    renderer = ReportRenderer()
-    if deep_dive:
-        renderer.render_protocol(disease_obj, gene, protein, vector, scores, output)
-        console.print(f"[green]✓ Standardised Gene Therapy Protocol generated:[/green] {output}")
+    if disease_info is None:
+        console.print(f"[red]Disease not found: {disease}[/red]")
+        raise typer.Exit(1)
+
+    console.print(f"\n[bold]{disease_info.name}[/bold] ({disease_info.orphanet_id})")
+    console.print(f"  Genes: {', '.join(disease_info.gene_symbols) or 'none found'}")
+    console.print(f"  Tissues: {', '.join(disease_info.affected_tissues) or 'unknown'}")
+    console.print(f"  Inheritance: {', '.join(disease_info.inheritance) or 'unknown'}\n")
+
+    # Pick gene to score on
+    target_gene_sym = gene_symbol or (disease_info.gene_symbols[0] if disease_info.gene_symbols else None)
+    if not target_gene_sym:
+        console.print("[yellow]No gene found — using generic scoring[/yellow]")
+        gene_info = GeneInfo(
+            symbol="unknown", uniprot_id=None, protein_name=None,
+            cds_length_bp=None, aa_length=None, is_secreted=False,
+            subcellular_location=[], go_terms=[], keywords=[], domains=[],
+        )
     else:
-        # Quick summary table
-        table = Table(title=f"Match Summary for {disease_obj.name}")
-        table.add_column("Dimension", style="cyan")
-        table.add_column("Value", style="magenta")
-        table.add_row("Gene", gene.symbol)
-        table.add_row("CDS", f"{gene.cds_length_bp} bp")
-        table.add_row("AAV Fit", f"{(gene.cds_length_bp or 0) <= vector.cargo_limit_bp}")
-        table.add_row("Vector", vector.serotype)
-        table.add_row("Status", "[yellow]Use --deep-dive for full protocol[/yellow]")
-        console.print(table)
-        console.print("\n[dim]Run with --deep-dive to generate the full protocol.[/dim]")
+        with console.status(f"Fetching gene info for {target_gene_sym}..."):
+            gene_info = fetch_gene(target_gene_sym)
+
+    with console.status("Scoring GT programs..."):
+        scores = rank_programs(disease_info, gene_info, conn)
+
+    # Print table
+    table = Table(title=f"Top GT Precedents for {disease_info.name}", show_lines=True)
+    table.add_column("Rank", style="dim", width=5)
+    table.add_column("Program", style="bold")
+    table.add_column("Vector", width=10)
+    table.add_column("Score", justify="right")
+    table.add_column("Confidence")
+    table.add_column("Status")
+
+    emoji = {"high": "🟢", "medium": "🟡", "low": "🔴", "fail": "⛔"}
+    shown = [s for s in scores if s.confidence != "fail"][:top]
+    for i, s in enumerate(shown, 1):
+        table.add_row(
+            str(i),
+            s.program_name,
+            s.vector,
+            f"{s.composite_score:.1f}/10",
+            f"{emoji.get(s.confidence, '')} {s.confidence}",
+            s.approval_status,
+        )
+
+    console.print(table)
+
+    result = MatchResult(disease=disease_info, gene=gene_info, scores=scores, top_n=top)
+
+    if output:
+        path = save_report(result, output)
+        console.print(f"\n[green]Report saved to {path}[/green]")
+    else:
+        # Auto-save to ./output/
+        path = save_report(result, pathlib.Path("output"))
+        console.print(f"\n[green]Report saved to {path}[/green]")
 
 
 @app.command()
-def status(
-    db_path: Annotated[Path, typer.Option("--db", help="Database path")] = DEFAULT_DB,
+def batch(
+    diseases: list[str] = typer.Argument(..., help="Space-separated Orphanet IDs"),
+    output: pathlib.Path = typer.Option(pathlib.Path("output"), "-o", help="Output directory"),
+    top: int = typer.Option(3, help="Top N matches per disease"),
+):
+    """Run match for multiple diseases and generate a summary report."""
+    conn = _require_db()
+    results: list[MatchResult] = []
+
+    for disease_id in diseases:
+        console.print(f"\n[bold]Processing {disease_id}...[/bold]")
+        disease_info = fetch_disease(disease_id)
+        if disease_info is None:
+            console.print("  [yellow]Skipping — not found[/yellow]")
+            continue
+        gene_sym = disease_info.gene_symbols[0] if disease_info.gene_symbols else None
+        if gene_sym:
+            gene_info = fetch_gene(gene_sym)
+        else:
+            gene_info = GeneInfo(
+                "unknown", None, None, None, None, False, [], [], [], [],
+            )
+
+        scores = rank_programs(disease_info, gene_info, conn)
+        r = MatchResult(disease=disease_info, gene=gene_info, scores=scores, top_n=top)
+        results.append(r)
+        path = save_report(r, output)
+        console.print(f"  [green]{disease_info.name} -> {path.name}[/green]")
+
+    # Generate summary
+    _write_summary(results, output, top)
+    console.print(f"\n[bold green]Batch complete.[/bold green] Reports in {output}/")
+
+
+def _write_summary(
+    results: list[MatchResult],
+    output_dir: pathlib.Path,
+    top: int,
 ) -> None:
-    """Check database health."""
-    if not db_path.exists():
-        console.print(f"[red]Database not found: {db_path}[/red]")
-        raise typer.Exit(1)
-    _db = DB(db_path)
-    console.print(f"[green]Database OK[/green]: {db_path}")
+    lines = [
+        "# NanoGT Batch Summary",
+        "",
+        f"Ran on {len(results)} diseases.",
+        "",
+        "| Disease | Orphanet ID | Gene | Top Match | Score | Confidence |",
+        "|---------|------------|------|-----------|-------|-----------|",
+    ]
+    for r in results:
+        top_match = next((s for s in r.scores if s.confidence != "fail"), None)
+        if top_match:
+            lines.append(
+                f"| {r.disease.name} | {r.disease.orphanet_id} | {r.gene.symbol} "
+                f"| {top_match.program_name} | {top_match.composite_score:.1f}/10 "
+                f"| {top_match.confidence} |"
+            )
+    lines += ["", "---", ""]
+    for r in results:
+        lines.append(f"## {r.disease.name}")
+        top_matches = [s for s in r.scores if s.confidence != "fail"][:top]
+        for i, s in enumerate(top_matches, 1):
+            lines.append(
+                f"{i}. **{s.program_name}** ({s.vector}) — {s.composite_score:.1f}/10 [{s.confidence}]"
+            )
+        lines.append("")
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "SUMMARY.md").write_text("\n".join(lines))
 
 
 if __name__ == "__main__":

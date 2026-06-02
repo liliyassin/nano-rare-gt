@@ -1,136 +1,96 @@
-# db.py — Nano-rare GT Framework
-"""SQLite database manager."""
-
-from __future__ import annotations
-
+"""Database layer for nanogt — SQLite with WAL mode."""
 import json
+import os
+import pathlib
 import sqlite3
-from pathlib import Path
-from typing import Any
 
-SCHEMA_PATH = Path(__file__).with_name("schema.sql")
+from .catalog import VECTORS, GT_PROGRAMS
+
+DEFAULT_DB = pathlib.Path.home() / ".nanogt" / "nanogt.db"
+SCHEMA_SQL = pathlib.Path(__file__).parent / "schema.sql"
 
 
-class DB:
-    """Lightweight SQLite wrapper with dict-row factory."""
+def get_db_path() -> pathlib.Path:
+    return pathlib.Path(os.environ.get("NANOGT_DB", DEFAULT_DB))
 
-    def __init__(self, db_path: str | Path) -> None:
-        self.db_path = Path(db_path)
-        self._ensure_schema()
 
-    def _connection(self) -> sqlite3.Connection:
-        conn = sqlite3.connect(self.db_path)
-        conn.row_factory = sqlite3.Row
-        return conn
+def get_conn(db_path=None) -> sqlite3.Connection:
+    path = db_path or get_db_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(path)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA foreign_keys=ON")
+    return conn
 
-    def _ensure_schema(self) -> None:
-        if not SCHEMA_PATH.exists():
-            raise FileNotFoundError(f"Schema file not found: {SCHEMA_PATH}")
-        with self._connection() as conn:
-            conn.executescript(SCHEMA_PATH.read_text())
 
-    # --- Diseases ---
+def init_db(conn: sqlite3.Connection) -> None:
+    conn.executescript(SCHEMA_SQL.read_text())
+    # create gt_programs table (not in schema.sql)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS gt_programs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            disease TEXT NOT NULL,
+            gene_symbol TEXT NOT NULL,
+            vector TEXT NOT NULL,
+            tissue_target TEXT NOT NULL,
+            cds_bp INTEGER NOT NULL,
+            approval_status TEXT NOT NULL,
+            approval_year INTEGER,
+            mechanism TEXT NOT NULL,
+            protein_class TEXT NOT NULL,
+            inheritance TEXT NOT NULL,
+            pathway TEXT NOT NULL,
+            notes TEXT
+        )
+    """)
+    conn.commit()
 
-    def insert_disease(self, **kwargs: Any) -> int:
-        cols = list(kwargs.keys())
-        placeholders = ", ".join(f":{c}" for c in cols)
-        sql = f"INSERT INTO diseases ({', '.join(cols)}) VALUES ({placeholders})"
-        with self._connection() as conn:
-            cur = conn.cursor()
-            cur.execute(sql, kwargs)
-            conn.commit()
-            return cur.lastrowid or 0
 
-    def get_disease_by_orphanet(self, orphanet_id: str) -> dict[str, Any] | None:
-        with self._connection() as conn:
-            cur = conn.cursor()
-            cur.execute(
-                "SELECT * FROM diseases WHERE orphanet_id = ?", (orphanet_id,)
-            )
-            row = cur.fetchone()
-            return dict(row) if row else None
+def seed_db(conn: sqlite3.Connection) -> None:
+    # Seed vectors
+    if conn.execute("SELECT COUNT(*) FROM vectors").fetchone()[0] == 0:
+        for v in VECTORS:
+            conn.execute("""
+                INSERT OR IGNORE INTO vectors
+                (serotype, cargo_limit_bp, tissue_tropism, cns_tropic, retinal_tropic,
+                 hepatic_tropic, muscle_tropic, clinical_precedents, freely_available)
+                VALUES (?,?,?,?,?,?,?,?,?)
+            """, (
+                v["serotype"],
+                v["cargo_limit_bp"],
+                json.dumps(v.get("tissue_tropism", [])),
+                v.get("cns_tropic", 0),
+                v.get("retinal_tropic", 0),
+                v.get("hepatic_tropic", 0),
+                v.get("muscle_tropic", 0),
+                v.get("clinical_precedents", 0),
+                v.get("freely_available", 1),
+            ))
+        conn.commit()
 
-    # --- Genes ---
+    # Seed GT programs
+    if conn.execute("SELECT COUNT(*) FROM gt_programs").fetchone()[0] == 0:
+        for p in GT_PROGRAMS:
+            conn.execute("""
+                INSERT OR IGNORE INTO gt_programs
+                (name, disease, gene_symbol, vector, tissue_target, cds_bp,
+                 approval_status, approval_year, mechanism, protein_class,
+                 inheritance, pathway, notes)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """, (
+                p["name"], p["disease"], p["gene_symbol"], p["vector"],
+                p["tissue_target"], p["cds_bp"], p["approval_status"],
+                p.get("approval_year"), p["mechanism"], p["protein_class"],
+                p["inheritance"], p["pathway"], p.get("notes"),
+            ))
+        conn.commit()
 
-    def insert_gene(self, **kwargs: Any) -> int:
-        cols = list(kwargs.keys())
-        placeholders = ", ".join(f":{c}" for c in cols)
-        sql = f"INSERT INTO genes ({', '.join(cols)}) VALUES ({placeholders})"
-        with self._connection() as conn:
-            cur = conn.cursor()
-            cur.execute(sql, kwargs)
-            conn.commit()
-            return cur.lastrowid or 0
 
-    def get_gene_by_symbol(self, symbol: str) -> dict[str, Any] | None:
-        with self._connection() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT * FROM genes WHERE symbol = ?", (symbol,))
-            row = cur.fetchone()
-            return dict(row) if row else None
-
-    # --- Vectors (static seed) ---
-
-    def seed_vectors(self) -> None:
-        """Insert default AAV serotype data."""
-        defaults = [
-            {
-                "serotype": "AAV9",
-                "cargo_limit_bp": 4700,
-                "tissue_tropism": json.dumps(
-                    ["CNS", "heart", "liver", "muscle", "retina"]
-                ),
-                "cns_tropic": 1,
-                "retinal_tropic": 1,
-                "hepatic_tropic": 1,
-                "muscle_tropic": 1,
-                "clinical_precedents": 25,
-                "freely_available": 1,
-            },
-            {
-                "serotype": "AAV8",
-                "cargo_limit_bp": 4700,
-                "tissue_tropism": json.dumps(["CNS", "liver", "retina", "muscle"]),
-                "cns_tropic": 1,
-                "retinal_tropic": 1,
-                "hepatic_tropic": 1,
-                "muscle_tropic": 1,
-                "clinical_precedents": 18,
-                "freely_available": 1,
-            },
-            {
-                "serotype": "AAVrh.10",
-                "cargo_limit_bp": 4700,
-                "tissue_tropism": json.dumps(["CNS", "systemic"]),
-                "cns_tropic": 1,
-                "retinal_tropic": 0,
-                "hepatic_tropic": 0,
-                "muscle_tropic": 0,
-                "clinical_precedents": 8,
-                "freely_available": 1,
-            },
-            {
-                "serotype": "AAV-DJ",
-                "cargo_limit_bp": 4700,
-                "tissue_tropism": json.dumps(["broad", "liver", "CNS"]),
-                "cns_tropic": 1,
-                "retinal_tropic": 0,
-                "hepatic_tropic": 1,
-                "muscle_tropic": 0,
-                "clinical_precedents": 5,
-                "freely_available": 1,
-            },
-        ]
-        with self._connection() as conn:
-            cur = conn.cursor()
-            for v in defaults:
-                cur.execute(
-                    "INSERT OR IGNORE INTO vectors (serotype, cargo_limit_bp, tissue_tropism, "
-                    "cns_tropic, retinal_tropic, hepatic_tropic, muscle_tropic, "
-                    "clinical_precedents, freely_available) VALUES ("
-                    ":serotype, :cargo_limit_bp, :tissue_tropism, :cns_tropic, "
-                    ":retinal_tropic, :hepatic_tropic, :muscle_tropic, "
-                    ":clinical_precedents, :freely_available)",
-                    v,
-                )
-            conn.commit()
+def setup(db_path=None) -> sqlite3.Connection:
+    """One-call setup: connect, init schema, seed data."""
+    conn = get_conn(db_path)
+    init_db(conn)
+    seed_db(conn)
+    return conn

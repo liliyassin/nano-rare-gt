@@ -1,6 +1,6 @@
 Key source links used:
 - UniProt Q9GZN7: https://www.uniprot.org/uniprotkb/Q9GZN7
-- UniProt REST JSON used for live verification: https://rest.uniprot.org/uniprotkb/Q9GZN7.json
+- UniProt REST JSON used for live verification: https://rest.uniprot.org/uniprotkb/Q9GZN7.json -> dont really get that this is suppose to show 
 - Orphanet ORPHA:1946: https://www.orpha.net/en/disease/detail/1946
 - OMIM phenotype 226750: https://omim.org/entry/226750
 - OMIM gene 614574: https://omim.org/entry/614574
@@ -11,10 +11,10 @@ Key source links used:
 - PubMed: 2025 Rabconnectin-3 / V-ATPase study: https://pubmed.ncbi.nlm.nih.gov/40049412/
 - PMC full text for 2025 study: https://pmc.ncbi.nlm.nih.gov/articles/PMC11997317/
 - Human Protein Atlas ROGDI: https://www.proteinatlas.org/ENSG00000067836-ROGDI
-- FDA Zolgensma approval announcement: https://www.fda.gov/news-events/press-announcements/fda-approves-novel-gene-therapy-treat-children-spinal-muscular-atrophy
+- FDA Zolgensma approval announcement: https://www.fda.gov/news-events/press-announcements/fda-approves-novel-gene-therapy-treat-children-spinal-muscular-atrophy  -> this link didnt work, check again 
 
 Live verification performed in this repo:
-- Query: https://rest.uniprot.org/uniprotkb/Q9GZN7.json
+- Query: https://rest.uniprot.org/uniprotkb/Q9GZN7.json -> dont get what this shows
 - HTTP status: 200
 - primaryAccession: Q9GZN7
 - recommended protein name: Protein rogdi homolog
