@@ -13,16 +13,20 @@ from __future__ import annotations
 import pathlib
 from typing import Optional
 
-import typer                         # ← Typer = library that turns Python functions into terminal commands
-from rich.console import Console     # ← Rich = library for pretty coloured terminal output
-from rich.table import Table         # ← makes formatted tables in the terminal
-from rich import print as rprint     # ← coloured print (replaces normal print)
+import typer  # ← Typer = library that turns Python functions into terminal commands
+from rich.console import Console  # ← Rich = library for pretty coloured terminal output
+from rich.table import Table  # ← makes formatted tables in the terminal
+from rich import print as rprint  # ← coloured print (replaces normal print)
 
-from .db import setup, get_db_path          # ← database setup functions
-from .disease import fetch_disease          # ← fetches disease info from Orphanet
-from .gene import fetch_gene, GeneInfo      # ← fetches gene info from UniProt
-from .scoring import rank_programs          # ← THE ALGORITHM (scoring.py)
-from .report import MatchResult, generate_report, save_report  # ← turns scores into markdown reports
+from .db import setup, get_db_path  # ← database setup functions
+from .disease import fetch_disease  # ← fetches disease info from Orphanet
+from .gene import fetch_gene, GeneInfo  # ← fetches gene info from UniProt
+from .scoring import rank_programs  # ← THE ALGORITHM (scoring.py)
+from .report import (
+    MatchResult,
+    generate_report,
+    save_report,
+)  # ← turns scores into markdown reports
 
 app = typer.Typer(
     name="nanogt",
@@ -41,7 +45,7 @@ def _require_db():
 # ══════════════════════════════════════════════════════════════════════════════
 # COMMAND 1: nanogt init
 # ══════════════════════════════════════════════════════════════════════════════
-@app.command()   # ← @app.command() = "register this function as a terminal command"
+@app.command()  # ← @app.command() = "register this function as a terminal command"
 def init(
     db_path: Optional[pathlib.Path] = typer.Option(None, help="Path to SQLite DB"),
     # ← optional flag: --db-path /custom/location.db (otherwise uses default ~/.nanogt/nanogt.db)
@@ -64,9 +68,13 @@ def match(
     # ← required positional argument: the Orphanet ID to query
     top: int = typer.Option(5, help="Number of top matches to show"),
     # ← optional: --top 3 to show only top 3 (default = 5)
-    output: Optional[pathlib.Path] = typer.Option(None, "-o", help="Save report to directory"),
+    output: Optional[pathlib.Path] = typer.Option(
+        None, "-o", help="Save report to directory"
+    ),
     # ← optional: -o /path/to/dir to save the report somewhere specific
-    gene_symbol: Optional[str] = typer.Option(None, "--gene", help="Override gene symbol"),
+    gene_symbol: Optional[str] = typer.Option(
+        None, "--gene", help="Override gene symbol"
+    ),
     # ← optional: --gene SMN1 to override which gene is used (normally auto-detected)
 ):
     """Match a disease to the best gene therapy precedents."""
@@ -75,7 +83,9 @@ def match(
     # ── Step 1: Look up the disease ───────────────────────────────────────
     with console.status(f"[bold]Looking up {disease}...[/bold]"):
         # ← shows a loading spinner while fetching
-        disease_info = fetch_disease(disease)  # ← calls Orphanet API (or uses fallback data)
+        disease_info = fetch_disease(
+            disease
+        )  # ← calls Orphanet API (or uses fallback data)
 
     if disease_info is None:
         console.print(f"[red]Disease not found: {disease}[/red]")
@@ -85,23 +95,36 @@ def match(
     console.print(f"\n[bold]{disease_info.name}[/bold] ({disease_info.orphanet_id})")
     console.print(f"  Genes: {', '.join(disease_info.gene_symbols) or 'none found'}")
     console.print(f"  Tissues: {', '.join(disease_info.affected_tissues) or 'unknown'}")
-    console.print(f"  Inheritance: {', '.join(disease_info.inheritance) or 'unknown'}\n")
+    console.print(
+        f"  Inheritance: {', '.join(disease_info.inheritance) or 'unknown'}\n"
+    )
 
     # ── Step 2: Get gene info ─────────────────────────────────────────────
-    target_gene_sym = gene_symbol or (disease_info.gene_symbols[0] if disease_info.gene_symbols else None)
+    target_gene_sym = gene_symbol or (
+        disease_info.gene_symbols[0] if disease_info.gene_symbols else None
+    )
     # ← use --gene override if given, otherwise take the first gene from the disease record
 
     if not target_gene_sym:
         console.print("[yellow]No gene found — using generic scoring[/yellow]")
         gene_info = GeneInfo(
-            symbol="unknown", uniprot_id=None, protein_name=None,
-            cds_length_bp=None, aa_length=None, is_secreted=False,
-            subcellular_location=[], go_terms=[], keywords=[], domains=[],
+            symbol="unknown",
+            uniprot_id=None,
+            protein_name=None,
+            cds_length_bp=None,
+            aa_length=None,
+            is_secreted=False,
+            subcellular_location=[],
+            go_terms=[],
+            keywords=[],
+            domains=[],
         )
         # ← creates an empty gene record so scoring still runs (with neutral scores)
     else:
         with console.status(f"Fetching gene info for {target_gene_sym}..."):
-            gene_info = fetch_gene(target_gene_sym)  # ← calls UniProt API (or uses fallback)
+            gene_info = fetch_gene(
+                target_gene_sym
+            )  # ← calls UniProt API (or uses fallback)
 
     # ── Step 3: Run the scoring algorithm ────────────────────────────────
     with console.status("Scoring GT programs..."):
@@ -126,7 +149,7 @@ def match(
             str(i),
             s.program_name,
             s.vector,
-            f"{s.composite_score:.1f}/10",   # ← format score to 1 decimal place
+            f"{s.composite_score:.1f}/10",  # ← format score to 1 decimal place
             f"{emoji.get(s.confidence, '')} {s.confidence}",
             s.approval_status,
         )
@@ -139,7 +162,9 @@ def match(
     if output:
         path = save_report(result, output)
     else:
-        path = save_report(result, pathlib.Path("output"))  # ← default: saves to ./output/ folder
+        path = save_report(
+            result, pathlib.Path("output")
+        )  # ← default: saves to ./output/ folder
     console.print(f"\n[green]Report saved to {path}[/green]")
 
 
@@ -150,7 +175,9 @@ def match(
 def batch(
     diseases: list[str] = typer.Argument(..., help="Space-separated Orphanet IDs"),
     # ← accepts multiple Orphanet IDs in one go
-    output: pathlib.Path = typer.Option(pathlib.Path("output"), "-o", help="Output directory"),
+    output: pathlib.Path = typer.Option(
+        pathlib.Path("output"), "-o", help="Output directory"
+    ),
     top: int = typer.Option(3, help="Top N matches per disease"),
 ):
     """Run match for multiple diseases and generate a summary report."""
@@ -171,7 +198,16 @@ def batch(
             gene_info = fetch_gene(gene_sym)
         else:
             gene_info = GeneInfo(
-                "unknown", None, None, None, None, False, [], [], [], [],
+                "unknown",
+                None,
+                None,
+                None,
+                None,
+                False,
+                [],
+                [],
+                [],
+                [],
             )
 
         scores = rank_programs(disease_info, gene_info, conn)
@@ -218,8 +254,12 @@ def _write_summary(
             )
         lines.append("")
 
-    output_dir.mkdir(parents=True, exist_ok=True)  # ← create output folder if it doesn't exist
-    (output_dir / "SUMMARY.md").write_text("\n".join(lines))  # ← write all lines to SUMMARY.md
+    output_dir.mkdir(
+        parents=True, exist_ok=True
+    )  # ← create output folder if it doesn't exist
+    (output_dir / "SUMMARY.md").write_text(
+        "\n".join(lines)
+    )  # ← write all lines to SUMMARY.md
 
 
 if __name__ == "__main__":
