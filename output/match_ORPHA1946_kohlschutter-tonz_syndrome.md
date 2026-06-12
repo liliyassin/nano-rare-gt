@@ -15,8 +15,8 @@
 | 1 | OAV101-IT | AAV9 | 7.6/10 | 🟢 High | approved |
 | 2 | Zolgensma | AAV9 | 7.6/10 | 🟢 High | approved |
 | 3 | BMN 307 | AAV5 | 7.3/10 | 🟡 Medium | phase2 |
-| 4 | Hemgenix | AAV5 | 6.8/10 | 🟡 Medium | approved |
-| 5 | Roctavian | AAV5 | 6.8/10 | 🟡 Medium | approved |
+| 4 | Libmeldy | LV | 7.3/10 | 🟡 Medium | approved |
+| 5 | Strimvelis | LV | 7.2/10 | 🟡 Medium | approved |
 
 ---
 
@@ -140,22 +140,22 @@
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
 
-## Match #4: Hemgenix
+## Match #4: Libmeldy
 
-**Precedent disease:** Hemophilia B  
-**Vector:** AAV5  
-**Tissue target:** liver  
-**Composite score:** 6.8 / 10  
+**Precedent disease:** Metachromatic leukodystrophy  
+**Vector:** LV  
+**Tissue target:** hematopoietic/CNS  
+**Composite score:** 7.3 / 10  
 
 ### Score Breakdown
 
 | Dimension | Score | Max | What it measures |
 |-----------|-------|-----|-----------------|
 | Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
-| Tissue tropism | 1.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Tissue tropism | 1.50 | 2.0 | Vector naturally reaches disease target tissue |
 | Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
 | Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
-| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
 | Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
 | Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
 | Therapeutic window | 1.50 | 2.0 | Can GT be given before irreversible damage? |
@@ -163,39 +163,39 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.83** | **10.0** | Raw sum / 18 × 10 |
+| **TOTAL (normalised)** | **7.28** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
-- Gene CDS 861bp / cargo 4700bp (18% utilized)
-- Vector tropism overlaps cns, but precedent target is liver
+- Gene CDS 861bp / cargo 8000bp (11% utilized)
+- Precedent target match: cns
 - Protein class mismatch
-- LOF inheritance — compatible for gene replacement
+- Inheritance match (Autosomal recessive <-> AR)
 - Unknown pathway — neutral score
 - Approval status: approved
-- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Moderate therapeutic window — progressive disease with childhood onset; early intervention strongly recommended; newborn screening integration beneficial
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
 
-## Match #5: Roctavian
+## Match #5: Strimvelis
 
-**Precedent disease:** Hemophilia A  
-**Vector:** AAV5  
-**Tissue target:** liver  
-**Composite score:** 6.8 / 10  
+**Precedent disease:** ADA-SCID  
+**Vector:** LV  
+**Tissue target:** hematopoietic  
+**Composite score:** 7.2 / 10  
 
 ### Score Breakdown
 
 | Dimension | Score | Max | What it measures |
 |-----------|-------|-----|-----------------|
 | Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
-| Tissue tropism | 1.00 | 2.0 | Vector naturally reaches disease target tissue |
-| Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Tissue tropism | 0.30 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
 | Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
-| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
 | Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
 | Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
 | Therapeutic window | 1.50 | 2.0 | Can GT be given before irreversible damage? |
@@ -203,17 +203,17 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.83** | **10.0** | Raw sum / 18 × 10 |
+| **TOTAL (normalised)** | **7.17** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
-- Gene CDS 861bp / cargo 4700bp (18% utilized)
-- Vector tropism overlaps cns, but precedent target is liver
-- Protein class mismatch
-- LOF inheritance — compatible for gene replacement
+- Gene CDS 861bp / cargo 8000bp (11% utilized)
+- No tissue overlap (disease: ['CNS'], vector: ['hematopoietic'])
+- Both intracellular proteins
+- Inheritance match (Autosomal recessive <-> AR)
 - Unknown pathway — neutral score
 - Approval status: approved
-- Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
+- Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Moderate therapeutic window — progressive disease with childhood onset; early intervention strongly recommended; newborn screening integration beneficial
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected

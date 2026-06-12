@@ -76,29 +76,33 @@ class Vector(BaseModel):
 
 class ScoreBreakdown(BaseModel):
     """Per-dimension match scores (0.0–1.0)."""
-    # ← Stores the score for each of the 12 possible scoring dimensions.
-    # Note: scoring.py only uses 6 of these — the others are defined here for future use.
+    # ← Stores the score for each of the 12 scoring dimensions used by scoring.py.
+    # These names mirror the conceptual model; report.py/scoring.py use slightly
+    # more presentation-friendly labels for the same dimensions.
 
-    structural_homology: float = Field(0.0)    # ← 3D protein structure similarity (not yet active)
-    sequence_identity: float = Field(0.0)      # ← DNA/protein sequence % match (not yet active)
-    domain_similarity: float = Field(0.0)      # ← whether same protein domains are present (not yet active)
-    size_compatibility: float = Field(0.0)     # ← gene fits inside the vector (ACTIVE — called "packaging_fit" in scoring.py)
-    tissue_tropism: float = Field(0.0)         # ← vector targets the right tissue (ACTIVE)
-    roa_precedent: float = Field(0.0)          # ← route of administration match (not yet active)
-    promoter_match: float = Field(0.0)         # ← same promoter type used (not yet active)
-    localization_match: float = Field(0.0)     # ← protein goes to same cell compartment (not yet active)
-    immunogenicity: float = Field(0.0)         # ← immune response risk (not yet active)
-    therapeutic_window: float = Field(0.0)     # ← how precise the dosing needs to be (not yet active)
-    codon_optimization: float = Field(0.0)     # ← whether gene is optimised for human expression (not yet active)
-    platform_depth: float = Field(0.0)         # ← how much clinical experience exists (not yet active)
+    packaging_fit: float = Field(0.0)          # ← query gene CDS vs vector cargo capacity
+    size_compatibility: float = Field(0.0)     # ← backward-compatible alias for packaging_fit
+    tissue_tropism: float = Field(0.0)         # ← vector/program target reaches disease tissue
+    protein_class: float = Field(0.0)          # ← secreted/lysosomal/membrane/intracellular similarity
+    inheritance: float = Field(0.0)            # ← AR/XL/gene-replacement compatibility
+    pathway_similarity: float = Field(0.0)     # ← same or related biological pathway
+    approval_weight: float = Field(0.0)        # ← approved/late-stage programs score higher
+    immunogenicity: float = Field(0.0)         # ← population-level vector seroprevalence risk
+    therapeutic_window: float = Field(0.0)     # ← intervention before irreversible damage
+    cross_correction: float = Field(0.0)       # ← secreted/lysosomal rescue of untransduced cells
+    immune_privilege: float = Field(0.0)       # ← immune protection of target tissue
+    promoter_availability: float = Field(0.0)  # ← tissue-specific promoter precedent
+    roa_feasibility: float = Field(0.0)        # ← established delivery route feasibility
 
     @property
     def must_pass_gates(self) -> dict[str, bool]:
         """Hard gates: any False flags an automatic reject."""
         # ← "Gate" = a hard pass/fail check before scoring even starts.
         # If the gene is too big for the vector, score = 0 regardless of anything else.
+        fit = max(self.packaging_fit, self.size_compatibility)
         return {
-            "size_compatibility": self.size_compatibility >= 0.5,  # ← gene must be < 50% of cargo limit to pass
+            "packaging_fit": fit >= 0.5,  # ← gene must physically fit the vector
+            "size_compatibility": fit >= 0.5,  # backward-compatible alias used by old tests/docs
         }
 
 

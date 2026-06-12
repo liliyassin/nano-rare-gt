@@ -252,17 +252,21 @@ def score_inheritance(
 # DIMENSION 5: PATHWAY SIMILARITY (max 2.0)
 # ══════════════════════════════════════════════════════════════════════════════
 _PATHWAY_GROUPS: dict[str, set[str]] = {
-    "lysosomal_storage": {"lysosomal_storage"},
+    "lysosomal_storage": {"lysosomal_storage", "leukodystrophy", "glycogen_storage"},
+    "leukodystrophy": {"leukodystrophy", "lysosomal_storage", "peroxisomal"},
+    "peroxisomal": {"peroxisomal", "leukodystrophy", "lipid_metabolism"},
     "coagulation": {"coagulation"},
     "motor_neuron": {"motor_neuron", "myopathy"},
-    "myopathy": {"myopathy", "motor_neuron"},
+    "myopathy": {"myopathy", "motor_neuron", "glycogen_storage"},
     "retinal": {"retinal_visual_cycle", "retinal_phototransduction", "mitochondrial_complex"},
     "retinal_visual_cycle": {"retinal_visual_cycle", "retinal_phototransduction"},
     "retinal_phototransduction": {"retinal_phototransduction", "retinal_visual_cycle"},
-    "mitochondrial_complex": {"mitochondrial_complex", "retinal_visual_cycle"},
-    "amino_acid_metabolism": {"amino_acid_metabolism", "urea_cycle"},
+    "mitochondrial_complex": {"mitochondrial_complex", "retinal_visual_cycle", "amino_acid_metabolism"},
+    "amino_acid_metabolism": {"amino_acid_metabolism", "urea_cycle", "mitochondrial_complex"},
     "urea_cycle": {"urea_cycle", "amino_acid_metabolism"},
-    "lipid_metabolism": {"lipid_metabolism"},
+    "glycogen_storage": {"glycogen_storage", "myopathy", "lysosomal_storage"},
+    "immune_hematopoietic": {"immune_hematopoietic"},
+    "lipid_metabolism": {"lipid_metabolism", "peroxisomal"},
 }
 
 
@@ -272,21 +276,29 @@ def _infer_pathway(disease: DiseaseInfo, gene: GeneInfo) -> str:
     locs = " ".join(gene.subcellular_location).lower()
     hpo = " ".join(disease.hpo_terms).lower()
 
+    if "leukodystrophy" in hpo or "white matter" in hpo:
+        return "leukodystrophy"
+    if "peroxisom" in kws or "peroxisom" in locs or "peroxisom" in hpo:
+        return "peroxisomal"
     if "lysosom" in locs or "lysosom" in hpo:
         return "lysosomal_storage"
+    if "glycogen" in kws or "glycogen" in hpo:
+        return "glycogen_storage"
     if "coagulat" in kws or "coagulat" in hpo:
         return "coagulation"
-    if "retina" in " ".join(disease.affected_tissues).lower() or "retina" in hpo:
-        return "retinal_visual_cycle"
+    if "retina" in " ".join(disease.affected_tissues).lower() or "retina" in hpo or "phototransduction" in kws:
+        return "retinal_phototransduction"
     if "motor neuron" in hpo or "spinal cord" in hpo:
         return "motor_neuron"
-    if "muscul" in hpo or "myopat" in hpo:
+    if "muscul" in hpo or "myopat" in hpo or "dystrophy" in hpo:
         return "myopathy"
-    if "amino acid" in kws or "phenylalan" in kws:
+    if "immunodeficiency" in hpo or "lymphopenia" in hpo or "hematopoietic" in hpo:
+        return "immune_hematopoietic"
+    if "amino acid" in kws or "phenylalan" in kws or "methylmalonic" in hpo:
         return "amino_acid_metabolism"
-    if "urea" in kws or "nitrogen" in kws:
+    if "urea" in kws or "urea" in hpo or "nitrogen" in kws or "hyperammonemia" in hpo:
         return "urea_cycle"
-    if "mitochondri" in kws:
+    if "mitochondri" in kws or "mitochondri" in locs or "mitochondri" in hpo:
         return "mitochondrial_complex"
     return "unknown"
 

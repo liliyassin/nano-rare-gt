@@ -60,15 +60,25 @@ def _search_uniprot(gene_symbol: str, organism: str = "human") -> Optional[dict]
 
 
 def fetch_gene(gene_symbol: str) -> GeneInfo:
-    """Fetch gene/protein info from UniProt; fall back to static data."""
+    """Fetch gene/protein info from UniProt; fall back to static data.
+
+    Known poster-cohort genes use the curated local record first so generated
+    results are reproducible and are not changed by UniProt search ranking,
+    isoform choice, or network availability. Unknown genes still use UniProt,
+    which is what lets the same code path run on arbitrary monogenic diseases.
+    """
     if gene_symbol in _CACHE:
         return _CACHE[gene_symbol]  # ← already fetched → return cached
 
-    data = _search_uniprot(gene_symbol)
-    if data:
-        info = _parse_uniprot(gene_symbol, data)   # ← parse the API response into a GeneInfo object
+    fallback = _fallback_gene(gene_symbol)
+    if fallback.uniprot_id is not None:
+        info = fallback
     else:
-        info = _fallback_gene(gene_symbol)          # ← API failed → use hardcoded fallback
+        data = _search_uniprot(gene_symbol)
+        if data:
+            info = _parse_uniprot(gene_symbol, data)   # ← parse the API response into a GeneInfo object
+        else:
+            info = fallback          # ← API failed → use empty hardcoded fallback
 
     _CACHE[gene_symbol] = info
     return info
@@ -179,8 +189,8 @@ def _fallback_gene(symbol: str) -> GeneInfo:
             # ← Kohlschutter-Tonz gene; synapse protein; unusual biology → no perfect pathway match
         ),
         "RPE65": GeneInfo(
-            "RPE65", "Q16518", "Retinal pigment epithelium 65",
-            2646, 533, False, ["Cytoplasm", "ER membrane"], [], [], [],
+            "RPE65", "Q16518", "Retinal pigment epithelium-specific 65 kDa protein",
+            1599, 533, False, ["Cytoplasm", "ER membrane"], [], ["Retinoid-binding", "Visual cycle"], [],
         ),
         "F8": GeneInfo(
             "F8", "P00451", "Coagulation factor VIII",
@@ -229,6 +239,72 @@ def _fallback_gene(symbol: str) -> GeneInfo:
             "SLC17A5", "Q9NRA2", "Sialin",
             1485, 495, False, ["Lysosome membrane"], [], ["Lysosome", "Transport"], [],
             # ← Salla disease; lysosomal transporter for sialic acid
+        ),
+
+        # ── Extended 30-disease poster cohort genes ─────────────────────────
+        "MT-ND4": GeneInfo(
+            "MT-ND4", "P03905", "NADH dehydrogenase subunit 4",
+            1377, 459, False, ["Mitochondrial inner membrane"], ["mitochondrial complex I"], ["Mitochondrion", "Membrane"], [],
+        ),
+        "CNGB3": GeneInfo(
+            "CNGB3", "Q9NQW8", "Cyclic nucleotide-gated cation channel beta-3",
+            2427, 809, False, ["Photoreceptor outer segment membrane"], ["phototransduction"], ["Membrane", "Ion channel"], [],
+        ),
+        "RS1": GeneInfo(
+            "RS1", "O15537", "Retinoschisin",
+            672, 224, True, ["Secreted", "Extracellular matrix"], ["retina development"], ["Secreted"], ["Discoidin"],
+        ),
+        "CHM": GeneInfo(
+            "CHM", "P24386", "Rab proteins geranylgeranyltransferase component A 1",
+            1962, 653, False, ["Cytoplasm"], ["protein prenylation"], [], [],
+        ),
+        "G6PC": GeneInfo(
+            "G6PC", "P35575", "Glucose-6-phosphatase",
+            1071, 357, False, ["Endoplasmic reticulum membrane"], ["glucose homeostasis", "glycogen metabolism"], ["Membrane"], [],
+        ),
+        "MUT": GeneInfo(
+            "MUT", "P22033", "Methylmalonyl-CoA mutase",
+            2250, 750, False, ["Mitochondrial matrix"], ["amino acid catabolism"], ["Mitochondrion"], [],
+        ),
+        "GAA": GeneInfo(
+            "GAA", "P10253", "Lysosomal alpha-glucosidase",
+            2856, 952, True, ["Lysosome", "Secreted"], ["glycogen catabolism"], ["Lysosome"], [],
+        ),
+        "GBA": GeneInfo(
+            "GBA", "P04062", "Glucosylceramidase",
+            1491, 497, True, ["Lysosome"], ["glycosphingolipid metabolism"], ["Lysosome"], [],
+        ),
+        "ARSA": GeneInfo(
+            "ARSA", "P15289", "Arylsulfatase A",
+            1521, 507, True, ["Lysosome", "Secreted"], ["sphingolipid metabolism"], ["Lysosome"], [],
+        ),
+        "GALC": GeneInfo(
+            "GALC", "P54803", "Galactocerebrosidase",
+            2055, 685, True, ["Lysosome", "Secreted"], ["sphingolipid metabolism"], ["Lysosome"], [],
+        ),
+        "IDUA": GeneInfo(
+            "IDUA", "P35475", "Alpha-L-iduronidase",
+            1962, 653, True, ["Lysosome", "Secreted"], ["glycosaminoglycan catabolism"], ["Lysosome"], [],
+        ),
+        "IDS": GeneInfo(
+            "IDS", "P22304", "Iduronate 2-sulfatase",
+            1650, 550, True, ["Lysosome", "Secreted"], ["glycosaminoglycan catabolism"], ["Lysosome"], [],
+        ),
+        "DMD": GeneInfo(
+            "DMD", "P11532", "Dystrophin",
+            11055, 3685, False, ["Sarcolemma", "Cytoskeleton"], ["muscle structure"], ["Membrane", "Cytoskeleton"], [],
+        ),
+        "WAS": GeneInfo(
+            "WAS", "P42768", "Wiskott-Aldrich syndrome protein",
+            1506, 502, False, ["Cytoplasm", "Cytoskeleton"], ["actin cytoskeleton organization", "immune synapse"], [], [],
+        ),
+        "ADA": GeneInfo(
+            "ADA", "P00813", "Adenosine deaminase",
+            1092, 363, False, ["Cytoplasm"], ["purine metabolism", "lymphocyte development"], [], [],
+        ),
+        "ABCD1": GeneInfo(
+            "ABCD1", "P33897", "ATP-binding cassette sub-family D member 1",
+            2235, 745, False, ["Peroxisome membrane"], ["very-long-chain fatty acid transport"], ["Membrane", "Transport"], [],
         ),
     }
     return FALLBACKS.get(

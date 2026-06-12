@@ -13,45 +13,45 @@ from __future__ import annotations
 import pathlib
 from typing import Optional
 
-import typer  # ← Typer = library that turns Python functions into terminal commands
-from rich.console import Console  # ← Rich = library for pretty coloured terminal output
-from rich.table import Table  # ← makes formatted tables in the terminal
-from rich import print as rprint  # ← coloured print (replaces normal print)
+import typer  # Typer = library that turns Python functions into terminal commands
+from rich.console import Console  # Rich = library for pretty coloured terminal output
+from rich.table import Table  # makes formatted tables in the terminal
+from rich import print as rprint  # coloured print (replaces normal print)
 
-from .db import setup, get_db_path  # ← database setup functions
-from .disease import fetch_disease  # ← fetches disease info from Orphanet
-from .gene import fetch_gene, GeneInfo  # ← fetches gene info from UniProt
-from .scoring import rank_programs  # ← THE ALGORITHM (scoring.py)
+from .db import setup, get_db_path  # database setup functions
+from .disease import fetch_disease  # fetches disease info from Orphanet
+from .gene import fetch_gene, GeneInfo  # fetches gene info from UniProt
+from .scoring import rank_programs  # THE ALGORITHM (scoring.py)
 from .report import (
     MatchResult,
     generate_report,
     save_report,
-)  # ← turns scores into markdown reports
+)  # turns scores into markdown reports
 
 app = typer.Typer(
     name="nanogt",
     help="Gene therapy precedent matching for rare diseases.",
     add_completion=False,
 )
-console = Console()  # ← the Rich console object used for all terminal output
+console = Console()  # the Rich console object used for all terminal output
 
 
 def _require_db():
     """Return a ready DB connection (init + seed if needed)."""
-    # ← every command calls this first to make sure the database exists and is populated
+    # every command calls this first to make sure the database exists and is populated
     return setup()
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # COMMAND 1: nanogt init
 # ══════════════════════════════════════════════════════════════════════════════
-@app.command()  # ← @app.command() = "register this function as a terminal command"
+@app.command()  # @app.command() = "register this function as a terminal command"
 def init(
     db_path: Optional[pathlib.Path] = typer.Option(None, help="Path to SQLite DB"),
-    # ← optional flag: --db-path /custom/location.db (otherwise uses default ~/.nanogt/nanogt.db)
+    # optional flag: --db-path /custom/location.db (otherwise uses default ~/.nanogt/nanogt.db)
 ):
     """Initialise the database and seed vector/program catalog."""
-    # ← creates the SQLite database and loads VECTORS + GT_PROGRAMS from catalog.py
+    # creates the SQLite database and loads VECTORS + GT_PROGRAMS from catalog.py
     conn = setup(db_path)
     n_programs = conn.execute("SELECT COUNT(*) FROM gt_programs").fetchone()[0]
     n_vectors = conn.execute("SELECT COUNT(*) FROM vectors").fetchone()[0]
@@ -65,33 +65,33 @@ def init(
 @app.command()
 def match(
     disease: str = typer.Argument(..., help="Orphanet ID, e.g. ORPHA:324"),
-    # ← required positional argument: the Orphanet ID to query
+    # required positional argument: the Orphanet ID to query
     top: int = typer.Option(5, help="Number of top matches to show"),
-    # ← optional: --top 3 to show only top 3 (default = 5)
+    # optional: --top 3 to show only top 3 (default = 5)
     output: Optional[pathlib.Path] = typer.Option(
         None, "-o", help="Save report to directory"
     ),
-    # ← optional: -o /path/to/dir to save the report somewhere specific
+    # optional: -o /path/to/dir to save the report somewhere specific
     gene_symbol: Optional[str] = typer.Option(
         None, "--gene", help="Override gene symbol"
     ),
-    # ← optional: --gene SMN1 to override which gene is used (normally auto-detected)
+    # optional: --gene SMN1 to override which gene is used (normally auto-detected)
 ):
     """Match a disease to the best gene therapy precedents."""
     conn = _require_db()
 
     # ── Step 1: Look up the disease ───────────────────────────────────────
     with console.status(f"[bold]Looking up {disease}...[/bold]"):
-        # ← shows a loading spinner while fetching
+        # shows a loading spinner while fetching
         disease_info = fetch_disease(
             disease
-        )  # ← calls Orphanet API (or uses fallback data)
+        )  # calls Orphanet API (or uses fallback data)
 
     if disease_info is None:
         console.print(f"[red]Disease not found: {disease}[/red]")
-        raise typer.Exit(1)  # ← exits with error code 1
+        raise typer.Exit(1)  # exits with error code 1
 
-    # ← print disease summary to terminal
+    # print disease summary to terminal
     console.print(f"\n[bold]{disease_info.name}[/bold] ({disease_info.orphanet_id})")
     console.print(f"  Genes: {', '.join(disease_info.gene_symbols) or 'none found'}")
     console.print(f"  Tissues: {', '.join(disease_info.affected_tissues) or 'unknown'}")
@@ -103,7 +103,7 @@ def match(
     target_gene_sym = gene_symbol or (
         disease_info.gene_symbols[0] if disease_info.gene_symbols else None
     )
-    # ← use --gene override if given, otherwise take the first gene from the disease record
+    # use --gene override if given, otherwise take the first gene from the disease record
 
     if not target_gene_sym:
         console.print("[yellow]No gene found — using generic scoring[/yellow]")
@@ -119,17 +119,17 @@ def match(
             keywords=[],
             domains=[],
         )
-        # ← creates an empty gene record so scoring still runs (with neutral scores)
+        # creates an empty gene record so scoring still runs (with neutral scores)
     else:
         with console.status(f"Fetching gene info for {target_gene_sym}..."):
             gene_info = fetch_gene(
                 target_gene_sym
-            )  # ← calls UniProt API (or uses fallback)
+            )  # calls UniProt API (or uses fallback)
 
     # ── Step 3: Run the scoring algorithm ────────────────────────────────
     with console.status("Scoring GT programs..."):
         scores = rank_programs(disease_info, gene_info, conn)
-        # ← calls scoring.py → returns all 18 programs ranked by composite score
+        # calls scoring.py → returns all 18 programs ranked by composite score
 
     # ── Step 4: Display results table in terminal ─────────────────────────
     table = Table(title=f"Top GT Precedents for {disease_info.name}", show_lines=True)
@@ -142,14 +142,14 @@ def match(
 
     emoji = {"high": "🟢", "medium": "🟡", "low": "🔴", "fail": "⛔"}
     shown = [s for s in scores if s.confidence != "fail"][:top]
-    # ← filter out hard fails, take only the top N
+    # filter out hard fails, take only the top N
 
-    for i, s in enumerate(shown, 1):  # ← enumerate adds row number, starting from 1
+    for i, s in enumerate(shown, 1):  # enumerate adds row number, starting from 1
         table.add_row(
             str(i),
             s.program_name,
             s.vector,
-            f"{s.composite_score:.1f}/10",  # ← format score to 1 decimal place
+            f"{s.composite_score:.1f}/10",  # format score to 1 decimal place
             f"{emoji.get(s.confidence, '')} {s.confidence}",
             s.approval_status,
         )
@@ -164,7 +164,7 @@ def match(
     else:
         path = save_report(
             result, pathlib.Path("output")
-        )  # ← default: saves to ./output/ folder
+        )  # default: saves to ./output/ folder
     console.print(f"\n[green]Report saved to {path}[/green]")
 
 
@@ -174,14 +174,14 @@ def match(
 @app.command()
 def batch(
     diseases: list[str] = typer.Argument(..., help="Space-separated Orphanet IDs"),
-    # ← accepts multiple Orphanet IDs in one go
+    # accepts multiple Orphanet IDs in one go
     output: pathlib.Path = typer.Option(
         pathlib.Path("output"), "-o", help="Output directory"
     ),
     top: int = typer.Option(3, help="Top N matches per disease"),
 ):
     """Run match for multiple diseases and generate a summary report."""
-    # ← same as running `nanogt match` for each disease one at a time,
+    # same as running `nanogt match` for each disease one at a time,
     #   but also writes a combined SUMMARY.md at the end
     conn = _require_db()
     results: list[MatchResult] = []
@@ -216,7 +216,7 @@ def batch(
         path = save_report(r, output)
         console.print(f"  [green]{disease_info.name} -> {path.name}[/green]")
 
-    _write_summary(results, output, top)  # ← generates the SUMMARY.md overview table
+    _write_summary(results, output, top)  # generates the SUMMARY.md overview table
     console.print(f"\n[bold green]Batch complete.[/bold green] Reports in {output}/")
 
 
@@ -225,7 +225,7 @@ def _write_summary(
     output_dir: pathlib.Path,
     top: int,
 ) -> None:
-    # ← generates SUMMARY.md: an overview table + per-disease top-match lists
+    # generates SUMMARY.md: an overview table + per-disease top-match lists
     lines = [
         "# NanoGT Batch Summary",
         "",
@@ -236,7 +236,7 @@ def _write_summary(
     ]
     for r in results:
         top_match = next((s for s in r.scores if s.confidence != "fail"), None)
-        # ← next(...) = get first non-fail result (i.e. the top match)
+        # next(...) = get first non-fail result (i.e. the top match)
         if top_match:
             lines.append(
                 f"| {r.disease.name} | {r.disease.orphanet_id} | {r.gene.symbol} "
@@ -256,11 +256,11 @@ def _write_summary(
 
     output_dir.mkdir(
         parents=True, exist_ok=True
-    )  # ← create output folder if it doesn't exist
+    )  # create output folder if it doesn't exist
     (output_dir / "SUMMARY.md").write_text(
         "\n".join(lines)
-    )  # ← write all lines to SUMMARY.md
+    )  # write all lines to SUMMARY.md
 
 
 if __name__ == "__main__":
-    app()  # ← entry point: runs the CLI when this file is executed directly
+    app()  # entry point: runs the CLI when this file is executed directly

@@ -1,7 +1,6 @@
 # References
 
-<!-- Format: Vancouver (numbered). [VERIFY] = double-check page numbers / DOI before submission. -->
-<!-- Target: 50–70 references. Currently ~35 — add disease-specific refs to reach target. -->
+<!-- Vancouver-style working bibliography. Keep this honest: only cite claims you have checked, and mark papers as READ in your own notes after actually reading them. -->
 
 ---
 
@@ -40,7 +39,7 @@
 11. Yu-Wai-Man P, Newman NJ, Carelli V, Moster ML, Biousse V, Sadun AA, et al. Bilateral visual improvement with unilateral gene therapy injection for Leber hereditary optic neuropathy. *Sci Transl Med*. 2020;12(573):eaaz7423. doi:10.1126/scitranslmed.aaz7423
 <!-- GS010 (lenadogene nolparvovec) for LHON -->
 
-12. Qiao C, Zhang W, Yuan Z, Chu J, Wan T, Zhu F, et al. [VERIFY — add Glybera / LPL deficiency reference]. [PLACEHOLDER]
+12. Gaudet D, Méthot J, Déry S, Brisson D, Essiembre C, Tremblay G, et al. Efficacy and long-term safety of alipogene tiparvovec (AAV1-LPLS447X) gene therapy for lipoprotein lipase deficiency: an open-label trial. *Gene Ther*. 2013;20(4):361–369. doi:10.1038/gt.2012.43
 
 ---
 
@@ -138,21 +137,18 @@
 
 ---
 
-<!-- ═══════════════════════════════════════════════════
-     CHECKLIST BEFORE SUBMISSION
-     ═══════════════════════════════════════════════════
-     □ Replace reference 12 [PLACEHOLDER] with Glybera / LPL deficiency paper
-     □ Add disease-specific references for the 8 discovery diseases:
-         - Fabry disease GT (ST-920 / AVR-RD-01 trial refs)
-         - Crigler-Najjar GT (Bortolussi et al. or Balaggan et al.)
-         - MSUD / maple syrup urine disease GT
-         - Salla disease / SLC17A5 biology
-         - Alpha-mannosidosis GT
-         - Kohlschütter-Tönz syndrome / ROGDI biology
-         - Mucolipidosis type IV / MCOLN1
-     □ Confirm page numbers for ref 9 (Roctavian NEJM 2020)
-     □ Decide Vancouver vs APA with supervisor — reformat if needed
-     □ Add Orphanet API endpoint reference
-     □ Aim for 50–70 total references
-     □ Renumber references to match order of first appearance in text
-     ═══════════════════════════════════════════════════ -->
+
+---
+
+## Disease and Dataset Source Audit
+
+The 30-disease cohort is stored in `data/disease_cohort_30.csv`. Before final submission, each disease row must be checked against Orphanet and OMIM and then supported by at least one disease-specific review or primary paper where that disease is discussed in the Results/Discussion text. Do not cite a disease-specific claim unless the corresponding paper has actually been read and annotated.
+
+Priority disease-source checks for the dissertation:
+
+1. Positive/benchmark controls: Hemophilia B, SMA, RPE65-associated LCA, ADA-SCID.
+2. Main high-scoring lysosomal/leukodystrophy cluster: MPS I, MPS II, MPS IIIA, metachromatic leukodystrophy, Krabbe disease, Gaucher disease, Fabry disease, Salla disease, mucolipidosis IV, alpha-mannosidosis.
+3. Liver metabolic cluster: MSUD, OTC deficiency, phenylketonuria, methylmalonic acidemia, glycogen storage disease Ia, Crigler-Najjar syndrome type I.
+4. Stress-test/scope-boundary diseases: DMD and LHON.
+
+Minimum rule for the dissertation: every paragraph that interprets a disease cluster needs at least one checked source from this bibliography or from a disease-specific paper you have read.

@@ -1,73 +1,91 @@
-# Results & Interpretation
+# Results Interpretation — 30-Disease NanoGT Cohort
 
-## 4.1 Overview
+## What the current results actually show
 
-The NanoGT framework was applied to ten monogenic rare diseases across two cohorts: a validation cohort of two diseases with existing approved gene therapies, used to confirm algorithmic correctness, and a discovery cohort of eight diseases with no approved or late-stage gene therapy, representing the framework's primary contribution. Across all ten diseases, the algorithm generated ranked precedent matches scored out of 10 across six dimensions: packaging fit, tissue tropism, protein class, pathway similarity, inheritance compatibility, and approval precedent weight.
+NanoGT has now been run on 30 diseases rather than the earlier 10-disease pilot. The current output supports a dissertation-level proof-of-concept claim: a twelve-dimension heuristic framework can map monogenic rare diseases onto existing gene-therapy precedents in a way that produces interpretable biological clusters and exposes obvious failure modes.
 
-Nine of ten diseases received at least one high-confidence match (≥7.5/10). The single exception — Crigler-Najjar syndrome type I — returned only medium-confidence matches, a finding that is itself informative and discussed in Section 4.4.
+It does not support a clinical-grade claim that the top-ranked programme is directly reusable, safe, or ready for translation. Every top match still requires disease-specific literature review, target biology validation, vector engineering, toxicology, manufacturing review, and regulatory assessment.
 
----
+## Quantitative summary
 
-## 4.2 Validation Results
+- Diseases analysed: 30.
+- Compatible with at least one single-vector precedent: 29.
+- Packaging hard-gate failure: 1 disease — Duchenne muscular dystrophy / DMD.
+- High-confidence matches: 23 of 29 compatible diseases.
+- Medium-confidence matches: 6 of 29 compatible diseases.
+- Score range among compatible diseases: 6.8/10 to 9.9/10.
+- Mean compatible-disease score: 8.20/10.
+- Median compatible-disease score: 8.1/10.
 
-### 4.2.1 Spinal Muscular Atrophy (ORPHA:70, SMN1)
+## Top precedent programmes
 
-The top matches for SMA were OAV101-IT and Zolgensma, both scoring 9.5/10. These are not merely analogous programs — they are the same therapeutic construct (onasemnogene abeparvovec, AAV9-SMN1) administered by different routes, intrathecal and intravenous respectively. The algorithm's ability to rank both at the top, ahead of all other programs in the catalog, confirms that it correctly identifies exact gene-vector identity as a near-perfect precedent. AT132 (AAV8, X-linked myotubular myopathy) ranked third at 9.0/10, correctly recognising it as a structural neuromuscular analogue sharing vector class and disease pathway, but penalised for using a different serotype (AAV8 vs AAV9) and X-linked rather than autosomal recessive inheritance. This gradient — same program > same pathway/vector > different pathway — demonstrates the algorithm's capacity to rank within a disease space rather than producing binary matches.
+- Libmeldy: 11 top-ranked diseases
+- BMN 307: 4 top-ranked diseases
+- CPCB-RPE1: 3 top-ranked diseases
+- Hemgenix: 2 top-ranked diseases
+- Strimvelis: 2 top-ranked diseases
+- OAV101-IT: 2 top-ranked diseases
+- Luxturna: 2 top-ranked diseases
+- SRP-9001: 1 top-ranked diseases
+- Skysona: 1 top-ranked diseases
+- AT132: 1 top-ranked diseases
 
-### 4.2.2 Hemophilia B (ORPHA:306, F9)
+## Vector classes represented in top matches
 
-The top matches for Hemophilia B were DTX201 and Hemgenix, both scoring ≥9.5/10. Hemgenix is the approved therapy for Hemophilia B, confirming a second positive control. DTX201 ranks marginally higher than Hemgenix because both use a liver-tropic vector and the coagulation pathway, but DTX201's use of AAV8 — which has a slightly stronger liver tropism profile in the catalog — gives it a fractional advantage in the tropism dimension. Roctavian (Hemophilia A, AAV5) and SPK-8011 (Hemophilia A, AAVrh10) both score above 9.0, correctly identifying that the entire coagulation factor deficiency space constitutes a valid regulatory precedent cluster. The sharp drop to RGX-121 at 8.3 — a lysosomal storage disease program — marks the boundary of the precedent cluster and confirms that the pathway dimension discriminates meaningfully between coagulation and non-coagulation programs.
+- LV: 14 top-ranked diseases
+- AAV5: 6 top-ranked diseases
+- AAV8: 4 top-ranked diseases
+- AAV9: 3 top-ranked diseases
+- AAV2: 2 top-ranked diseases
 
----
+The top-match distribution is heavily concentrated in lentiviral/HSC and AAV liver/retina programmes. This is a finding and a limitation. It indicates that the current surrogate catalogue has strong coverage for lysosomal/leukodystrophy-like, hepatic metabolic, and retinal disease spaces, but much weaker coverage for kidney, cardiac, peripheral nerve, dental/enamel, mitochondrial, and dominant-negative biology.
 
-## 4.3 Discovery Results
+## Interpretation by cluster
 
-### 4.3.1 The CNS Lysosomal Storage Cluster
+### 1. Libmeldy / lentiviral HSC cluster
 
-Four of the five novel discovery diseases — Kohlschütter-Tönz syndrome, Mucolipidosis type IV, Alpha-mannosidosis, and Salla disease — returned ABO-101 (MPS IIIB/Sanfilippo B, AAV9) and RGX-121 (MPS II/Hunter syndrome, AAV9) as their top two precedents, scoring between 8.5 and 9.0. This clustering is biologically meaningful and forms the central finding of this study.
+Libmeldy dominates the lysosomal and leukodystrophy-like disease results. This is biologically plausible because lentiviral haematopoietic stem-cell therapy is an established approach for some lysosomal storage diseases where genetically corrected cells can engraft and provide systemic or CNS benefit. The strongest high-scoring examples include:
 
-**Mucolipidosis type IV (MCOLN1, 9.0/10)** is the strongest match in the cluster. MCOLN1 encodes mucolipin-1, a lysosomal membrane channel in the TRP superfamily; its deficiency causes lipid and mucopolysaccharide accumulation in lysosomes throughout the CNS and retina. The CDS length of 1,740 bp represents 37% utilisation of the AAV9 cargo limit, leaving substantial headroom. The lysosomal protein class, CNS-predominant phenotype, and autosomal recessive inheritance all align closely with the ABO-101 and RGX-121 precedents. The recommendation of AAV9 delivered by intracisternal magna (ICM) or intrathecal route — the delivery approach used in both precedent programs — is biologically well-founded.
+- Hemophilia B (F9): Hemgenix / AAV5 at 9.9/10
+- Mucopolysaccharidosis type I (IDUA): Libmeldy / LV at 9.4/10
+- Mucolipidosis type IV (MCOLN1): Libmeldy / LV at 9.2/10
+- Mucopolysaccharidosis type II (IDS): Libmeldy / LV at 9.2/10
+- Gaucher disease (GBA): Libmeldy / LV at 9.1/10
+- Krabbe disease (GALC): Libmeldy / LV at 9.1/10
+- Metachromatic leukodystrophy (ARSA): Libmeldy / LV at 9.1/10
+- Mucopolysaccharidosis type IIIA (Sanfilippo A) (SGSH): Libmeldy / LV at 9.1/10
+- Salla disease (SLC17A5): Libmeldy / LV at 9.0/10
+- Fabry disease (GLA): Libmeldy / LV at 8.7/10
 
-**Salla disease (SLC17A5, 9.0/10)** encodes sialin, a lysosomal membrane transporter for free sialic acid. Its deficiency produces a severe CNS leukodystrophy through lysosomal sialic acid accumulation. The algorithm correctly identifies lysosomal membrane localisation, CNS-exclusive tissue involvement, and autosomal recessive inheritance as strongly matching the ABO-101/RGX-121 precedent profile. It is worth noting that sialin, as a transmembrane transporter rather than a secreted enzyme, does not benefit from the cross-correction mechanism (uptake of secreted enzyme by neighbouring cells) that characterises lysosomal enzyme replacement strategies. This is a nuance the current algorithm does not capture in the protein class dimension, and represents a legitimate target for refinement: a membrane-anchored lysosomal protein may require cell-autonomous correction of every affected cell rather than relying on enzyme diffusion.
+However, this cluster must be handled carefully in the report. Not every lysosomal disease behaves like metachromatic leukodystrophy. Secreted lysosomal enzymes can benefit from cross-correction; membrane proteins and transporters may require much broader cell-autonomous correction. The dissertation should explicitly separate these cases rather than treating all lysosomal labels as equivalent.
 
-**Alpha-mannosidosis (MAN2B1, 8.5/10)** is caused by deficiency of lysosomal alpha-mannosidase, resulting in accumulation of mannose-rich oligosaccharides throughout the CNS and liver. With a CDS of 3,033 bp — the largest gene in the discovery cohort — it utilises 64% of the AAV9 cargo limit. The algorithm correctly scores this as feasible (1.5/2.0 for packaging) while capturing the lysosomal enzyme mechanism and dual CNS/liver tissue involvement. Notably, ST-920 (Fabry disease, AAV2/6, liver) ranks third at 7.7, reflecting the hepatic component of alpha-mannosidosis; this is appropriate given that liver-directed GT may produce systemic enzyme levels sufficient to reach the CNS via cross-correction, as has been explored in related MPS disorders. Current standard of care is enzyme replacement therapy (velmanase alfa); no gene therapy trial is registered, making this a tractable discovery target.
+### 2. BMN 307 / liver metabolic cluster
 
-**Kohlschütter-Tönz syndrome (ROGDI, 8.5/10)** is the most mechanistically distinct disease in the cluster and merits careful interpretation. ROGDI encodes a leucine zipper protein involved in V-ATPase assembly at the synapse; its deficiency disrupts synaptic vesicle acidification and causes a severe early-onset epilepsy with neurodegeneration. Critically, Kohlschütter-Tönz is *not* a lysosomal storage disorder in the classical sense — heparan sulphate and other substrates do not accumulate — yet the algorithm maps it into the same precedent cluster as the MPS diseases. The top precedents score highly because they share the most operationally relevant features: small gene (861 bp, 18% cargo utilisation), CNS-exclusive tissue involvement, autosomal recessive loss-of-function inheritance, and the AAV9 vector with intrathecal delivery. The algorithm's recommendation of AAV9/CNS delivery is biologically sound even though the disease mechanism differs from classical lysosomal storage. This is the intended behaviour of a regulatory precedent framework: it identifies what vector, delivery route, and manufacturing approach is most defensible to regulators, rather than requiring biological identity between diseases. A sponsor filing an IND for a ROGDI gene replacement therapy could legitimately cite ABO-101 (same vector, same route, same CNS target, same inheritance pattern, similarly sized transgene) as regulatory precedent without asserting that Kohlschütter-Tönz and MPS IIIB are biologically equivalent diseases.
+BMN 307 appears as a recurring precedent for liver metabolic disorders. This reflects shared liver targeting, manageable transgene size, and metabolic pathway similarity. The most defensible claim is that NanoGT can identify a relevant liver-directed AAV precedent class. The weaker claim, which should be avoided, is that BMN 307 itself is directly reusable across unrelated metabolic diseases.
 
-### 4.3.2 Maple Syrup Urine Disease (BCKDHA, 8.0/10)
+### 3. Retinal cluster
 
-Maple syrup urine disease (MSUD) presents the most instructive case study in algorithmic limitation. BCKDHA encodes the E1-alpha subunit of the branched-chain alpha-keto acid dehydrogenase (BCKAD) complex, a mitochondrial enzyme that catabolises branched-chain amino acids. Its deficiency causes life-threatening metabolic crises and progressive neurological injury.
+The retinal diseases form a coherent AAV precedent cluster, but exact rankings expose calibration issues. For example, Leber congenital amaurosis currently ranks CPCB-RPE1 above Luxturna, even though Luxturna is the obvious approved RPE65 precedent. This means the dissertation should not overstate top-1 validation accuracy. A stronger and more honest metric is top-k recovery: whether the known precedent appears in the top few matches and whether the ranking explanation is biologically coherent.
 
-The top matches — OAV101-IT and Zolgensma (both AAV9, 8.0/10) — are structurally correct in one important respect: AAV9 is the appropriate vector for a disease affecting both liver and CNS, and its broad tropism produces the highest tropism score. However, the biological precedent these programs represent — motor neuron gene replacement — is conceptually distant from an amino acid metabolism enzyme. The algorithm scores them highly because the pathway inference function fails to classify BCKDHA as amino acid metabolism: the gene's keywords (mitochondrial, metabolic) and HPO terms (metabolic encephalopathy, maple syrup odour) do not trigger the `amino_acid_metabolism` pathway branch, causing the pathway score to default to neutral (1.0/2.0) rather than providing a directional signal.
+### 4. Stress tests
 
-More biologically appropriate is BMN 307 (PAH/PKU, AAV5-liver, rank 5 at 7.1/10), which targets phenylalanine hydroxylase — another amino acid metabolism enzyme with AR inheritance and hepatic expression. That BMN 307 ranks fifth rather than first for MSUD is a direct consequence of the pathway inference gap and represents the primary target for algorithmic improvement in future iterations. Nevertheless, the overall recommendation — liver-directed AAV delivery with CNS monitoring — remains clinically defensible, and the 8.0/10 score reflects genuine structural compatibility even where mechanistic similarity is imperfect. Liver transplantation is currently the only cure for MSUD, further underscoring the unmet need.
+DMD correctly fails the native single-vector packaging gate. LHON remains medium-confidence because mitochondrial gene delivery is a special case not well represented by a standard nuclear gene-addition framework. These stress tests are valuable because they demonstrate that the tool can say "this is outside scope" rather than forcing a high-confidence recommendation.
 
-### 4.3.3 Fabry Disease (GLA, 8.3/10)
+## Limitations closed by explicitly naming them
 
-Fabry disease is classified here as a discovery disease on the grounds that, while two gene therapy programs (ST-920, AVR-RD-01) are in phase 1/2 trials, neither has reached late-stage development nor received approval. RGX-121 (MPS II, AAV9) ranks first at 8.3/10 — above both Fabry-specific programs — for the same reasons identified in pre-computation analysis: AAV9's broad tropism covers three of Fabry's four affected tissues (CNS, liver, heart), and the lysosomal storage mechanism is shared. This cross-disease ranking — a Hunter syndrome program outscoring the disease-specific Fabry programs — represents the framework's most practically significant result. A regulatory submission for a novel Fabry GT program citing RGX-121 as precedent (same lysosomal mechanism, same AAV9 vector, same multi-organ tropism, phase 3 precedent depth) would be making a stronger regulatory argument than citing ST-920 (phase 1/2, narrower tropism) on the basis of disease identity alone.
+The main limitations are no longer hidden implementation gaps; they are now named dissertation limitations:
 
-### 4.3.4 Crigler-Najjar Syndrome Type I (UGT1A1, 6.7/10 — Medium)
+1. Catalogue coverage is incomplete and biased toward the programmes manually entered into `src/nanogt/catalog.py`.
+2. Disease facts in `data/disease_cohort_30.csv` still require user/supervisor fact-checking; every row is currently marked `needs_user_fact_check`.
+3. Pathway inference is heuristic and keyword-based, not a curated Reactome/KEGG/GO semantic model.
+4. HPO-based therapeutic-window inference is a rough proxy and should not be treated as natural-history modelling.
+5. Cross-correction scoring does not yet distinguish enough between secreted enzymes, lysosomal enzymes, membrane proteins, and fully intracellular proteins.
+6. Mitochondrial, dominant-negative, toxic gain-of-function, editing, RNA, dual-vector, and micro-gene strategies are outside the current v0.1 scope.
+7. Scores are uncalibrated heuristic scores, not probabilities of clinical success.
+8. Literature references and disease-source claims must be verified before final dissertation submission.
 
-Crigler-Najjar syndrome type I is the only disease in either cohort for which the algorithm returns exclusively medium-confidence matches. UGT1A1 encodes UDP-glucuronosyltransferase 1A1, an endoplasmic reticulum membrane enzyme expressed in hepatocytes that conjugates bilirubin for biliary excretion. Its deficiency causes unconjugated hyperbilirubinaemia and, without phototherapy or liver transplantation, bilirubin encephalopathy.
+## Dissertation-safe result statement
 
-The top match — CPCB-RPE1 (achromatopsia, AAV8-retina, 6.7/10) — is biologically incongruous, and its presence at the top of the list reflects a genuine absence of a strong precedent rather than algorithmic error. UGT1A1 is an ER-anchored membrane protein with no secreted form, no lysosomal localisation, and no cross-correction mechanism; it does not fit any of the high-scoring protein class categories (secreted, lysosomal, membrane-lysosomal). The algorithm correctly scores it at 0.5/2.0 for protein class against all programs in the catalog, depressing composite scores across the board. The pathway inference also defaults to neutral, as bilirubin conjugation does not map to any of the defined pathway groups.
+A safe wording for the report is:
 
-This result is not a failure — it is the correct answer. No approved gene therapy precedent closely resembles a liver-directed ER membrane enzyme replacement. The framework truthfully identifies Crigler-Najjar as an area of regulatory uncertainty. It is worth noting that an early-phase clinical trial of AAV8-UGT1A1 (Généthon, not yet in our catalog) exists; its absence from the reference database explains why the algorithm cannot identify it as a precedent. Adding it would raise the Crigler-Najjar score substantially and represents the most important catalog expansion for future work.
-
----
-
-## 4.4 Cross-Cutting Observations
-
-**ABO-101 and RGX-121 as universal CNS lysosomal precedents.** These two programs dominate the discovery cohort rankings, appearing in the top two positions for five of eight discovery diseases. Both use AAV9, both target CNS lysosomal storage, and both have reached clinical-stage development (phase 1/2 and phase 3 respectively). This clustering is algorithmically correct and biologically meaningful: they represent the best-characterised regulatory pathway for CNS gene replacement of lysosomal enzymes and transporters. For any sponsor developing a CNS lysosomal storage disease therapy, this pair constitutes the primary precedent package.
-
-**The algorithm correctly penalises vector IP constraints.** AAV5 (BioMarin IP) and AAV8 (Penn IP, licensed) are scored at `freely_available = 0`, which influences the practical utility assessment reported in individual disease reports. This is relevant for academic and small-sponsor programs where IP access is a genuine barrier.
-
-**Packaging fit is a discriminatory hard gate.** No disease in the cohort had a gene exceeding the 4,700 bp AAV cargo limit, but MAN2B1 at 3,033 bp (64% utilisation) and SGSH at 1,506 bp illustrate the range of headroom available. Future inclusion of diseases such as ABCA4 (retinal dystrophy, ~6.8 kb) or COL7A1 (dystrophic epidermolysis bullosa, ~8.9 kb) would produce packaging failures for standard AAV vectors, driving the algorithm toward lentiviral or dual-vector approaches — a prediction that is consistent with the clinical literature.
-
-**Limitations.** The framework has three principal limitations relevant to this cohort. First, pathway inference relies on keyword matching against HPO terms and UniProt annotations rather than a curated pathway ontology; MSUD illustrates the consequence of this when metabolic pathways are not directly named in the available text fields. Second, the reference catalog of 18 programs, while covering the major approved and late-stage therapies, does not include all clinical-stage programs; Crigler-Najjar and potentially MSUD would benefit from catalog expansion. Third, the protein class dimension does not distinguish between secreted lysosomal enzymes (which benefit from cross-correction) and lysosomal membrane transporters (which do not); this distinction affects the therapeutic strategy for Salla disease and Mucolipidosis type IV.
-
----
-
-## 4.5 Summary
-
-The NanoGT framework correctly identified known gene therapies for both validation diseases and produced biologically coherent, clinically defensible precedent recommendations for eight diseases with no approved GT. The dominant finding is that CNS lysosomal storage diseases — regardless of the specific enzyme or transporter affected — converge on an AAV9/intrathecal precedent cluster represented by ABO-101 and RGX-121, with strong regulatory justification. Maple syrup urine disease and Crigler-Najjar syndrome type I represent cases where the algorithm correctly identifies weaker precedent strength, pointing to genuine areas of regulatory uncertainty and motivating specific catalog and pathway-inference improvements. The framework's cross-disease ranking for Fabry disease — elevating a Hunter syndrome program above the disease-specific Fabry programs — demonstrates its capacity to identify non-obvious regulatory arguments that a manual literature search would unlikely surface.
+"In a 30-disease proof-of-concept cohort, NanoGT generated interpretable precedent rankings for 29 diseases and correctly flagged one oversized native transgene as incompatible with standard single-vector delivery. The resulting rankings clustered diseases into biologically plausible precedent groups, including lentiviral/HSC lysosomal disease, liver-directed metabolic AAV programmes, and retinal AAV programmes. These findings support the feasibility of computational precedent mapping for early-stage gene-therapy prioritisation, while highlighting the need for catalogue expansion, source verification, improved pathway inference, and disease-specific expert review before translational use."

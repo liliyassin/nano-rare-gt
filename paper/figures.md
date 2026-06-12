@@ -1,63 +1,53 @@
 # Figure Captions and Notes
 
-## Figure 1: Pipeline Schematic
-<!-- Type: Flowchart / block diagram -->
-<!-- Tool: draw.io, Excalidraw, or matplotlib -->
-<!-- Elements: 9 stages as colored blocks; data inputs as document icons; decision diamonds for hard gates; final output as report stack -->
-<!-- Color scheme: accessible palette (not red-green dependent) -->
-<!-- Resolution: 300 DPI, width ~180mm -->
+## Figure 1: Thirty-Disease Score Distribution
 
-**Suggested caption:** "Overview of the 9-stage computational pipeline. Input is an Orphanet or OMIM identifier. Each stage queries public biological databases and applies scoring logic. Hard gates (orange diamonds) auto-reject or flag matches if critical thresholds are not met. Final output is a ranked list of surrogate-precedent gene therapy strategies with auto-generated protocols."
+**Type:** Bar chart or lollipop plot.
 
----
+**Data source:** `output/SUMMARY.md`.
 
-## Figure 2: Multi-Dimensional Scoring Radar Chart
-<!-- Type: Radar / spider chart -->
-<!-- Tool: matplotlib or seaborn -->
-<!-- 11 axes: structural homology, sequence identity, domain similarity, size compatibility, tissue tropism, RoA precedent, promoter match, localization match, immunogenicity, therapeutic window, codon optimization, platform depth -->
-<!-- Fill with one representative case study (e.g., top CNS match) -->
+**Required message:** Show all 30 diseases ordered by composite score. Colour-code high confidence, medium confidence, and packaging-gate failure. Label DMD separately as a native-gene packaging failure rather than a low-scoring compatible disease.
 
-**Suggested caption:** "Multi-dimensional score profile for the top-matched prospective case study (CNS ultra-rare disease, Case Study 1). Each axis represents a normalized 0–1 score. The shaded area illustrates the composite area under the scoring profile. High platform depth and structural homology scores drive the top ranking despite moderate promoter match novelty."
+**Suggested caption:** "Composite NanoGT scores across the 30-disease proof-of-concept cohort. Twenty-nine diseases had at least one compatible single-vector precedent; Duchenne muscular dystrophy failed the native-gene packaging gate because full-length DMD exceeds standard AAV capacity. Scores represent relative precedent strength, not predicted clinical efficacy."
 
 ---
 
-## Figure 3: Retrospective Validation Summary
-<!-- Type: Grouped bar chart -->
-<!-- Tool: matplotlib -->
-<!-- X-axis: Luxturna, Zolgensma, Negative Control -->
-<!-- Y-axis: composite score -->
-<!-- Dashed line: threshold for high-confidence recommendation -->
+## Figure 2: Top-Precedent Cluster Map
 
-**Suggested caption:** "Retrospective validation of the scoring engine against two approved gene therapies and one clinically discontinued program. Luxturna and Zolgensma achieve composite scores above the high-confidence threshold (dashed line), while the negative control (discontinued due to immunogenicity) is correctly down-ranked. Individual dimension contributions are shown as stacked segments."
+**Type:** Sankey diagram, bipartite network, or grouped bar chart.
 
----
+**Data source:** `output/SUMMARY.md` top precedent and vector columns.
 
-## Figure 4: Sensitivity Analysis Heatmap
-<!-- Type: Heatmap -->
-<!-- Tool: seaborn -->
-<!-- X-axis: weight perturbation (-20%, baseline, +20%) per dimension -->
-<!-- Y-axis: disease query cases -->
-<!-- Color: rank of top match (stable = consistent color) -->
+**Required message:** Diseases cluster around a small number of precedent programmes, especially Libmeldy/LV, BMN 307/AAV5, retinal AAV programmes, and AAV9 CNS/muscle precedents.
 
-**Suggested caption:** "Sensitivity of top-match ranking to +/−20% perturbations in individual scoring dimension weights. Color stability across a row indicates that a disease’s top match is robust to weight variation. Structural homology and platform depth exert the strongest influence on rank stability for the tested retrospective and prospective cases."
+**Suggested caption:** "Disease-to-precedent clustering in the 30-disease cohort. Libmeldy/lentiviral HSC therapy dominates lysosomal and leukodystrophy-like diseases, BMN 307 supports several liver metabolic disorders, and retinal diseases cluster around Luxturna/CPCB-RPE1-style AAV precedents."
 
 ---
 
-## Figure 5: Prospective Protocol Comparison
-<!-- Type: Side-by-side structured table + schematic -->
-<!-- Tool: table in Markdown/Word + vector schematic -->
-<!-- Left: CNS case (intrathecal AAV9) -->
-<!-- Right: Hepatic case (IV AAV8/AAV9) -->
+## Figure 3: Validation and Stress-Test Examples
 
-**Suggested caption:** "Auto-generated gene therapy protocols for the two prospective case studies. Left: CNS ultra-rare disease with intrathecal AAV9 delivery and ubiquitous promoter due to broad neuronal target requirement. Right: Metabolic hepatic disease with IV AAV8 delivery and liver-specific TBG promoter. Both protocols were generated in under two minutes and are consistent with clinical precedents for the respective tissues."
+**Type:** Four-panel case-study figure.
+
+**Panels:**
+1. Hemophilia B positive control: Hemgenix top-ranked.
+2. SMA positive control: AAV9/Zolgensma/OAV101 precedent recovered.
+3. LCA calibration issue: Luxturna appears near top but not necessarily rank 1 in current scoring.
+4. DMD stress test: native full-length DMD fails AAV packaging.
+
+**Suggested caption:** "Representative validation and stress-test behaviour. The framework recovers several expected clinical precedents, reveals a retinal calibration issue where exact disease identity should be weighted more strongly, and correctly flags full-length DMD as outside standard single-vector scope."
 
 ---
 
-## Supplementary Table 1: Full Surrogate Database
-<!-- CSV with columns: program_name, disease, target_gene, vector_serotype, promoter, target_tissue, cds_length_bp, approval_status, clinical_program_count, literature_DOI -->
+## Supplementary Tables
 
-## Supplementary Table 2: Complete Scoring Results
-<!-- One row per disease query, columns = all ScoreBreakdown fields + composite + confidence -->
+### Supplementary Table 1: Cohort Metadata
 
-## Supplementary Note 1: Weight Selection Justification
-<!-- Why each dimension included, weight rationale, sensitivity analysis protocol -->
+Use `data/disease_cohort_30.csv`. Include disease name, ORPHA ID, gene, inheritance, tissues, prevalence, OMIM ID, cohort role, source URL, and fact-check status.
+
+### Supplementary Table 2: Complete Scoring Results
+
+Use `output/SUMMARY.md` plus the individual files in `output/match_*.md`. Include all top-five precedent rankings where space allows.
+
+### Supplementary Table 3: Surrogate Catalogue
+
+Use `src/nanogt/catalog.py`. Include programme name, disease, gene, vector, tissue target, CDS length, approval/trial stage, protein class, inheritance, and pathway.

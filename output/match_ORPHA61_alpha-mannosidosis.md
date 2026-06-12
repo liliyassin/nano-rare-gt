@@ -12,7 +12,7 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | AVR-RD-01 | LV | 7.8/10 | 🟢 High | phase1/2 |
+| 1 | Libmeldy | LV | 8.6/10 | 🟢 High | approved |
 | 2 | ST-920 | AAV2/6 | 7.8/10 | 🟢 High | phase1/2 |
 | 3 | ABO-101 | AAV9 | 7.7/10 | 🟢 High | phase1/2 |
 | 4 | RGX-121 | AAV9 | 7.7/10 | 🟢 High | phase3 |
@@ -20,39 +20,39 @@
 
 ---
 
-## Match #1: AVR-RD-01
+## Match #1: Libmeldy
 
-**Precedent disease:** Fabry disease  
+**Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
-**Tissue target:** hematopoietic  
-**Composite score:** 7.8 / 10  
+**Tissue target:** hematopoietic/CNS  
+**Composite score:** 8.6 / 10  
 
 ### Score Breakdown
 
 | Dimension | Score | Max | What it measures |
 |-----------|-------|-----|-----------------|
 | Packaging fit | 1.50 | 2.0 | Gene CDS size vs vector cargo capacity |
-| Tissue tropism | 1.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Tissue tropism | 1.50 | 2.0 | Vector naturally reaches disease target tissue |
 | Protein class | 2.00 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
 | Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
-| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
-| Approval precedent | 0.50 | 1.0 | Regulatory approval / trial stage |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
 | Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
 | Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
 | Cross-correction | 1.00 | 1.0 | Can transduced cells rescue untransduced neighbours? |
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.83** | **10.0** | Raw sum / 18 × 10 |
+| **TOTAL (normalised)** | **8.56** | **10.0** | Raw sum / 18 × 10 |
 
 ### Rationale
 
 - Gene CDS 3033bp / cargo 8000bp (38% utilized)
-- Vector tropism overlaps liver, but precedent target is hematopoietic
+- Precedent target match: cns
 - Both lysosomal proteins — cross-correction likely
-- LOF inheritance — compatible for gene replacement
-- Pathway match: lysosomal_storage
-- Approval status: phase1/2
+- Inheritance match (Autosomal recessive <-> AR)
+- Pathway match: leukodystrophy
+- Approval status: approved
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Secreted lysosomal enzyme — maximum cross-correction via M6P receptor pathway; high therapeutic efficiency; substantially lower required transduction rate

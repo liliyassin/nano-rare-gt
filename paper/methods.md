@@ -26,7 +26,7 @@ For each causal gene associated with the query disease, the UniProt REST API was
 
 ## 3. Gene Therapy Surrogate Database
 
-A static database of 18 approved or late-stage gene therapy programs was manually curated from published literature, regulatory approval documents, and ClinicalTrials.gov. Programs were included if they targeted a monogenic, loss-of-function rare disease using an AAV or lentiviral vector. Each entry recorded: program name, target disease, causal gene symbol, vector serotype, primary tissue target, transgene CDS length in base pairs, approval or trial stage, approval year (where applicable), protein class (secreted, lysosomal, membrane, intracellular, or secreted_lysosomal), inheritance pattern (AR or XL), and biological pathway label.
+A static database of 21 approved or late-stage gene therapy programs was manually curated from published literature, regulatory approval documents, and ClinicalTrials.gov. Programs were included if they targeted a monogenic, loss-of-function rare disease using an AAV or lentiviral vector. Each entry recorded: program name, target disease, causal gene symbol, vector serotype, primary tissue target, transgene CDS length in base pairs, approval or trial stage, approval year (where applicable), protein class (secreted, lysosomal, membrane, intracellular, or secreted_lysosomal), inheritance pattern (AR or XL), and biological pathway label.
 
 Eight delivery vectors were catalogued: AAV1, AAV2, AAV5, AAV8, AAV9, AAVrh10, AAV2/6, and lentiviral vector (LV). For each vector, the following properties were recorded: cargo limit in base pairs, tissue tropism, CNS/retinal/hepatic/muscle tropism flags, number of existing clinical programs using that serotype, and patent restriction status. The standard cargo limit for all AAV serotypes was set at 4,700 bp, consistent with the established packaging limit for single-stranded AAV. The lentiviral vector cargo limit was set at 8,000 bp, reflecting the larger capacity of lentiviral constructs used in approved haematopoietic stem cell programs.
 
@@ -62,7 +62,7 @@ The regulatory stage of the precedent program was used to weight the strength of
 
 ### 4.7 Vector Immunogenicity (max 2.0)
 
-Pre-existing neutralising antibodies (NAbs) against AAV capsids in the general population are a well-established barrier to treatment eligibility, as patients with NAb titres above defined thresholds are typically excluded from clinical trials [CITATION]. Population seroprevalence estimates for each vector serotype were sourced from published studies [Boutin et al., 2010; Calcedo et al., 2011; Mingozzi and High, 2013] and used to score immunogenicity risk. Scores were assigned based on approximate seroprevalence: <10% = 2.0; 10–19% = 1.5; 20–39% = 1.0; ≥40% = 0.5. Lentiviral vectors were assigned minimum seroprevalence (~2%) as they are immunologically distinct from AAV serotypes.
+Pre-existing neutralising antibodies (NAbs) against AAV capsids in the general population are a well-established barrier to treatment eligibility, as patients with NAb titres above defined thresholds are typically excluded from many AAV clinical trials. Population seroprevalence estimates for each vector serotype were sourced from published studies and reviews of AAV humoral immunity [22–25] and used to score immunogenicity risk. Scores were assigned based on approximate seroprevalence: <10% = 2.0; 10–19% = 1.5; 20–39% = 1.0; ≥40% = 0.5. Lentiviral vectors were assigned minimum seroprevalence (~2%) as they are immunologically distinct from AAV serotypes.
 
 ### 4.8 Therapeutic Window (max 2.0)
 
@@ -96,6 +96,14 @@ Programs were classified into confidence tiers based on the normalised composite
 
 ---
 
-## 6. Output and Report Generation
+## 6. Cohort Design
+
+The current dissertation analysis used a 30-disease proof-of-concept cohort stored in `data/disease_cohort_30.csv`. The cohort was intentionally structured to test more than one success mode: positive controls with approved precedents, benchmark diseases with known gene-therapy precedent, an oversized native-cargo stress test, a mitochondrial-delivery stress test, and a broader pilot cohort of monogenic diseases spanning liver, CNS, retina, muscle, heart, and haematopoietic involvement. Each row records the Orphanet identifier, disease name, causal gene, inheritance pattern, affected tissues, prevalence class, OMIM cross-reference, cohort role, source URL, and fact-check status.
+
+The cohort should be interpreted as a reproducible dissertation test set rather than a statistically representative sample of all rare diseases. Its purpose is to demonstrate whether the scoring framework produces interpretable precedent rankings and useful failure modes across diverse disease classes.
+
+---
+
+## 7. Output and Report Generation
 
 Results were sorted in descending order of composite score for each disease query. A structured Markdown report was generated containing: a ranked summary table of top matches with composite score and confidence tier; a per-match breakdown table showing the score for each of the twelve dimensions; plain-language rationale notes for each dimension; and a log of packaging-excluded programs. Reports were saved to a standardised output directory using filenames incorporating the Orphanet ID and disease name. A cross-disease summary report was generated to allow comparison of top matches and score distributions across all queried diseases.

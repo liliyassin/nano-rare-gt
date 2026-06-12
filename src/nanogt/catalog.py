@@ -104,11 +104,10 @@ VECTORS = [
         "cargo_limit_bp": 8000,  # ← can carry much larger genes than AAV
         "tissue_tropism": [
             "hematopoietic",
-            "liver",
-        ],  # ← mainly used for blood stem cells (ex vivo)
+        ],  # ← mainly used for blood stem cells (ex vivo); tissue benefit comes from cell engraftment/cross-correction, not direct in vivo tropism
         "cns_tropic": 0,
         "retinal_tropic": 0,
-        "hepatic_tropic": 1,
+        "hepatic_tropic": 0,
         "muscle_tropic": 0,
         "clinical_precedents": 20,  # ← most clinical experience of all vectors (ADA-SCID, beta-thal, etc.)
         "freely_available": 1,
@@ -402,5 +401,50 @@ GT_PROGRAMS = [
         "inheritance": "XL",
         "pathway": "coagulation",
         "notes": None,
+    },
+    {
+        "name": "Strimvelis",  # ← ex vivo HSC gene therapy for ADA-SCID; treated as LV-class ex vivo precedent in v0.1
+        "disease": "ADA-SCID",
+        "gene_symbol": "ADA",
+        "vector": "LV",
+        "tissue_target": "hematopoietic",
+        "cds_bp": 1092,
+        "approval_status": "approved",
+        "approval_year": 2016,
+        "mechanism": "gene_replacement",
+        "protein_class": "intracellular",
+        "inheritance": "AR",
+        "pathway": "immune_hematopoietic",
+        "notes": "Ex vivo autologous HSC precedent; original product uses gammaretroviral vector, grouped with integrating HSC vectors for v0.1 scoring.",
+    },
+    {
+        "name": "Libmeldy",  # ← atidarsagene autotemcel; approved ex vivo LV for MLD
+        "disease": "Metachromatic leukodystrophy",
+        "gene_symbol": "ARSA",
+        "vector": "LV",
+        "tissue_target": "hematopoietic/CNS",
+        "cds_bp": 1521,
+        "approval_status": "approved",
+        "approval_year": 2020,
+        "mechanism": "gene_replacement",
+        "protein_class": "secreted_lysosomal",
+        "inheritance": "AR",
+        "pathway": "leukodystrophy",
+        "notes": "Ex vivo HSC approach intended to deliver enzyme to CNS through myeloid engraftment/cross-correction.",
+    },
+    {
+        "name": "Skysona",  # ← elivaldogene autotemcel; approved ex vivo LV for cerebral ALD
+        "disease": "Cerebral adrenoleukodystrophy",
+        "gene_symbol": "ABCD1",
+        "vector": "LV",
+        "tissue_target": "hematopoietic/CNS",
+        "cds_bp": 2235,
+        "approval_status": "approved",
+        "approval_year": 2022,
+        "mechanism": "gene_replacement",
+        "protein_class": "membrane",
+        "inheritance": "XL",
+        "pathway": "peroxisomal",
+        "notes": "Ex vivo lentiviral HSC precedent for CNS/peroxisomal disease.",
     },
 ]

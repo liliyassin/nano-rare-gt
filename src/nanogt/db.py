@@ -49,43 +49,44 @@ def init_db(conn: sqlite3.Connection) -> None:
 
 
 def seed_db(conn: sqlite3.Connection) -> None:
-    # Seed vectors
-    if conn.execute("SELECT COUNT(*) FROM vectors").fetchone()[0] == 0:
-        for v in VECTORS:
-            conn.execute("""
-                INSERT OR IGNORE INTO vectors
-                (serotype, cargo_limit_bp, tissue_tropism, cns_tropic, retinal_tropic,
-                 hepatic_tropic, muscle_tropic, clinical_precedents, freely_available)
-                VALUES (?,?,?,?,?,?,?,?,?)
-            """, (
-                v["serotype"],
-                v["cargo_limit_bp"],
-                json.dumps(v.get("tissue_tropism", [])),
-                v.get("cns_tropic", 0),
-                v.get("retinal_tropic", 0),
-                v.get("hepatic_tropic", 0),
-                v.get("muscle_tropic", 0),
-                v.get("clinical_precedents", 0),
-                v.get("freely_available", 1),
-            ))
-        conn.commit()
+    # Keep the local DB in sync with the current in-code catalog. This is safer
+    # for a fast-moving research prototype than preserving stale seed rows from
+    # an older run (e.g. an old DB with only four vectors).
+    conn.execute("DELETE FROM vectors")
+    for v in VECTORS:
+        conn.execute("""
+            INSERT OR IGNORE INTO vectors
+            (serotype, cargo_limit_bp, tissue_tropism, cns_tropic, retinal_tropic,
+             hepatic_tropic, muscle_tropic, clinical_precedents, freely_available)
+            VALUES (?,?,?,?,?,?,?,?,?)
+        """, (
+            v["serotype"],
+            v["cargo_limit_bp"],
+            json.dumps(v.get("tissue_tropism", [])),
+            v.get("cns_tropic", 0),
+            v.get("retinal_tropic", 0),
+            v.get("hepatic_tropic", 0),
+            v.get("muscle_tropic", 0),
+            v.get("clinical_precedents", 0),
+            v.get("freely_available", 1),
+        ))
+    conn.commit()
 
-    # Seed GT programs
-    if conn.execute("SELECT COUNT(*) FROM gt_programs").fetchone()[0] == 0:
-        for p in GT_PROGRAMS:
-            conn.execute("""
-                INSERT OR IGNORE INTO gt_programs
-                (name, disease, gene_symbol, vector, tissue_target, cds_bp,
-                 approval_status, approval_year, mechanism, protein_class,
-                 inheritance, pathway, notes)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
-            """, (
-                p["name"], p["disease"], p["gene_symbol"], p["vector"],
-                p["tissue_target"], p["cds_bp"], p["approval_status"],
-                p.get("approval_year"), p["mechanism"], p["protein_class"],
-                p["inheritance"], p["pathway"], p.get("notes"),
-            ))
-        conn.commit()
+    conn.execute("DELETE FROM gt_programs")
+    for p in GT_PROGRAMS:
+        conn.execute("""
+            INSERT OR IGNORE INTO gt_programs
+            (name, disease, gene_symbol, vector, tissue_target, cds_bp,
+             approval_status, approval_year, mechanism, protein_class,
+             inheritance, pathway, notes)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            p["name"], p["disease"], p["gene_symbol"], p["vector"],
+            p["tissue_target"], p["cds_bp"], p["approval_status"],
+            p.get("approval_year"), p["mechanism"], p["protein_class"],
+            p["inheritance"], p["pathway"], p.get("notes"),
+        ))
+    conn.commit()
 
 
 def setup(db_path=None) -> sqlite3.Connection:

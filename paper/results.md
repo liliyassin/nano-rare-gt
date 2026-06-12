@@ -1,86 +1,105 @@
 # Results
 
-## 1. Dataset Overview
+## 1. Cohort Overview
 
-The NanoGT framework was applied to ten monogenic rare diseases: two retrospective validation cases with existing approved gene therapies, and eight prospective discovery cases for which no approved gene therapy currently exists. Across all ten diseases, 180 disease-program pairs were scored (10 diseases × 18 surrogate programs). The curated surrogate database comprised 18 gene therapy programs delivered via 8 vector serotypes, spanning six disease areas: coagulation disorders, motor neuron disease, lysosomal storage disorders, retinal dystrophies, metabolic liver diseases, and myopathies. Approved programs accounted for 7 of the 18 database entries; the remainder were in Phase 1 through Phase 3 clinical trials.
+The NanoGT framework was applied to a 30-disease monogenic rare-disease cohort assembled from Orphanet identifiers and manually curated gene/tissue metadata. The cohort was deliberately mixed rather than restricted to easy discovery cases. It contained:
 
----
+- 2 positive controls with approved gene-therapy precedents.
+- 2 benchmark diseases with known gene-therapy precedent.
+- 1 oversized-cargo stress test.
+- 1 mitochondrial-delivery stress test.
+- 24 pilot discovery or extension diseases.
 
-## 2. Retrospective Validation
+Each query disease was scored against the curated 21-program surrogate catalogue. The algorithm uses twelve dimensions: packaging fit, tissue tropism, protein class, pathway similarity, inheritance compatibility, regulatory approval stage, vector immunogenicity, therapeutic window, cross-correction potential, immune privilege, promoter availability, and route-of-administration feasibility. Raw scores have a maximum of 18 and are normalised to a score out of 10.
 
-To assess whether the scoring engine correctly identifies known gene therapy solutions, the framework was applied to two diseases for which approved therapies exist: Spinal Muscular Atrophy (SMA, ORPHA:70) and Haemophilia B (ORPHA:306).
+## 2. Cross-Disease Score Distribution
 
-### 2.1 Spinal Muscular Atrophy (ORPHA:70)
+The framework produced at least one compatible single-vector precedent for 29 of 30 diseases. The exception was Duchenne muscular dystrophy, where the native DMD coding sequence exceeded the single-vector AAV cargo limit and therefore failed the packaging gate. This is an expected and useful stress-test result rather than an execution failure: current DMD gene therapy development relies on micro-dystrophin or other non-native cargo strategies, which are outside the v0.1 matching model.
 
-SMA is caused by loss-of-function mutations in *SMN1* (CDS: 891 bp, autosomal recessive), encoding the survival motor neuron protein. The approved gene therapy is onasemnogene abeparvovec (Zolgensma, AAV9), which delivers a functional *SMN1* transgene to motor neurons via intravenous or intrathecal injection.
+Among the 29 compatible diseases, 23 were classified as high confidence and 6 as medium confidence. Composite scores ranged from 6.8/10 to 9.9/10. The mean score was 8.20/10 and the median was 8.1/10. These values should be interpreted as relative precedent strength, not predicted clinical efficacy.
 
-The framework ranked OAV101-IT (the intrathecal formulation of Zolgensma, AAV9) and Zolgensma jointly as the top matches, each scoring 7.7/10 (high confidence). The two programs are functionally equivalent — same vector serotype, same transgene, differing only in route of administration — and their joint top ranking reflects this equivalence. The correct identification of the approved therapy as the top-ranked match constitutes a successful positive control. Dimension scores showed perfect matches across packaging fit (2.0/2.0: 891 bp gene utilising 19% of AAV9 capacity), tissue tropism (2.0/2.0: AAV9 reaches CNS and motor neurons), biological pathway (2.0/2.0: motor neuron pathway match), inheritance compatibility (1.0/1.0: AR-to-AR match), and regulatory approval (1.0/1.0: approved). The composite score was primarily limited by the cross-correction score (0.2/1.0), reflecting the intracellular nature of the SMN1 protein, and the therapeutic window score (0.5/2.0), which correctly flagged SMA as a neonatal-onset disease requiring very early intervention.
+### Table 1. Thirty-disease NanoGT cohort results
 
-### 2.2 Haemophilia B (ORPHA:306)
+| Cohort role | Disease | ORPHA | Gene | CDS (bp) | Top precedent | Vector | Score | Confidence |
+|---|---|---:|---|---:|---|---|---:|---|
+| positive_control | Hemophilia B | ORPHA:306 | F9 | 1383 | Hemgenix | AAV5 | 9.9/10 | high |
+| benchmark_with_known_gt_precedent | Leber congenital amaurosis | ORPHA:65 | RPE65 | 1599 | CPCB-RPE1 | AAV8 | 7.2/10 | medium |
+| benchmark_with_known_gt_precedent | Severe combined immunodeficiency due to adenosine deaminase deficiency | ORPHA:277 | ADA | 1092 | Strimvelis | LV | 7.8/10 | high |
+| positive_control | Spinal Muscular Atrophy | ORPHA:70 | SMN1 | 891 | OAV101-IT | AAV9 | 8.1/10 | high |
+| oversized_cargo_stress_test | Duchenne muscular dystrophy | ORPHA:98896 | DMD | 11055 | - | - | - | no compatible single-vector precedent |
+| mitochondrial_stress_test | Leber hereditary optic neuropathy | ORPHA:104 | MT-ND4 | 1377 | CPCB-RPE1 | AAV8 | 6.9/10 | medium |
+| pilot_cohort | Achromatopsia | ORPHA:49382 | CNGB3 | 2427 | CPCB-RPE1 | AAV8 | 7.1/10 | medium |
+| pilot_cohort | Alpha-mannosidosis | ORPHA:61 | MAN2B1 | 3033 | Libmeldy | LV | 8.6/10 | high |
+| pilot_cohort | Choroideremia | ORPHA:180 | CHM | 1962 | Luxturna | AAV2 | 7.6/10 | high |
+| pilot_cohort | Crigler-Najjar syndrome type I | ORPHA:1060 | UGT1A1 | 1596 | Hemgenix | AAV5 | 6.8/10 | medium |
+| pilot_cohort | Fabry disease | ORPHA:324 | GLA | 1290 | Libmeldy | LV | 8.7/10 | high |
+| pilot_cohort | Gaucher disease | ORPHA:355 | GBA | 1491 | Libmeldy | LV | 9.1/10 | high |
+| pilot_cohort | Glycogen storage disease type Ia | ORPHA:79258 | G6PC | 1071 | SRP-9001 | AAV9 | 7.4/10 | medium |
+| pilot_cohort | Kohlschutter-Tonz syndrome | ORPHA:1946 | ROGDI | 861 | OAV101-IT | AAV9 | 7.6/10 | high |
+| pilot_cohort | Krabbe disease | ORPHA:487 | GALC | 2055 | Libmeldy | LV | 9.1/10 | high |
+| pilot_cohort | Maple syrup urine disease | ORPHA:511 | BCKDHA | 1335 | BMN 307 | AAV5 | 8.2/10 | high |
+| pilot_cohort | Metachromatic leukodystrophy | ORPHA:512 | ARSA | 1521 | Libmeldy | LV | 9.1/10 | high |
+| pilot_cohort | Mucolipidosis type IV | ORPHA:578 | MCOLN1 | 1740 | Libmeldy | LV | 9.2/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type I | ORPHA:579 | IDUA | 1962 | Libmeldy | LV | 9.4/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type II | ORPHA:580 | IDS | 1650 | Libmeldy | LV | 9.2/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type IIIA (Sanfilippo A) | ORPHA:79269 | SGSH | 1674 | Libmeldy | LV | 9.1/10 | high |
+| pilot_cohort | Ornithine transcarbamylase deficiency | ORPHA:664 | OTC | 1065 | BMN 307 | AAV5 | 8.0/10 | high |
+| pilot_cohort | Phenylketonuria | ORPHA:716 | PAH | 1353 | BMN 307 | AAV5 | 7.6/10 | high |
+| pilot_cohort | Pompe disease | ORPHA:365 | GAA | 2856 | Libmeldy | LV | 8.4/10 | high |
+| pilot_cohort | Salla disease | ORPHA:309 | SLC17A5 | 1485 | Libmeldy | LV | 9.0/10 | high |
+| pilot_cohort | Vitamin B12-unresponsive methylmalonic acidemia | ORPHA:27 | MUT | 2250 | BMN 307 | AAV5 | 7.9/10 | high |
+| pilot_cohort | Wiskott-Aldrich syndrome | ORPHA:906 | WAS | 1506 | Strimvelis | LV | 7.7/10 | high |
+| pilot_cohort | X-linked adrenoleukodystrophy | ORPHA:43 | ABCD1 | 2235 | Skysona | LV | 8.4/10 | high |
+| pilot_cohort | X-linked myotubular myopathy | ORPHA:596 | MTM1 | 1878 | AT132 | AAV8 | 7.3/10 | medium |
+| pilot_cohort | X-linked retinoschisis | ORPHA:792 | RS1 | 672 | Luxturna | AAV2 | 7.5/10 | high |
 
-Haemophilia B is caused by loss-of-function mutations in *F9* (CDS: 1,383 bp, X-linked recessive), encoding coagulation Factor IX, a secreted protein produced by the liver. The approved gene therapy is etranacogene dezaparvovec (Hemgenix, AAV5), which delivers a high-activity *FIX* variant to liver cells via intravenous infusion.
+## 3. Top-Precedent Clusters
 
-The framework ranked Hemgenix as the joint top match at 9.1/10 (high confidence), tied with Roctavian (also AAV5, liver-targeted, approved for the closely related Haemophilia A). Hemgenix received the highest composite score of any match across all ten diseases tested. Perfect scores were achieved for packaging fit (2.0/2.0: 29% cargo utilisation), tissue tropism (2.0/2.0), protein class (2.0/2.0: both secreted coagulation factors), biological pathway (2.0/2.0: exact coagulation pathway match), inheritance (1.0/1.0: XL-to-XL), regulatory approval (1.0/1.0), immunogenicity (2.0/2.0: AAV5 seroprevalence ~9%), cross-correction (1.0/1.0: secreted protein), promoter availability (1.0/1.0), and route of administration (1.0/1.0). The score was reduced only by therapeutic window (0.5/2.0) and immune privilege (0.8/1.0). The therapeutic window score reflects the absence of explicit adult-onset HPO keywords in the Haemophilia B dataset — a known limitation of HPO-based window inference for episodic bleeding disorders, discussed further in the Discussion. The correct top-ranking of the approved therapy at 9.1/10 confirms successful framework validation.
+The most important result is not any single disease score, but the emergence of biologically interpretable precedent clusters.
 
----
+### 3.1 Lentiviral / Libmeldy-dominated lysosomal and leukodystrophy cluster
 
-## 3. Prospective Discovery Results
+Libmeldy was the top-ranked precedent for 11 diseases, making it the dominant precedent in the current cohort. The diseases in this group include several lysosomal storage disorders and leukodystrophy-like CNS diseases: alpha-mannosidosis, Fabry disease, Gaucher disease, Krabbe disease, metachromatic leukodystrophy, mucolipidosis type IV, mucopolysaccharidosis types I/II/IIIA, Pompe disease, and Salla disease. This cluster is plausible because ex vivo lentiviral haematopoietic stem-cell gene therapy has a strong precedent base for lysosomal and neurodegenerative metabolic disorders, particularly where cross-correction by enzyme secretion or haematopoietic-derived CNS engraftment may contribute to benefit.
 
-The framework was applied to eight diseases for which no approved gene therapy currently exists. Composite scores ranged from 7.6/10 to 8.6/10 across seven diseases, with one outlier at 6.8/10. Seven of eight diseases received a high-confidence classification (≥7.5/10). All results are summarised in Table 2.
+This cluster is also a limitation signal. Some members, such as Salla disease and mucolipidosis type IV, involve membrane or transporter biology rather than classical secreted lysosomal enzyme replacement. The algorithm currently recognises broad lysosomal/CNS similarity but does not fully separate secreted enzymes with mannose-6-phosphate-mediated cross-correction from cell-autonomous lysosomal membrane proteins. This must be stated clearly in the dissertation.
 
-### 3.1 Fabry Disease (ORPHA:324) — Score: 8.6/10
+### 3.2 Hepatic metabolic / BMN 307 cluster
 
-Fabry disease results from loss-of-function mutations in *GLA* (CDS: 1,290 bp, X-linked dominant), encoding alpha-galactosidase A, a secreted lysosomal enzyme. The framework identified ST-920 (AAV2/6, liver-targeted, Phase 1/2) as the top precedent match at 8.6/10, the highest score among all eight discovery diseases. The result was driven by strong performance across protein class (2.0/2.0: both secreted lysosomal enzymes with cross-correction potential via the mannose-6-phosphate receptor pathway), biological pathway (2.0/2.0: lysosomal storage), and cross-correction (1.0/1.0). The multi-tissue involvement of Fabry disease (liver, kidney, heart, CNS) additionally contributed to full scores for promoter availability and route of administration. These findings are consistent with the current clinical landscape, in which ST-920 and AVR-RD-01 (the second and third ranked matches) are both active clinical programs specifically for Fabry disease, providing independent corroboration of the framework's output.
+BMN 307 was top-ranked for 4 diseases: maple syrup urine disease, ornithine transcarbamylase deficiency, phenylketonuria, and vitamin B12-unresponsive methylmalonic acidemia. These diseases share hepatic and metabolic features, small-to-moderate transgene sizes, and a plausible liver-directed AAV development logic. The framework therefore identifies BMN 307 as a useful platform-style precedent for liver metabolic gene-addition programmes.
 
-### 3.2 Mucolipidosis Type IV (ORPHA:578) — Score: 8.4/10
+The interpretation should remain cautious. These diseases differ in subcellular localisation, metabolic pathway, newborn-screening relevance, and the extent to which liver correction would address neurological injury. For the dissertation, the BMN 307 cluster is best presented as a hypothesis-generating prioritisation result, not as a statement that the same vector/programme can be directly reused.
 
-Mucolipidosis type IV is caused by loss-of-function mutations in *MCOLN1* (CDS: 1,740 bp, autosomal recessive), encoding mucolipin-1, a lysosomal membrane ion channel affecting the CNS and retina. ABO-101 and RGX-121 (both AAV9, intrathecal CNS delivery) were jointly ranked as top matches at 8.4/10. The high score reflects a strong tropism match (AAV9 crosses the blood-brain barrier), matching lysosomal protein class, high immune privilege of CNS and retinal tissues (0.9/1.0 and 1.0/1.0 respectively), and full scores for promoter availability and route of administration. No active gene therapy program currently exists for Mucolipidosis type IV; the framework identifies an AAV9-based intrathecal approach modelled on the MPS III precedent as the most scientifically supported development pathway.
+### 3.3 Retinal precedent cluster
 
-### 3.3 Mucopolysaccharidosis Type IIIA / Sanfilippo A (ORPHA:79269) — Score: 8.3/10
+Retinal diseases clustered around Luxturna and CPCB-RPE1. Choroideremia and X-linked retinoschisis were high-confidence retinal matches, while Leber congenital amaurosis, Leber hereditary optic neuropathy, and achromatopsia were medium-confidence matches. This spread is biologically sensible: the eye is accessible and immune-privileged, but gene-specific biology, affected retinal cell type, mitochondrial inheritance, and programme stage all affect transferability.
 
-Sanfilippo A is caused by loss-of-function mutations in *SGSH* (CDS: 1,674 bp, autosomal recessive), encoding a lysosomal sulphohydrolase. The top match was ABO-101 (AAV9, CNS-targeted, 8.3/10), an active clinical program for the closely related disorder Sanfilippo B (MPS IIIB, caused by *NAGLU* deficiency). The framework correctly identified a closely related lysosomal storage disorder sharing the same target tissue, vector serotype, and protein class. The therapeutic window score of 1.5/2.0 correctly reflects the progressive neurodegeneration characteristic of Sanfilippo syndrome, where early intervention substantially alters outcome but neonatal delivery is not strictly required.
+### 3.4 Positive controls and benchmark behaviour
 
-### 3.4 Salla Disease (ORPHA:309) — Score: 8.2/10
+The strongest positive control was haemophilia B: Hemgenix ranked first with a 9.9/10 score. Spinal muscular atrophy also returned an AAV9/Zolgensma/OAV101-style precedent at high confidence. ADA-SCID ranked with Strimvelis, correctly recovering an ex vivo haematopoietic precedent. These results support the internal validity of the scoring system at a proof-of-concept level.
 
-Salla disease is caused by loss-of-function mutations in *SLC17A5* (CDS: 1,485 bp, autosomal recessive), encoding sialin, a lysosomal sialic acid transporter expressed in the CNS. The top matches were ABO-101 and RGX-121 (both AAV9, 8.2/10). CNS-only tissue involvement, lysosomal transporter protein class, and AR inheritance drove the strong match to existing CNS lysosomal storage precedents. No gene therapy program currently exists for Salla disease.
+Leber congenital amaurosis did not rank Luxturna first in the current run; CPCB-RPE1 ranked first at 7.2/10, with Luxturna second in the generated summary. This is not a trivial detail to hide. It indicates that the current scoring formula may over-weight vector/tissue/programme-stage similarity relative to exact disease identity for some retinal cases. In the dissertation, this should be discussed as a calibration issue and a motivation for either exact-target bonus scoring or a clearer validation metric.
 
-### 3.5 Alpha-Mannosidosis (ORPHA:61) — Score: 7.8/10
+## 4. Medium-Confidence and Stress-Test Results
 
-Alpha-mannosidosis results from loss-of-function mutations in *MAN2B1* (CDS: 3,033 bp, autosomal recessive), encoding lysosomal alpha-mannosidase. The top match was AVR-RD-01 (lentiviral vector, ex vivo haematopoietic stem cell delivery, 7.8/10), tied with ST-920 (AAV2/6, liver-targeted). The relatively large gene size (3,033 bp, 65% of AAV9 cargo capacity) reduced the packaging score compared to smaller-gene diseases but did not trigger a hard packaging fail. The lentiviral approach scored well because it is unconstrained by AAV packaging limits, carries near-zero pre-existing human immunity (seroprevalence ~2%), and targets haematopoietic stem cells capable of providing lysosomal enzyme cross-correction throughout the body. This recommendation is consistent with the ex vivo lentiviral strategy used in approved programs for other lysosomal storage diseases.
+Medium-confidence diseases were:
 
-### 3.6 Maple Syrup Urine Disease (ORPHA:511) — Score: 7.6/10
+- Leber congenital amaurosis (RPE65): CPCB-RPE1 / AAV8 at 7.2/10
+- Leber hereditary optic neuropathy (MT-ND4): CPCB-RPE1 / AAV8 at 6.9/10
+- Achromatopsia (CNGB3): CPCB-RPE1 / AAV8 at 7.1/10
+- Crigler-Najjar syndrome type I (UGT1A1): Hemgenix / AAV5 at 6.8/10
+- Glycogen storage disease type Ia (G6PC): SRP-9001 / AAV9 at 7.4/10
+- X-linked myotubular myopathy (MTM1): AT132 / AAV8 at 7.3/10
 
-Maple syrup urine disease (MSUD) is caused by loss-of-function mutations in *BCKDHA* (CDS: 1,335 bp, autosomal recessive), encoding a subunit of the mitochondrial branched-chain keto acid dehydrogenase complex. The top match was BMN 307 (AAV5, liver-targeted, Phase 2), a clinical program for phenylketonuria (PKU) — another amino acid metabolism disorder sharing the same hepatic target tissue and pathway grouping. The cross-correction score was low (0.2/1.0), reflecting the intracellular mitochondrial localisation of BCKDHA. The framework identifies a liver-directed AAV5 approach modelled on PKU precedent as the best-supported strategy.
+These cases are useful because they show where the framework becomes uncertain. They include retinal diseases where several plausible precedents compete; liver diseases where pathway and protein-class similarity are imperfect; and myopathy/mitochondrial cases where delivery and mechanism are less well represented by the current catalogue.
 
-### 3.7 Kohlschütter-Tönz Syndrome (ORPHA:1946) — Score: 7.6/10
+Duchenne muscular dystrophy failed the single-vector packaging gate. The correct interpretation is that NanoGT v0.1 cannot model micro-dystrophin engineering, dual-AAV delivery, exon skipping, or editing-based strategies. This is a limitation of current framework scope, not evidence that DMD is unsuitable for gene therapy.
 
-Kohlschütter-Tönz syndrome (KTS) is caused by loss-of-function mutations in *ROGDI* (CDS: 861 bp, autosomal recessive), encoding a synaptic scaffolding protein associated with Rabconnectin-3 and V-ATPase biology. The top matches were OAV101-IT and Zolgensma (both AAV9, CNS-targeted, 7.6/10). The small gene (861 bp, 18% of AAV9 capacity) conferred a perfect packaging score. However, the absence of a clear pathway match — ROGDI biology does not map to any of the predefined pathway groups — and the intracellular nature of the protein limited the composite score. This case illustrates a constraint of the current framework: diseases involving novel or poorly characterised biological pathways have no exact pathway precedent, and receive a neutral rather than a positive pathway score.
+## 5. Summary of Findings
 
-### 3.8 Crigler-Najjar Syndrome Type I (ORPHA:1060) — Score: 6.8/10 (Medium Confidence)
+The 30-disease analysis supports three dissertation-level claims:
 
-Crigler-Najjar syndrome type I is caused by loss-of-function mutations in *UGT1A1* (CDS: 1,596 bp, autosomal recessive), encoding UDP-glucuronosyltransferase 1-1, an intracellular endoplasmic reticulum membrane enzyme responsible for hepatic bilirubin conjugation. The top match was Hemgenix (AAV5, liver-targeted, 6.8/10) — the only disease in this study to receive a medium rather than high confidence rating.
+1. NanoGT can recover obvious clinical precedents for several positive controls and benchmarks.
+2. Cross-disease clustering produces biologically plausible precedent groups, especially for lentiviral/HSC lysosomal disease, liver metabolic AAV programmes, and retinal AAV programmes.
+3. The framework usefully exposes limitations: oversized cargo, mitochondrial delivery, uncertain pathway inference, cell-autonomous protein biology, and incomplete catalogue coverage.
 
-The lower score reflects a fundamental biological distinction from the other liver-targeted diseases in this study. UGT1A1 is an intracellular, membrane-bound enzyme that cannot be secreted or cross-correct neighbouring hepatocytes (cross-correction score: 0.2/1.0). The majority of approved liver gene therapy precedents target secreted proteins — Factor IX, Factor VIII — creating a protein class mismatch for Crigler-Najjar (class match score: 0.5/2.0 for the top match). Pathway similarity was also limited, as UGT1A1 participates in glucuronidation with no direct analogue in the current database (pathway score: 1.0/2.0, neutral). The medium confidence rating does not indicate that gene therapy is infeasible for Crigler-Najjar — liver-directed AAV delivery of *UGT1A1* has been investigated in clinical trials — but indicates that no existing approved program offers a close biological precedent across all twelve dimensions simultaneously, and that the development path carries a higher degree of novelty than for diseases scoring in the high-confidence range.
-
----
-
-## 4. Score Distribution and Summary
-
-Composite scores across all ten diseases ranged from 6.8/10 to 9.1/10, with a mean of 7.97/10. Nine of ten diseases achieved high confidence (≥7.5/10). The two validation diseases were correctly identified as top-ranked matches by the framework, with Haemophilia B producing the highest overall score (9.1/10) and SMA producing a high-confidence match at 7.7/10. Among the eight discovery diseases, scores clustered in the 7.6–8.6/10 range, with Crigler-Najjar as the sole medium-confidence outlier at 6.8/10.
-
-**Table 2: NanoGT results across all ten diseases (12-dimension scoring, normalised to 10).**
-
-| Disease | ORPHA | Gene | CDS (bp) | Top Precedent | Vector | Score | Confidence |
-|---------|-------|------|----------|---------------|--------|-------|-----------|
-| Haemophilia B *(validation)* | 306 | F9 | 1,383 | Hemgenix | AAV5 | 9.1 | High |
-| Spinal Muscular Atrophy *(validation)* | 70 | SMN1 | 891 | OAV101-IT | AAV9 | 7.7 | High |
-| Fabry disease | 324 | GLA | 1,290 | ST-920 | AAV2/6 | 8.6 | High |
-| Mucolipidosis type IV | 578 | MCOLN1 | 1,740 | ABO-101 | AAV9 | 8.4 | High |
-| Mucopolysaccharidosis type IIIA | 79269 | SGSH | 1,674 | ABO-101 | AAV9 | 8.3 | High |
-| Salla disease | 309 | SLC17A5 | 1,485 | ABO-101 | AAV9 | 8.2 | High |
-| Alpha-mannosidosis | 61 | MAN2B1 | 3,033 | AVR-RD-01 | LV | 7.8 | High |
-| Maple syrup urine disease | 511 | BCKDHA | 1,335 | BMN 307 | AAV5 | 7.6 | High |
-| Kohlschütter-Tönz syndrome | 1946 | ROGDI | 861 | OAV101-IT | AAV9 | 7.6 | High |
-| Crigler-Najjar syndrome type I | 1060 | UGT1A1 | 1,596 | Hemgenix | AAV5 | 6.8 | Medium |
-
-*Scores rounded to one decimal place. Validation cases in italics.*
+The results should be framed as a reproducible prioritisation and precedent-mapping framework, not as a validated therapeutic recommendation system.
