@@ -1,17 +1,17 @@
 """Database layer for nanogt — SQLite with WAL mode."""
-import json
-import os
-import pathlib
-import sqlite3
+import json # converts Python lists like tissue tropism into JSON strings for SQLite 
+import os # reads environment variables such as NANOGT_DB
+import pathlib # handles file paths cleanly 
+import sqlite3 # built-in Python library for SQLite databases
 
-from .catalog import VECTORS, GT_PROGRAMS
+from .catalog import VECTORS, GT_PROGRAMS # rows of the two tables 
 
 DEFAULT_DB = pathlib.Path.home() / ".nanogt" / "nanogt.db"
 SCHEMA_SQL = pathlib.Path(__file__).parent / "schema.sql"
 
 
 def get_db_path() -> pathlib.Path:
-    return pathlib.Path(os.environ.get("NANOGT_DB", DEFAULT_DB))
+    return pathlib.Path(os.environ.get("NANOGT_DB", DEFAULT_DB)) # this is saying that if environment variables NANOGT_DB exists, use it. Otherwise, use DEFAULT_DB
 
 
 def get_conn(db_path=None) -> sqlite3.Connection:
@@ -24,9 +24,8 @@ def get_conn(db_path=None) -> sqlite3.Connection:
     return conn
 
 
-def init_db(conn: sqlite3.Connection) -> None:
-    conn.executescript(SCHEMA_SQL.read_text())
-    # create gt_programs table (not in schema.sql)
+def init_db(conn: sqlite3.Connection) -> None: #init_db(conn) function creates database tables 
+    conn.executescript(SCHEMA_SQL.read_text()) # creates tables such as diseases, genes, proteins, disease_genes, vectors, matches, diseases_fts from schema.sql
     conn.execute("""
         CREATE TABLE IF NOT EXISTS gt_programs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,13 +44,10 @@ def init_db(conn: sqlite3.Connection) -> None:
             notes TEXT
         )
     """)
-    conn.commit()
+    conn.commit() # saves the table creation changes 
 
 
-def seed_db(conn: sqlite3.Connection) -> None:
-    # Keep the local DB in sync with the current in-code catalog. This is safer
-    # for a fast-moving research prototype than preserving stale seed rows from
-    # an older run (e.g. an old DB with only four vectors).
+def seed_db(conn: sqlite3.Connection) -> None:.
     conn.execute("DELETE FROM vectors")
     for v in VECTORS:
         conn.execute("""
@@ -63,12 +59,12 @@ def seed_db(conn: sqlite3.Connection) -> None:
             v["serotype"],
             v["cargo_limit_bp"],
             json.dumps(v.get("tissue_tropism", [])),
-            v.get("cns_tropic", 0),
+            v.get("cns_tropic", 0), # use 0 if missing 
             v.get("retinal_tropic", 0),
             v.get("hepatic_tropic", 0),
             v.get("muscle_tropic", 0),
             v.get("clinical_precedents", 0),
-            v.get("freely_available", 1),
+            v.get("freely_available", 1), # assume available if missing 
         ))
     conn.commit()
 
@@ -84,10 +80,10 @@ def seed_db(conn: sqlite3.Connection) -> None:
             p["name"], p["disease"], p["gene_symbol"], p["vector"],
             p["tissue_target"], p["cds_bp"], p["approval_status"],
             p.get("approval_year"), p["mechanism"], p["protein_class"],
-            p["inheritance"], p["pathway"], p.get("notes"),
+            p["inheritance"], p["pathway"], p.get("notes"), # these keys must exist or Python will raise an error 
         ))
     conn.commit()
-
+# important limitation is that this seeding only happens when the whole table is empty. If the table already has rows, new or changed catalog entries will not be loaded automatically 
 
 def setup(db_path=None) -> sqlite3.Connection:
     """One-call setup: connect, init schema, seed data."""

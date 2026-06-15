@@ -1,7 +1,3 @@
-# Code Study Note: `src/nanogt/db.py`
-
-File studied: `/Users/suzie/Projects/nano-rare-gt/src/nanogt/db.py`
-
 Related files:
 - `src/nanogt/catalog.py`
 - `src/nanogt/schema.sql`
