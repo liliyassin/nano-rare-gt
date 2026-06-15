@@ -42,6 +42,7 @@ def _require_db():
     return setup()
 
 
+# PROBLEM --> _require_db() always calls setup() with no custom path. If a user wants match or batch to use a custom database path, this function currently does not expose that option. To fix this, we could modify _require_db to accept an optional db_path argument, and then pass that through to setup(). Then the match and batch commands would also need to accept a --db-path option and pass it to _require_db. This way, users can specify a custom database path for all commands, not just init.
 # ══════════════════════════════════════════════════════════════════════════════
 # COMMAND 1: nanogt init
 # ══════════════════════════════════════════════════════════════════════════════

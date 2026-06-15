@@ -1,9 +1,12 @@
 """Static catalog data: vectors and GT programs."""
 
-# ── What this file is ──────────────────────────────────────────────────────
-# YOUR DATASET. Two hand-curated lists:
+# Dataset has two hand-curated lists:
 #   VECTORS     → 8 AAV/LV vectors with their properties
+# AAV1, AAV2, AAV5, AAV8, AAV9, AAVrh10, AAV2/6, LV
+# each vector has properties like tropism, cargo limit, clinical precedents, whether it's freely available, etc.
 #   GT_PROGRAMS → 18 real gene therapy programs used as precedents
+# e.g. Zolgensma for SMA, Hemgenix for haemophilia B, Luxturna for retinal disease, etc.
+# each program has properties like disease, gene, vector used, tissue target, approval status, mechanism, protein class, inheritance, pathway, etc.
 #
 # This is static data (hardcoded here) that gets loaded into the SQLite
 # database the first time you run `nanogt init`. Nothing here is fetched
