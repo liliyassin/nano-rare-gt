@@ -1,0 +1,1030 @@
+# Source PDF: Reading Literature/files/78/Kirschner and Cathomen - 2020 - Gene Therapy for Monogenic Inherited Disorders Opportunities and Challenges.pdf
+
+
+
+--- Page 1 ---
+
+MEDICINE
+Review Article
+Gene Therapy for Monogenic  
+Inherited Disorders
+Opportunities and Challenges
+Janbernd Kirschner, Toni Cathomen
+S
+omatic gene therapy is defined as the addition, re-
+moval, or modification of the genetic information 
+in a patient’s somatic cells for the purpose of treat-
+ing or preventing disease. After decades of research and 
+some setbacks, the number of successful and approved 
+gene therapeutics has inc reased continually in recent 
+years (Figure 1) (1). To date, gene therapy is used pri-
+marily in the therapy of monogenic, mostly rare diseases, 
+and in malignancies.
+Summary
+Background: New gene therapy approaches have emerged as promising treatment options for rare congenital disorders and 
+certain tumor entities for which previously only procedures of limited curative potential had been available, if at all. 
+Methods: Based on a selective literature search, the principles of gene therapy, the current status of clinical application, and the 
+methods and results of gene therapy approaches are discussed.
+Results: In vivo gene therapy relies mostly on the use of vectors based on modified adeno-associated viruses to introduce a 
+functioning copy of the missing or defective genetic information into the target cells. In ex vivo gene therapy, the target cells are 
+extracted, genetically modified using a viral vector, and then returned to the patient. Predominantly lentiviral vectors are used for 
+this purpose. With regard to monogenic disorders, gene therapies are available for the treatment of patients with severe com-
+bined immunodeficiency (ADA-SCID), congenital retinal dystrophy (RPE65 mutations), transfusion-dependent β-thalassemia, 
+and spinal muscular atrophy. In spinal muscular atrophy, for example, single-dose in vivo gene therapy leads to progress in 
+motor development that could not be expected to occur in the natural course. These effects are particularly pronounced when 
+the gene therapy is administered before the onset of symptoms.
+Conclusion: The first gene treatments have now been approved and bring hope of long-term therapeutic benefit after a single 
+administration. The numbers of patients who come into question for specific therapies are often low, so that many different as-
+pects—generation of evidence on efficacy and safety, determini ng indications, performance of the treatment, pricing—bring new 
+challenges.
+Cite this as:
+Kirschner J, Cathomen T:  Gene therapy for monogenic inherited disorders—opportuni ties and challenges.  
+Dtsch Arztebl Int 2020; 117: 878–85. DOI: 10.3238/arztebl.2020.0878
+Department of Neuro -
+pediatrics, University 
+Hospital Bonn, Ger-
+many: Prof. Dr. med. 
+Janbernd Kirschner
+Institute for Trans-
+fusion Medicine and 
+Gene Therapy & 
+Center for Chronic 
+Immunodeficiency 
+(CCI), Medical 
+Center-University of 
+Freiburg, Freiburg, 
+Germany: Prof. Dr. 
+phil. Toni Cathomen
+Viral vectors are the most commonly used method 
+for inserting the genetic information into the target 
+cells. This so called transduction can be done ex vivo 
+or in vivo ( Figure 2, Box 1). In contrast to germ cell 
+therapy, which is prohibited in Germany for ethical 
+reasons, in somatic gene therapy the genetic material 
+is inserted into differentiated somatic cells or their 
+precursors. It is therefore not passed on to the sub -
+sequent generation. These therapies are mostly given 
+as a single treatment and can occasionally affect the 
+disease course in the long term and in a sustained 
+way. Because of the novelty and the expense of up to 
+2 million Euro, gene therapies are associated with 
+particular challenges for the healthcare system. Fur-
+thermore, at the time they gain approval, data on long 
+term safety and efficacy are often still limited.
+In contrast to gene transfer as explained above,   ge-
+nome editing aims to correct a disease causing mu-
+tation directly in the genome of the affected cells in an 
+This article has been cert ified by the North Rhine 
+ Academy for Continuing Medica l Education. Participation 
+in the CME certification program is possible only over the 
+internet: cme.aerzteblatt.de
+.  
+The deadline for submissions is 20 December 2021.  
+cme plus
+878 Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85
+
+
+--- Page 2 ---
+
+MEDICINE
+organ. Since the initial description of the CRISPR-
+Cas technology in 2012, genome editing with 
+ programmable nucleases as evolved at great speed. In 
+addition to CRISPR-Cas, two further platforms—zinc 
+finger nucleases (ZFNs) and transcription activator-
+like effector nucleases (TALENs)—have reached the 
+clinical trial stage (2).
+This review article describes recent developments 
+in gene therapy. First, we identified the gene thera-
+peutics approved in Europe and Germany from the 
+websites of the European Medicines Agency (EMA) 
+and the Paul-Ehrlich-Institute ( Table). We then con-
+ducted a selective literature search in PubMed with 
+the substances and higher-level topics as search 
+terms.
+Examples of gene therapies in monogenic 
+ disorders
+The advantage of ex vivo gene therapy lies in the fact 
+that the product can and must be characterized in detail 
+before the transplantation. The production of geneti-
+cally modified cells is therefore subject to extensive 
+laws, regulations, and guidelines. For targeted in vivo 
+treatment, the logistical hurdles are not quite as steep, 
+but suitable methods are required to achieve sufficient 
+efficacy in the target organ while simultaneously 
+ minimizing the extent of immune reactions and the risk 
+of undesirable modifications to the germline. Since in 
+most cases, only very few patients are suitable 
+ candidates for a specific gene therapy, the numbers of 
+patients treated in clinical studies are often small. 
+ Furthermore, the fact that the disorders are severe and 
+progressive, without any therapeutic alternative, often 
+prevents the carrying out of randomized or placebo 
+controlled trials, for methodological and ethical 
+ reasons. In the following paragraphs we will explain 
+important developmental steps relating to individual 
+ organs.
+Liver (hemophilia)
+Hemophilia is a bleeding disorder, in which—because 
+of genetic defects—Factor VIII (hemophilia A) or IX 
+(hemophilia B) is not produced in sufficient amounts. 
+Current therapy consists of lifelong substitution of the 
+relevant clotting factors. Initial studies of gene transfer 
+date back as far as the 1990s, but the expression of 
+ Factor IX was only short-lived, owing to a strong im-
+mune response against the adeno-associated virus 
+FIGURE 1
+ Gene therapeutics in the EU  
+The time axis lists all gene therapies (on a grey background) approved by the European Medicines Agency (EMA), as well as selected drugs for 
+novel therapies to treat monogenetic disorders that have recognized Priority Medicine (PRIME) status in the EU (38). The PRIME kitemark (*) 
+enables the priority development of medical drugs that are considered promising and for which no alternative preparations exist. The figure dis-
+plays the applied vector types and the relevant therapeutic genes. The disorder that can be treated with this preparation is given in parentheses 
+below. The license for Glybera expired in 2017. LV-ARSA was recommended for approval in October 2020. 
+AAV, adeno-associated virus; AAVx, AAV serotype x vector; ABCD1, ATP-binding cassette D1 (cerebral adrenoleukodystrophy); ADA, adenosine 
+monophosphate desaminase (ADA deficiency); ARSA, arylsulfatase A (metachromatic leukodystrophy); CD19.CAR, chimeric antigen receptor 
+directed against CD19 (CAR-T-cell therapy); CNGB3, cGMP-gated cation channel B3 (achromatopsia); COL7A1; collagen type-7-A1-chain 
+ (dystrophic epidermolysis bullosa); FANCA, Fanconi Anemia-Complementation Group A (Fanconi-anemia typ A); FVIII, factor VIII (hemophilia 
+A); FIX, factor IX (hemophilia B); γRV, gamma-retroviral vector; HBB, β-globin (β thalassemia); HSV, herpes simplex virus-based vector; LPL, 
+ lipoprotein lipase (LPL deficiency); LV, lentiviral vector; MTM1, myotubularin 1 (myotubular myopathy); ODD, orphan drug designation; RPE, 
+ retinoid-isomerohydrolase (retinal dystrophy); SGSH, heparan sulfamidase (Sanfilippo disease type A); SMN, survival motor neuron (spinal 
+ muscular atrophy)
+ex vivo
+2007 EU-ODD
+LV-ARSA
+2016 EMA
+Strimvelis
+γRV-ADA
+2018 EMA*
+LV-ABCD1
+2018 EMA*
+AAV8-MTM1
+2018 EMA
+Yescarta
+γRV-CD19.CAR
+2018 EMA
+Kymriah
+LV-CD19.CAR
+2019 EMA
+Zynteglo
+LV-HBBT87Q
+2019 EMA*
+LV-FANCA
+in vivo
+2012 EMA
+Glybera
+AAV1-LPL
+2017 EMA*
+AAV5-FVIII
+2017 EMA*
+AAV5-FIX
+AAV8-FIX
+AAV100-FIX
+Padua
+2018 EMA
+Luxturna
+AAV2-RPE
+2018 EMA*
+AAV8-CNGB3
+2019 EMA*
+AAV9-SGSH
+2019 EMA*
+HSV-COL7A1
+2020 EMA
+Zolgensma
+AAV9-SMN
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85 879
+
+
+--- Page 3 ---
+
+MEDICINE
+(AA V) based vector (3). Subsequently the viral vectors 
+and expression cassettes were improved, and several 
+studies of AA V based gene therapy of hemophilia A and 
+B were initiated (4). In an open label treatment study, 
+15 adult patients with hemophilia A were treated in a 
+single session with different dosages of AA V5 based 
+gene therapy. Over the three year follow-up period it 
+was observed that the 13 patients who had received a 
+higher dose did not need any further factor substitutions 
+and the bleeding rate was reduced by more than 90%. 
+Almost all patients experienced temporarily higher 
+transaminase levels after the treatment, which were re-
+versed by giving temporary cortisone treatment and did 
+not trigger clinical symptoms. One patient developed a 
+fever, headache, and aching limbs after the infusion, 
+which ceased after symptomatic therapy (5, 6). Further 
+potentially limiting factors are pre-existing antibodies 
+against the AA V capsid used or against the respective 
+clotting factor.
+Eye (retinopathies)
+Ophthalmology is the specialty in which gene transfer 
+has made the greatest progress, in the treatment of 
+ retinopathies. In contrast to the often used systemic 
+ application, the treatment is administered by means of 
+direct subretinal injection of the vector after vitrec-
+tomy. The effective substance V oretigene neparvovec is 
+an AA V2 based gene addition for the treatment of 
+Leber congenital amaurosis (type 2) and retinitis pig-
+mentosa (type 20), which are both caused by mutations 
+of the RPE65 gene. If the disorders remain untreated 
+they will lead to complete blindness. An open label ran-
+domized trial in a wait-list control group design, 21 of a 
+total of 31 patients were randomized to direct treat-
+ment. The primary endpoint, a standardized mobility 
+test to measure functional vision in environments of 
+different levels of brightness (multi-luminance mobility 
+testing, MLMT) showed significant improvements in 
+eyesight and orientation in poorly lit environments after 
+the treatment compared with the control group. This 
+positive effect was sustained in one study over a period 
+of four years. Improvement of visual acuity in well lit 
+environments did not reach significance  (7, 8). The 
+therapy was approved by the EMA in 2018 for the treat-
+ment of children and adults with a retinopathy owing to 
+RPE65 mutations whose retinal tissues was still 
+ functional. Both eyes were treated with a time interval. 
+Currently, clinical trials are being conducted to evalu-
+ate AA V based gene therapy in numerous additional 
+gene related retinopathies.
+Neuromuscular disorders
+Potential gene therapeutic approaches for the treatment 
+of different, mostly rapidly progressive neuromuscular 
+disorders have been the subject of research for decades. 
+A first breakthrough was achieved in the treatment of 
+spinal muscular atrophy (SMA). This is an autosomal-
+recessive disorder and is due to mutations of the SMN1 
+gene. The resultant deficiency in SMN protein leads to 
+the degeneration of the motor neurons in the spinal cord 
+and associated progressive muscular weakness. Clini-
+cally, a wide disease spectrum has been observed, with 
+onset ranging from infancy to young adulthood. Most 
+common is SMA onset within the first six months of 
+life, which—if left untreated—will lead to death within 
+the first two years of life because of the involvement of 
+the respiratory muscles. 
+Nusinersen is a causal treatment that has been 
+available since 2017. It’s a splicing modifier, which 
+after an initial saturation phase is administered intra-
+thecally every four months via lumbar puncture (9, 10).
+Gene therapy for SMA is done by using an AA V9 
+vector, which transports the SMN1 gene into the 
+motor neurons of the spinal cord after s single 
+ intravenous application. Sufficient transduction after 
+intravenous administration is successful especially in 
+infancy. A study of the substance onasemnogene 
+ abeparvovec showed in 12 infants, who received a 
+higher dose of the gene therapy, motor progress that 
+was not observed in the natural course. 24 months 
+after the treatment, all treated children were 
+ event-free—that is, they survived without long-term 
+ventilation—compared with less than 8% over the 
+natural course (11). The most common adverse effects 
+were asymptomatic increase in transaminase levels, 
+thrombocytopenia, and temporary fever and vomit-
+ing. Recently, individual cases have been described of 
+subacute liver failure after the therapy had been given 
+(12). 
+FIGURE 2
+Principles of gene addition therapy
+In ex vivo gene therapy, the target cells are isolated from the body first, in order to modify them 
+genetically by applying a viral vector. When using a lentiviral vector, the therapeutic gene is in-
+tegrated into the host genome in a stable way, which means it is passed to the daughter cells. 
+Subsequently the cells are implanted back into the patient. The cases of leukemia triggered by 
+retroviral insertional mutagenesis in early gene therapy studies have not occurred since sec-
+ond generation retroviral and lentiviral vectors have been used. 
+In in vivo gene therapy, viral vectors that code for the therapeutic gene are transferred directly 
+into the body of the patient. The vectors used for these treatments are mostly derived from 
+adeno-associated viruses (AAV) (39). In contrast to lentiviral vectors, AAV vectors do not inte-
+grate their genome into the host genome. It remains in the cell nucleus as an episome but is 
+not multiplied during cell division. AAV vectors are therefore particularly suitable for gene 
+transfer in de facto post-mitotic tissue, such as retina, liver, or muscle. 
+in vivo ex vivo
+Injection
+AAV vector
+episomal
+transplantation
+Lentiviral
+vector
+Integration 
+into genome
+Cell removal 
+880 Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85
+
+
+--- Page 4 ---
+
+MEDICINE
+Onasemnogene abeparvovec was approved by the 
+US Food and Drug Administration (FDA) for the 
+treatment of children with SMA up to the age of 2 
+years in 2019. The demand of affected families to be 
+given a treatment, which incurs costs of up to 2 
+ million Euro, before this has been approved for use in 
+Europe led to great media interest and public 
+ discussions in Germany, too (13, 14). 
+The approval of onasemnogene abeparvovec is-
+sued by the EMA in 2020 is notably wider than the 
+populations investigated in clinical trials and has 
+prompted debates about the safety and efficacy in this 
+extended patient population (15, 16). Clinical studies 
+that directly compare nNusinersen and onasemnogene 
+abeparvovec regarding safety and efficacy do not 
+exist.
+For the most common hereditary muscle disorder 
+in children—the X-linked inherited Duchenne muscu-
+lar dystrophy—the size of the defective dystrophin 
+gene is a problem as it exceeds the capacity of the 
+viral vectors. For this reason, the so called microdys-
+trophin genes have been developed, which contain the 
+most important elements of the dystrophin gene but 
+are notably smaller (17). The clinical efficacy of AA V 
+based gene therapy using microdystrophins is cur-
+rently being investigated in clinical trials.
+Clear clinical improvements have recently been 
+observed for X-linked inherited myotubular 
+ myopathy, whose estimated incidence is about 
+1 : 50 000 male newborns (18). It is mostly associated 
+with severe congenital muscle weakness, which 
+necessitates artificial respiration. An open label treat-
+ment study in 12 patients described improvements in 
+motor and respiratory function after AA V8 based 
+gene therapy to the point where artificial respiration 
+was no longer required (18).
+However, in 2020, two children who had received a 
+higher dose of this gene therapy died from sepsis, 
+which was probably due to liver injury. The use of the 
+therapy in further patients has therefore been stopped 
+(20).
+Immune system
+For ADA-SCID, an extremely rare immune defect (se-
+vere combined immunodeficiency [SCID]) with de-
+pletion of the T, B, and NK lymphocytes and conse-
+quently lacking adaptive humoral and cellular immune 
+response, gene therapy was approved in Europe as 
+early as 2016. Untreated, the affected infants will die 
+within their first few years of life. Therapeutic ap-
+proaches to date consist of bone marrow transplantation 
+or enzyme substitution therapy. Gene therapy in 
+ ADA-SCID is administered ex vivo. To this end, 
+CD34+-cells are extracted from a bone marrow biopsy 
+specimen or peripheral blood, corrected via a retroviral 
+vector with an intact ADA gene, and then infused intra-
+venously.
+Gene therapy is approved for patients who do not 
+have a suitable donor for bone marrow transplan-
+tation. Because the disease is so rare and the therapy 
+so complex, the procedure is currently provided in 
+Europe in only one center in Milan (Italy). For the 12 
+participants in the pivotal studies, follow-up data with 
+a median observation period of 12 years are now 
+available, which showed a survival rate of 100%, of 
+which 92% were event-free (21). For other hereditary 
+immune defects, gene therapies are already in 
+ advanced clinical development (22,23).
+Disorders of hematopoiesis
+In 2019 the first gene therapy was approved for the 
+treatment of hereditary hemoglobinopathy. The 
+ preparation Betibeglogene autotemcel can be used 
+in adolescent and adult patients with transfusion 
+BOX 1
+Important terms relating to gene therapy
+● Antisense oligonucleotide 
+Synthetically produced fragment of ribonucleic acid (RNA), which can affect 
+splicing of pre-RNA. Nusinersen (Spinraza) is an antisense oligonucleotide 
+that is approved for the treatment of spinal muscular atrophy. The treatment 
+does not change the genetic information directly, only the way in which it is 
+read. 
+● CAR T-cell therapy 
+The so called chimeric antigen receptor (CAR) T-cell therapy is a novel thera-
+peutic approach, which was developed primarily to treat cancer. Lymphocytes 
+are taken from the patient and gene transfer is used to furnish these cells with 
+specific CARs. Upon infusion, the CAR T-cells recognize tumor-associated 
+antigens in a targeted manner and destroy the tumor cells by  activating the im-
+mune system.
+● CRISPR-Cas9 
+Clustered regularly interspaced short palindromic repeats-Cas9 is an instru-
+ment used in genome editing consisting of enzyme (Cas9) and a short guide 
+RNA. The complex is referred to in vernacular language as “gene scissors.”
+● Episome 
+Circular extrachromosomal DNA molecule that is not integrated into the ge-
+nome. 
+● Expression cassette 
+DNA segment that is responsible for the synthesis of RNA. In addition to the 
+protein coding sequence, it contains regulatory sequences that control tran-
+scription (for example, promotor) and translation.
+● Insertional mutagenesis 
+Genotoxic effects as a result of the insertion of genetic information into the 
+ cellular genome, especially in the genetic modification of stem cells by using 
+retroviral vectors.
+● Transduction 
+In genetics, this describes the delivery of genetic material into target cells by 
+using viral vectors.
+● Viral vectors 
+Intentionally modified virus particles that are used in gene technology to de-
+liver genetic material into target cells. They are in vernacular language referred 
+to as gene ferries.
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85 881
+
+
+--- Page 5 ---
+
+MEDICINE
+TABLE 
+Gene therapies licensed for use in Europe
+In contrast to the usual practice of the Deutsches Ärzteblatt we list the medications used for the therapy under their proprietary names in order to facilitate easier recognition, as even experts are 
+often unfamiliar with the vector names. See Box 2 regarding the terminology of gene therapeutics. 
+*1 Details on the precise area of use should be taken from the product leaflets/information. 
+*2 The reported prevalence rates of patients suitable for the relevant therapy are often subject to great uncertainties. Unless reported otherwise the data are from the reports of the Institute for 
+Quality and Efficiency in Healthcare  (IQWiG) in the context of benefit assessments by the Federal Joint Committee (www.g-ba.de). Some prevalence rates refer to patients in the statutory 
+health insurance scheme (GKV), this proportion accounts for 90 % of the total population.
+*3vgl. www.ema.europa.eu/en/medicines/human/orphan-designations/eu305313 
+Product 
+Year of approval
+Alipogentiparvovec
+(Glybera)
+2012 (approval expired in 
+2017)
+Talimogen laherparepvec 
+(Imlygic) 
+2015
+Strimvelis
+2016Tisagenlecleucel 
+ (Kymriah) 
+2018
+Axicabtagene ciloleucel 
+(Yescarta)
+2018
+Voretigen neparvovec 
+(Luxturna)
+2018
+Betibeglogene autotemcel 
+(Zynteglo) 
+2019
+Onasemnogene 
+ abeparvovec  (Zolgensma)
+2020
+Indication*1
+Adults with familial  lipoprotein lipase deficiency (LPLD) 
+with severe or multiple episodes of pancreatitis in spite 
+of a low-fat diet
+Adults with non-resectable, local or distant metastatic 
+melanoma (stages IIIB, IIIC, and IVM1a)
+Patients with severe combined immunodeficiency 
+caused by adenosine deaminase deficiency (ADA-
+SCID), for which no suitable human  leukocyte antigen 
+(HLA) compatible stem cell donor from the family is 
+available
+Patients aged up to 25 years with refractory or 
+ recurrent B-cell acute lymphoblastic leukemia (ALL); 
+adults with diffuse large B cell lymphoma (DLBCL) 
+after a minimum of two systemic treatments
+Adults with recurrent or refractory diffuse large B cell 
+lymphoma (DLBCL) and primary mediastinal large B 
+cell lymphoma (PMBCL) after a minimum of two sys-
+temic treatments
+Patients with vision loss owing to hereditary retinal 
+dystrophy, as a result of confirmed  biallelic RPE65 
+ mutations
+Patients > 12 years with transfusion dependent 
+ β-thalassemia (TDT), who do not have a β0/β0 geno-
+type, and for whom no stem cell donor is available
+Patients with spinal muscular atrophy (SMA) owing to 
+a biallelic mutation in the SMN1 gene and the clinical 
+phenotype of SMA type 1 or up to 3 SMN2 copies 
+Prevalence*2
+Target popu-
+lation in Ger-
+many: 17–35
+Target popu-
+lation in Ger-
+many: 75–225
+Prevalence 
+0.02 : 10 000*
+3
+ means a preva-
+lence for all of 
+Germany of 
+about 160 
+Target popu-
+lation in 
+ Germany: 
+438–702
+Target popu-
+lation in 
+ Germany: 
+871–1 064
+Target popu-
+lation in Ger-
+many: 189–290
+Target popu-
+lation in 
+ Germany: 
+49–53
+Target popu-
+lation in Ger-
+many: 71–120 
+patients with 
+SMA type 1, 
+770 bis 941 pa-
+tients with later 
+disease onset, 
+SMA incidence 
+at birth about 
+100 per year
+Viral vector or cell 
+therapy
+AAV1 vector coding 
+for human LPL gene 
+Vector coding for 
+human  GM-CSF, 
+which is based on 
+ attenuated HSV-1
+Ex vivo therapy of 
+autologous 
+CD34
++-cells trans-
+duced by using 
+retroviral vector carry-
+ing the ADA coding 
+sequence
+Ex vivo therapy of len-
+tivirally transduced 
+autologous T-cells that 
+express a chimeric 
+antigen receptor (CAR) 
+directed against CD19 
+Ex vivo therapy of 
+retrovirally transduced 
+autologous T-cells, 
+that express a chimeric 
+antigen receptor (CAR) 
+directed against CD19 
+AAV2 vector coding 
+for the human RPE65 
+gene 
+Ex vivo therapy of 
+CD34
++-cells trans-
+duced with a lentiviral 
+vector coding for 
+β-Globin (T87Q)
+AAV9 vector coding 
+for the human SMN1- 
+gene 
+Application
+Several intramuscular injec-
+tions of the vector in one 
+session
+Repeated injection of the 
+ vector into cutaneous, subcu-
+taneous, and/or nodal lesions 
+Intravenous administration of 
+the  genetically modified 
+CD34
++ --cells
+Intravenous administration of 
+the  genetically modified  T-cells
+Intravenous administration of 
+the  genetically modified  T-cells
+Subretinal injection of the 
+ vector
+Intravenous administration of 
+the  genetically modified  
+CD34
++ -cells
+Intravenous  infusion of the 
+vector
+882 Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85
+
+
+--- Page 6 ---
+
+MEDICINE
+ depen dent β-thalassemia (non-β0/β0 genotype) if no 
+suitable donor for a stem cell transplant is available (24).
+Gene therapy is done ex vivo, by adding to the 
+autologous hematopoietic stem cells (HSC) func-
+tional copies of the β-globin gene (βA-T87Q globin 
+gene variant) by means of a lentivirus vector. The 
+ primary outcome measure of the studies that was rel-
+evant for approval was a minimum period of 1 year 
+without transplantation in the follow-up period of 24 
+months. This was achieved in 11 of the 14 patients 
+with a non-β
+0/β0 genotype. The only serious adverse 
+effect associated with  to Betibeglogene autotemcel 
+was thrombocytopenia in one of 45 patients (25).
+In this context it is worth mentioning that phase 1/2 
+trials of CRISPR edited HSC in β-thalassemia and 
+sickle cell disease seem to have been successful in 
+their first patients. For instance,a 20 year old trans-
+f u s i o n  d e p e n d e n t  t h a l a s s e m i a  p a t i e n t  h a d  p r e s e n t e d  
+with “normal” blood counts for 18 months and had 
+not required any more transfusions (26).
+Mucoviscidosis
+Mucoviscidosis, also known as cystic fibrosis, is an 
+autosomal recessive metabolic disorder with an 
+ incidence of about 1:4 000 neonates. Mutations in the 
+CFTR gene disrupt the function of the chloride chan-
+nel, which affects in particular the respiratory tract, the 
+pancreas, the small bowel, and the male sexual organs 
+(27). Especially the pulmonary manifestation is the 
+ target of gene therapeutic interventions.
+In 2015 the results of a double blind placebo 
+ controlled phase 2b trial were published, which inves-
+tigated the monthly inhalation of a CFTR gene/lipo-
+some complex. Altogether after 12 months a small, 
+statistically significant therapeutic success was seen 
+with regard to the primary outcome measure (forces 
+expiratory volume at 1 second [FEV1]), of 3.7% 
+(95% confidence interval [0.1; 7.3] compared with 
+placebo. The individual response was, however, so 
+heterogeneous that the clinical efficacy overall was 
+rated as non-satisfactory (28). Since then research has 
+focused on the development of new vectors that en-
+able better transduction of the target cells, especially 
+in the respiratory tract (29).
+Particularities and challenges of gene therapies
+In contrast to conventional drug treatments, gene thera-
+peutics ( Box 2 ) are mostly administered in a single 
+session. Using these innovative therapies requires rel-
+evant expertise, both regarding the application (for 
+example, ex vivo preparation, subretinal injection) as 
+well as regarding monitoring and treatment of potential 
+adverse effects (immune reaction, off-target effects).
+Since the context so far has mostly been one of rare 
+diseases, approval of gene transfer therapies is mostly 
+based on studies with small patient numbers and 
+ follow-up periods of very few years. This seems sen-
+sible in order not to withhold effective treatments 
+from affected patients, but it is also associated with a 
+risk of as yet unknown adverse effects (Box 3). 
+Often the effect size of a gene therapeutic depends 
+on the stage of the disease at the time of the treatment. 
+In spinal muscular atrophy, initial studies showed that 
+a presymptomatic start of treatment is particularly 
+promising and often enables age-appropriate learning/
+development of the ability to walk independently (3). 
+In an open label study of presymptomatic gene ther-
+apy for SMA, seven of 29 patients gained the ability 
+to walk independently. All others had not reached the 
+age threshold at the time of interim analysis (31). Cur-
+rently, efforts are under way to include genetic testing 
+for spinal muscular atrophy in the general newborn 
+screening (32).
+BOX 2
+Terminology for gene therapeutics
+The World Health Organization published requirements for the proprietary 
+names of gene therapeutics (40). The names as a rule consist of two words, 
+with the first word relating to the gene product used and the second word to 
+the vector used.
+Example: Onasemnogene abeparvovec (Zolgensma) for the treatment of 
+spinal muscular atrophy. In this preparation, the word component “semnogene” 
+refers to the included SMN gene, whereas “parvo” refers to the vector, an 
+adeno-associated virus (Parvoviridae). The final syllable “vec” refers to the fact 
+that this is a non-replicating vector.
+BOX 3
+Ethical, regulatory, and economic characteristics/ 
+particularities of somatic gene therapies
+To date, somatic gene therapies have been used mainly in monogenic, mostly 
+rare disorders, which have a severe and progressive course and for which 
+hardly any therapeutic alternatives exist. As in- vivo gene therapies can be 
+used only once because of immunization, the difficult question in clinical re-
+search already is that of adequate dosage. On the one hand, the dose should 
+lead to a sufficient cell transduction and, on the other hand, toxic effects owing 
+to an excessively high viral load should be avoided.
+For methodological and ethical reasons, the case numbers and observa-
+tion/follow-up periods are often limited in clinical studies, and randomized 
+placebo controlled trials are more likely to be the exception. The available 
+ evidence is therefore limited. The regulatory authorities are then faced with the 
+difficult task of balancing the remaining uncertainties and risks with the poten-
+tially sustained benefit of the therapy for the affected patients. 
+Finally, it needs to be discussed how the financial value of these innovative 
+therapies can be determined while considering the development costs, but 
+also the capacity of the solidarity community. A “learning system” would make 
+sense in this context. It would enable even after “early” approval, a continuous 
+and timely new evaluation of efficacy and safety, and therefore the validity/
+value of gene therapies. A comprehensive follow-up and documentation of all 
+treated patients will be the main crucial element in this. The indication and the 
+reimbursement could then be adjusted dynamically to the growing evidence.
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85 883
+
+
+--- Page 7 ---
+
+MEDICINE
+On the other hand, the therapeutic benefit of gene 
+therapy in advanced disease stages can be very 
+ limited. Which patients benefit to which degree from 
+gene therapy can be determined conclusively only in 
+the context of long term studies. Depending on the 
+question, product or disease specific registries are 
+suitable, with the latter also enabling comparative 
+analysis of different products (24, 33).
+Registries have to meet certain quality criteria re-
+garding data collection and analysis (34, 35). Ideally, 
+long term, if possible industry independent, follow-up 
+should be ensured for all treated patients. This 
+requires relevant regulatory specifications (36) and is 
+a laborious and complex undertaking for treatment 
+centers. In view of the, in some cases, extremely high 
+medication costs, relevant resources will have to be 
+made available for documenting efficacy and safety. 
+This may be the only way to allow the appropriate and 
+economical use of these therapies in the mid term.
+From a health economic perspective too, the intro-
+duction of gene therapies entails certain challenges. In 
+some cases, costs of up to 2 million Euro for a single-
+dose treatment contrasts with the long term costs of 
+conventional therapy. For this reason, new reimburse-
+ment methods are under discussion that are guided by 
+the therapeutic success. For CAR T-cell therapy (Box 
+1) using Tisagenlecleucel, for example, a partial 
+ reimbursement of the price by the pharmaceutical 
+manufacturer was agreed if a patient were to die from 
+cancer within a defined time period. Other models 
+prefer price adjustments that are guided by the total 
+evidence for a product and not the individual case 
+(37).
+Outlook—the importance of gene therapy
+The first gene therapies for monogenic disorders are al-
+ready in use in clinical practice, and it is to be expected 
+that the number of approved gene therapies will in-
+crease further over the coming years. In addition to the 
+classic virus vector based gene transfer, targeted ge-
+nome editing is increasingly drawing attention. The po-
+tential of somatic gene therapy has become vastly more 
+than just replacing defective or lacking genes and can 
+also be used to insert particular enzymes or other effec-
+tor proteins, such as CRISPR-Cas genetic scissors. This 
+means that disorders with a dominant inheritance, non-
+monogenic entities, such as cardiovascular disorders, 
+inflammatory disorders, and Parkinson’s disease, could 
+also be treated with gene therapy in the future.
+Key messages
+● Gene therapies replace or repair “malfunctioning” genes and open up new thera-
+peutic options.
+● Owing to genetic, tissue specific, and immunological particularities, not all hered-
+itary disorders are equally suitable for a gene therapeutic approach.
+● A single treatment session often leads to long-term therapeutic effects, in particular 
+for certain cases of monogenic disorders.
+●  For methodological and ethical reasons, approval is often not based on double 
+blinded randomized trials but on open label studies with limited case numbers. The 
+systematic collection of data on clinical effects and adverse effects therefore should 
+be continued after a drug has been approved.
+● The high costs of therapy and the effort involved in applying and monitoring these 
+novel therapies present new challenges for the healthcare system (among others, 
+ensuring access, quality assurance, and economic viability).
+Conflict of interest statement 
+Prof. Kirschner received consultancy fees and travel expenses from 
+ Avexis, Biogen, Pfizer, Roche, Sarepta, and Scholar Rock. He received 
+lecture honoraria from Avexis, Biogen, and Roche. Study support (third 
+party funding) was made available to him by Biogen and Roche. He is the 
+director of the SMArtCARE registry for the long term follow up of SMA and 
+a member of the board of the European Reference Network for rare 
+ neuromuscular diseases (EURO-NMD). 
+Prof. Cathomen holds shares in CRISPR Therapeutics and patents with 
+relation to the subject from Freiburg University Medical Center. He 
+ received lecture honoraria from the Initiative Gesundheitsindustrie Hessen 
+[IGH, an alliance formed of four partnering groups: Hesse’s state govern-
+ment, companies active in Hesse’s healthcare industries, the Hesse-
+ Thuringia area of the IG BCE [the trade union for mining, chemicals, and 
+energy], and Hesse’s institutions of higher education], and Medscape 
+ Oncology. Study support (third party funding) was made available to him 
+by Cellectis SA and Miltenyi Biotec.
+Manuscript received on 28 February 2020, revised version accepted on 
+ 19 August 2020.
+Translated from the original German by Birte Twisselmann, PhD.
+References
+1. Paul Ehrlich Institut: Gent herapeutika. www.pei.de/DE/ 
+arzneimittel/atmp/gentherapeutika/gentherapeutika-node.html 
+(last accessed on 26 February 2020).
+2. Cornu TI, Mussolino C, Cathomen T: Refining strategies to trans-
+late genome editing to the clinic. Nat Med 2017; 23: 415–23.
+3. Mingozzi F, High KA: Immune responses  to AAV in clinical trials. 
+Curr Gene Ther 2007; 7: 316–24.
+4. Miesbach W, Schwäble J, Müller MM, Seifried E: Treatment op-
+tions in  hemophilia. Dtsch Arztebl Int 2019; 116: 791–8.
+5. Pasi KJ, Rangarajan S, Mitchell N, et al.: Multiyear follow-up of 
+AAV5-hFVIII-SQ  gene therapy for hemophilia A. N Engl J Med 
+2020; 382: 29–40.
+6. Perrin GQ, Herzog RW, Markusic DM: Update on clinical gene 
+therapy for  hemophilia. Blood 2019; 133: 407–14.
+7. Maguire AM, Russell S, Wellman JA, et al.: Efficacy, safety, and 
+durability of voretigene neparvovec -rzyl in RPE65 mutation-as-
+sociated inherited retinal dystrophy: results of phase 1 and 3 
+trials. Ophthalmology 2019; 126: 1273–85.
+8. Russell S, Bennett J, Wellman JA, et al.: Efficacy and safety of 
+voretigene  
+neparvovec (AAV2-hRPE65 v2) in patients with 
+RPE65-mediated inherited retinal dystrophy: a randomised, con-
+trolled, open-label, phase 3 trial. Lancet 2017; 390: 849–60.
+9. Finkel RS, Mercuri E, Darras BT, et al.: Nusinersen versus sham 
+control in  infantile-onset spi nal muscular atrophy. N Engl J Med 
+2017; 377: 1723–32.
+10. Mercuri E, Darras BT, Chiriboga CA, et al.: Nusinersen versus 
+sham control in later-onset spinal muscular atrophy. N Engl J 
+Med 2018; 378: 625–35.
+11. Mendell JR, Al-Zaidy S, Shell R, et al.: Single-dose gene-replace-
+ment therapy for spinal muscular  atrophy. N Engl J Med 2017; 
+377: 1713–22.
+12. Feldman AG, Parsons JA, Dutmer CM, et al.: Subacute liver fail-
+ure following gene replacement therapy for spinal muscular 
+atrophy Type I. J Pediatr 2020; S0022–3476(20)30682-X. Epub 
+ahead of print.
+13. Servais L, Kirschner J, Muntoni F:  Randomisation versus prioriti-
+sation in a managed access programme: lessons from spinal 
+muscular atrophy. Neuromuscu l Disord 2020; 30: 267–9.
+14. Ziegler A, Müller-Felber W, Hahn A, von Moers A, Schara U, 
+Kirschner J:  Spinale Muskelatrophie: Gentherapie ohne Zulas-
+sung. Dtsch Arztebl 2019; 116: A-2232.
+884 Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85
+
+
+--- Page 8 ---
+
+MEDICINE
+15. Kirschner J, Bernert G, v. der Hagen M,  et al.: Zur Gentherapie der Spinalen 
+Muskelatrophie mit Onasemnogene Abepar vovec. Stellungnahme der Ge-
+sellschaft für Neuropädiatrie. Monat sschr Kinderheilkd 2020; 168: 938–41.
+16. Kirschner J, Butoianu N, Goemans N,  et al.: European ad-hoc consensus 
+statement on gene replacement therapy for spinal muscular atrophy. Eur J 
+Paediatr Neurol 2020; S1090–3798(20)30142–2. 
+17. Duan D: Systemic AAV micro-dystrophin gene therapy for duchenne muscular 
+dystrophy. Mol Ther 2018; 26: 2337–56.
+18. Vandersmissen I, Biancalana V, Servais L, et al.: An integrated model ling 
+ methodology for estimating the prevalence of centronuclear myopathy. 
+ Neuromuscul Disord 2018; 28: 766–77.
+19. Audentes: Audentes therapeutics tresent s new positive data from ASPIRO, the 
+ clinical trial evaluating AT132 in patients with X-linked myotubular myopathy 
+(XLMTM), at the 24th International Annual Congress of the World Muscle Society. 
+www.audentestx.com/press_release/audentes -therapeutics-presents-new-positive-
+data-aspiro-clinical/ (las t accessed on 26 February 2020).
+20. Paulk N: Gene therapy: it’s time to  talk about high-dose AAV. www.geneng
+news.com/topics/genome-editing/gene-ther apy-its-time-to-talk-about-high-dose-
+aav/ (last accessed on 20 July 2020).
+21. European Medicine Agency: Zusammenfass ung der Merkmale des Arzneimit-
+tels Strimvelis www.ema.europa.eu/ en/documents/product-information/strim
+velis-epar-product-information_de.pdf (last accessed on 20 July 2020).
+22. Cavazzana M, Bushman FD, Miccio A, Andre-Schmutz I, Six E: Gene 
+ therapy targeting haematopoietic stem cells for inherited diseases: progress 
+and challenges. Nat Rev Drug Discov 2019; 18: 447–62.
+23. Booth C, Romano R, Roncarolo MG, Thra sher AJ: Gene therapy for primary 
+immunodeficiency. Hum Mol Genet 2019; 28: R15–R23.
+24. Schuessler-Lenz M, Enzmann H, Vamvak as S: Regulators‘ advice can 
+ make a difference: European Medicines Agency approval of zynteglo for beta 
+thalassemia. Clin Pharmacol Ther 2020; 107: 492–4.
+25. European Medicine Agency: Zusammenfass ung der Merkmale des Arzneimit-
+tels Zynteglo. www.ema.europa.eu/en/d ocuments/product-information/zynteglo-
+epar-product-information_de.pdf (last accessed on 20 July 2020).
+26. Frangoul H, Altshuler D, Cappellini MD et al.: CRISPR-Cas9 Gene Editing for Sickle 
+Cell Disease and beta-Thalassemia. N Engl J Med 2021; 384: 252–60.
+27. Naehrig S, Chao CM, Naehrlich L: Cy stic fibrosis—diagnosis and treatment. 
+Dtsch Arztebl Int 2017; 114: 564–74.
+28. Alton E, Armstrong DK, Ashby D, et al.: Repeated nebulisation of 
+ non-viral CFTR gene therapy in patients with cystic fibrosis: a randomised, 
+double-blind, placebo-controlled, phas e 2b trial. Lancet Respir Med 2015; 
+3: 684–91.
+29. Yan Z, McCray PB, Jr., Engelhardt JF: Advances in gene therapy for cystic 
+ fibrosis lung disease. Hum Mol Genet 2019; 28: R88–R94.
+30. Schorling DC, Pechmann A, Kirschner J: Advances in treatment of spinal 
+muscular atrophy—new phenotypes, new challenges, new implications for 
+ care. J Neuromuscul Dis 2020; 7: 1–13.
+31. Novartis: Zolgensma® data shows rapid,  significant, clinically meaningful 
+ benefit in SMA including prolonged ev ent- free survival, motor milestone 
+achievement and durability now up to 5 years post-dosing www.avexis.com/
+Content/pdf/newsarticle-IVasset- 20200323.pdf (last accessed on 8 August 
+2020).
+32. Vill K, Kolbel H, Schwartz O, et  al.: One year of newborn screening for 
+SMA—results of a german pilot proj ect. J Neuromuscul Dis 2019; 6: 503–15.
+33. Pechmann A, Konig K, Bernert G, et al.: SMArtCARE—a platform to collect 
+real-life outcome data of patients with spinal muscular atrophy. Orphanet J 
+Rare Dis 2019; 14: 18.
+34. McGettigan P, Alonso Olmo C, Plueschke K, et al.: Patient registries: 
+an  underused resource for medicines  evaluation: operational proposals for 
+ increasing the use of patient registri es in regulatory assessments. Drug Saf 
+2019; 42: 1343–51.
+35. Stausberg J, Maier B, Bestehorn K,  et al.: Memorandum Register für die 
+ Versorgungsforschung: Update 2019. Gesundheitswesen 2020; 82: e39-e66.
+36. Gemeinsamer Bundesausschuss: G-BA  konkretisiert Verfahren zu anwen-
+dungsbegleitender Datenerhebung – Genther apie Zolgensma erster Fall. 
+www.g-ba.de/presse/pressemitteilungen/8 74/ (last access ed on 20 July 
+2020).
+37. Korzilius H: Arzneimittel: Modelle für gerechtere Preise. Dtsch Arztebl 2019; 
+116: A-503.
+38. European Medicine Agency: PRIME: priority medicines. www.ema.europa.eu/
+en/human-regulatory/research-development/prime-priority-medicines (last 
+ accessed on 26 February 2020).
+39. Buning H, Srivastava A: Capsid modifi cations for targeting and improv ing 
+the efficacy of AAV vectors. Mol Ther Methods Clin Dev 2019; 12: 248–65.
+40. World Health Organization: Nomenclature schemes for advanced 
+ therapies. www.who.int/medicines/services/inn/Nomenclature_schemes_ 
+advanced_therapies_201707.pdf (last accessed on 20 July 2020).
+Corresponding author  
+Prof. Dr. med. Janbernd Kirschner 
+Klinik für Neuropädiatrie und Sozialpädiatrisches Zentrum 
+Zentrum für Kinderheilkunde 
+Universitätsklinikum Bonn 
+Venusberg-Campus 1, 53127 Bonn, Germany 
+janbernd.kirschner@ukbonn.de 
+Cite this as  
+Kirschner J, Cathomen T:  
+Gene therapy for monogenic inherited disorders—   
+opportunities and challenges. Dtsch Arztebl Int 2020; 117: 878–85. 
+DOI: 10.3238/arztebl.2020.0878
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85 885
+
+
+--- Page 9 ---
+
+MEDICINE
+A Deutsches Ärzteblatt International | Dtsch Arztebl Int 2020; 117: 878–85 | Supplementary material
+Questions for the articl e in issue 51–52/2020:
+Gene Therapy for Monogenic Inherited Disorders—Opportunities and Challenges
+CME credits for this unit can be obtained via cme.aerzteblatt.de un til 20 December 2021
+Only one answer is possible per question. Please  select the answer that is most appropriate.
+Question 1
+Which disorder is treated with the effective substance 
+ onasemnogene abeparvovec, approved by the European 
+Medicines Agency (EMA) in 2020?
+a) Glycogen storage disease type 2 (Pompe disease)
+b) Myasthenia gravis
+c) Becker muscular dystrophy (BMD)
+d) Spinal muscular atrophy (SMA)
+e) Duchenne muscular dystrophy
+Question 2
+Which term describes the addition of genetic information 
+into a target cell by using a viral vector?
+a) Induction
+d) Transduction
+c) Imputation
+d) Transcription
+e) Translation
+Question 3
+Which of the following disorders is treated by using ex vivo 
+gene therapy?
+a) Hereditary retinal dystrophy owing to RPE65 mutations
+b) Spinal muscular atrophy (SMA)
+c) Familiar lipoprotein lipase deficiency
+d) Non-resectable metastatic melanoma
+e) Severe combined immune deficiency (ADA-SCID)
+Question 4
+Which restrictions exist for the selection of a beta-
+ thalassemia patient regarding therapy using Betibeglogene 
+autotemcel?
+a) Patients have to be of age
+b) A suitable stem cell donor has to be available
+c) Patients must be transfusion-dependent
+d) Patients must have a β0/β0 genotype
+e) Patients should be younger than 12 years
+Question 5
+Voretigen neparvovec is used to treat retinal dystrophy. 
+Which genotype is required for the treatment to be 
+ successful?
+a) A biallelic RPE65 mutation
+b) A biallelic mutation in the SMN1 gene
+c) A monoallelic RPE65 mutation
+d) A monoallelic mutation in the SMN1 gene
+e) A biallelic mutation in the RPE65 gene and in the SMN1 gene
+Question 6
+What are the general advantages of somatic gene therapy?
+a) The genetic information is passed down to offspring
+b) The treatment can usually be given in a single session
+c) No viral vectors are used
+d) To date no known adverse effects have been observed
+e) The more advances the disorder the more effective the therapy
+Question 7
+ For which disorders is the so called CAR T-cell therapy (chimeric 
+antigen receptor) approved to date?
+a) Retinal disorders
+b) Hemophilia a
+c) Autoimmune diseases
+d) B-cell lymphoma/leukemia
+e) Type 1 diabetes
+Question 8
+ Gene addition treatment comprises two different principles—in vivo 
+therapy and ex vivo therapy. What are the advantages of ex vivo 
+ therapy?
+a) The production of the modified cells is not subject to any legislation
+b) The product can be characterized before transplantation
+c) No vector is needed to insert the genetic information
+d) The added genetic information is not integrated into the cell genome
+e) No cells/tissues have to be removed from the patient
+Question 9
+ The license of the first gene therapy originally approved by the EMA 
+ expired in 2017. The therapy is used for which disorder?
+a) Lipoprotein lipase deficiency (LPLD)
+b) Retinopathy
+c) Duchenne muscular dyustrophy
+d) B cell lymphoma
+e) Severe combined immunodeficiency (ADA-SCID)
+Question 10
+ Which pathophysiological mechanism is underlying muscle weakness 
+in spinal muscular atrophy with SMN protein deficiency?
+a) Degenerative processes in the motor cortex
+b) Pyramidal tract lesions
+c) Malformation of muscle fibers
+d) Degeneration of motor neurons in the spinal cord
+e) Malformation of the neuromuscular junction
+cme plus  

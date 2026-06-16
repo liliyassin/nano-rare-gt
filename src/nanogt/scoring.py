@@ -44,7 +44,7 @@ Dimensions:
 
 from __future__ import annotations
 import json
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Optional
 import sqlite3
 
@@ -137,6 +137,48 @@ def score_packaging(
     return score, [f"Gene CDS {gene_cds}bp / cargo {vector_cargo}bp ({ratio:.0%} utilized)"]
 
 
+def _packaging_gene_for_program(
+    disease_gene: GeneInfo,
+    program: dict,
+) -> tuple[GeneInfo, list[str]]:
+    """Return the construct to use for packaging checks.
+
+    Most programs must package the query disease gene itself. A small number of
+    precedents use engineered mini/micro transgenes for oversized genes, where
+    the clinically relevant question is not "does native CDS fit?" but "is
+    there a precedent for a shortened construct strategy?"
+    """
+    program_symbol = str(program.get("gene_symbol", ""))
+    program_symbol_l = program_symbol.lower()
+    disease_symbol_l = disease_gene.symbol.lower()
+    engineered_markers = ("micro", "mini", "truncated")
+
+    is_engineered_same_gene = (
+        disease_symbol_l
+        and disease_symbol_l in program_symbol_l
+        and program_symbol_l != disease_symbol_l
+        and any(marker in program_symbol_l for marker in engineered_markers)
+    )
+
+    if not is_engineered_same_gene:
+        return disease_gene, []
+
+    notes = [
+        f"Native {disease_gene.symbol} CDS ({disease_gene.cds_length_bp or 'unknown'}bp) "
+        f"is oversized; scoring engineered {program_symbol} construct "
+        f"({program['cds_bp']}bp) as a micro/mini-transgene strategy, not full-length replacement"
+    ]
+    return (
+        replace(
+            disease_gene,
+            symbol=program_symbol,
+            cds_length_bp=program["cds_bp"],
+            aa_length=None,
+        ),
+        notes,
+    )
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DIMENSION 2: TISSUE TROPISM (max 2.0)
 # ══════════════════════════════════════════════════════════════════════════════
@@ -199,7 +241,10 @@ def score_protein_class(
 
     is_secreted_gene = gene_info.is_secreted or any("secret" in l for l in locs)   # ← released outside the cell
     is_lysosomal_gene = any("lysosom" in l for l in locs) or "lysosome" in kws     # ← lives in the lysosome
-    is_membrane_gene = any("membran" in l for l in locs)                           # ← sits in a cell membrane
+    is_membrane_gene = (
+        any("membran" in l or "sarcolemma" in l for l in locs)
+        or any("membran" in k for k in kws)
+    )                           # ← sits in a cell membrane
 
     pc = program_class.lower()
 
@@ -646,7 +691,13 @@ def score_program(
     notes: list[str] = []
 
     # ── Step 1: Packaging (hard gate) ─────────────────────────────────────
-    pkg, pkg_notes = score_packaging(gene, program["cds_bp"], vector["cargo_limit_bp"])
+    packaging_gene, strategy_notes = _packaging_gene_for_program(gene, program)
+    notes.extend(strategy_notes)
+    pkg, pkg_notes = score_packaging(
+        packaging_gene,
+        program["cds_bp"],
+        vector["cargo_limit_bp"],
+    )
     notes.extend(pkg_notes)
 
     if pkg == 0.0:

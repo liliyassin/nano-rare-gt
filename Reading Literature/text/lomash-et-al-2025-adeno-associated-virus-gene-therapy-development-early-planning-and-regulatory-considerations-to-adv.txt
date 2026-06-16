@@ -1,0 +1,819 @@
+# Source PDF: Reading Literature/files/70/Lomash et al. - 2025 - Adeno-Associated Virus Gene Therapy Development Early Planning and Regulatory Considerations to Adv.pdf
+
+
+
+--- Page 1 ---
+
+Adeno-Associated Virus Gene Therapy Development: Early Planning
+and Regulatory Considerations to Advance the Platform Vector Gene
+Therapy Program
+Richa Madan Lomash,1 Jean Dehdashti,2 Oleg A. Shchelochkov,3 Randy J. Chandler,3 Lina Li,3 Irini Manoli,3
+Jennifer L. Sloan,3 Pramod Terse,1 Xin Xu,1 Dimah Saade,4 Rodica Stan,1 PaVe-GT team,^ Philip J. Brooks,2
+Donald C. Lo,1 Carsten G. Bönnemann,4 Charles P. Venditti,3 Anne R. Pariser,2 and Elizabeth A. Ottinger1,*
+1Therapeutic Development Branch, Division of Preclinical Innovation, National Center for Advancing Translational Sciences (NCATS), NIH, Rockvil le, Maryland, USA;
+2Division of Rare Diseases Research and Innovation, NCATS, NIH, Rockville, Maryland, USA; 3Organic Acid Research Section, Metabolic Medicine Branch, National
+Human Genome Research Institute (NHGRI), NIH, Bethesda, Maryland, USA; and 4Neuromuscular and Neurogenetic Disorders of Childhood Section, National
+Institute of Neurological Disorders and Stroke (NINDS), NIH, Bethesda, Maryland, USA.
+^See Acknowledgments.
+Gene therapy development presents multiple challenges, and early planning is vital in the successful implementation of such
+programs. The Platform Vector Gene Therapy (PaVe-GT) program is a National Institutes of Health (NIH) initiative develop-
+ing adeno-associated virus (AAV) gene therapies for four low-prevalence rare diseases. Utilizing the platform-based
+approach, the program aims to incorporate ef ﬁciencies throughout the preclinical and clinical development processes fol-
+lowed by public dissemination of scienti ﬁc and regulatory learnings. Early in development, the establishment of a Target
+Product Proﬁle (TPP) by the research team is a critical step to guide product development and align preclinical studies to clin-
+ical objectives. Based on the speciﬁc needs of the investigational product as deﬁned in the TPP, an overall regulatory strategy
+can then be outlined to meet the regulatory requirements for theﬁrst-in-human clinical trials. During the preclinical phase of
+development, sponsors may request meetings with the Food and Drug Administration (FDA) to gather feedback on the
+planned studies and regulatory strategy. To pave the way for PaVe-GT’s ﬁrst investigational AAV gene therapy lead candi-
+date, AAV9-hPCCA, we sought early feedback from the FDA utilizing an INitial Targeted Engagement for Regulatory
+Advice on CBER/CDER ProducTs (INTERACT) meeting. Here, we elaborate on the value of establishing a TPP and the
+FDA INTERACT meeting by including our initial AAV9-hPCCA TPP, detailing our INTERACT meeting experience, pro-
+viding all corresponding regulatory documentation, and highlighting lessons learned. The regulatory documents along with
+templates developed by our program can also be found on the PaVe-GT website ( https://pave-gt.ncats.nih.gov/ ). This
+communication aims to provide stakeholders with resources that can be applied to drug development programs in
+establishing a viable regulatory path to clinical trial initiation.
+Keywords: rare diseases, target product pro ﬁle, INTERACT meeting, gene therapy, PaVe-GT, propionic acidemia,
+PCCA, AAV9
+*Correspondence: Dr. Elizabeth A. Ottinger, Therapeutic Development Branch, Division of Preclinical Innovation, National Center for Advancing T ranslational Sciences
+(NCATS), NIH, 9800 Medical Center Drive, Rockville, MD 20850, USA. E-mail: elizabeth.ottinger@nih.gov
+ª The Author(s) 2025. Published by Mary Ann Liebert, Inc. This Open Access article is distributed under the terms of the Creative Commons License [CC-BY ]
+(http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
+HUMAN GENE THERAPY, VOLUME 36, NUMBERS 5 and 6
+2025 by Mary Ann Liebert, Inc.
+DOI: 10.1089/hum.2024.230 653
+Open camera or QR reader and
+scan code to access this article
+and other resources online.
+CLINICAL DEVELOPMENTS
+
+
+--- Page 2 ---
+
+INTRODUCTION
+Gene therapy development is an advancing ﬁeld with
+wide applicability for rare diseases, the majority of
+which are monogenic.
+1–3 The number of preclinical
+and clinical gene therapy programs has increased sub-
+stantially in recent years with 2070 gene therapies in
+the biopharmaceutical industry pipeline of which 24%
+are adeno-associated virus (AAV) gene therapies. 4,5 To
+date, there have been AAV gene therapy approvals for
+eight indications globally. 6,7 Despite advancements, the
+development of gene therapies continues to present
+challenges in access to expertise and resources, high
+costs, product manufacturing, and navigation of numer-
+ous regulatory requirements.
+8,9
+The National Institutes of Health (NIH) embarked upon a
+gene therapy program called Platform Vector Gene Therapy
+(PaVe-GT)
+10 to test the hypothesis whether a platform
+approach can increase efﬁciencies in preclinical studies and
+clinical development. While implementing this program, the
+PaVe-GT team is committed to public dissemination of all
+learnings
+10 (Fig. 1A). AAV has been selected as a platform
+vector, and a multidisciplinary team has been assembled
+(Fig. 1B) to strategize and execute the drug development
+plans for four rare diseases — two organic acidemias and
+two neuromuscular disorders. The team aims to incorporate
+learnings moving from one product to the next, following an
+integrated approach throughout preclinical and clinical
+development using similar processes, study designs, and
+regulatory pathway. The scienti ﬁc and regulatory knowl-
+edge gained during the program ’s lifecycle and the proc-
+esses adopted will be publicly disseminated to inform and
+enable other gene therapy development programs.
+The focus of this communication is to help readers under-
+stand the signi ﬁcance of early planning during the drug
+development process utilizing PaVe-GT ’s ﬁrst investiga-
+tional gene therapy candidate, AAV9 human Propionyl-CoA
+Carboxylase, alpha subunit (AAV9-hPCCA) or National
+Center for Advancing Translational Sciences (NCATS)-
+BL0746, as a case example. This paper emphasizes the
+value of establishing a Target Product Pro ﬁle (TPP) and
+having early interactions with the Food and Drug Adminis-
+tration (FDA), speciﬁcally the INitial Targeted Engagement
+for Regulatory Advice on Center for Biologics Evaluation
+and Research (CBER)/Center for Drug Evaluation and
+Research (CDER) ProducTs (INTERACT) meeting. The
+AAV9-hPCCA TPP, complete INTERACT package along
+with FDA feedback is included in the supplemental infor-
+mation, and the template used in drafting these documents
+is posted on the PaVe-GT website.
+BACKGROUND
+The drug development process is complex, lengthy and
+costly, and comes with the uncertainty of whether the lead
+investigational candidate will be safe and effective in
+patients. Reasons for failure can range from scienti ﬁca n d
+strategic to operational and commercial issues.11 Scientiﬁc
+Figure 1. Platform Vector Gene Therapy (PaVe-GT) approach. (A) To test the PaVe-GT hypothesis, our approach includes utilizing AAV as a platform vec-
+tor, similar preclinical development processes, study designs, regulatory pathway and common clinical protocol elements, wherever possible. The diseases
+under study in the PaVe-GT platform include four rare diseases. The two organic acidemias under study are propionic acidemi a (caused by PCCA de ﬁciency)
+and isolated methylmalonic acidemia (MMAB de ﬁciency/cobalamin type B methylmalonic acidemia). The two congenital myasthenic syndromes under study
+are COLQ de ﬁciency and DOK7 de ﬁciency. The outcomes of the program are being publicly shared on the PaVe-GT website. (B) The PaVe-GT team is com-
+prised of basic researchers, disease and drug development experts supported by a strong project management team as depicted in the ﬁgure. All disciplines
+work in coordination, and the coordinated efforts of all team members are instrumental for the success of the program.
+654 LOMASH ET AL.
+
+
+--- Page 3 ---
+
+challenges include demonstrating ef ﬁcacy in appropriate
+disease models, development of assays, complex manufac-
+turing processes, and toxicology assessment.11–13 For rare
+diseases, clinical trial design and endpoint selection are
+difﬁcult due to poor understanding of disease biology,
+phenotypic heterogeneity,14 lack of validated biomarkers,
+incomplete understanding of disease natural history, and
+small populations that often include pediatric patients14–16
+With nearly 70% of rare diseases starting in childhood,15 it
+can be challenging to establish proof of direct beneﬁti na n i -
+mals and appropriately design safety studies in support of
+the pediatric population. Furthermore, an insufﬁcient under-
+standing of how preclinical studies translate toward a ﬁrst-
+in-human (FIH) trial in accordance with regulatory require-
+ments may result in roadblocks at various stages of the drug
+development process. Based on our experience, failure to
+incorporate regulatory planning early enough may lead to
+delays in advancing a lead candidate to clinical testing.
+Potential regulatory hurdles can arise from inadequate use
+of publicly available FDA resources and precedence, sub-
+mission of incomplete meeting packages to regulatory
+authorities with respect to supporting scientiﬁc rationale and
+data, and underutilization of FDA meetings and interactions
+throughout product development. Operational delays range
+from funding and timeline deviations to supply chain issues
+and intellectual property challenges.13,17
+T om a x i m i z eap r o g r a m’s success, it is critical to incorpo-
+rate scientiﬁc expertise, project management and effective
+risk mitigation strategies throughout the project lifecycle.
+Ensuring alignment of study outcomes and their timing with
+the regulatory considerations is important in the planning
+and execution of Investigational New Drug (IND) enabling
+studies during preclinical development.
+Target product proﬁle (TPP)
+Per the World Health Organization (WHO) de ﬁnition,
+A ‘Target Product Proﬁle’(TPP) outlines the desired ‘pro-
+ﬁle’or characteristic of a target product that is aimed at a
+particular disease or diseases. 18 It is used as a common
+project management and strategic tool to guide product
+development
+19,20 and facilitate regulatory submissions
+and communications. A TPP is created with consideration
+of the product labeling as preclinical and clinical programs
+develop.
+As illustrated in Figure 2A, a TPP consists of the prod-
+uct’s characteristics and attributes, such as the disease indi-
+cation, target population, safety and tolerability information,
+dosage form and frequency, drug stability information, dos-
+ing regimen and clinical efﬁcacy endpoints. Components of
+a TPP are important to inform study parameters in preclini-
+cal development, including but not limited to demonstrating
+proof of direct beneﬁt in animal models, non-clinical toxi-
+cology assessments, assay development, and the manufac-
+turing process. Incorporating clinical considerations for a
+lead candidate in the TPP early on better informs the design
+of IND-enabling studies to streamline the preclinical drug
+development process.
+21 TPP is a living document where sci-
+entiﬁc and regulatory aspects merge to drive programmatic
+decisions, and it can be continually updated through the pro-
+ject lifecycle. We have included the initial TPP for AAV9-
+hPCCA as Supplementary Data S1. Additional resources
+for creating a TPP are available.
+22–25
+Regulatory considerations: Strategy and interactions
+An understanding of the available resources including
+guidance documents and potential meetings with regula-
+tory agencies throughout different stages of development
+is crucial for advancing programs ef ﬁciently. Meetings
+with the FDA can be utilized for gaining feedback and
+concurrence on preclinical studies used in support of an
+IND application and the initiation of a clinical trial. Early
+interactions also help initiate a relationship between the
+sponsor and the FDA review team. It is important to note
+that the goal of both the sponsor and the FDA is to
+advance the development of a lead candidate for clinical
+testing to improve public health. During the preclinical
+phase of development, sponsors have the option to
+request different meetings with the agency ( e.g., INTER-
+ACT and pre-IND) ( Fig. 2B ).
+26 Engaging with the FDA
+early during product development enables the sponsor to
+implement feedback for any given area ( e.g., preclinical
+models, manufacturing, toxicology studies, clinical proto-
+col synopsis, etc.) and pivot where needed to ensure that
+the development program meets regulatory requirements.
+REGULATORY STRATEGY FOR AAV9-HPCCA
+Upon completion of the preclinical proof-of-concept
+(POC) studies for AAV9-hPCCA, 27 we utilized the FDA
+INTERACT meeting to get advice and gain concurrence
+on our development plan. The overall program strategy is
+outlined in Figure 3A, and the following sections focus on
+the team ’s INTERACT experience and takeaways for
+AAV9-hPCCA.
+INTERACT meeting
+As stated in FDA SOPP 8101.1, 28 to qualify for an
+INTERACT meeting, a sponsor must have selected a lead
+investigational candidate to evaluate in a clinical study
+since all questions and clariﬁcations stem from this product.
+Qualiﬁed sponsors should utilize an INTERACT meeting
+early in preclinical development, after completion (or near-
+completion) of POC studies with their lead candidate.
+Discussion topics during INTERACT include early product
+characterization and manufacturing process; POC studies
+and preclinical models; pilot safety, biodistribution studies,
+and FIH study recommendations (desired patient population
+age, route of administration, novel delivery devices, etc.)
+(Fig. 3B).
+28 To help understand the scope of INTERACT
+meetings, the FDA has provided example questions and
+topics as guidance for what is (or is not) appropriate for this
+REGULATORY CONSIDERATIONS FOR AAV GENE THERAPY 655
+
+
+--- Page 4 ---
+
+meeting type.28 Failure to comply with the requirements
+may lead to denial of an INTERACT meeting. The reasons
+for denial vary from a package being de ﬁcient or project
+stage being too premature or advanced.
+29 Ar e q u e s tm a yb e
+too advanced for an INTERACT meeting and more appro-
+priate for a pre-IND meeting if, for example, a sponsor has
+completed some safety studies and is at the point of design
+and conduct of deﬁnitive toxicology studies. The FDA web-
+site contains more information on common reasons for
+denying INTERACT meetings.
+29
+Contents of the AAV9-hPCCA INTERACT meeting
+request and package
+The information included in an INTERACT package
+may vary for each program depending on the stage of
+development. An INTERACT package includes adminis-
+trative information, lead investigational candidate details,
+disease background, and a summary of the development
+plan (including non-clinical, chemistry, manufacturing and
+controls [CMC] information, clinical synopsis, and regula-
+tory pathway). The questions included in the package for
+feedback should be presented with appropriate technical
+background and supportive scienti ﬁcd a t a .F o rA A V 9 -
+hPCCA, we had conducted preliminary POC studies and
+initiated CMC process development. The complete
+AAV9-hPCCA INTERACT meeting request and brie ﬁng
+package can be found in Supplementary Data S2. The
+AAV9-hPCCA INTERACT package summary and
+description of the program stage is detailed below and in
+Figure 3C.
+Figure 2. Regulatory milestones and TPP. (A) This ﬁgure highlights how each component of a TPP can inform various aspects of the preclinical devel-
+opment program and assist in the study design and implementation to maximize program success and shorten the timeline. ROA: Route of administra-
+tion. (B) After selection of a lead candidate, early establishment of a TPP as a guiding tool, in combination with stage appropriate regulatory
+interactions, can be instrumental for successfully moving a program through the various phases of development. Regulatory interactions can be init i-
+ated during early product development and continue until the IND submission, which is a signi ﬁcant milestone in the process and allows for the initia-
+tion of the FIH trial. Late-stage product development also entails the TPP and continued regulatory interactions (Note: late-stages not discussed i nt h e
+article).
+656 LOMASH ET AL.
+
+
+--- Page 5 ---
+
+We included:
+(1) In vivo POC studies: As a measure of ef ﬁcacy,
+we presented results from Pcca knockout animals
+showing improved survival and reduced levels of
+the characteristic metabolite, plasma 2-methylci-
+trate, after treatment with AAV9-hPCCA. We also
+included transgene mRNA and protein expression
+results from tissues of relevance.
+(2) IND enabling GLP toxicology study plan: We
+included the proposed study design, dosing regi-
+men and planned measurements.
+(3) Clinical information: Disease manifestations of
+PCCA-related PA, with particular emphasis on
+the selected pediatric patient population, ongoing
+PA natural history study,
+30–32 FIH clinical protocol
+synopsis with study design and endpoints were
+presented.
+(4) CMC information : Information from the small-
+scale feasibility batch was included to receive ini-
+tial guidance on further process development and
+manufacturing.
+(5) PaVe-GT Platform: We detailed the platform
+approach and discussed the possibility of leverag-
+ing data across the four gene therapy products.
+B a s e do nt h ei n f o r m a t i o na v a i l a b l ef o ro u rp r o g r a m ,q u e s -
+tions were formulated in a manner that enabled gathering
+advice speci ﬁc to AAV9-hPCCA in different technical
+areas along with PaVe-GT platform-associated questions.
+Unlike some other meeting types, the INTERACT meet-
+ing request and brie ﬁng package are submitted concur-
+rently.
+28,29 (Fig. 3D).
+Compilation and submission of the AAV9-hPCCA
+INTERACT meeting request and package
+We drafted the INTERACT package in-house, and to
+help other groups, we have detailed our approach below. As
+outlined in Figure 4A, we established the drug development
+plan, conducted due diligence on available information, and
+outlined the regulatory steps. This strategy helped us to
+understand program-speciﬁc challenges and accordingly
+formulate focused questions requiring feedback. Re ﬁning
+the drug development plan was an iterative process, and
+outlining the studies to support the planned clinical trial
+required broad discussions and scenario analyses. Discus-
+sions with individual subject matter experts (SMEs) across
+disciplines (e.g., Biology, CMC, Toxicology, Clinical, and
+Regulatory) helped incorporate granular details followed by
+input from the larger team, to generate a comprehensive
+package. We started adding information into our INTER-
+ACT template
+33 to produce an initial draft that went through
+several rounds of review before ﬁnalizing. We utilized
+FDA guidance34 and resources for developing the AAV9-
+hPCCA drug development plan and compilation of our
+package (Fig. 4B). A core project management team led the
+Figure 3. Regulatory strategy for AAV9-hPCCA. (A) AAV9-hPCCA regulatory strategy is outlined. The ﬁrst milestone was an INTERACT meeting and
+the feedback helped us move the program forward and prepare for a subsequent pre-IND meeting. For this program, FIH trials will commence after
+(FDA)’s review of our IND (with receipt of an FDA safe-to-proceed) and completion of other necessary clinical steps. (B) INTERACT meeting goals, tim-
+ing and topics within scope are speci ﬁed. (C) AAV9-hPCCA INTERACT package contents included in vivo POC study results, IND enabling Good
+Laboratory Practice (GLP) toxicology study plan, CMC, and clinical information. (D) Logistical information related to the procedures and timelines for an
+INTERACT meeting.
+REGULATORY CONSIDERATIONS FOR AAV GENE THERAPY 657
+
+
+--- Page 6 ---
+
+overall effort by managing all communications, driving
+discussions and drafting the package ( Fig. 4C ). Working
+together with the technical leads, the core team was
+instrumental in de ﬁning the overall development plan
+and gathering information for the package. This team
+e n s u r e dt h a tp r o p o s e ds t u d i e sw e r ea l i g n e dw i t ht h eT P P
+characteristics, and that package preparation was
+achieved ef ﬁciently. The complete process for compil-
+ing and submitting the AAV9-hPCCA package took
+approximately 5 months, and the steps are listed in
+Figure 4D . Following the submission, the FDA
+acknowledged receipt of the INTERACT package and
+provided a meeting date.
+After the INTERACT meeting for AAV9-hPCCA in
+2021, there have been a few changes to the FDA process,
+which are selectively highlighted.
+26,28,29 Per the 2023 Pre-
+scription Drug User Fee Act (PDUFA) reauthorization
+performance goals and procedures, INTERACT meeting
+conﬁrmation or denial will now be issued within 21 calen-
+dar days of FDA’s receipt of the meeting request and pack-
+age, and the meeting will be scheduled within 75 calendar
+days. The FDA also informs the sponsor if reviewers from
+speciﬁc discipline areas are unable to participate in the
+meeting.28 The FDA sends preliminary responses to the
+sponsor, and if, based on the teleconference discussion,
+the FDA advice changes, the written responses will be
+annotated and resent ( Fig. 3D ). For sponsors requesting
+written responses only, the initial written responses will
+serve as the ﬁnal FDA meeting minutes.
+FDA review and INTERACT meeting preparation
+To accommodate for the short timeframe between receiv-
+ing FDA preliminary comments and for the sponsor to pro-
+vide a response to FDA with selected topics for discussion,
+proactive preparation is critical. We initially held internal
+meetings with SMEs to discuss potential responses from the
+FDA and our responses. After receiving FDA preliminary
+comments, we selected the topics most critical to the pro-
+gram to maximize the beneﬁt from the scheduled meeting.
+For example, based on FDA preliminary comments, the
+team determined the need to elaborate on the natural history
+and disease progression in the pediatric and adult patient
+populations. We prepared slides highlighting questions of
+interest, corresponding FDA comments, our responses and
+supporting information, as applicable. We identiﬁed a meet-
+ing moderator from the core team and technical leads who
+would actively participate in the meeting. We started our
+meeting with short introductions of the moderator and core
+team (5 min) followed by discussion (45 min). The last
+10 min were utilized by the NCATS moderator to summa-
+rize the meeting and con ﬁrm the key takeaways with the
+FDA. Since sponsor meetings with the Agency cannot be
+recorded and the FDA does not issue formal INTERACT
+meeting minutes, it is advisable that sponsors take detailed
+Figure 4. Approach utilized by the PaVe-GT team for the INTERACT package preparation. (A) Our process for compilation of the package can be divided
+into three stages: strategy, implementation, and documentation. (B) FDA resources valuable for INTERACT package preparation and de ﬁning the drug devel-
+opment plan are included along with hyperlinks. (C) The core project management team led the drafting and package preparation working closely with the
+technical leads, regulatory experts, and clinicians. (D) Steps and timeline of AAV9-hPCCA INTERACT pack age preparation: Upon initial due diligence and
+planning, we held a kick-off meeting to inform all team members of the scope and content of an INTERACT meeting request and package. Subsequently, we
+discussed in smaller and larger groups to generate an initial draft of questions along with a supporting summary. Open dialogue and discussions were
+needed to solidify the development plan and ﬁnalize section drafts. The ﬁnal stages included reviewing the complete package, editing, and formatting.
+658 LOMASH ET AL.
+
+
+--- Page 7 ---
+
+notes, making certain all outcomes and/or action items
+reached during the meeting are accurately captured and
+summarized at the end of the teleconference.
+INTERACT written responses and teleconference
+major takeaways
+A summary of the preliminary responses prior to
+the teleconference is provided below and in Figure 5 ;
+detailed responses can be found in Supplementary
+Data S2.
+1. FDA gave speci ﬁc feedback and concurred with
+our POC data. FDA also gave advice on the type of
+preclinical immunogenicity information needed for
+the Pharmacology/toxicology studies. While we
+presented our proposed, GLP toxicology study
+plan, FDA deferred review of these studies for later
+(pre-IND meeting).
+2. FDA provided advice on CMC process development,
+GMP manufacturing, quality attributes, potency assay
+and device compatibility studies.
+3. We received feedback on the clinical trial design,
+speciﬁcally the target population age range.
+Our discussions during the INTERACT teleconfer-
+ence revolved around the relevance of transgene immu-
+nogenicity testing in the assessment of human safety,
+disease manifestations and diagnostic tests (Q4 and
+Q5a, d and e, Supplementary Data S2). We gained fur-
+ther clarity and concurrence from the FDA on these
+topics ( Fig. 5 ). The feedback gathered from written
+responses and subsequent teleconference discussion has
+been helpful to make decisions for our gene therapy
+program.
+Apart from product-speci ﬁc feedback ( Fig. 5 ), some
+of the notable learnings related to the PaVe-GT platform
+approach include:
+1. FDA tentatively agreed that capsid-related biodistri-
+bution and anti-drug antibody data from the ﬁrst
+product can be leveraged to support same serotype
+products in the PaVe-GT platform within the speci-
+ﬁed considerations as detailed in File S2 (response
+to Questions 9).
+2. After the teleconference discussion, FDA tentatively
+agreed that cellular immunogenicity assessment is
+needed for capsid only, while humoral immunogenic-
+ity must be tested for capsid and transgene. In addi-
+tion, FDA suggested saving blood samples to analyze
+transgene cellular immune response, if required later.
+This feedback is an important step toward incorporat-
+ing efﬁciencies as we streamline the development of mul-
+tiple AAV gene therapies in the PaVe-GT program and
+for the broader ﬁeld as well.
+DISCUSSION
+The success rate of translating basic science experiments
+to clinical studies is low due to several challenges 13,17 and
+Figure 5. Major takeaways from the AAV9-hPCCA INTERACT meeting experience. The left panel shows the major steps in the FDA process for review of
+the INTERACT meeting package. Upon reviewing our package, FDA provided feedback in the form of preliminary written responses (top panel). A few
+selected topics were discussed during the teleconference and major takeaways from the discussion during the INTERACT meeting are listed (bottom pan el).
+REGULATORY CONSIDERATIONS FOR AAV GENE THERAPY 659
+
+
+--- Page 8 ---
+
+a well-planned drug development program can help to
+maximize clinical translation. As a sponsor embarks on the
+journey of developing a new therapeutic, a TPP can serve
+as a roadmap to guide decision-making and planning for
+studies at different stages of development. Overall, TPPs
+can have a positive impact by providing a strategic tool to
+improve regulatory outcomes.
+35–37 We highly encourage
+other sponsors to prepare a TPP at the program ’s outset,
+where keeping the end in mind will help them work with
+regulatory bodies in navigating through preclinical and
+clinical development.
+Given the complexity and unique challenges that each
+drug development program presents, gaining regulatory
+concurrence early and consistently in development is ben-
+eﬁcial.
+38 Both the TPP and INTERACT meetings helped
+advance AAV9-hPCCA development, ensuring that pre-
+clinical studies are aligned and that regulatory require-
+ments are understood prior to moving the program
+towards IND-enabling studies. We gained concurrence
+on our POC data (animal model selection, route of admin-
+istration and endpoints) in support of the planned FIH
+studies. Since we had provided limited manufacturing
+information, FDA shared general CMC advice. While
+this was instrumental in advancing the manufacturing of
+our lead candidate, we learned that sharing complete
+information is essential for getting precise feedback spe-
+ciﬁc to the lead candidate being manufactured. FDA also
+reviewed our clinical trial design and gave guidance on
+patient selection, an area of great signi ﬁcance given the
+struggles with conducting clinical trials in rare diseases
+affecting the pediatric population. Guidance regarding
+diagnostic tests and immunogenicity studies has been
+beneﬁcial in planning the future studies.
+INTERACT meetings were introduced in 2018 and ini-
+tially limited to CBER;
+39 the recently enacted PDUFA VII
+extends the INTERACT meetings to CDER as well and cat-
+egorizes these as formal meetings.
+28 For a productive discus-
+sion, it is very important to plan and prepare for regulatory
+meetings ( Fig. 6 ).
+40,41 Given that only one INTERACT
+meeting is granted per program, it will be most prudent for
+the sponsor to focus on product-speci ﬁc issues and
+challenges. It is best to refer to available FDA guidance
+beforehand, formulate questions accordingly, and seek feed-
+back on any issues pertaining to the critical studies. Usually,
+a thorough package and well-formulated questions will
+result in precise and valuable FDA feedback. Wherever pos-
+sible, it is best to formulate questions or present a strategy
+with rationale in the form of a request and ask for concur-
+rence rather than recommendations or decisions from the
+FDA.
+A key goal of the PaVe-GT program is to test the hypoth-
+esis of whether using AAV as a platform vector, and if, by
+following similar processes, we will be able to incorporate
+efﬁciencies and streamline the regulatory path for multiple
+AAV gene therapies until IND submission. In response to
+one of our questions, the FDA stated the possibility to lever-
+age capsid-related biodistribution data for the second PaVe-
+GT product utilizing the same AAV serotype. To beneﬁtt h e
+larger AAV community, we also plan to make our regula-
+tory packages including FDA responses publicly available.
+This illustrates a unique feature of PaVe-GT with our ability
+to openly share project information because all parties are
+US government employees. The PaVe-GT program contin-
+ues to release their experience and learnings to the public.
+We recently disseminated the regulatory documentation of
+Orphan Drug and Rare Pediatric Disease Designations,
+Figure 6. Do’s and don ’ts during early regulatory interactions. For a productive discussion, it is important to plan and prepare for regulatory interac-
+tions. These are suggested do ’s and don ’ts based on our experience.
+660 LOMASH ET AL.
+
+
+--- Page 9 ---
+
+FDA incentives for rare disease drug development. 27
+As the PaVe-GT program moves forward, we will con-
+tinue to propose and share gene therapy development
+efﬁciencies. Experience from subsequent FDA interac-
+tions such as pre-IND meeting and IND documentation
+will be shared as our program advances to those stages
+in the coming years. Through the sharing of our
+approach and blueprint of an INTERACT application
+package, we hope to assist all stakeholders in develop-
+ing therapeutics for rare diseases.
+ACKNOWLEDGMENTS
+The authors would like to thank London Toney for
+preparing the template. The authors thank past and
+present members of the entire NIH PaVe-GT Team
+(in alphabetical order): Gilberto V. Averion, Krishna
+Balakrishnan, Steven J. Burden, Eggerton Campbell,
+Catherine Chen, Eun-Young Choi, Claire Driscoll,
+Oksana Dukhanina, Susan Ferry, A. Reghan Foley,
+Janelle Geist Hauserman, Venkata Mangalampalli,
+Christopher Mendoza, Asvelt Nduwumwami, Julien
+Oury, Forbes D. Porter, Deanna Portero, Lili Portilla,
+Jachinta Rooney, Mitali Tambe, Joshua Todd, London
+Toney, Carol Van Ryzin, Sury Vepa, Erik Wagner,
+Amy Wang, and Yaqun Zou.
+AUTHORS’ CONTRIBUTIONS
+R.M.L., J.D. and E.A.O., contributed to the conceptuali-
+zation, methodology and writing of the initial draft,
+reviewing, creating ﬁgures, and editing the article. All
+other authors reviewed and edited the article. The
+INTERACT meeting package and request used in this
+article are based on the original research of O.S., R.J.C.,
+L.L., I.M., J.L.S., and C.P.V. including design and concep-
+tualization of AAV9-hPCCA, demonstration of preclinical
+efﬁcacy in animal models of PA, and clinical research.
+DISCLAIMER
+The content of this article is solely the opinions of the
+authors and does not necessarily represent the of ﬁcial
+views of the NIH, nor does mention of the commercial
+products, and organizations imply endorsement by the
+United States government.
+AUTHOR DISCLOSURE STATEMENT
+The authors have no competing interests relevant to
+this article.
+FUNDING INFORMATION
+PaVe-GT is funded by the NCATS Cures Acceleration
+Network. R.M.L., P.T., X.X., R.S., D.C.L. and E.A.O. are
+supported by NCATS Intramural Research Program
+(1ZIATR00281). R.J.C., O.S., L.L., J.L.S., I.M. and
+C.P.V. are supported by Intramural Research Program of
+the NHGRI (1ZIAHG200318). D.S. and C.G.B. are sup-
+ported by the NINDS Intramural Research Program
+(1ZIANS003129-14).
+SUPPLEMENTARY MATERIAL
+Supplementary Data S1
+Supplementary Data S2
+REFERENCES
+1. Jensen TL, Gotzsche CR, Woldbye DPD. Current
+and future prospects for gene therapy for rare
+genetic diseases affecting the brain and spinal
+cord. Front Mol Neurosci 2021;14:695937; doi:
+10.3389/fnmol.2021.695937
+2. Maldonado R, Jalil S, Wartiovaara K. Curative
+gene therapies for rare diseases. J Community
+Genet 2021;12(2):267–276; doi: 10.1007/s12687-
+020-00480-6
+3. Wang Y, Hu LF, Zhou TJ, et al. Gene therapy
+strategies for rare monogenic disorders with
+nuclear or mitochondrial gene mutations.
+Biomaterials 2021;277:121108; doi: 10.1016/j
+.biomaterials.2021.121108
+4. Chancellor D, Barrett D, Nguyen-Jatkoe L, et al.
+The state of cell and gene therapy in 2023. Mol
+Ther 2023;31(12):3376–3388; doi: 10.1016/j.ymthe
+.2023.11.001
+5. Lapteva L, Purohit-Sheth T, Serabian M, et al.
+Clinical development of gene therapies: The
+ﬁrst three decades and counting. Mol Ther
+Methods Clin Dev 2020;19:387 –397; doi: 10
+.1016/j.omtm.2020.10.004
+6. Wang JH, Gessler DJ, Zhan W, et al. Adeno-
+associated virus as a delivery vector for gene
+therapy of human diseases. Signal Transduct
+Target Ther 2024;9(1):78; doi: 10.1038/s41392-
+024-01780-w
+7. U.S. Food and Drug Administration “Approved
+Cellular and Gene Therapy Products ”. Silver
+Spring MD; 2024. Available from: https://www
+.fda.gov/vaccines-blood-biologics/cellular-gene-
+therapy-products/approved-cellular-and-gene-
+therapy-products [Last accessed: October 30,
+2024].
+8. Colella P, Ronzitti G, Mingozzi F. Emerging
+issues in AAV-Mediated in vivo gene therapy.
+Mol Ther Methods Clin Dev 2018;8:87 –104; doi:
+10.1016/j.omtm.2017.11.007
+9. Jiang Z, Dalby PA. Challenges in scaling up
+AAV-based gene therapy manufacturing. Trends
+Biotechnol 2023;41(10):1268–1281; doi: 10.1016/
+j.tibtech.2023.04.002
+10. Brooks PJ, Ottinger EA, Portero D, et al. The
+platform vector gene therapies project: Increas-
+ing the ef ﬁciency of adeno-associated virus
+gene therapy clinical trial startup. Hum Gene
+Ther 2020;31(19 –20):1034–1042; doi: 10.1089/
+hum.2020.259
+REGULATORY CONSIDERATIONS FOR AAV GENE THERAPY 661
+
+
+--- Page 10 ---
+
+11. Arrowsmith J, Miller P. Trial watch: Phase II and
+phase III attrition rates 2011-2012. Nat Rev Drug
+Discov 2013;12(8):569; doi: 10.1038/nrd4090
+12. Sun D, Gao W, Hu H, et al. Why 90% of clinical
+drug development fails and how to improve it?
+Acta Pharm Sin B 2022;12(7):3049 –3062; doi:
+10.1016/j.apsb.2022.02.002
+13. Seyhan AA. Lost in translation: The valley of
+death across preclinical and clinical divide —
+identiﬁcation of problems and overcoming obs-
+tacles. Transl Med Commun 2019;4(1).
+14. Stoller JK. The challenge of rare diseases.
+Chest 2018;153(6):1309 –1314; doi: 10.1016/j
+.chest.2017.12.018
+15. Nguengang Wakap S, Lambert DM, Olry A,
+et al. Estimating cumulative point prevalence of
+rare diseases: Analysis of the Orphanet data-
+base. Eur J Hum Genet 2020;28(2):165 –173;
+doi: 10.1038/s41431-019-0508-0
+16. Griggs RC, Batshaw M, Dunkle M, et al; Rare
+Diseases Clinical Research Network. Clinical
+research for rare disease: Opportunities, chal-
+lenges, and solutions. Mol Genet Metab 2009;
+96(1):20–26; doi: 10.1016/j.ymgme.2008.10.003
+17. Sheena M, Posey Norris DEP, Davis M, et al.
+Drug Development Challenges. Nataional Aca-
+demies Press; 2014.
+18. Organization WH. World Health Organization
+“Target Product Proﬁles”. Available from: https://
+www.who.int/observatories/global-observatory-
+on-health-research-and-development/analyses-
+and-syntheses/target-product-proﬁle/who-target-
+product-proﬁles
+19. Bandyopadhyay A. Target product pro ﬁle: A
+planning tool for the drug development. Bioe-
+quivalence & Bioavailability 2017;3(4).
+20. Agency Information Collection Activities; Sub-
+mission for Of ﬁce of Management and Budget
+Review; Comment Request; Draft Guidance for
+Industry and Review Staff on Target Product
+Proﬁle. A Strategic Development Process Tool:
+North Bethesda, MD; 2017.
+21. Stegemann S, Sheehan L, Rossi A, et al.
+Rational and practical considerations to guide a
+target product pro ﬁle for patient-centric drug
+product development with measurable patient
+outcomes— A proposed roadmap. Eur J Pharm
+Biopharm 2022;177:81 –88; doi: 10.1016/j.ejpb
+.2022.06.006
+22. National Institutes of Health ”NIH Seed: Creat-
+ing a Target Product Pro ﬁle for New Drug Prod-
+ucts”. Bethesda, MD; 2024.
+23. National Institutes of Health Blueprint “Example
+Target Product Proﬁle”. 2024.
+24. National Institutes of Health “CREATE Bio Exam-
+ple: Target Product Proﬁle”.B e t h e s d a ,M D ;2 0 2 2 .
+Available from: https://www.ninds.nih.gov/
+current-research/research-funded-ninds/
+translational-research/create-bio/create-bio-
+application-support-library/create-bio-example-
+target-product-proﬁle-tpp [Last accessed: Novem-
+ber 8, 2024].
+25. Bukini D, Makani J, McCune J, et al. Consen-
+sus-driven target product pro ﬁles for curative
+sickle cell disease gene therapies. Mol Ther
+Methods Clin Dev 2024;32(3):101287; doi: 10
+.1016/j.omtm.2024.101287
+26. U.S. Food and Drug Administration. “Formal
+Meetings Between the FDA and Sponsors or
+Applicants of PDUFA Products ”. Silver Spring,
+MD; 2023. Available from: https://www.fda
+.gov/regulatory-information/search-fda-
+guidance-documents/formal-meetings-between-
+fda-and-sponsors-or-applicants-pdufa-products
+[Last accessed: November 8, 2024].
+27. Lomash RM, Shchelochkov O, Chandler RJ, et al;
+NIH PaVe-GT Team. Successfully navigating
+food and drug administration orphan drug and
+rare pediatric disease designations for AAV9-
+hPCCA gene therapy: The national institutes of
+health platform vector gene therapy experience.
+Hum Gene Ther 2023;34(5 –6):217–227; doi: 10
+.1089/hum.2022.232
+28. U.S. Food and Drug Administration. “SOPP
+8101.1: Regulatory Meetings with Sponsors and
+Applicants for Drugs and Biological Products ”.
+U.S. Food and Drug Administration: Silver
+Spring MD; 2024.
+29. U.S. Food and Drug Administartion. “OTP
+INTERACT Meetings”. Silver Spring, MD; 2024.
+Available from: https://www.fda.gov/vaccines-
+blood-biologics/cellular-gene-therapy-products/
+otp-interact-meetings [Last accessed: November
+8, 2024].
+30. Shchelochkov OA, Farmer CA, Chlebowski C,
+et al. Intellectual disability and autism in propi-
+onic acidemia: A biomarker-behavioral investi-
+gation implicating dysregulated mitochondrial
+biology. Mol Psychiatry 2024;29(4):974 –981;
+doi: 10.1038/s41380-023-02385-5
+31. Shchelochkov OA, Manoli I, Juneau P, et al.
+Severity modeling of propionic acidemia using
+clinical and laboratory biomarkers. Genet Med
+2021;23(8):1534–1542; doi: 10.1038/s41436-021-
+01173-2
+32. Shchelochkov OA, Manoli I, Sloan JL, et al.
+Chronic kidney disease in propionic acidemia.
+Genet Med 2019;21(12):2830–2835; doi: 10.1038/
+s41436-019-0593-z
+33. National Institutes of Health “PaVe-GT: Plat-
+form Vector Gene Therapy ”. 2020. Available
+from: https://pave-gt.ncats.nih.gov/ [Last
+accessed: November 8, 2024].
+34. U.S. Food and Drug Administration. “Search for
+FDA Guidance Documents ”. Silver Spring, MD.
+2024. Available from: https://www.fda.gov/
+regulatory-information/search-fda-guidance-
+documents [Last accessed: November 5, 2024].
+35. Breder CD, Du W, Tyndall A. What ’s the regula-
+tory value of a target product pro ﬁle? Trends
+Biotechnol 2017;35(7):576 –579; doi: 10.1016/j
+.tibtech.2017.02.011
+36. Harrison RK. Phase II and phase III failures:
+2013-2015. Nat Rev Drug Discov 2016;15(12):
+817–818; doi: 10.1038/nrd.2016.184
+37. Tyndall A, Du W, Breder CD. Regulatory watch:
+The target product pro ﬁle as a tool for regula-
+tory communication: Advantageous but under-
+used. Nat Rev Drug Discov 2017;16(3):156; doi:
+10.1038/nrd.2016.264
+38. Blin O, Lefebvre MN, Rascol O, et al. Orphan
+drug clinical development. Therapie 2020;75(2):
+141–147; doi: 10.1016/j.therap.2020.02.004
+39. U.S. Food and Drug Administration. “FDA In
+Brief: FDA announces program to enhance
+early communications with biological product
+developers”. Silver Spring, MD; 2018. Avail-
+able from: https://www.fda.gov/news-events/
+fda-brief/fda-brief-fda-announces-program-
+enhance-early-communications-biological-
+product-developers [Last accessed: October 30,
+2024].
+40. Baldrick P. Successful regulatory agency inter-
+action - A nonclinical regulatory strategist ’s per-
+spective. Regul Toxicol Pharmacol 2022;130:
+105130; doi: 10.1016/j.yrtph.2022.105130
+41. U.S. Food and Drug Administration. “Best
+Practices for Communication Between IND
+Sponsors and FDA During Drug Development
+Guidance for Industry and Review Staff ”.U . S .
+Food and Drug Administration: Silver Spring,
+MD; 2017.
+Received for publication November 12, 2024;
+accepted after revision December 24, 2024.
+Published online: February 20, 2025.
+662 LOMASH ET AL.

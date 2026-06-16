@@ -1,0 +1,1474 @@
+# Source PDF: Reading Literature/files/69/Chamberlain et al. - 2023 - Microdystrophin Expression as a Surrogate Endpoint for Duchenne Muscular Dystrophy Clinical Trials.pdf
+
+
+
+--- Page 1 ---
+
+Open camera or QR reader and
+scan code to access this article
+and other resources online.
+Microdystrophin Expression as a Surrogate Endpoint
+for Duchenne Muscular Dystrophy Clinical Trials
+Jeffrey S. Chamberlain,1,* Melissa Robb,2,* Serge Braun,3 Kristy J. Brown, 4 Olivier Danos,5
+Annie Ganot,4 Pedro Gonzalez-Alegre,6 Nina Hunter,5 Craig McDonald,7 Carl Morris,4
+Mark Tobolowsky,8 Kathryn R. Wagner, 9 Olivia Ziolkowski,10 and Dongsheng Duan 11,*
+1Department of Neurology, Sen. Paul D. Wellstone Muscular Dystrophy Specialized Research Center, University of Washington, Seattle, Washington, U SA; 2Robb
+Consulting (contractor of REGENXBIO, Inc.), Columbia, Maryland, USA; 3AFMTelethon, Evry, France; 4Solid Biosciences, Inc., Charlestown, Massachusetts, USA;
+5REGENXBIO, Inc., Rockville, Maryland, USA; 6Spark Therapeutics, Inc., Philadelphia, Pennsylvania, USA; 7University of California Davis Medical Center, Sacramento,
+California, USA; 8Hyman, Phelps & McNamara, P.C. (former contractor of REGENXBIO, Inc.), Washington, District of Columbia, USA; 9F. Hoffmann-La Roche, Ltd.,
+Basel, Switzerland; 10Former contractor of REGENXBIO, Inc., Rockville, Maryland, USA; and 11Department of Molecular Microbiology and Immunology, Neurology,
+Biomedical Sciences, and Biomedical, Biological & Chemical Engineering, University of Missouri, Columbia, Missouri, USA.
+Duchenne muscular dystrophy (DMD) is a serious, rare gene tic disease, affecting primarily boys. It is caused by
+mutations in the DMD gene and is characterized by progressive muscle degeneration that results in loss of function and
+early death due to respiratory and/or cardiac failure. Although limited treatment options are available, some for only
+small subsets of the patient population, DMD remains a disease with large unmet medical needs. The adeno-associated
+virus (AAV) vector is the leading gene delivery system for addressing genetic neuromuscular diseases. Since the gene
+encoding the full-length dystrophin protein exceeds the packaging capacity of a single AAV vector, gene replacement
+therapy based on AAV-delivery of shortened, yet, funct ional microdystrophin genes has emerged as a promising
+treatment. This article seeks to explain the rationale for use of the accelerated approval pathway to advance AAV
+microdystrophin gene therapy for DMD. Speciﬁcally, we p rovide support for the use of microdystrophin expression
+as a surrogate endpoint that could be used in cli nical trials to support accelerated approval.
+Keywords: microdystrophin, Duchenne muscular dystrophy, gene therapy, AAV vector
+DUCHENNE MUSCULAR DYSTROPHY
+DUCHENNE MUSCULAR DYSTROPHY (DMD) is a recessive,
+X-linked neuromuscular disorder caused by mutations in
+the dystrophin gene, which spans *2.4 megabases and
+includes 79 exons. 1,2 These mutations lead to little or
+no dystrophin production (typically <3% of the normal
+quantity of dystrophin).3 Dystrophin is a protein critical in
+physically stabilizing the membranes of muscle cells. The
+near-total absence of full-length dystrophin production
+in DMD patients results in progressive muscle degenera-
+tion that manifests primarily as muscle weakness impair-
+ing walking, other motor functions, breathing, and cardiac
+function,
+4 with the most common cause of death being
+cardiorespiratory failure.5 Although the pace of symptom
+progression is heterogenous in DMD patients, muscle
+weakness typically begins between ages 3 and 5 years, with
+*Correspondence: Dr. Jeffrey S. Chamberlain, Department of Neurology, Sen. Paul D. Wellstone Muscular Dystrophy Specialized Research Center, Univ ersity of Wa-
+shington, Seattle, WA 98109, USA. E-mail: jsc5@uw.edu; Melissa Robb, Robb Consulting (contractor of REGENXBIO, Inc.), Columbia, MD 21044, USA. E-m ail: melissa@r-
+obbconsult.com; Dr. Dongsheng Duan, Department of Molecular Microbiology and Immunology, Neurology, Biomedical Sciences, and Biomedical, Biolo gical & Chemical
+Engineering, University of Missouri, Columbia, MO 65212, USA. E-mail: duand@health.missouri.edu
+ª Jeffrey S. Chamberlain et al. 2022; Published by Mary Ann Liebert, Inc. This Open Access article is distributed under the terms of the Creative Commons License [CC-BY]
+(http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the ori ginal work is properly cited.
+404 j HUMAN GENE THERAPY, VOLUME 34, NUMBERS 9 and 10 DOI: 10.1089/hum.2022.190
+Mary Ann Liebert, Inc.
+
+
+--- Page 2 ---
+
+loss of ambulation usually occurring in the early teenage
+years and loss of ability to self-feed by the late teenage years.
+Studies have reported a mean age at mortality ranging
+from 18.1 to 31.4 years. 6 DMD predominantly affects
+males, with an estimated incidence of about 16 live male
+births per 100,000 in the United States. 7 Rarely, females
+are affected by DMD, with around 8% of female carriers
+having some degree of muscle weakness or cardiomy-
+opathy.
+8
+CURRENT LANDSCAPE OF DMD THERAPY
+The U.S. Food and Drug Administration (FDA) has
+approved ﬁve treatments for DMD: deﬂazacort, eteplirsen,
+golodirsen, viltolarsen, and casimersen. Deﬂazacort is a
+glucocorticoid that was granted traditional approval, while
+the rest are exon-skipping drug products that were granted
+accelerated approval based on a mean increase in inter-
+nally truncated dystrophin production in skeletal muscle
+(quantiﬁed using western blot [WB]). In 2018, FDA issued
+a ﬁnal guidance to the industry on DMD drug develop-
+ment.
+9 The guidance notes that ‘‘FDA has no deﬁned set of
+required or recommended clinical outcome measures for
+studies in dystrophinopathies .’’ and suggests that exist-
+ing or novel outcome measures that can measure clinically
+meaningful effects may be appropriate.
+Several types of medical products are currently under
+development for DMD. One direct way of treating this
+disease would be to restore the expression of dystrophin.
+Gene therapy based on adeno-associated virus (AAV)-
+mediated delivery of microdystrophin genes has emerged
+as a promising method since the gene encoding the full-
+length dystrophin protein is too large to ﬁt inside a single
+AAV vector.
+10 Microdystrophin genes are designed to be
+small enough to ﬁt into an AAV vector while retaining the
+primary functionality of the full-length dystrophin protein
+by being rationally designed to include the most critical
+protein domains. AAV vectors can transduce cells that are
+not actively dividing, and they are minimally integrating,
+nonpathogenic, and less immunogenic than gene therapies
+that use other delivery mechanisms.
+11
+Trials are now studying the safety and efﬁcacy of sys-
+temically administered AAV vectors to deliver different
+forms of microdystrophins to slow or stabilize the loss of
+muscle function throughout the body.
+12 We note that not
+all groups have adopted the expression ‘‘microdystro-
+phin,’’ and in particular the Pﬁzer AAV trial for DMD uses
+what they call a ‘‘minidystrophin.’’ For simplicity, here,
+we use the term ‘‘microdystrophin’’ to describe any cDNA
+less than *4 kb that encodes a shortened dystrophin
+protein. This terminology distinguishes these AAV-sized
+dystrophins from larger ‘‘minidystrophins’’ that are en-
+coded by Becker muscular dystrophy (BMD) patients
+carrying large deletions, that allow expression of coding
+regions in the 5–8 kb range.
+FDA’S ACCELERATED APPROVAL PATHWAY
+The accelerated approval provisions allow the FDA to
+grant accelerated approval to ‘‘.a product for a serious or
+life-threatening disease or condition .upon a determina-
+tion that the product has an effect on a surrogate endpoint
+that is reasonably likely to predict clinical beneﬁt, or on a
+clinical endpoint that can be measured earlier than irre-
+versible morbidity or mortality, that is reasonably likely to
+predict an effect on irreversible morbidity or mortality or
+other clinical beneﬁt, taking into account the severity,
+rarity, or prevalence of the condition and the availability or
+lack of alternative treatments.’’
+13
+All products granted accelerated approval are subject
+to certain requirements, which may include postapproval
+studies to verify and describe clinical beneﬁt.
+14 The im-
+portance of postapproval studies being conducted with
+due diligence, as required by the law and regulations, 15
+is paramount to the success of the accelerated approval
+program. Sponsors must ensure that the required post-
+approval studies are well designed and completed in a
+timely manner.
+DMD is clearly a serious condition and AAV gene
+therapies could provide a meaningful advantage over
+available therapy, consisting of the regular use of steroids.
+This includes deﬂazacort, a corticosteroid that reduces
+inﬂammation and activity of the immune system and im-
+proves muscle strength in DMD patients.
+16 FDA may also
+consider prednisone, a therapy with off-label use in DMD,
+to constitute available therapy based on recommendations
+by authoritative scientiﬁc bodies that evaluate clinical
+evidence and other reliable information that reﬂects cur-
+rent clinical practice or standard of care.
+17 The ongoing
+use of steroids carries with it the risk of serious compli-
+cations such as altered endocrine function, immunosup-
+pression, and an increased risk of infection, osteoporosis,
+altered cardiovascular/renal function, and behavioral and
+mood disturbances.
+18
+Meaningful advantages over available therapy could
+be based on effects that target the underlying cause of
+DMD, effects that are superior or additive to those of steroid
+therapy, or which provide treatment options to patients
+unable to tolerate or who are unresponsive to steroid ther-
+apies. It is worth noting that FDA does not consider products
+approved under the accelerated approval pathway based
+on a surrogate endpoint or intermediate clinical endpoint
+and where the clinical beneﬁt has not been veriﬁed by
+postapproval studies as ‘‘available therapy.’’ This would
+include the four exon-skipping drugs approved for DMD.
+The accelerated approval pathway is deﬁned using an
+endpoint, either a surrogate or an intermediate clinical end-
+point, which is reasonably likely to predict clinical beneﬁt.
+A surrogate endpoint used as the basis for accelerated ap-
+proval is not one that has been validated to show clinical
+beneﬁt. Validated surrogate endpoints are known to predict
+clinical beneﬁt and can be used for traditional approval.
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 405
+
+
+--- Page 3 ---
+
+FDA noted in its Final Rule on the Accelerated Ap-
+proval Regulations that ‘‘.[w]hether a given endpoint is,
+in fact, reasonably likely to predict clinical beneﬁt is in-
+evitably a matter of judgment. FDA, using available in-
+ternal and external expertise, will have to make informed
+judgments in each case presented, just as it does now. The
+agency acknowledges that there are well-recognized rea-
+sons for caution when surrogate endpoints are relied on .
+A sponsor must persuasively support the reasonableness
+of the proposed surrogate as a predictor and show how
+the beneﬁts of treatment will outweigh the risks. Such
+presentations are likely to be persuasive only when the
+disease to be treated is particularly severe (so that con-
+siderable risk is acceptable) and/or when the surrogate
+endpoint is well supported. In addition, it will be the
+sponsor’s clear obligation to resolve any doubts as to
+clinical value by carrying out deﬁnitive studies.’’
+19
+This article will describe the evidence supporting mi-
+crodystrophin expression as a likely predictor of clinical
+beneﬁt from AAV DMD gene therapy. Speciﬁcally, this
+article will discuss and provide support for the use of
+expression of microdystrophin in muscle as a surrogate
+endpoint reasonably likely to predict changes of muscle
+function that reﬂect a clinical beneﬁt for DMD patients.
+This article advocates for the use of the accelerated ap-
+proval pathway for approval of AAV gene therapies for the
+treatment of DMD.
+MICRODYSTROPHIN OVERVIEW
+As mentioned previously, it is not possible to admin-
+ister the full-length dystrophin coding sequence in an
+AAV vector to treat DMD because its size ( *11.5 kb)
+greatly exceeds the AAV packaging capacity ( *5 kb).
+This problem was addressed with the development of
+microdystrophin genes that are <4 kb. Microdystrophins
+are shortened but are functional versions of dystrophin. 12
+These microgenes include genetic sequences that have
+been curated to include elements identiﬁed as most critical
+for dystrophin function. Various gene therapy candidates
+aim to improve the DMD phenotype by delivering vec-
+tors expressing microdystrophin genes, which will pro-
+duce minimized microdystrophin proteins that retain the
+key function of the full-length dystrophin protein by
+linking the subsarcolemmal cytoskeleton with the extra-
+cellular matrix and by recruiting primary members of the
+dystrophin-associated protein complex (DAPC) to stabi-
+lize the muscle.
+The rationale is that the production of microdystro-
+phin is reasonably likely to result in improved mus-
+cle function. FDA recognized that the production of
+larger internally truncated dystrophins was reasonably
+likely to predict clinical beneﬁt for the four exon-skipping
+drugs granted accelerated approval for the treatment
+of DMD.
+BIOLOGICAL PLAUSIBILITY
+The FDA has repeatedly asserted in its summary re-
+views of the four exon-skipping drugs granted accelerated
+approval that the role of dystrophin is well-characterized in
+the pathophysiology of DMD.
+20–23 Dystrophin is a critical
+muscle protein that is reduced or absent in DMD patients.
+Dystrophin’s critical role is linking the subsarcolemmal actin
+cytoskeleton to the extracellular matrix via the DAPC.
+24,25
+This link helps reduce muscle cell stress generated during
+contraction, while its absence leads to muscle cell injury,
+subsequent degeneration, and a gradual loss of muscle
+cells.
+26
+Microdystrophins are shorter than full-length dystro-
+phin normally produced endogenously, yet, they remain
+functional. Microdystrophin is considered therapeutic when
+the expression is durable and the protein is appropriately
+membrane-localized, recruits members of the DAPC, and
+stabilizes or increases muscle force generation, resulting
+in increased muscle strength and prevention of muscle cell
+necrosis.
+27–30
+Protein size alone does not always correlate with the
+clinical phenotype. In fact, some individuals with shorter
+dystrophin (due to large deletions involving multiple ex-
+ons) have milder diseases compared with those with longer
+dystrophin.
+31 In addition, disease severity of dystrophi-
+nopathy is determined not by the size of the gene but rather
+by the quantity, as well as the quality, of the dystrophin
+protein produced. Speciﬁcally, patients with severe dis-
+ease have <5% of the normal quantity of dystrophin,
+whereas patients with dystrophin levels between 5% and
+10% of normal, regardless of protein size, usually have an
+intermediate phenotype (mild DMD or severe BMD). In
+contrast, based on ﬁndings reported in a review article,
+patients with mild to moderate BMD phenotype usually
+have protein levels above 20%.
+32
+REGULATORY HISTORY OF SHORTENED
+DYSTROPHIN AS AN ENDPOINT
+FOR ACCELERATED APPROVAL
+FDA has accepted a statistically signiﬁcant increase in a
+shortened version of dystrophin as a surrogate endpoint
+supporting accelerated approval of four exon-skipping
+products thus far. For each of these four accelerated ap-
+provals, FDA relied upon demonstration of a small in-
+crease in de novo production of the internally truncated
+dystrophin protein in skeletal muscle. The four exon-
+skipping products showed a mean change from baseline
+(% normal dystrophin) of 0.28–5.3% (0.28% for ete-
+plirsen, 0.92% for golodirsen, 5.3% for viltolarsen, and
+of 0.8% for casimersen).
+20–23
+Although there was public disagreement about whether
+the magnitude of expression was meaningful, the FDA
+ultimately decided that increased dystrophin production in
+skeletal muscle was reasonably likely to predict clinical
+406 CHAMBERLAIN ET AL.
+
+
+--- Page 4 ---
+
+beneﬁt and therefore was an acceptable surrogate end-
+point for accelerated approval. Thus, the production of a
+shortened version of dystrophin resulting from treatment
+is established as an FDA-accepted surrogate endpoint
+to support accelerated approval of a product intended to
+treat DMD.
+RATIONALE FOR USE OF MICRODYSTROPHIN
+EXPRESSION AS A SURROGATE ENDPOINT
+In addition to the regulatory precedent and biological
+plausibility described above, the use of microdystrophin as
+a surrogate endpoint provides a variety of valuable bene-
+ﬁts. Unlike some functional endpoints currently used
+in trials, microdystrophin—as an objectively measured
+endpoint—reduces potential biases that can impact the
+results of clinical outcome assessments, a challenge
+FDA has identiﬁed in guidance regarding the use
+of these endpoints, and variables in patient motiva-
+tion.
+9,33,34 In addition, the use of this surrogate end-
+point allows a reduction in study duration. Clinical
+studies have reported that protein expression has been seen
+as early as 2 months after treatment with increased ex-
+pression at 12 months, supported also by previous pre-
+clinical work.
+30,35–39 Functional outcomes have generally
+been assessed at 12 months in DMD studies. Therefore, the
+use of this surrogate endpoint could signiﬁcantly shorten
+the time needed for demonstration of efﬁcacy in DMD
+studies.
+In addition, because all microdystrophin constructs
+used in clinical evaluation have been designed to produce
+controlled and consistent protein expression across muscle
+cells, the similarities between microdystrophins are closer
+than the variations induced by mutations in exon-skipped
+internally truncated dystrophin. For example, the eteplir-
+sen approval was based on six different mutations ame-
+nable to exon-51-skipping therapy, although additional
+mutations are known to exist.
+FDA noted that there may be some differences in
+functionality of the protein produced from exon-51-
+skipped transcripts, and that the different internally trun-
+cated dystrophins produced in patients with different
+mutations could also confound interpretation of possi-
+ble effects on clinical course based on differences in
+dystrophin levels.
+40,41 As an example, while exon skip-
+ping typically removes a single exon from the tran-
+script, each spectrin-like repeat (SR) in the dystrophin
+rod domain is encoded by about two exons. Thus, in
+many cases when an exon is skipped, the encoded pro-
+tein carries only part of one of the SRs, which can im-
+pact the stability of the resulting internally truncated
+protein.
+29,42 More stable proteins result from main-
+taining properly phased SRs, which has become a
+gold-standard design strategy to produce the synthetic
+microdystrophins.
+29
+RATIONAL DESIGN OF FUNCTIONAL
+MICRODYSTROPHIN
+The rational design and development of functional
+microdystrophins have been based on naturally occurring
+mutations in BMD patients and reﬁned by repeated stud-
+ies in DMD animal models, in which nonfunctional mi-
+crodystrophin constructs are readily distinguished from
+functional versions through the durability of expression
+and improved functional outcomes.
+28–30,43
+PRECLINICAL STUDIES
+Published studies have consistently shown that re-
+storing dystrophin in muscles improves muscle mor-
+phology, strength, and resistance to contraction-induced
+injury. This was initially shown in 1993 by Cox et al, who
+expressed a full-length dystrophin coding sequence in
+striated muscles of transgenic mdx mice.
+44 In treated mice,
+expression levels up to 50 times normal restored DAPC
+localization, muscle histology, and strength without any
+associated toxicity. This proof-of-concept study revealed
+that gene therapy had the potential to treat DMD.
+Similar results were obtained in 1993 and 1995 by
+different groups. First, minimized dystrophin was de-
+livered by adenovirus-mediated transfer to mdx mice in-
+tramuscularly. In this study, expression of the truncated
+protein protected the ﬁbers efﬁciently against the muscle
+degeneration process.
+45 Subsequently, two groups gener-
+ated additional transgenic mdx mice expressing either full-
+length or internally truncated dystrophin, the latter of which
+was based on a BMD patient with a 1 MB deletion (of exons
+17–48) who remained ambulatory until his death in his late
+70s.
+31 Very mild phenotypes have been associated with
+deletion of exons 13–48, an even larger deletion.46 In these
+studies, dystrophic pathology was eliminated in muscles
+that expressed ‡20% of normal levels of full-length dys-
+trophin, and higher levels of uniform expression did not
+further increase strength beyond normal.
+47,48
+Internally truncated dystrophins patterned from BMD
+patients did not fully restore strength as did the full-length
+dystrophin, however, they completely halted ongoing ne-
+crosis and degeneration and led to largely normal muscle
+histology.
+49 These results provided the basis to develop
+even smaller microdystrophins with normal SR repeat
+phasing that could be administered using AAV vectors.
+The ﬁrst studies of functional microdystrophins small
+enough to be carried by AAV vectors were published
+starting in 2000. These microdystrophins are encoded by
+cDNAs smaller than*4k b .29,50 In one study, three different
+microdystrophins were expressed in mdx mice by intra-
+muscular injection of AAV vectors. All three of these vec-
+tors produced microdystrophins, although in different
+amounts, and improved muscle histology. Since delivery
+was localized, no measurements of strength were per-
+formed.
+50 In the second study, a variety of full-length dys-
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 407
+
+
+--- Page 5 ---
+
+trophins and microdystrophins were compared in transgenic
+mdx mice, and three different microdystrophins were further
+analyzed after intramuscular injection of the AAV vectors
+mdx mice.29 As in earlier studies, the larger dystrophins were
+often, but not always, better at restoring normal strength,
+although all constructs showed a signiﬁcant beneﬁt.29
+With microdystrophins, maximally functional activity
+came from designs that preserved SR phasing and that
+favored the use of subdomains normally adjacent to each
+other in the native protein. These smaller proteins also
+retained the major protein-interaction domains within
+dystrophin and were assessed in multiple muscles and at
+various ages of the dystrophic mice. The critical elements
+identiﬁed in these studies are all incorporated into the
+design of the microdystrophins currently in clinical de-
+velopment. Finally, an earlier study tested IM injection of
+vectors carrying between one and three SR domains, but
+these constructs had minimal functional beneﬁt leading to
+the conclusion that a minimum of four SRs is needed for
+signiﬁcant functional beneﬁt.
+29,50–52
+Together, these various studies highlighted both the
+striking functionality of small dystrophins and that ex-
+pression up to normal levels improved or eliminated
+dystrophy. In addition, these studies were the basis for
+identifying critical domains needed for functional micro-
+dystrophin constructs.
+Subsequent studies moved toward testing systemic
+delivery of AAV vectors expressing various micro-
+dystrophin in striated muscles of mdx mice, and later, the
+canine DMD model. These studies showed the ability of
+microdystrophin in adult mammals to prevent and reverse
+pathology and increase strength.
+53 The degree of pheno-
+typic improvement was also shown to depend on the dose
+of AAV vector delivered (and hence the amount of mi-
+crodystrophin produced). Early systemic AAV delivery
+studies revealed the ability to deliver microdystrophin
+gene constructs to all striated muscles in a dose-dependent
+manner.
+36,54 Lower doses led to dystrophin expression in a
+mosaic pattern, which partially improved histology and
+strength, whereas higher doses led to more uniform levels
+of dystrophin and a more complete rescue of the dystro-
+phic phenotype in mice.
+36,55 Phenotypic reversal was also
+observed in old mdx mice (up to 2 years old). 30,56–58 Mi-
+crodystrophin has been similarly effective in canine DMD
+models.35,38,59–62
+CRITICAL ELEMENTS OF FUNCTIONAL
+MICRODYSTROPHIN
+The ability to express func tional microdystrophins
+from coding sequences small enough to be carried by
+AAV vectors is based on (1) studies of deletions that
+removed various domains from dystrophin and their ef-
+fects on functionality of the protein, as discussed under
+Biological Plausibility, and (2) the knowledge gained
+from natural deletions occurring in BMD patients.
+63 The
+critical functional element s of dystrophin are described
+below (Fig. 1):
+1. N-terminal actin-binding domain (ABD)
+Truncations of the N-terminal ABD (N-ABD) have
+not resulted in favorable outcomes; consequently,
+the entire ABD is retained in all microdystrophins
+constructs. The primary reason is that such trunca-
+Figure 1. Critical elements of functional microdystrophin. Full-length dystrophin contains an NT domain (NT, amino acids 14–240), a central rod domain (amino
+acids 253–3040) with 24 spectrin-like repeats (R1 to R24) and four hinges (H1 to H4), a CR domain (CR, amino acids 3080–3360), and a CT domain (CT, amino
+acids 3361–3685). Functional microdystrophins all carry the NT actin-binding domain, CR/beta-dystroglycan-binding domain, and shortened rod do main with at
+least four spectrin-like repeats. Note, the amino acid number is based on the Leiden Muscular Dystrophy pages (https://www.dmd.nl). H2 is highlight ed in red
+because it contains a polyproline site which profoundly inﬂuences the functional capacity of microdystrophin in murine studies. 85 R16/17 is highlighted in red
+because these two repeats anchor neuronal nitric oxide synthase (nNOS) to the muscle cell membrane and protect muscle from functional ischemia in
+exercise.43 CT, C-terminal; CR, cysteine-rich; NT, N-terminal.
+408 CHAMBERLAIN ET AL.
+
+
+--- Page 6 ---
+
+tions greatly reduce the stability of dystrophin. 64–69
+Dystrophin also has a central ABD, 70–72 and as long
+as the N-ABD is present and functional, the central
+ABD can be deleted. 28,64,70,73,74
+2. Cysteine-rich/beta-dystroglycan-binding domain (Dbd)
+The beta-Dbd is composed of a WW domain within
+hinge 4 and the cysteine-rich domain. 63,75–78 Es-
+sentially all mutations or deletions in this Dbd have
+been observed to inactivate dystrophin completely;
+hence this region is present in all functional mi-
+crodystrophin constructs.
+42,79–82
+3. Rod domain with hinge 1, hinge 4, and at least four SRs
+Shortened dystrophins lacking all SRs are non-
+functional.29 Hinge1, hinge 4, and at least four SRs
+are needed to prevent dystrophy and increase strength
+in mdx mice.29,30,43,50–52,83,84 All microdystrophin
+constructs in clinical testing have either four or ﬁve
+SRs.
+4. Choice and relative order of SRs
+The various microdystrophin constructs in clinical
+testing with AAV vectors carry either four or ﬁve
+SRs.
+29,30,43,50,83,85,86 Since full-length dystrophin
+has 24 SRs, many combinations of SRs can be used
+to generate a protein expressed by a coding se-
+quence small enough for packaging into AAV
+vectors.
+87 Most microdystrophin constructs pub-
+lished to date have retained the ﬁrst and last SRs, as
+these SRs blend the central rod domain into the
+adjacent ABD and Dbds and are presumed to have
+a unique structure. Together these studies indicate
+that several combinations of four or ﬁve SRs can
+generate microdystrophins that are stable and that
+support normal muscle function.
+30
+RELATIONSHIP OF MICRODYSTROPHIN
+TO MUSCLE FUNCTION
+Several clinical studies have quantiﬁed microdystrophin
+in muscle biopsies from patients who received intravas-
+cular AAV microdystrophin therapy. The expressed mi-
+crodystrophin was appropriately membrane-localized and
+recruited members of the DAPC, demonstrating the clinical
+proof of concept for delivering functional microdystrophin.
+Interim results were presented from an ongoing Phase 1/2
+study of a single infusion of SGT-001 (an investigational
+AAV9 microdystrophin gene therapy) at a dose of 5 · 10
+13
+or 2 · 1014 vg/kg. In three patients receiving the higher
+dose, biopsies of skeletal muscle taken 3 months later
+showed widespread distribution of microdystrophin-
+positive muscle ﬁbers with colocalization of neuronal nitric
+oxide synthase (nNOS) and b-sarcoglycan.
+88 Long-term
+biopsy data collected from these three patients, taken 2, 1.5,
+and 1 year after dosing, indicate evidence of durable and
+widespread expression of the microdystrophin. 89
+In addition, the North Star Ambulatory Assessment
+(NSAA) score was stable with minimal changes, and the
+6-minute walk test (6MWT) distances were maintained at
+1.5 years after treatment, suggesting clinical beneﬁt
+compared with trajectories typically observed in natural
+history cohorts. Clinical data available at 24 months fol-
+lowing infusion revealed continued patient beneﬁt in
+maintaining motor function, as assessed by 6MWT and
+NSAA, when compared to natural history declines.
+90
+One-year data from a Phase 1b study of an investiga-
+tional AAV9 minidystrophin gene therapy (PF-06939926)
+showed that for the three patients in the low-dose cohort
+(1 · 1014 vg/kg), the mean proportion of muscle ﬁbers
+expressing dystrophin was 28.5% at 2 months and 21.2%
+at 12 months after dosing. 91 For the six patients in the
+high-dose cohort (3 · 1014 vg/kg), these measures were
+between 48.4% and 50.6% ( n = 3), respectively. The pa-
+tients also showed a functional improvement from base-
+line NSAA scores after 1 year compared with an external
+control group: an increase of one point for the study pa-
+tients ( n = 19) versus a median loss of four points for the
+external control group ( n = 66; p < 0.005).
+35
+Finally, in a Phase 1/2a study, four patients received a
+single dose of 2 · 1014 vg/kg recombinant AAVrh74 mi-
+crodystrophin gene therapy. Transduction was conﬁrmed
+in all patients, indicating successful delivery to skeletal
+muscle. At 12 weeks after treatment, 81.2% of muscle
+ﬁbers expressed microdystrophin with a mean intensity of
+96% at the sarcolemma. WB showed a mean expression
+of 74.3% without fat or ﬁbrosis adjustment and 95.8%
+with adjustment. Microdystrophin expression also resulted
+in an increase in b-sarcoglycan, a component of
+the DAPC, suggesting that microdystrophin can promote
+restoration and reconstitution of the DAPC. In addition,
+functional outcomes (e.g., NSAA score) were improved in
+these patients up to 1 year after treatment.
+39
+Table 1 summarizes the AAV microdystrophin gene
+therapy clinical trials for patients with DMD listed on
+ClinicalTrials.gov that are recruiting; active, not recruit-
+ing; or enrolling by invitation.
+QUANTITY AND DISTRIBUTION
+OF MICRODYSTROPHIN
+Several factors must be considered when assessing
+microdystrophin expression, including quantity produced,
+distribution to skeletal muscles throughout the body, and
+distribution among muscle cells within a given muscle
+type. The exact quantity of dystrophin or microdystrophin
+required to improve clinical phenotype is not known.
+Levels of dystrophin in healthy humans vary widely, with
+differences of three- to ﬁvefold observed across sampled
+levels.
+92,93 In addition, some deletion mutations, such as
+exons 3–7 or 3–9 deletion, can lead to a low-level ex-
+pression of shortened dystrophin and a milder phenotype,
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 409
+
+
+--- Page 7 ---
+
+Table 1. Adeno-associated virus microdystrophin gene therapy clinical studies from ClinicalTrials.gov (recruiting; active, not recruiting; enrolling b y invitation)
+ClinicalTrials.gov
+Identiﬁer NCT03375164 NCT03769116 NCT04626674 NCT05096221 NCT03362502 NCT04281485 NCT05429372 NCT03368742 NCT05693142
+Company Sarepta Sarepta Sarepta/Roche Sarepta/Roche Pﬁzer Pﬁzer Pﬁzer Solid Biosciences, Inc. REGENXBIO Inc.
+Phase 1/2 2 1 3 1 3 2 1/2 1/2
+Gene Therapy SRP-9001 SRP-9001 SRP-9001 SRP-9001 PF-06939926 PF-06939926 PF-06939926 SGT-001 RGX-202
+Estimated
+Enrollment
+4 41 46 126 23 99 10 16 18
+Age 3 months to
+7 years
+4 to 7 years 3 years and older 4 to 7 years 4 years and older 4 to 7 years 2 to 3 years 4 to 17 years 4 to 11 years
+Primary
+Endpoint
+No. of
+participants
+with AEs
+Change from base-
+line in quantity of
+microdystrophin
+protein expres-
+sion as measured
+by western blot
+Change from base-
+line in NSAA to-
+tal score
+Change from base-
+line in quantity of
+microdystrophin
+protein expres-
+sion at week 12,
+as measured by
+western blot
+Change from
+baseline in
+NSAA total
+score at
+week 52
+Incidence of dose-
+limiting safety
+or intolerability,
+as measured by
+treatment-
+related AEs
+Change from
+baseline in
+NSAA
+Incidence and severity of treatment-
+emergent AEs and serious AEs
+No. of participants with abnormal
+hematology test results
+No. of participants with abnormal
+biochemistry test results
+No. of participants with abnormal
+urine analysis
+No. of participants with abnormal
+and clinically relevant changes in
+neurological examinations
+No. of participants with abnormal
+and clinically relevant changes in
+body weight
+No. of participants with abnormal
+and clinically relevant changes in
+vital signs
+No. of participants with abnormal
+and clinically relevant changes on
+cardiac troponin I
+No. of participants with abnormal
+and clinically relevant changes on
+ECG
+No. of participants with abnormal
+and clinically relevant changes on
+echocardiography
+Change from baseline in micrody-
+strophin protein in muscle biop-
+sies
+Incidence of AEs
+Incidence of clinical laboratory ab-
+normalities
+Incidence of abnormalities in vital
+signs
+Incidence of abnormalities in physi-
+cal examinations
+Incidence of abnormalities on ECGs
+Incidence of
+AEs and
+serious AEs
+AEs, adverse events; ECG, electrocardiogram; NSAA, North Star Ambulatory Assessment.
+410 j
+
+
+--- Page 8 ---
+
+implying that any increase in internally truncated dystro-
+phin could be beneﬁcial. 94–97 Animal studies have also
+shown improvements in muscle function when dystrophin
+levels were increased from low levels. 98 While not cura-
+tive, these improvements might affect quality of life and
+stabilize disease progression, both of which would have
+clinical beneﬁts for DMD patients.
+In addition to the total quantity of expressed dystrophin or
+microdystrophin, the importance of the distribution of such
+expression is not fully understood. For example, the clinical
+beneﬁt of 10% of ﬁbers positive (on tissue section) with 50%
+total dystrophin (in whole-muscle lysate) versus 50% ﬁbers
+positive (on tissue section) with 10% total dystrophin (in
+whole-muscle lysate) is not known. Studies in transgenic
+mdx mice expressing full-length dystrophin or micro-
+dystrophins, or in mdx mice injected with an AAV micro-
+dystrophin vector, have revealed that some protection from
+dystrophy occurs even if the expression isnonuniform, that
+is, mosaic.
+29,47,49,99 However, these studies also reveal
+that uniform expression is more protective than mosaic
+expression. Further, low-level expression of dystrophin
+in a uniform pattern tends to be more protective against
+necrosis than high-level mosaic expression. 47,98,100–104
+Another consideration is body-wide distribution. In non-
+clinical studies, multiple tissues can be evaluated to interro-
+gate the distribution of expression. AAV-microdystrophin
+gene therapy treatment in animal models has been shown to
+result in robust body-wide protein expression. It is not
+feasible or ethical to perform muscle biopsies on multiple
+muscles to clinically assess systematic expression in DMD
+patients. Preclinical dat a have shown the presence of
+microdystrophin in skeletal and cardiac muscles after
+administration of AAV microdystrophin gene therapy in
+both dystrophic dogs and mice, conﬁrming body-wide
+expression. Data from dys trophic dogs show protein
+expression in both skeletal and cardiac muscle.
+38,61,62
+Data from dystrophic mouse m odels reinforce the ﬁnd-
+ings of widespread protein expression seen in dystrophic
+dogs.36,50,52,54,57,58,86,105 Similarly, skeletal and cardiac
+expression was seen with administration of AAV reporter
+gene in a dystrophic dog model.
+38
+BIOPSY AND MEASUREMENT METHODS
+A muscle biopsy is required to quantify dystrophin and
+microdystrophin levels in DMD patients. These biopsy
+and assay methods have been used not only in clinical
+practice but also as the basis for regulatory approval. The
+techniques for obtaining, freezing, and handling samples
+to ensure that the tissue is appropriate for analysis have
+been well documented.
+106,107 Techniques have improved
+in recent years, limiting the amount of tissue needed to
+reduce the burden on patients.
+Multiple techniques, beyond the scope of this article,
+have been developed to characterize and quantify dystro-
+phin and microdystrophin. These include WB, capillary-
+based WB, mass spectrometry (MS), and immunoﬂuo-
+rescence staining (IF), and they each provide critical,
+yet, limited information about the presence of dystro-
+phin or the transduced microdystrophin. Collectively,
+they can provide complementary evidence of the appro-
+priate localization of microdystrophin (IF), protein in-
+tegrity and relative quantitation (WB, capillary-based
+WB), and absolute am ount (MS).
+93,108–112 All vali-
+dated techniques have demonstrated dystrophin or
+microdystrophin expression, dose response, and sar-
+colemmal localization.
+CONCLUSIONS FOR APPROPRIATE
+USE OF MICRODYSTROPHIN
+AS A SURROGATE ENDPOINT
+The use of microdystrophin as a reasonably likely
+surrogate endpoint is supported by the evidence provided.
+The use of microdystrophin is based on the biological
+relationship and the primary defect of DMD patients,
+which is the lack of dystrophin. Microdystrophin is ra-
+tionally designed to incorporate critical elements of a full-
+length dystrophin protein so that it is functional, correctly
+localized to the muscle cell membrane, recruiting mem-
+bers of the DAPC, and stabilizing the muscle. Based
+on preclinical and clinical data, microdystrophin can be
+evaluated as a surrogate endpoint as early as 2 months after
+dosing to support accelerated approval in clinical trials.
+However, current microdystrophin clinical trials are en-
+rolling few nonambulatory patients, and no patients older
+than 17 years of age.
+Consequently, it is difﬁcult to predict functional out-
+comes that might result from treatment of adult patients.
+Studies in old mdx mouse models for DMD have shown
+a beneﬁt in both skeletal and cardiac muscles.
+57,58,113
+Also, microdystrophin expression halts ongoing myoﬁber
+necrosis, suggesting that at a minimum loss of muscle
+mass and function might be preserved in microdystrophin
+treated patients. In this case measurements of micro-
+dystrophin expression could prove more informative than
+attempts to measure clear increases in strength or other
+functional outcomes in older patients.
+It is important to acknowledge the importance of safety
+data for approval also. FDA has noted that ‘‘ .what is a
+feasible and sufﬁcient safety assessment is a matter of
+scientiﬁc and regulatory judgment based on the particular
+challenges posed by each drug and disease, including pa-
+tients’ tolerance for risk in the setting of unmet medical
+need.’’
+114 With respect to rare diseases, the FDA has ex-
+plained that ‘‘.[t]he goal of safety evaluation during drug
+development is to characterize the drug’s safety proﬁle in a
+reasonable number of patients over a reasonable dura-
+tion of time, consistent with the intended use of the
+drug.’’
+114 For rare diseases, however, ‘‘reasonable’’ re-
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 411
+
+
+--- Page 9 ---
+
+quires ‘‘.consideration of feasibility challenges posed by
+the limited number of patients with the disease.’’ 114
+FDA has also explicitly said that when considering
+the beneﬁt-risk framework and making regulatory de-
+cisions regarding drugs and biologics for dystrophi-
+nopathies, it will ‘‘ .consider patient and caregiver
+tolerance for risk and the serious and life-threatening
+nature of these conditions. For example, patients may
+be willing to tolerate substantial risk of harm if a drug
+might delay loss of important abilities such as ambula-
+tion. However, tolerance for risk may vary among in-
+dividuals and be affected by disease stage and severity;
+FDA would consider this heterogeneity in regulatory
+decisions.’’
+9
+Gene therapies approved using the accelerated ap-
+proval pathway can leverage long-term follow-up (LTFU)
+studies—required to identify and mitigate long-term risks
+associated with the therapy—to also verify and describe
+the predicted clinical beneﬁt. As discussed in FDA’s
+guidance on this topic, the ‘‘ .LTFU protocol for gene
+therapy trials is primarily designed to capture delayed
+adverse events in study subj ects as well as to understand
+the persistence of the GT product. As a sponsor, you may
+consider designing the LTFU protocol to assess the long-
+term clinical efﬁcacy and durability of your product.’’
+115
+This approach will allow efﬁcient assessment of pa-
+tients for both safety and efﬁcacy and help ensure timely
+completion of postapproval studies required under ac-
+celerated approval.
+ACKNOWLEDGMENTS
+The authors thank the Pathway Development Con-
+sortium (PDC) working group on DMD who helped fa-
+cilitate and reﬁne the concepts discussed in this article as
+part of a broader project evaluating how to apply the ac-
+celerated approval pathway to AAV gene therapy for the
+treatment of DMD. We apologize to our colleagues that we
+cannot cite all relevant publications due to space con-
+straints.
+AUTHORS’ CONTRIBUTIONS
+M.R. wrote the ﬁrst draft of the article. All authors
+edited the article. All authors approved the submission.
+AUTHOR DISCLOSURE
+D.D. is a member of the scientiﬁc advisory board for
+Solid Biosciences and equity holders of Solid Biosciences.
+D.D. is an inventor of several patents related to DMD gene
+therapy. D.D. is a member of the scientiﬁc advisory board
+for Sardocor Corp. The Duan laboratory received research
+support unrelated to this project from Solid Biosciences in
+the last 3 years. The Duan laboratory has received research
+support unrelated to this project from Edgewise Ther-
+apeutics in the last 3 years. J.S.C. is a member of the
+scientiﬁc advisory board for Solid Biosciences and Kinea
+Bio and an equity holder of both. J.S.C. is an inventor on
+several patents related to microdystrophin design. O.D.
+and N.H. are employees of and hold equity from RE-
+GENXBIO, Inc. M.R. is a contractor at REGENXBIO,
+Inc. M.T. and O.Z. are former contractors at RE-
+GENXBIO, Inc. K.J.B., C.M. and A.G. are employees and
+hold equity from of Solid Biosciences. K.R.W. is an em-
+ployee of and holds equity in F. Hoffmann-La Roche, Ltd.
+P.G.-A. is an employee and holds equity of Spark Ther-
+apeutics, a Roche Company.
+FUNDING INFORMATION
+Microdystrophin gene therapy studies were supported
+by NIH (AR065139 to J.S.C., AR70517 to D.D.), Jesse
+Davidson Foundation-Defeat Duchenne Canada (to D.D.),
+Jett Foundation (to D.D.), and Jackson Freel DMD Re-
+search Fund (to D.D.).
+REFERENCES
+1. Duan D, Goemans N, Takeda S, et al. Duchenne
+muscular dystrophy. Nat Rev Dis Primers 2021;
+7(1):13; doi: 10.1038/s41572-021-00248-3
+2. Kunkel LM. 2004 William Allan Award address.
+Cloning of the DMD gene. Am J Hum Genet
+2005;76(2):205–214; doi: 10.1086/428143
+3. Hoffman EP. Causes of clinical variability in
+Duchenne and Becker muscular dystrophies and
+implications for exon skipping therapies. Acta Myol
+2020;39(4):179–186.
+4. National Institute for Neurological Disorders and
+Stroke. Muscular Dystrophy: Hope Through Re-
+search. 2013. Available from: https://www.ninds
+.nih.gov/Disorders/Patient-Caregiver-Education/
+Hope-Through-Research/Muscular-Dystrophy-Hope-
+Through-Research [Last accessed: October 5,
+2022].
+5. Van Ruiten HJ, Marini Bettolo C, Cheetham T,
+et al. Why are some patients with Duchenne
+muscular dystrophy dying young: An analysis of
+causes of death in North East England. Eur J
+Paediatr Neurol 2016;20(6):904–909.
+6. Szabo SM, Salhany RM, Deighton A, et al. The
+clinical course of Duchenne muscular dystrophy
+in the corticosteroid treatment era: A systematic
+literature review. Orphanet J Rare Dis 2021;
+16(1):237; doi: 10.1186/s13023-021-01862-w
+7. Darras BT, Urion DK, Ghosh PS. Dystrophino-
+pathies. 2000 [Updated 2022 Jan 20]. In: Gene-
+Reviews
+/C210 .( A d a mM P ,E v e r m a nD B ,M i r z a aG M ,
+et al. eds.) University of Washington: Seattle
+(WA); 1993–2022. Available from: https://www
+.ncbi.nlm.nih.gov/books/NBK1119 [Last accessed:
+October 5,2022].
+8. Apkon S, Kinnett K, Cripe L, et al. Parent Project
+Muscular Dystrophy Females with Dystrophino-
+pathy Conference, Orlando, Florida June 26–
+June 27, 2019. J Neuromuscul Dis 2021;8(2):
+315–322; doi: 10.3233/JND-200555
+9. FDA Guidance for Industry: Duchenne Muscular
+Dystrophy and Related Dystrophinopathies: De-
+veloping Drugs for Treatment. February 2018.
+Available from: https://www.fda.gov/media/92233/
+download [Last accessed: October 5, 2022].
+10. Duan D. Systemic AAV Micro-dystrophin gene
+therapy for duchenne muscular dystrophy. Mol
+412 CHAMBERLAIN ET AL.
+
+
+--- Page 10 ---
+
+Ther 2018;26(10):2337–2356; doi: 10.1016/j.ymthe
+.2018.07.011
+11. Wang D, Tai PWL, Gao G. Adeno-associated
+virus vector as a platform for gene therapy de-
+livery. Nat Rev Drug Discov 2019;18(5):358–378;
+doi: 10.1038/s41573-019-0012-9
+12. Duan D. Micro-dystrophin gene therapy goes
+systemic in Duchenne muscular dystrophy pa-
+tients. Hum Gene Ther 2018;29(7):733–736.
+13. 21U.S.C. x 506(c)(1)(A) of the Federal Food Drug
+& Cosmetic Act.
+14. 21U.S.C. x 356(c)(2)(A) of the Federal Food Drug
+& Cosmetic Act and 21 CFR 314.510 and 601.41.
+15. 21U.S.C. x 356(c)(3)(A) of the Federal Food Drug
+& Cosmetic Act and 21 CFR 314.510, 314.530,
+601.41, and 601.43.
+16. FDA news release: FDA approves drug to treat
+Duchenne muscular dystrophy. February 9, 2017.
+Available from: https://www.fda.gov/news-events/
+press-announcements/fda- approves-drug-treat-
+duchenne-muscular-dystrophy [Last accessed:
+October 5, 2022].
+17. FDA Guidance for Industry: Expedited Programs
+for Serious Conditions—Drugs and Biologics.
+May 2014. Available from: https://www.fda.gov/
+media/86377/download [Last accessed: Novem-
+ber 21, 2022].
+18. Emﬂaza (deﬂazacort) Prescribing Information. June
+2021. Available from: https://www.accessdata
+.fda.gov/drugsatfda_docs/label/2021/208684
+s005,208685s005lbl.pdf [Last accessed: October
+5, 2022].
+19. FDA. Final Rule, New Drug, Antibiotic, and Bio-
+logical Drug Product Regulations; Accelerated
+Approval (57 FR 58942, 58944, December 11,
+1992).
+20. FDA Center for Drug Evaluation and Research.
+Summary Review Application Number: 206488.
+Available from: https://www.accessdata.fda.gov/
+drugsatfda_docs/nda/2016/206488_summary%20
+review_Redacted.pdf [Last accessed: October 5,
+2022].
+21. FDA Center for Drug Evaluation and Research.
+Summary Review Application Number: 211970.
+Available from: https://www.accessdata.fda.gov/
+drugsatfda_docs/nda/2019/211970Orig1s000SumR
+.pdf [Last accessed: October 5, 2022].
+22. FDA Center for Drug Evaluation and Research.
+Summary Review Application Number: 212154.
+Available from: https://www.accessdata.fda.gov/
+drugsatfda_docs/nda/2020/212154Orig1s000SumR
+.pdf [Last accessed: October 5, 2022].
+23. FDA Center for Drug Evaluation and Research.
+Summary Review Application Number: 213026.
+Available from: https://www.accessdata.fda.gov/
+drugsatfda_docs/nda/2021/213026Orig1s000SumR
+.pdf [Last accessed: October 5, 2022].
+24. Ervasti JM. Dystrophin, its interactions with other
+proteins, and implications for muscular dystrophy.
+Biochim Biophys Acta 2007;1772(2):108–117; doi:
+10.1016/j.bbadis.2006.05.010
+25. Ervasti JM, Campbell KP. A role for the dystrophin-
+glycoprotein complex as a transmembrane linker
+between laminin and actin. J Cell Biol 1993;122:
+809–823.
+26. Gumerson JD, Michele DE. The dystrophin-
+glycoprotein complex in the prevention of mus-
+cle damage. J Biomed Biotechnol 2011;2011:
+210797; doi: 10.1155/2011/210797
+27. Wasala NB, Lai Y, Shin JH, et al. Genomic re-
+moval of a therapeutic mini-dystrophin gene
+from adult mice elicits a Duchenne muscular
+dystrophy-like phenotype. Hum Mol Genet 2016;
+25(13):2633–2644; doi: 10.1093/hmg/ddw123
+28. Banks GB, Gregorevic P, Allen JM, et al. Func-
+tional capacity of dystrophins carrying deletions
+in the N-terminal actin-binding domain. Hum
+Mol Genet 2007;16:2105–2113.
+29. Harper SQ, Hauser MA, DelloRusso C, et al.
+Modular ﬂexibility of dystrophin: Implications for
+gene therapy of Duchenne muscular dystrophy.
+Nat Med 2002;8:253–261.
+30. Ramos JN, Hollinger K, Bengtsson NE, et al.
+Development of novel micro-dystrophins with
+enhanced functionality. Mol Ther 2019;27:623–
+635.
+31. England SB, Nicholson LV, Johnson MA, et al.
+Very mild muscular dystrophy associated with
+the deletion of 46% of dystrophin. Nature 1990;
+343:180–182.
+32. Darras BT. Muscular dystrophies. In: Ofﬁce
+Practice of Neurology (Second Edition). (Samu-
+els MA, Feske SK, eds.) Churchill Livingstone;
+2003; pp. 684–697; doi: 10.1016/B0-44-306557-
+8/50109-X
+33. Alfano LN, Lowes LP, Berry KM, et al.T.P.1:
+Pilot study evaluating motivation on the perfor-
+mance of timed walking in boys with Duchenne
+muscular dystrophy. Neuromuscular Disord 2014;
+24(9–10):860.
+34. Servais L, Camino E, Clement A, et al. First
+regulatory qualiﬁcation of a novel digital end-
+point in Duchenne muscular dystrophy: A multi-
+stakeholder perspective on the impact for
+patients and for drug development in neuromus-
+cular diseases. Digit Biomark 2021;5:183–190.
+35. Butterﬁeld RJ. One year data from ambulatory
+boys in a phase 1b, open-label study of for-
+distrogene movaparvovec (PF-06939926) for Du-
+chenne muscular dystrophy. In: Presented as part
+of Muscular Dystrophy Association Clinical and
+Scientiﬁc Conference, March 2022, Nashville,
+TN.
+36. Gregorevic P, Allen JM, Minami E, et al. rAAV6-
+microdystrophin preserves muscle function and
+extends lifespan in severely dystrophic mice. Nat
+Med 2006;12:787–789.
+37. Shin JH, Pan X, Hakim CH, et al. Microdystrophin
+ameliorates muscular dystrophy in the canine
+model of duchenne muscular dystrophy. Mol
+Ther 2013;21(4):750–757; doi: 10.1038/mt.2012
+.283
+38. Yue Y, Pan X, Hakim CH, et al. Safe and
+bodywide muscle transduction in young adult
+Duchenne muscular dystrophy dogs with adeno-
+associated virus. Hum Mol Genet 2015;24:5880–
+5890.
+39. Mendell JR, Sahenk Z, Lehman K, et al. As-
+sessment of systemic delivery of rAAVrh74
+.MHCK7.micro-dystrophin in children with Du-
+chenne muscular dystrophy: A nonrandomized
+controlled trial. JAMA Neurol 2020;77(9):1122–
+1131.
+40. FDA Center for Drug Evaluation and Research.
+Clinical Pharmacology and Biopharmaceutics
+Review Application Number: 206488. Available
+from: https://www.accessdata.fda.gov/drugsatfda_
+docs/nda/2016/206488Orig1s000ClinPharmR.pdf
+[Last accessed: October 5, 2022].
+41. FDA Center for Drug Evaluation and Research.
+Medical Review Application Number: 206488.
+Available from: https://www.accessdata.fda.gov/
+drugsatfda_docs/nda/2016/206488Orig1s000MedR
+.pdf [Last accessed: October 5, 2022].
+42. Koenig M, Beggs AH, Moyer M, et al. The mo-
+lecular basis for Duchenne versus Becker mus-
+cular dystrophy: Correlation of severity with type
+of deletion. Am J Hum Genet 1989;45(4):498–
+506.
+43. Lai Y, Thomas GD, Yue Y, et al. Dystrophins
+carrying spectrin-like repeats 16 and 17 anchor
+nNOS to the sarcolemma and enhance exer-
+cise performance in a mouse model of muscular
+dystrophy. J Clin Invest 2009;119:624–635.
+44. Cox GA, Cole NM, Matsumura K, et al. Over-
+expression of dystrophin in transgenic mdx mice
+eliminates dystrophic symptoms without toxicity
+[see comments]. Nature 1993;364:725–729.
+45. Vincent N, Ragot T, Gilgenkrantz H, et al. Long-
+term correction of mouse dystrophic degenera-
+tion by adenovirus-mediated transfer of a mini-
+dystrophin gene. Nat Genet 1993;5:130–134.
+46. Passos-Bueno MR, Vainzof M, Marie SK, et al.
+Half the dystrophin gene is apparently enough
+for a mild clinical course: Conﬁrmation of its
+potential use for gene therapy. Hum Mol Genet
+1994;3:919–922.
+47. Phelps SF, Hauser MA, Cole NM, et al. Expres-
+sion of full-length and truncated dystrophin mini-
+genes in transgenic mdx mice. Hum Mol Genet
+1995;4:1251–1258.
+48. Wells DJ, Wells KE, Asante EA, et al. Expression
+of human full-length and minidystrophin in trans-
+genic mdx mice: Implications for gene therapy
+of Duchenne muscular dystrophy. Hum Mol Genet
+1995;4:1245–1250.
+49. Chamberlain JS. Dystrophin levels required for
+correction of Duchenne muscular dystrophy. Basic
+Appl Myol 1997;7:251–255.
+50. Wang B, Li J, Xiao X. Adeno-associated virus
+vector carrying human minidystrophin genes ef-
+fectively ameliorates muscular dystrophy in mdx
+mouse model. Proc Natl Acad Sci U S A 2000;97:
+13714–13719.
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 413
+
+
+--- Page 11 ---
+
+51. Yuasa K, Miyagoe Y, Yamamoto K, et al. Effec-
+tive restoration of dystrophin-associated proteins
+in vivo by adenovirus-mediated transfer of trun-
+cated dystrophin cDNA s. FEBS Lett 1998;425:
+329–336.
+52. Yoshimura M, Sakamoto M, Ikemoto M, et al.
+AAV vector-mediated microdystrophin expression
+in a relatively small percentage of mdx myoﬁbers
+improved the mdx phenotype. Mol Ther 2004;
+10(5):821–828.
+53. Wasala NB, Yue Y, Hu B, et al. Life-long out-
+comes of systemic AAV micro-dystrophin gene
+therapy in a murine Duchenne muscular dystro-
+phy model. Hum Gene Ther 2023; doi: 10.1089/
+hum.2022.181
+54. Gregorevic P, Blankinship MJ, Allen JM, et al.
+Systemic delivery of genes to striated muscles
+using adeno-associated viral vectors. Nat Med
+2004;10:828–834.
+55. Wang B, Li J, Fu FH, et al. Systemic human
+minidystrophin gene transfer improves func-
+tions and life span of dystrophin and dystrophin/
+utrophin-deﬁcient mice. J Orthop Res 2009;27:
+421–426.
+5 6 . B o s t i c kB ,S h i nJ H ,Y u eY ,e ta l .A A V -
+microdystrophin therapy improves cardiac per-
+formance in aged female mdx mice. Mol Ther
+2011;19:1826–1832.
+57. Gregorevic P, Blankinship MJ, Allen JM,
+et al. Systemic microdystrophin gene delivery
+improves skeletal muscle structure and function
+in old dystrophic mdx mice. Mol Ther 2008;16:
+657–664.
+58. Bostick B, Shin JH, Yue Y, et al. AAV micro-
+dystrophin gene therapy alleviates stress-
+induced cardiac death but not myocardial ﬁbrosis
+in >21-m-old mdx mice, an end-stage model of
+Duchenne muscular dystrophy cardiomyopathy. J
+Mol Cell Cardiol 2012;53(2):217–222; doi: 10.1016/
+j.yjmcc.2012.05.002
+59. Hakim CH, Kodippili K, Jenkins G, et al. AAV
+micro-dystrophin therapy ameliorates muscular
+dystrophy in young adult Duchenne muscular
+dystrophy dogs for up to thirty months following
+injection. Mol Ther2018;26 (5S1):5 (abstract).
+60. Kornegay JN, Bogan JR, Bogan DJ, et al. Canine
+models of Duchenne muscular dystrophy and
+their use in therapeutic strategies. Mamm Gen-
+ome 2012;23:85–108.
+61. Kornegay JN, Li J, Bogan JR, et al. Widespread
+muscle expression of an AAV9 human mini-
+dystrophin vector after intravenous injection in
+neonatal dystrophin-deﬁcient dogs. Mol Ther
+2010;18:1501–1508.
+62. Le Guiner C, Servais L, Montus M, et al. Long-
+term microdystrophin gene therapy is effective in
+a canine model of Duchenne muscular dystrophy.
+Nat Commun 2017;8:16105; doi: 10.1038/ncomms
+16105
+63. Abmayr S, Chamberlain J. The structure and
+function of dystrophin. In: The Molecular Me-
+chanisms of Muscular Dystrophies. (Winder SJ.
+ed.) Landes Biosciences: Georgetown; 2006;
+pp. 14–34.
+64. Amann KJ, Renley BA, Ervasti JM. A cluster of
+basic repeats in the dystrophin rod domain binds
+F-actin through an electrostatic interaction. J
+Biol Chem 1998;273:28419–28423.
+65. Beggs AH, Hoffman EP, Snyder JR, et al. Ex-
+ploring the molecular basis for variability among
+patients with Becker muscular dystrophy: Dys-
+trophin gene and protein studies. Am J Hum
+Genet 1991;49:54–67.
+66. Corrado K, Mills PL, Chamberlain JS. Deletion
+analysis of the dystrophin-actin binding domain.
+FEBS Lett.1994;344:255–260.
+67. Corrado K, Rafael JA, Mills PL, et al. Transgenic
+mdx mice expressing dystrophin with a dele-
+tion in the actin-binding domain display a ‘‘mild
+Becker’’ phenotype. J Cell Biol 1996;134:873–
+884.
+68. Levine BA, Moir AJ, Patchell VB, et al. Binding
+sites involved in the interaction of actin with the
+N- terminal region of dystrophin. FEBS Lett 1992;
+298:44–48.
+69. Norwood FL, Sutherland-Smith AJ, Keep NH,
+et al. The structure of the N-terminal actin-
+binding domain of human dystrophin and how
+mutations in this domain may cause Duchenne
+or Becker muscular dystrophy. Structure Fold Des
+2000;8:481–491.
+70. Rybakova IN, Amann KJ, Ervasti JM. A new
+model for the interaction of dystrophin with
+F-actin. J Cell Biol 1996;135:661–672.
+71. Rybakova IN, Ervasti JM. Dystrophin-glycoprotein
+complex is monomeric and stabilizes actin ﬁla-
+ments in vitro through a lateral association. J
+Biol Chem 1997;272:28771–28778.
+72. Ervasti JM, Rybakova IN, Amann KJ. A multi-
+ple site, side binding model for the interaction of
+dystrophin with F-actin. Soc Gen Physiol Ser 1997;
+52:31–44.
+73. Rybakova IN, Patel JR, Ervasti JM. The dystro-
+phin complex forms a mechanically strong link
+between the sarcolemma and costameric actin.
+J Cell Biol 2000;150:1209–1214.
+74. Warner LE, DelloRusso C, Crawford RW, et al.
+Expression of Dp260 in muscle tethers the actin
+cytoskeleton to the dystrophin-glycoprotein com-
+plex and partially prevents dystrophy. Hum Mol
+Genet 2002;11:1095–1105.
+75. Huang X, Poy F, Zhang R, et al. Structure of a
+WW domain containing fragment of dystrophin
+in complex with beta-dystroglycan. Nat Struct
+Biol 2000;7:634–638.
+76. Jung D, Yang B, Meyer J, et al. Identiﬁcation
+and characterization of the dystrophin anchoring
+site on beta-dystroglycan. J Biol Chem 1995;270:
+27305–27310.
+77. Rentschler S, Linn H, Deininger K, et al. The WW
+domain of dystrophin requires EF-hands region
+to interact with beta-dystroglycan. J Biol Chem
+1999;380:431–442.
+78. Suzuki A, Yoshida M, Yamamoto H, et al.
+Glycoprotein-binding site of dystrophin is con-
+ﬁned to the cysteine- rich domain and the ﬁrst
+half of the carboxy-terminal domain. FEBS Lett
+1992;308:154–160.
+79. Bies RD, Caskey CT, Fenwick R. An intact
+cysteine-rich domain is required for dystrophin
+function. J Clin Invest.1992;90:666–672.
+80. Ishikawa-Sakurai M, Yoshida M, Imamura M,
+et al. ZZ domain is essentially required for the
+physiological binding of dystrophin and utrophin
+to {beta}-dystroglycan. Hum Mol Genet 2004;13:
+693–702.
+81. Rafael JA, Cox GA, Corrado K, et al. Forced
+expression of dystrophin deletion constructs re-
+veals structure-function correlations. J Cell Biol
+1996;134:93–102.
+82. Sakuraba H, Hori S, Ohtani S, et al. A case of
+Duchenne muscular dystrophy with truncated
+dystrophin. Signiﬁcance of a cysteine-rich do-
+main for functional expression of dystrophin
+protein. Brain Dev 1993;15:222–225.
+83. Sakamoto M, Yuasa K, Yoshimura M, et al.
+Micro-dystrophin cDNA ameliorates dystrophic
+phenotypes when introduced into mdx mice as a
+transgene. Biochem Biophys Res Commun 2002;
+293:1265–1272.
+84. Wasala LP, Watkins T, Wasala N, et al. The
+implication of hinge 1 and hinge 4 in micro-
+dystrophin gene therapy for Duchenne muscular
+dystrophy. Hum Gene Ther 2022;10.1089/hum
+.2022.180. [Epub ahead of print]; doi: 10.1089/
+hum.2022.180
+85. Banks GB, Judge LM, Allen JM, et al. The
+polyproline site in hinge 2 inﬂuences the func-
+tional capacity of truncated dystrophins. PLoS
+Genet 2010;6:e1000958.
+86. Hakim CH, Wasala NB, Pan X, et al. A ﬁve-repeat
+micro-dystrophin gene ameliorated dystrophic phe-
+notype in the severe DBA/2J-mdx model of Du-
+chenne muscular dystrophy. Mol Ther Methods
+Clin Dev 2017:6:216–230.
+87. Ebner J, Pan X, Yue Y, et al. Microdystrophin
+therapy rescues impaired na currents in cardiac
+Purkinje ﬁbers from dystrophin-deﬁcient Mdx
+mice. Circ Arrhythm Electrophysiol 2022;15(8):
+e011161; doi: 10.1161/CIRCEP.122.011161
+88. Solid Biosciences. Solid Biosciences Reports
+Efﬁcacy and Safety Data from the Ongoing IG-
+NITE DMD Clinical Trial and Resumption of Pa-
+tient Dosing in the 2E14 vg/kg Cohort. March 15,
+2021. Available from: https://www.solidbio.com/
+about/media/press-releases/solid-biosciences-
+reporssts-efﬁcacy-and-safety-data-from-the-ongoing-
+ignite-dmd-clinical-trial-and-resumption-of-patient-
+dosing-in-the-2e14-vg-kg-cohort [Last accessed:
+October 5, 2022].
+89. Solid Biosciences. Solid Biosciences Reports 1.5-
+Year Data from Patients in the Ongoing IGNITE
+414 CHAMBERLAIN ET AL.
+
+
+--- Page 12 ---
+
+DMD Phase I/II Clinical Trial of SGT-001. Sep-
+tember 27, 2021. Available from: https://www
+.solidbio.com/about/media/press-releases/solid-
+biosciences-reports-1-5-year-data-from-patients-
+in-the-ongoing-ignite-dmd-phase-i-ii-clinical-trial-
+of-sgt-001 [Last accessed: October 5, 2022].
+90. Solid Biosciences. Solid Biosciences Reports
+Fourth Quarter and Full-Year2021 Financial Re-
+sults and 2-Year Efﬁcacy and Safety Data from
+the Ongoing Phase I/II IGNITE DMD Clinical Trial
+of SGT-001. March 14, 2022. Available from:
+https://www.solidbio.com/about/media/press-
+releases/solid-biosciences-reports-fourth-quarter-
+and-full-year-2021-ﬁnancial-results-and-2-year-
+efﬁcacy-and-safety-data-from-the-ongoing-phase-
+i-ii-ignite-dmd-clinical-trial-of-sgt-001 [Last ac-
+cessed: October 5, 2022].
+91. Pﬁzer press release: Pﬁzer’s New Phase 1b Re-
+sults of Gene Therapy in Ambulatory Boys with
+Duchenne Muscular Dystrophy (DMD) Support
+Advancement into Pivotal Phase 3 Study. May
+15, 2020. Available from: https://www.pﬁzer
+.com/news/press-release/press-release-detail/
+pﬁzers-new-phase-1b-results-gene-therapy-
+ambulatory-boy [Last accessed: October 5,
+2022].
+92. Koeks Z, Janson AA, Beekman C, et al. Low
+dystrophin variability between muscles and
+stable expression over time in Becker muscular
+dystrophy using capillary Western immunoassay.
+Sci Rep 2021;11(1):5952.
+93. Beekman C, Janson AA, Baghat A, et al. Use
+of capillary Western immunoassay (Wes) for
+quantiﬁcation of dystrophin levels in skeletal
+muscle of healthy controls and individuals with
+Becker and Duchenne muscular dystrophy. PLoS
+One 2018;13(4):e0195850.
+94. Nakamura A, Fueki N, Shiba N, et al. Deletion of
+exons 3–9 encompassing a mutational hot spot
+in the DMD gene presents an asymptomatic
+phenotype, indicating a target region for multi-
+exon skipping therapy. J Hum Genet 2016;61(7):
+663–667.
+95. Winnard AV, Mendell JR, Prior TW, et al. Fra-
+meshift deletions of exons 3–7 and revertant
+ﬁbers in Duchenne muscular dystrophy: Me-
+chanisms of dystrophin production. Am J Hum
+Genet 1995;56(1):158–166.
+96. Muntoni F, Gobbi P, Sewry C, et al. Deletions in
+the 5 ¢ region of dystrophin and resulting phe-
+notypes. J Med Genet 1994;31(11):843–847.
+97. Bello L, Morgenroth LP, Gordish-Dressman H,
+et al. DMD genotypes and loss of ambulation
+in the CINRG Duchenne Natural History Study.
+Neurology 2016;87(4):401–409.
+98. van Putten M, Hulsker M, Nadarajah VD, et al.
+The effects of low levels of dystrophin on mouse
+muscle function and pathology. PLoS One 2012;
+7(2):e31937.
+99. Rafael JA, Sunada Y, Cole NM, et al. Prevention
+of dystrophic pathology in mdx mice by a trun-
+cated dystrophin isoform. Hum Mol Genet 1994;
+3:1725–1733.
+100. van Putten M, van der Pijl EM, Hulsker M, et al. Low
+dystrophin levels in heart can delay heart failure in
+mdx mice. J Mol Cell Cardiol 2014;69:17–23.
+101. Li D, Yue Y, Duan D. Preservation of muscle force
+in Mdx3cv mice correlates with low-level ex-
+pression of a near full-length dystrophin protein.
+Am J Pathol 2008;172(5):1332–1341; doi: 10.2353/
+ajpath.2008.071042
+102. Li D, Yue Y, Duan D. Marginal level dystrophin
+expression improves clinical outcome in a strain
+of dystrophin/utrophin double knockout mice.
+PLoS One 2010;5(12):e15286; doi: 10.1371/journal
+.pone.0015286
+103. de Feraudy Y, Ben Yaou R, Wahbi K, et al. Very
+low residual dystrophin quantity is associated
+with milder dystrophinopathy. Ann Neurol 2021;
+89(2):280–292; doi: 10.1002/ana.25951
+104. Wasala NB, Yue Y, Vance J, et al. Uniform low-
+level dystrophin expression in the heart partially
+preserved cardiac function in an aged mouse
+model of Duchenne cardiomyopathy. J Mol Cell
+Cardiol 2017;102:45–52.
+105. Wang Z, Zhu T, Qiao C, et al. Adeno-associated
+virus serotype 8 efﬁciently delivers genes to
+muscle and heart. Nat Biotechnol 2005;23(3):
+321–328.
+106. Lee CC, Hoang A, Segovia D, et al. Enhanced
+methods for needle biopsy and cryopreservation
+of skeletal muscle in older adults. J Cytol Histol
+2020;11(2):10.37421/jch.2020.11.553; doi: 10.37421/
+jch.2020.11.553.
+107. Meng H, Janssen PM, Grange RW, et al. Tissue
+triage and freezing for models of skeletal muscle
+disease. J Vis Exp 2014;(89):51586.
+108. Vetter TA, Nicolau S, Bradley AJ, et al. Auto-
+mated immunoﬂuorescence analysis for sensitive
+and precise dystrophin quantiﬁcation in muscle
+biopsies. Neuropathol Appl Neurobiol 2022;48(3):
+e12785.
+109. Farrokhi V, Walsh J, Palandra J, et al. Dystrophin
+and mini-dystrophin quantiﬁcation by mass
+spectrometry in skeletal muscle for gene therapy
+development in Duchenne muscular dystrophy.
+Gene Ther 2022;29(10–11):608–615; doi: 10.1038/
+s41434-021-00300-7.
+110. Torelli S, Scaglioni D, Sardone V, et al. High-
+throughput digital image analysis reveals distinct
+patterns of dystrophin expression in dystrophino-
+pathy patients. J Neuropathol Exp Neurol 2021;
+80(10):955–965.
+111. Aartsma-Rus A, Morgan J, Lonkar P, et al.
+Report of a TREAT-NMD/World Duchenne Or-
+ganisation Meeting on dystrophin quantiﬁca-
+tion methodology. J Neuromuscul Dis 2019;6(1):
+147–159.
+112. Sc hnell FJ, Frank DE, Fletcher S, et al. Chal-
+lenges of interpreting dystrophin content by
+Western blot. US Neurol 2019;15(1):40–46.
+113. Bostick B, Yue Y, Long C, Duan D. Prevention of
+dystrophin-deﬁcient cardiomyopathy in twenty-
+one-month-old carrier mice by mosaic dystrophin
+expression or complementary dystrophin/utro-
+phin expression. Circ Res 2008;102(1):121–130;
+doi: 10.1161/CIRCRESAHA.107.162982
+114. FDA Draft Guidance for Industry: Rare Diseases:
+Common Issues in Drug Development. January
+2019. Available from: https://www.fda.gov/media/
+119757/download [Last accessed: October 5, 2022].
+115. FDA Guidance for Industry: Long Term Follow-Up
+After Administration of Human Gene Therapy
+Products. January 2020. Available from: https://
+www.fda.gov/media/113768/download [Last ac-
+cessed:October 5, 2022].
+Received for publication October 7, 2022;
+accepted after revision December 12, 2022.
+Published online: January 25, 2023.
+MICRODYSTROPHIN AS A SURROGATE ENDPOINT FOR DMD 415

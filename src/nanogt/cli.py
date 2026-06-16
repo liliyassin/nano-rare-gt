@@ -1,7 +1,6 @@
 """nanogt CLI — gene therapy precedent matching for rare diseases."""
 
-# ── What this file is ──────────────────────────────────────────────────────
-# The command-line interface. This is the "front door" of the tool.
+# This is the command-line interface.
 # When you type `nanogt match ORPHA:324` in the terminal, this file runs.
 #
 # Three commands available:

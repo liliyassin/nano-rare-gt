@@ -1,0 +1,278 @@
+# Source PDF: Reading Literature/files/77/Vockley - 2025 - mRNA therapy as primary and bridge therapy for inborn errors of metabolism.pdf
+
+
+
+--- Page 1 ---
+
+Commentary
+mRNA therapy as primary and
+bridge therapy for inborn errors
+of metabolism
+Jerry Vockley1
+https://doi.org/10.1016/j.ymthe.2025.02.010
+Development of therapies for rare disease in-
+volves a cascade ofin vitro testing, often start-
+ing with structural modeling then moving to
+cell studies, followed by conﬁrmation ofin vivo
+efﬁcacy in animal models before ﬁrst-in-hu-
+man studies can occur.
+1 In the case of inborn
+errors of metabolism, correction of the under-
+lying enzymatic defect is a critical biomarker
+for the preclinical studies, but one that is often
+stymied by lack of an appropriate model. In
+this setting, naturally occurring large animal
+models exist for a limited number of enzyme
+deﬁciencies, but engineered mouse models
+are far more commonly used for proof-of-
+concept studies. However, even mouse models
+can be challenging, as they sometimes do not
+reﬂect the full human phenotype or are so se-
+vere that the defect is either lethal in utero or
+deﬁcient animals do not survive long enough
+post-delivery to be studied. Such has been
+the case for the X-linked disorder ornithine
+transcarbamylase (OTC) de ﬁciency. In its
+most severe form, it presents with over-
+whelming hyperammonemia with high
+morbidity and mortality.
+2 Milder patients,
+especially females, can have later-onset disease
+with less dramatic episodes of hyperammone-
+mia but still with signi ﬁcant neurologic and
+intellectual impairment.
+Animal models for this condition have been
+either too mild to accurately re ﬂect severe
+neonatal disease (the most pressing need
+for acute therapy), or too severe to serve as
+an in vivo model due to early death.
+3 Thus,
+the OTC model described by Zhou et al. in
+this issue of Molecular Therapy represents
+an important advance in the ﬁeld.
+4 Their
+inducible model of OTC de ﬁciency leads to
+severe de ﬁciency and is amenable for the
+study of new therapies, in this case lipid
+nanoparticle encapsulated OTC mRNA.
+The model was generated using cre/lox
+gene editing technology to delete exon 2 of
+the OTC gene using a tamoxifen inducible
+promotor to achieve ef ﬁcient knockout of
+OTC expression in adult animals. The ani-
+mals survive and develop hyperammonemia
+with impaired ureagenesis, chronic symp-
+toms including poor growth, and character-
+istic pathologic changes on a normal protein
+diet. Treatment with liver-directed OTC
+mRNA delivered via nanoparticles was
+remarkably effective both acutely and with
+long-term treatment in controlling hyper-
+ammonemia and its symptoms. It also
+reduced accumulation of orotic acid and
+glutamine, standard clinical biomarkers of
+the disease. Given the relative effectiveness
+of the therapy, the apparent safety of other
+lipid nanoparticle therapies in early clinical
+trials for inborn errors of metabolism,
+and a successful phase 1 study of another
+OTC mRNA therapy in adult patients with
+OTC de ﬁciency ( clinicaltrials.gov study
+NCT06488313), it seems that this therapy
+is ready to transition to ﬁrst-in-human clin-
+ical trials.
+Development of a potential mRNA therapy
+for OTC de ﬁciency raises the question of
+its relative role in treatment vs. other thera-
+pies for this condition ( Figure 1). Phenylace-
+tate and/or its prodrug phenylbutyrate have
+been used for over 40 years as an alternative
+ammonia conjugating agent in the treatment
+of OTC deﬁciency, but as babies reach 1 year
+of age or 10 kg in weight, the drug cannot
+keep up with the body ’s need for ammonia
+removal and mortality rises.
+5 Thus, most
+severely affected infants receive a liver trans-
+plant in the ﬁrst year of life, trading OTC
+deﬁciency for a different set of medical prob-
+lems related to chronic immunosuppres-
+sion.
+6 Liver-directed gene therapy for OTC
+is currently in clinical trials, but has
+only been used in adolescents or adults
+(clinicaltrials.gov study NCT05345171). A
+second study focused on neonatal OTC is
+now enrolling ( clinicaltrials.gov study
+NCT06255782). However, a number of con-
+cerns about the use of gene therapy in young
+infants and children have limited its develop-
+ment for this population, including long-
+term safety, durability of effect, and off-
+target effects. Here, a role for mRNA as a
+transition therapy for OTC seems logical,
+with use for a year or 2 to bridge severe pa-
+tients to liver transplant or gene therapy.
+Of course, long-term therapy with mRNA
+is potentially feasible but depends on the in-
+terval needed between infusions to maintain
+clinical ef ﬁcacy. It is important to note that
+while most mRNA therapies currently in
+clinical trials are liver targeted, effects
+beyond liver symptoms have been reported.
+Mice with de ﬁciencies propionyl-CoA
+carboxylase (the cause of propionic acide-
+mia) and methylmalonyl-CoA mutase (lead-
+ing to primary methylmalonic acidemia)
+have shown signi ﬁcant systemic improve-
+ments with liver-based mRNA therapies, as
+have patients with propionic acidemia in
+early-phase clinical trials.
+7,8 Similarly, treat-
+ment of very long and medium-chain acyl-
+CoA dehydrogenase- (VLCAD and MCAD,
+respectively) deﬁcient mice with lipid nano-
+particle encapsulated mRNA provides recov-
+ery of cold tolerance typical of wild-type an-
+imals, a phenotype associated with brown fat
+in mice and muscle in humans.
+9,10 Thus, it is
+important to remember that liver-based
+mRNA therapy can have broader physiologic
+effects, potentially expanding the scope of
+diseases it can treat.
+As mRNA therapies in preclinical develop-
+ment expand, it is appropriate to consider
+their path to approval by the Food and
+1Department of Pediatrics, Division of Genetic and
+Genomic Medicine, University of Pittsburgh Schools
+of Medicine, Pittsburgh, PA, USA
+Correspondence: Jerry Vockley, Department of
+Pediatrics, Division of Genetic and Genomic
+Medicine, University of Pittsburgh Schools of
+Medicine, Pittsburgh, PA, USA.
+E-mail: gerard.vockley@chp.edu
+842 Molecular Therapy Vol. 33 No 3 March 2025 ª 2025 The American Society of Gene and Cell Therapy. Published by Elsevier Inc.
+All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+--- Page 2 ---
+
+Drug Administration (FDA) as medications
+for human use. Overall, the FDA ’s current
+legislative mandates and regulations for
+drug development in rare diseases are
+focused on incentivizing research, expediting
+approval processes, and ensuring that patient
+perspectives are integral to the development
+of new therapies.
+11 These efforts re ﬂect a
+growing recognition of the unique challenges
+faced by individuals with rare diseases and a
+commitment to improving access to treat-
+ment. The FDA Rare Diseases Program is de-
+signed to streamline the approval process for
+drugs targeting rare conditions. This pro-
+gram encourages the submission of investi-
+gational new drug applications (INDs) and
+provides guidance on expedited review pro-
+cesses, including Fast Track designation,
+Breakthrough Therapy designation, and
+Accelerated Approval pathways. These ini-
+tiatives aim to reduce the time it takes for pa-
+tients to access new therapies. In the tradi-
+tional regulatory environment, each mRNA
+preparation would be considered a new
+drug and require a full development path
+for approval including all toxicity and safety
+testing. However, there is signiﬁcant merit to
+considering such drugs as a platform where
+the safety is accepted as proven for any
+mRNA package so long as the capsid for
+deliver is identical. While each mRNA drug
+still would need to prove ef ﬁcacy for the dis-
+ease in question, the time and expense to
+ﬁnal FDA approval would be reduced sub-
+stantially. Such a change would require
+explicit action by the FDA and represent a
+new paradigm in drug development. Based
+on its rare disease model, It is likely that
+the agency indeed has the authority to reach
+a decision to enable this approach, but it has
+not yet demonstrated the willingness to do
+so. If this hurdle is overcome, development
+of mRNA therapies will be poised to bring
+these drugs to market for a broad range of
+disorders including additional inborn errors
+of metabolism.
+DECLARATION OF INTERESTS
+J.V. is an investigator in clinical trials sponsored by Mod-
+erna Pharmaceuticals.
+REFERENCES
+1. Vockley, J., Defay, T., Goldenberg, A.J., and Gaviglio,
+A.M. (2023). Scaling genetic resources: New para-
+digms for diagnosis and treatment of rare genetic dis-
+ease. Am. J. Med. Genet. C Semin. Med. Genet.
+193,7 7– 86.
+2. Maestri, N.E., Hauser, E.R., Bartholomew, D., and
+Brusilow, S.W. (1991). Prospective treatment of
+urea cycle disorders. J. Pediatr. 119, 923– 928.
+3. Moscioni, D., Morizono, H., McCarter, R.J., Stern, A.,
+Cabrera-Luque, J., Hoang, A., Sanmiguel, J., Wu, D.,
+Bell, P., Gao, G.P., et al. (2006). Long-term correction
+of ammonia metabolism and prolonged survival in
+ornithine transcarbamylase-de ﬁcient mice following
+liver-directed treatment with adeno-associated viral
+vectors. Mol. Ther. 14,2 5– 33.
+4. Zhou, J., Liang, S., Yin, L., Frassetto, A., Graham,
+A.R., White, R., Principe, M., Severson, M., Palmer,
+T., Naidu, S., et al. (2025). Characterization of a novel
+conditional knockout mouse model to assess ef ﬁcacy
+of mRNA therapy in the context of severe OTC
+deﬁciency. Mol. Ther. 10. https://doi.org/10.1016/j.
+ymthe.2025.01.010.
+5. Enns, G.M., Berry, S.A., Berry, G.T., Rhead, W.J.,
+Brusilow, S.W., and Hamosh, A. (2007). Survival after
+treatment with phenylacetate and benzoate for urea-
+cycle disorders. N. Engl. J. Med. 356, 2282– 2292.
+6. Shneider, B.L., Vockley, J., and Mazariegos, G.V.
+(2011). Trading places: liver transplantation as a
+treatment, not a cure, for metabolic liver disease.
+Liver Transpl. 17, 628– 630.
+7. An, D., Schneller, J.L., Frassetto, A., Liang, S., Zhu, X.,
+Park, J.S., Theisen, M., Hong, S.J., Zhou, J., Rajendran,
+R., et al. (2018). Systemic Messenger RNA Therapy as
+a Treatment for Methylmalonic Acidemia. Cell Rep.
+24, 2520.
+8. Baek, R., Coughlan, K., Jiang, L., Liang, M., Ci, L.,
+Singh, H., Zhang, H., Kaushal, N., Rajlic, I.L., Van,
+L., et al. (2024). Characterizing the mechanism of ac-
+tion for mRNA therapeutics for the treatment of pro-
+pionic acidemia, methylmalonic acidemia, and
+phenylketonuria. Nat. Commun. 15, 3804.
+9. Zhao, X.J., Mohsen, A.W., Mihalik, S., Solo, K., Aliu,
+E., Shi, H., Basu, S., Kochersperger, C., Van’t Land, C.,
+Karunanidhi, A., et al. (2023). Synthetic mRNA res-
+cues very long-chain acyl-CoA dehydrogenase de ﬁ-
+ciency in patient ﬁbroblasts and a murine model.
+Mol. Genet. Metab. 138, 106982.
+10. Zhao, X.J., Mohsen, A.W., Mihalik, S., Solo, K., Basu,
+S., Aliu, E., Shi, H., Kochersberger, C., Karunanidhi,
+A., Van’t Land, C., et al. (2023). Messenger RNA res-
+cues medium-chain acyl-CoA dehydrogenase de ﬁ-
+ciency in ﬁbroblasts from patients and a murine
+model. Hum. Mol. Genet. 32, 2347–
+2356.
+11. Kakkis, E.D. (2022). The transformation of drug
+development for the 21st century: Time for a change.
+Mol. Genet. Metab. 137, 107– 113.
+Figure 1. A stylized paradigm for treatment of inborn errors of metabolism
+A deﬁcient enzyme leads to an increase in substrate and a decrease in product, either or both of which can lead to
+cellular metabolic imbalance. Therapies can reduce the ﬂow of substrate to the enzyme, replace the product, or
+replace the enzyme by organ transplantation, nucleic acid therapy, or enzyme replacement therapy. Mutant
+enzymes can sometimes be stabilized by small molecule chaperonins or supplementation of excess cofactor(s).
+ERT = enzyme replacement therapy. Reproduced with permission from the Society for Inborn Errors of Meta-
+bolism North American Metabolic Academy curriculum.
+www.moleculartherapy.org
+Commentary
+Molecular Therapy Vol. 33 No 3 March 2025 843

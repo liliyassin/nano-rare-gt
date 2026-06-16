@@ -47,7 +47,7 @@ def init_db(conn: sqlite3.Connection) -> None: #init_db(conn) function creates d
     conn.commit() # saves the table creation changes 
 
 
-def seed_db(conn: sqlite3.Connection) -> None:.
+def seed_db(conn: sqlite3.Connection) -> None:
     conn.execute("DELETE FROM vectors")
     for v in VECTORS:
         conn.execute("""

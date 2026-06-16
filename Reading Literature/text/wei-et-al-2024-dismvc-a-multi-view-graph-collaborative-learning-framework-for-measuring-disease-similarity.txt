@@ -1,0 +1,1652 @@
+# Source PDF: Reading Literature/files/88/Wei et al. - 2024 - DiSMVC a multi-view graph collaborative learning framework for measuring disease similarity.pdf
+
+
+
+--- Page 1 ---
+
+Systems biology
+DiSMVC: a multi-view graph collaborative learning 
+framework for measuring disease similarity
+Hang Wei 
+1,
+�
+, Lin Gao 
+1
+, Shuai Wu
+1
+, Yina Jiang
+2
+, Bin Liu 
+3,4,
+�
+1
+School of Computer Science and Technology, Xidian University, Xi’an, Shaanxi 710126, China 
+2
+Department of Basic Medicine, Shaanxi University of Chinese Medicine, Xianyang, Shaanxi 712046, China 
+3
+Faculty of Engineering, Shenzhen MSU-BIT University, Shenzhen, Guangdong 518172, China 
+4
+School of Computer Science and Technology, Beijing Institute of Technology, Beijing, 100081, China
+�
+Corresponding authors. School of Computer Science and Technology, Xidian University, Xi’an, Shaanxi 710126, China. E-mail: weihang@xidian.edu.cn
+(H.W.); Faculty of Engineering, Shenzhen MSU-BIT University, Shenzhen, Guangdong 518172, China. E-mail: bliu@bliulab.net (B.L.)
+Associate Editor: Macha Nikolski
+Abstract
+Motivation: Exploring potential associations between diseases can help in understanding pathological mechanisms of diseases and facilitating 
+the discovery of candidate biomarkers and drug targets, thereby promoting disease diagnosis and treatment. Some computational methods 
+have been proposed for measuring disease similarity. However, these methods describe diseases without considering their latent multi- 
+molecule regulation and valuable supervision signal, resulting in limited biological interpretability and efficiency to capture association patterns.
+Results: In this study, we propose a new computational method named DiSMVC. Different from existing predictors, DiSMVC designs a super -
+vised graph collaborative framework to measure disease similarity. Multiple bio-entity associations related to genes and miRNAs are integrated 
+via cross-view graph contrastive learning to extract informative disease representation, and then association pattern joint learning is imple -
+mented to compute disease similarity by incorporating phenotype-annotated disease associations. The experimental results show that DiSMVC 
+can draw discriminative characteristics for disease pairs, and outperform other state-of-the-art methods. As a result, DiSMVC is a promising 
+method for predicting disease associations with molecular interpretability.
+Availability and implementation: Datasets and source codes are available at https://github.com/Biohang/DiSMVC.
+1 Introduction
+Uncovering disease associations is of great significance in bio -
+medical research. Similar diseases tend to exhibit analogous 
+clinical manifestations or stem from similar molecular mecha -
+nisms. Therefore, measuring disease similarity cannot only 
+unravel disease pathological mechanisms but also foster 
+advancements in disease diagnosis ( Xiang et al. 2022 ), partic -
+ularly in the identification of downstream disease-related 
+genes ( Le 2020 , Cao et al. 2022 ), noncoding RNAs ( Wei 
+et al. 2021 , Dai et al. 2022 , Sun et al. 2022 , Yan et al. 2022 , 
+Zhang and Liu 2022 ), and other biomarkers ( Wang et al. 
+2023d , Cao et al. 2024 ). Moreover, such research contributes 
+to therapeutic interventions, facilitating drug discovery 
+( Wang et al. 2023c ), and drug repurposing ( Bang et al. 2023 ) 
+by discovering analogous treatment targets across differ -
+ent diseases.
+With the in-depth study of diseases, more and more bio -
+medical data sources are collected. For examples, the seman -
+tic terminology systems including International Classification 
+of Diseases (ICD) ( Giles and Sander 2012 ), Disease Ontology 
+(DO) ( Bello et al. 2018 ), and Medical Subject Headings 
+(MeSH) ( Dhammi and Kumar 2014 ) have been constructed, 
+where diseases are organized by hierarchical tree structures. 
+In addition, a large number of diseases with phenotypic anno -
+tations are recorded in Human Phenotype Ontology (HPO) 
+( Gargano et al. 2024 ), Orphanet ( Gomez-Paramio et al. 
+2011 ), and PhenoDis ( Adler et al. 2018 ). To reveal the under -
+lying pathological mechanism at bio-molecule level, different 
+types of biological databases such as DisGeNET ( Pi ~nero et al. 
+2017 ), dbSNP ( Sherry et al. 2001 ), MNDR ( Ning et al. 
+2021 ), and Reactome ( Fabregat et al. 2018 ) have been estab -
+lished, providing experimentally validated associations be -
+tween diseases and genes, SNPs, ncRNAs, and pathways, 
+respectively.
+The accumulation of biomedical data makes it possible to 
+measure disease similarity by computational methods. There 
+are three main categories of methods semantic-based, pheno -
+type-based, and molecule-based. The semantic-based meth -
+ods measure disease similarity by considering the path length 
+or information content of different terms in the hierarchical 
+network of diseases ( Li et al. 2003 , Wang et al. 2007 , Yu 
+et al. 2015 , Feng et al. 2022 , Ai et al. 2023 ), where their cor -
+responding computational tools have been widely used to 
+construct disease similarity networks ( Ma and Jiang 2020 , 
+Wang et al. 2023e , Zhu et al. 2023 ). The phenotype-based 
+methods mainly depend on the common phenotypic charac -
+teristics of diseases, where similar diseases may share more 
+phenotype annotations ( Deng et al. 2015 , Peng et al. 2018 , 
+Wang et al. 2023b ). Compared to the semantic and 
+phenotype-based methods, the molecule-based methods can 
+Received: 28 February 2024; Revised: 19 April 2024; Editorial Decision: 24 April 2024; Accepted: 5 May 2024 
+# The Author(s) 2024. Published by Oxford University Press.  
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which 
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited. 
+Bioinformatics, 2024, 40(5), btae306 
+https://doi.org/10.1093/bioinformatics/btae306 
+Advance Access Publication Date: 7 May 2024 
+Original Paper 
+
+
+
+--- Page 2 ---
+
+explore potential disease relationships from micro-level and 
+achieve superior performance, where diseases can be de -
+scribed by their associated molecules via graph representation 
+learning techniques and aggregation strategies ( Cheng et al. 
+2014 , Yang et al. 2021 , Chen et al. 2022 , Zeng et al. 2022a ). 
+Despite the significant advances in computing disease similar -
+ity, there are still two main issues that need to be addressed: 
+(i) the occurrence and development of disease is an extremely 
+complicated process, involving the interaction and regulation 
+of different bio-molecules. Most molecule-based methods 
+represent diseases solely at the genetic level, failing to capture 
+sufficient semantic information; (ii) existing studies measure 
+disease similarity in an unsupervised manner and ignore the 
+valuable priori disease association knowledge, which may 
+cause inadequate pattern learning and limited prediction effi -
+ciency ( Zeng et al. 2022b ).
+This study is initiated in an attempt to overcome these 
+problems by designing a novel computational method called 
+DiSMVC to measure disease similarity. DiSMVC is a super -
+vised graph collaborative framework including two major 
+modules cross-view graph contrastive learning and associa -
+tion pattern joint learning. The former aims to enrich disease 
+representation by considering their underlying molecular 
+mechanism from both genetic and transcriptional views, 
+while the latter captures deep association patterns by incor -
+porating phenotypically interpretable multimorbidities in a 
+supervised manner. Experimental results indicated that 
+DiSMVC can identify molecularly interpretable similar dis -
+eases, and the synergies gained from DiSMVC contributed to 
+its superior performance in measuring disease similarity.
+2 Materials and methods
+2.1 Datasets
+To enrich disease description and explore their underlying 
+molecular mechanism, five bio-entity networks including 
+gene interaction network, miRNA similarity network, gene– 
+miRNA interaction network, gene–disease, and miRNA–dis -
+ease association networks are constructed and integrated into 
+the proposed graph collaborative framework.
+The gene interaction network G
+g 
+is downloaded from 
+HumanNet-FN ( Kim et al. 2022 ), collecting the co-functional 
+gene links. The miRNA similarity network G
+m 
+is constructed 
+by Gaussian Interaction Profile (GIP) kernel similarity measure -
+ment, where the interaction profiles are expressed as the associ -
+ation vector between miRNAs and diseases. The network G
+g m 
+collects the gene–miRNA interactions with Transcriptome 
+Dysregulation Measure Score (T D M D S c o r e) > 1, derived from 
+ENCORI ( Li et al. 2014 ). All the gene–disease associations col -
+lected in DisGeNET v7.0 ( Pi ~nero et al. 2017 ) and the experi -
+mentally validated miRNA–disease associations collected in 
+RNADisease ( Chen et al. 2023a ) are downloaded to construct 
+two heterogeneous networks, G
+d g 
+and G
+d m
+, r e s p e c t i v e l y. In 
+these networks, the genes and miRNAs excluded from G
+g 
+and 
+G
+m 
+are filtered out. The specific statistical information of above 
+constructed networks is listed in Table 1.
+We detect the disease association pattern in a supervised 
+manner, the prior disease associations are downloaded from 
+the previous study ( Dong et al. 2021 ), which analyzed the 
+multimorbidities among common diseases in the UK 
+Biobank. After unifying disease identifiers across multiple 
+datasets and filtering out disease associations with criteria of 
+RR value < 15 following the study ( Dong et al. 2021 ), 3091 
+high-quality disease associations supported with phenotypic 
+interpretability are collected to construct S
+þ
+benchmark 
+for train -
+ing process.
+To increase the data coverage and comprehensively evalu -
+ate the performance of different methods, the phenotypically 
+and genetically interpretable multimorbidities in the study 
+( Dong et al. 2021 ), the verified highly similar disease pairs 
+predicted by the study ( Mathur and Dinakarpandian 2012 ), 
+and the validated disease pairs obtained based on the elec -
+tronic health records (EHR) of the US population ( Pakhomov 
+et al. 2010 ) are integrated to construct testing positive set 
+S
+þ
+independent
+. The dataset can be represented as: 
+S
+benchmark
+¼ S
+þ
+benchmark
+⋃ S
+ 
+benchmark
+S
+independent
+¼ S
+þ
+independent
+⋃ S
+ 
+independent
+(
+(1) 
+where S
+benchmark
+\ S
+independent
+¼ ;, S
+þ
+benchmark 
+includes 3091 
+training positive pairs while S
+þ
+independent 
+includes 665 testing 
+positive pairs. S
+ 
+benchmark 
+and S
+ 
+independent 
+are constructed by 
+randomly selected negative pairs with the same number of 
+positive set. The datasets can be downloaded from https:// 
+github.com/Biohang/DiSMVC/tree/main/Dataset.
+2.2 Method overview
+The framework of DiSMVC contains two main modules 
+(cross-view graph contrastive learning and association pat -
+tern joint learning). As shown in Fig. 1, the former module is 
+designed to extract the features of disease-related molecules 
+via horizontally collaborative learning across different net -
+works, and the latter module aims to detect association pat -
+terns between diseases via vertical joint learning. These two 
+modules will be introduced in the following sections.
+2.3 Cross-view graph contrastive learning
+2.3.1 Homogenous bio-network construction
+Because the deregulation of similar genes or miRNAs may 
+tend to be closely related to the development of similar dis -
+eases, it is reasonable to detect disease association patterns 
+from molecular mechanisms. In this study, two homogeneous 
+bio-networks including gene interaction network G
+g 
+and 
+miRNA similarity network G
+m
+are constructed. The weight 
+score w
+i;j 
+between genes g
+i 
+and g
+j 
+in G
+g 
+is calculated by: 
+w
+i;j
+¼
+l
+i;j
+  l
+min
+l
+max
+  l
+min
+(2) 
+where l
+i;j 
+represents the log likelihood similarity score 
+obtained from HumanNet ( Kim et al. 2022 ), and l
+max 
+and 
+l
+min 
+are the maximum and minimum log likelihood similarity 
+scores between genes. The network G
+m 
+mainly collects the 
+functionally similar miRNAs, where the similarity score s
+i;j 
+Table 1. The statistical information of different datasets.
+Dataset
+a
+No. of nodes No. of edges Source
+G
+g
+17247 genes 371501 HumanNet
+G
+m
+4798 miRNAs 126264 RNADisease
+G
+gm
+17247 genes, 4798 miRNAs 80114 ENCORI
+G
+dg
+30170 diseases, 17247 genes 1030082 DisGeNET
+G
+dm
+30170 diseases, 4798 miRNAs 355196 RNADisease
+a 
+G
+m 
+was constructed by Gaussian Interaction Profile kernel similarity 
+measurement based on experimentally validated miRNA–disease 
+associations.
+2                                                                                                                                                                                                                                         Wei et al. 
+
+
+--- Page 3 ---
+
+between miRNAs m
+i 
+and m
+j 
+is computed via the Gaussian 
+Interaction Profile (GIP) kernel similarity measurement: 
+s
+i;j
+¼ exp
+�
+− γ
+�
+�
+�
+�
+A
+dm
+i
+− A
+dm
+j
+�
+�
+�
+�
+2
+�
+γ ¼ γ
+0
+=
+1
+n
+X
+n
+p¼1
+�
+�
+�
+�
+A
+dm
+p
+�
+�
+�
+�
+2
+0
+@
+1
+A
+8
+>
+>
+>
+>
+>
+>
+<
+>
+>
+>
+>
+>
+>
+:
+(3) 
+where A
+dm
+2 R
+30170�4798 
+is an adjacency matrix of miRNA– 
+disease association network G
+dm
+. A
+dm
+i
+and A
+dm
+j 
+is the ith and 
+jth row in matrix A
+dm
+, representing the interaction profiles of 
+miRNA m
+i 
+and m
+j 
+with different diseases, respectively. n is 
+the number of miRNAs, while γ
+0
+denotes the original kernel 
+bandwidth and is defined as 1 following the previous study 
+( Wei and Liu 2020 , Wang et al. 2023a ). To ensure the high 
+quality of miRNA similarity network, the edges with similar -
+ity score > 0.8 are retained in G
+m
+.
+2.3.2 Intra-view graph representation
+Graph representation is designed to encode and extract mean -
+ingful embeddings preserving intricate structural properties 
+from graph-structured data, and has been successfully applied 
+in various bioinformatics tasks, such as circRNA-disease associ -
+ation detection ( Wang et al. 2020 , Chen et al. 2024 , Niu et al. 
+2024 ), drug–target binding affinity prediction (
+€
+Ozt €urk et al. 
+2018 ), cell–cell interaction identification ( Yang et al. 2023 ). 
+Inspired by the powerful ability of graph neural networks to un -
+cover hidden semantic knowledge from bio-entity networks 
+( Zhou et al. 2020 , Yi et al. 2022 ), we adopt two graph encoders 
+including Graph Convolutional Networks (GCN) ( Kipf and 
+Welling 2017 ) and Graph Attention Networks (GAT) 
+( Veli �ckovi �c et al. 2018 ) for exploring the latent interaction pat -
+tern from each homogeneous bio-network.
+For the gene interaction network G
+g
+, graph encoder with 
+GCN is constructed. GCN utilizes convolutional operation 
+and message passing mechanism on network to learn and up -
+date node embeddings by considering the local and global 
+neighborhood structure. For the l þ 1th network layer, the 
+gene feature matrix F
+g, l þ 1 
+can be obtained by: 
+F
+g;l þ 1
+¼ σ D
+ 
+1
+2
+c
+A
+g
+D
+ 
+1
+2
+F
+g;l
+W
+l
+  �
+(4) 
+where 
+c
+A
+g
+¼ A
+g
+þ I
+g 
+denotes the adjacency matrix of gene 
+interaction network G
+g 
+with inserted self-loops, the ele -
+ments in A
+g
+2 R
+1 7 2 4 7�1 7 2 4 7 
+are the weight scores [cf 
+Equation (2)]. D is a diagonal degree matrix calculated 
+byD
+i i
+¼
+P
+n
+j¼1
+A
+g
+i j
+, where n denotes the number of genes in 
+G
+g
+. W
+l 
+is the learnable weight matrix from the lth layer, 
+F
+g;0 
+denotes the initial feature matrix of genes constructed 
+by one-hot encoding, and σ represents the activation func -
+tion defined as LeakyReLU.
+To reduce noise interference in miRNA similarity network 
+G
+m
+, graph encoder with GAT is constructed for extracting 
+miRNA features. Different from GCN, GAT extracts node 
+features via aggregating their neighborhoods’ information 
+with different attention coefficients and can apply to induc -
+tive as well as transductive problems ( Yan et al. 2023 , Zhang 
+et al. 2024 ). For the l þ 1th network layer, the feature vector 
+f
+m;l þ 1
+i 
+of miRNA m
+i 
+can be obtained by three main steps. 
+Firstly, the attention coefficient e
+ij 
+representing the impor -
+tance of miRNA m
+j 
+to m
+i 
+is calculated by: 
+Figure 1. The framework of DiSMVC. There are two main steps: (i) Cross-view graph contrastive learning. Gene interaction network and miRNA similarity 
+network are constructed, based on that node features are extracted by considering their proximity structures via different graph representation 
+algorithms. Graph contrastive learning is implemented to further refine the hidden features of genes and miRNAs. (ii) Association pattern joint learning. 
+Average pooling and concatenate strategies are applied to obtain initial disease pair features based on various priori bio-entity networks. Multi-layer 
+perceptron models are jointly learned to detect hidden association patterns and predict disease similarity scores.
+DiSMVC                                                                                                                                                                                                                                            3 
+
+
+--- Page 4 ---
+
+e
+ij
+¼ LeakyReLUða
+T
+ðW
+l
+f
+m;l
+i
+∥W
+l
+f
+m;l
+j
+ÞÞ (5) 
+where a is a learnable attention parameter vector and W
+l 
+is a 
+weight matrix. Symbols T and ∥ denote transposition and 
+concatenation operations, respectively. f
+m;l
+i 
+and f
+m;l
+j 
+denote 
+the embedding vectors of miRNA m
+i 
+and m
+j 
+obtained from 
+the lth layer. Then, the normalized attention coefficient is cal -
+culated using the SoftMax function to make different 
+nodes comparable: 
+α
+ij
+¼
+expðe
+ij
+Þ
+P
+p2N
+i
+expðe
+ip
+Þ
+(6) 
+where N
+i 
+represents the set containing all the first-order neigh -
+bors of miRNA m
+i
+. At last, the feature vector f
+m;l þ 1
+i 
+of miRNA 
+m
+i 
+is obtained by neighborhood aggregation strategy: 
+f
+m;l þ 1
+i
+¼ LeakyReLU
+X
+j2N
+i
+α
+ij
+W
+l
+f
+m;l
+j
+� �
+(7) 
+Through above intra-view graph representation learning, two 
+feature matrices F
+g
+2 R
+17247�128
+, F
+m
+2 R
+4798�128 
+and graph 
+encoders can be obtained, where the feature dimensionality 
+are set as 128 and each encoder contains 2 layers to avoid 
+over-smoothing.
+2.3.3 Cross-view contrastive loss
+Contrastive learning is primarily designed to learn repre -
+sentation by maximining the agreement between similar 
+samples and minimizing it for dissimilar ones, and it has 
+been widely applied for extracting informative representa -
+tions from biological data, facilitating various tasks such 
+as structure prediction ( Wang et al. 2021 ), drug discovery 
+( Singh et al. 2023 ), sequence analysis ( Li et al. 2023 ), and 
+image analysis ( Sanchez-Fernandez et al. 2023 ).
+Because genes and miRNAs are intertwined to signifi -
+cantly influence cellular function and disease progression, 
+we propose a cross-view contrastive loss L
+c v 
+for enhancing 
+the representations of genes and miRNAs by incorporating 
+the critical regulatory mechanism between them. L
+c v 
+con -
+sists of two parts aiming to refine gene and miRNA expres -
+sions respectively and can be formulated as: 
+L
+cv
+¼ βL
+cv g
+þ ð1   βÞL
+cv m
+(8) 
+L
+c v g 
+and L
+c v m 
+are the contrastive losses for genes and 
+miRNAs, β is a parameter controlling the importance of 
+loss computed with different central molecules. Inspired by 
+the effectiveness of InfoNCE loss in contrastive learning 
+( Dwibedi et al. 2021 ), we define L
+c v g 
+and L
+c v m 
+as: 
+L
+cv g
+¼
+X
+N
+g
+i¼1
+− log
+P
+N
+m
+j¼1
+Π
+i;j
+expðrelðf
+g
+i
+; f
+m
+j
+Þ=τ Þ
+P
+N
+m
+k¼1
+expðrelð f
+g
+i
+; f
+m
+k
+Þ=τÞ
+(9) 
+L
+cv m
+¼
+X
+N
+m
+p¼1
+− log
+P
+N
+g
+q¼1
+Π
+p;q
+expðrelðf
+m
+p
+; f
+g
+q
+Þ=τÞ
+P
+N
+g
+k¼1
+expðrelð f
+m
+p
+; f
+g
+k
+Þ=τÞ
+(10) 
+where relð�Þ represents a correlation function, more specifi -
+cally, rel f
+g
+i
+; f
+m
+j
+� �
+¼
+f
+g
+i
+f
+m
+j
+T
+f
+g
+i
+j jj j
+f
+m
+jj jj j
+denotes the relevance degree be -
+tween the ith gene and jth miRNA, while f
+g
+i 
+and f
+m
+j 
+are their 
+feature vectors [cf Equations (4) and (7)]. Πð�Þ 2 0; 1f g is an 
+indicator function, Πð�Þ ¼ 1 if the target gene and miRNA are 
+interacted in the network G
+gm
+, otherwise 0. N
+g 
+and N
+m 
+are 
+the numbers of genes and miRNAs, respectively, and τ is a 
+temperature parameter controlling the scale of distribution.
+2.4. Association pattern joint learning
+2.4.1 Disease pair feature extraction
+To explore underlying molecular mechanism and obtain 
+meaningful representation of diseases, we construct disease 
+features from both genetic and transcriptional views. The 
+associations between diseases and genes, miRNAs are col -
+lected from networks G
+dg 
+and G
+dm
+, and the average pooling 
+method is used to obtain feature vectors f
+d g
+i 
+and f
+d m
+i
+for dis -
+ease d
+i
+: 
+f
+d g
+i
+¼
+1
+G
+i
+j j
+X
+g
+j
+ɛG
+i
+f
+g
+j
+(11) 
+f
+d m
+i
+¼
+1
+M
+i
+j j
+X
+m
+p
+ɛM
+i
+f
+m
+p
+(12) 
+where G
+i 
+and M
+i 
+are two sets containing the genes and 
+miRNAs associated with disease d
+i
+, while f
+g
+j 
+and f
+m
+p 
+are the 
+feature vectors of gene g
+j 
+and miRNA m
+p
+.
+Different from unsupervised measurement, we attempt to 
+detect complex association pattern between diseases by con -
+sidering supervised signals. For each disease pair < d
+i
+, d
+j
+>
+in S
+benchmark 
+and S
+independent 
+[cf Equation (1)], two pair fea -
+tures h
+d g
+i;j 
+and h
+d m
+i;j 
+can be obtained by concatenating strategy 
+based on disease feature matrices F
+d g
+2 R
+30170�128 
+and 
+F
+d m
+2 R
+30170�128
+, where h
+d g
+i;j
+¼ f
+d g
+i
+; f
+d g
+j
+h i
+and h
+d m
+i;j
+¼
+f
+d m
+i
+; f
+d m
+j
+h i
+. Furthermore, two multi-layer perceptron net -
+works, each including 256 neurons for the hidden layer and 
+128 neurons for the output layer, are designed to extract 
+high-level feature matrices 
+d
+H
+d g
+2 R
+N
+p
+�128 
+and 
+d
+H
+d m
+2
+R
+N
+p
+�128 
+for disease pairs: 
+d
+H
+d g
+¼ σ ðW
+2;g
+σ ðW
+1;g
+H
+d g
+ÞÞ (13) 
+d
+H
+d m
+¼ σ ðW
+2;m
+σ ðW
+1;m
+H
+d m
+ÞÞ (14) 
+where N
+p 
+represents the number of disease pairs in S
+benchmark 
+[cf Equation (1)], W
+1;g
+, W
+2;g
+, W
+1;m
+and W
+2;m 
+are learnable 
+4                                                                                                                                                                                                                                         Wei et al. 
+
+
+--- Page 5 ---
+
+weight matrices from different fully connected layers, σ is de -
+fined as ReLU function. Normalization operation is con -
+ducted after each network layer for reducing internal 
+covariate shift and improving stability.
+2.4.2 Disease similarity prediction
+To capture hidden association pattern between diseases, we 
+design an attentive multi-layer perception network constitut -
+ing of attentive layer and similarity computation layer. The 
+attentive layer aims to integrate the high-level features of dis -
+eases 
+d
+H
+d g 
+and 
+d
+H
+d m 
+by considering the feature correlation 
+and contribution within different disease pairs. The feature 
+matrix 
+�
+H
+d 
+extracted from attentive layer can be formu -
+lated as: 
+�
+H
+d
+¼ σ ðφðW
+cor
+c
+H
+d
+Þ �
+c
+H
+d
+Þ
+(15) 
+where 
+c
+H
+d
+2 R
+N
+p
+�256 
+is initially constructed by concatenating 
+d
+H
+d g 
+and 
+d
+H
+d m
+, and W
+cor 
+is a learnable feature correlation 
+matrix. � denotes Hadamard product operation between ma -
+trices, σ is defined as ReLU function, and φ is a column-wise 
+normalization operation defined as: 
+φðM
+ij
+Þ ¼
+expðM
+ij
+Þ
+P
+N
+p
+p¼1
+expðM
+ip
+Þ
+(16) 
+M ¼ W
+cor
+c
+H
+d
+. The feature matrix 
+�
+H
+d
+2 R
+N
+p
+�256 
+is further fed 
+into a fully connected network layer consisting of 256 neu -
+rons, after which a single neuron is used to calculate disease 
+similarity scores. The valuable disease association informa -
+tion is considered as supervision signal for providing critical 
+guidance for model optimization. To accelerate training effi -
+ciency, binary cross-entropy with logits loss is used and for -
+mulated as: 
+L
+sim
+¼ −
+1
+N
+p
+X
+N
+p
+i¼1
+"
+y
+i
+� log
+1
+1 þ exp y
+0
+i
+  �
+ !
+þ 1 − y
+i
+ð Þ � log 1 −
+1
+1 þ expðy
+0
+i
+Þ
+� �
+# (17) 
+y
+i 
+and y
+0
+i 
+denote the true label and predicted similarity score 
+for the ith disease pair.
+Overall, the cross-view contrastive learning and association 
+pattern joint learning are horizontally and vertically collabo -
+rative to reveal the deep correlation between diseases. The in -
+tegrated loss function is L
+all
+¼ L
+sim
+þ L
+cv
+, and each unknown 
+disease pair can be evaluated by the trained predictor.
+2.5. Performance evaluation
+Four comprehensive indicators including Area Under the 
+Receiver Operating Characteristics Curve (AUC), Area Under 
+the Precision-Recall Curve (AUPR), F1-Score, and Matthews 
+Correlation Coefficient (MCC) are adopted to evaluate the 
+performance of various methods ( Zulfiqar et al. 2023 , Ma 
+et al. 2024 ). F1-Score and MCC are two balanced metrics 
+that take into account precision and recall, as well as true 
+positive and negative rates, and false positive and negative 
+rates, respectively. AUC illustrates the trade-off between sen -
+sitivity and specificity while AUPR describes the trade-off be -
+tween precision and recall at various threshold settings 
+( Hasanin et al. 2019 , Chen et al. 2023b ). Besides, three con -
+ditional indicators including accuracy (Acc), Sensitivity (Sen) 
+and Precision (Pre) are also used to evaluate different models. 
+It is widely acknowledged that the disease pairs with higher 
+predicted scores tend to be focused more, therefore two addi -
+tional indicators are used. One is ROCk describing the area 
+under Receiver Operating Characteristics Curve (ROC) up to 
+the kth false positives ( Gribskov and Robinson 1996 ), while 
+the other measures the number of true positive pairs within 
+top n predicted pairs.
+3 Results and discussion
+3.1 Parameter analysis
+The impact of three important parameters including disease 
+feature dimensionality, training epoch and weighting coeffi -
+cient β [cf Equation (8)] are analyzed. The benchmark dataset 
+S
+benchmark 
+is randomly divided into five folds, where four folds 
+are used for training while one remaining fold is used for vali -
+dating. The parameter analysis experiments are performed by 
+varying one parameter while fixing others. The results are 
+shown in Fig. 2, from which we can see that the performance 
+of DiSMVC initially improves and relatveily stabilizes with 
+the increment of the feature dimensionality and epoch. The 
+impact of the weighted coefficient β on the performance of 
+DiSMVC is not significant. However, we can still observe 
+that integrating two contrastive losses for genes and miRNAs 
+can contribute to improving performance. With regard to 
+Figure 2. Parameter analysis of DiSMVC. The influence of disease feature dimensionality, training epoch and weighting coefficient β on the performance 
+of DiSMVC.
+DiSMVC                                                                                                                                                                                                                                            5 
+
+
+--- Page 6 ---
+
+both prediction accuracy and training time, we set the values 
+of the disease feature dimensionality, training epoch, and 
+weighted coefficient β as 128, 200, and 0.3, respectively.
+3.2 Performance comparison of different methods
+To illustrate the effectiveness of DiSMVC, we compare 
+DiSMVC with five state-of-the-art methods, including 
+Wang’s method ( Wang et al. 2007 ), Li-MaxPooling ( Yang 
+et al. 2021 ), Li-AvePooling ( Yang et al. 2021 ), CoGO ( Chen 
+et al. 2022 ), and SynerSim ( Gao et al. 2023 ). The first four 
+methods measure disease similarity in an unsupervised man -
+ner. Wang’s method measures disease similarity based on 
+their Directed Acyclic Graphs (DAGs), where diseases tend to 
+be similar if they share disease semantic terms significantly. 
+Li-MaxPooling, Li-AvePooling, and CoGO are three 
+molecule-based methods, that extract disease features via dif -
+ferent graph representation techniques. SynerSim utilizes ini -
+tial highly sparse disease association network as self- 
+supervised information to guide the association pattern min -
+ing. In contrast, DiSMVC introduces additional phenotype- 
+annotated association supervision signals, enabling biological 
+semantics enhancement and label leakage avoidance. Since 
+the source code or web server of SynerSim is not accessible, 
+we further conduct an unbiased performance comparison of 
+DiSMVC with other four unsupervised methods. The perfor -
+mance comparison results are shown in Table 2 and Fig. 3, 
+from which we can see the following: (i) compared to 
+semantic-based method, the molecule-based predictors obtain 
+superior performance in terms of AUC, AUPR, F1-Score and 
+MCC, attributing to their powerful ability of uncovering hid -
+den molecule pathogenic mechanism; (ii) in contrast with the 
+unsupervised measurement, DiSMVC can capture more in -
+formative and deeper disease semantic by integrating multiple 
+bio-entity association knowledge and supervision signals. As 
+a result, DiSMVC achieves obviously higher performance 
+than all the competing methods in terms of the comprehen -
+sive classification metrics; (iii) Fig. 3c and d shows the num -
+ber of true positive pairs in the top-n pairs and the ROCk 
+scores obtained by different predictors. Benefiting from the 
+multi-view graph collaborative learning framework, 
+DiSMVC can also improve the quality of top-ranked results.
+3.3 Feature analysis
+To explore the reason for the performance improvement of 
+DiSMVC for measuring disease similarity, the disease pair fea -
+tures and similarity scores learned by DiSMVC are analyzed 
+and shown in Fig. 4. From Fig. 4 we can see the following: (i) 
+the visualized features of disease-disease pairs within the same 
+type are similar, but the hidden features of positive pairs are ob -
+viously different from those of negative pairs, illustrating that 
+DiSMVC can uncover the similar pattern within the same pair 
+group, as well as the specific patterns between different pair 
+groups; (ii) the extracted high-level features further facilitate to 
+the strong discriminative ability of DiSMVC. As a result, the 
+similarity scores predicted by DiSMVC show significant differ -
+ences between two different pair groups, where most disease 
+Figure 3. Performance comparison of different methods on S
+independent
+. (a) and (b) show the ROC and PR curves with their corresponding AUC and AUPR 
+scores obtained by different methods. (c) shows the numbers of true positive pairs in the top-n pairs predicted by various methods, and (d) shows the 
+ROCk scores obtained by different predictors.
+6                                                                                                                                                                                                                                         Wei et al. 
+
+
+--- Page 7 ---
+
+pairs in positive group are similar and those in negative group 
+have much lower similarity scores.
+3.4 Cross-view graph contrastive learning and 
+association pattern joint learning collaboratively 
+enhance prediction ability
+DiSMVC is constituted of two crucial modules including 
+cross-view graph contrastive learning and association pattern 
+joint learning. To analyze their contributions to the predic -
+tion ability of DiSMVC, we construct seven competing base -
+line methods and conduct an ablation study.
+The variants of DiSMVC are named ‘w/o L
+cv g
+’, ‘w/o 
+L
+cv m
+’, ‘w/o L
+cv
+’, ‘w/o L
+sim
+’, ‘w/o miRNA’, ‘w/o gene’, and 
+‘w/o attention’, respectively. Their predictive performance 
+along with DiSMVC is shown in Fig. 5, from which we can 
+draw the following conclusions: (i) almost all the variants of 
+DiSMVC achieve inferior performance in terms of AUC, 
+AUPR, and F1-Score, indicating that each module in 
+DiSMVC is important, and cross-view graph contrastive 
+learning and association pattern joint learning collaboratively 
+advance the performance; (ii) different from DiSMVC, ‘w/o 
+L
+sim
+’ computes pair score in an unsupervised manner. A con -
+siderable performance discrepancy is observed between them, 
+Figure 4. An analysis of features learned by DiSMVC. (a) shows the visualized heatmap of hidden features of disease pairs extracted by DiSMVC. The 
+rows denote the pair index of positive pairs and negative pairs from S
+independent
+, and the columns represent the corresponding feature index. (b) shows 
+the similarity score distribution of disease pairs within different types obtained by DiSMVC.
+Figure 5. An importance analysis of different modules in DiSMVC. (a) shows the performance comparison of DiSMVC with other seven baseline 
+methods. ‘w/o L
+cv g
+’, ‘w/o L
+cv m
+’, and ‘w/o L
+cv
+’ are three variants of DiSMVC trained without computing contrastive loss L
+cv g
+, L
+cv m 
+or L
+cv
+. ‘w/o L
+sim
+’ 
+combines cross-view graph contrastive learning and cosine correlation analysis to measure disease similarity. ‘w/o miRNA’ and ‘w/o gene’ are two 
+variant methods where hidden features of genes or miRNAs separately extracted by intra-view graph representation are used to construct disease pair 
+features, and training attentive multi-layer perception to predict disease similarity scores. ‘w/o attention’ integrates cross-view graph contrastive learning 
+and association pattern joint learning without attention mechanism. (b) shows the average feature attention weights obtained by DiSMVC for the disease 
+pairs in S
+independent
+.
+Table 2. Performance comparison of different methods on S
+independent
+Method AUC AUPR F1-Score MCC Acc Sen Pre
+Wang’s method 0.7263 0.7098 0.6446 0.5068 0.7256 0.4977 0.9144
+Li-MaxPooling 0.7757 0.8155 0.7295 0.5108 0.7519 0.6692 0.8018
+Li-AvePooling 0.7406 0.7773 0.6915 0.3236 0.6579 0.7669 0.6297
+CoGO 0.8282 0.8536 0.7597 0.5265 0.7632 0.7489 0.7709
+DiSMVC 0.9125 0.9171 0.8423 0.6800 0.8398 0.8556 0.8294
+DiSMVC                                                                                                                                                                                                                                            7 
+
+
+--- Page 8 ---
+
+hence proving the significant contribution of phenotypic 
+multimorbidity-based supervision signal in measuring disease 
+similarity; (iii) DiSMVC is superior to ‘w/o miRNA’ and ‘w/o 
+gene’, illustrating the advantages of enriching disease repre -
+sentation by considering underlying molecular mechanisms 
+from both genetic and transcriptional views. Meanwhile, the 
+significant decrease observed in ‘w/o gene’ suggests that genes 
+play a more crucial role in disease association detection com -
+pared to miRNA. It is worth noting that ‘w/o attention’ uses 
+concatenate operation to integrate disease embeddings de -
+rived from gene and miRNA features, resulting in limited per -
+formance improvement. In contrast, DiSMVC integrates 
+features from multiple views by considering their different 
+importance via attention layer, as illustrated in Fig. 5b, en -
+abling effective fusion and strong prediction ability.
+3.5 Case study
+To illustrate the validity of DiSMVC for measuring disease 
+similarity, we conduct case study on the interpretability of 
+top disease pairs predicted by DiSMVC. The 10th revision of 
+International Classification of Diseases (ICD-10) is globally 
+recognized and widely used for categorizing and coding vari -
+ous diseases, therefore, we analyze the predictive results 
+along with ICD-10 category. All the candidate disease pairs 
+with ICD-10 code in S
+independent 
+are predicted and further 
+ranked in descending order of pair scores.
+The network of top 100 disease pairs predicted by 
+DiSMVC is shown in Fig. 6, from which we can see that dis -
+eases belonging to the ‘ICD-10/K: Disease of digestive system’ 
+or ‘ICD-10/I: Disease of the circulatory system’ are more 
+likely to be in closed proximity, indicating that the disease re -
+lationship predicted by DiSMVC to some extent conforms to 
+the ICD-10 classification. In addition, DiSMVC can also 
+identify disease associations from different categories via ex -
+ploring underlying molecular mechanisms. For example, the 
+autoimmune hepatitis labeled as C4721555 belonging to 
+ICD-10/K shows close correlation with other four types of 
+diseases including C0162323, C0011884, C0014175, 
+and C0155789.
+To further investigate the molecular interpretability of 
+predicted disease pairs, the top 10 disease pairs are further 
+analyzed and shown in Table 3. We can observe that seven 
+disease pairs can be supported by experimental literatures 
+in PubMed, where most diseases are accompanied by com -
+mon molecule or biological process abnormity. For exam -
+ples, ‘Bleeding esophageal varices’ is a circulatory system 
+disease and ‘Fatty liver, alcoholic’ belongs to the subtype 
+of digestive system disease. Long-term alcoholic fatty liver 
+is one of the common causes of bleeding esophageal vari -
+ces. Although the two diseases originate from different hu -
+man systems, they are mediated by two important 
+biological processes including ‘Mitochondrial protein im -
+port’ in Reactome ( Fabregat et al. 2018 ) and ‘Taste trans -
+duction’ in KEGG ( Kanehisa and Goto 2000 ), and 
+significantly associated with PNPLA3 gene and four SNPs 
+including rs738408, rs2294915, rs3747207, and 
+rs738409. Besides, it is reported that cholestasis is one of 
+the key pathogenic factors of alcoholic liver disease. The 
+predicted disease pair of ‘Fatty liver, alcoholic’ and ‘Biliary 
+cirrhosis’ are mediated by overlap genes, SNPs, and path -
+ways as shown in Fig. 7.
+Overall, DiSMVC can identify similar diseases that are mo -
+lecularly interpretable and provide guidance for understand -
+ing the pathological mechanisms of diseases.
+Figure 6. The network of top 100 disease pairs predicted by DiSMVC. The diseases with UMLS concept unique identifier are shown in circles, where the 
+size illustrates the number of related diseases, and the color represents disease types classified based on ICD-10 version. The thickness of edges 
+denotes the different pair scores between diseases predicted by DiSMVC, where thicker edges indicate closer relations.
+8                                                                                                                                                                                                                                         Wei et al. 
+
+
+--- Page 9 ---
+
+4 Conclusion
+In this study, we propose a new computational predictor 
+named DiSMVC to measure disease similarity. Compared 
+with other competing methods, it has the following advan -
+tages: (i) the graph collaborative learning framework of 
+DiSMVC is able to integrate multiple aspects of disease- 
+related information including bio-entity association at micro- 
+level and phenotype-based multimorbidity at macro-level, 
+showing promising performance and molecular interpretabil -
+ity in measuring disease similarity; (ii) the high-level molecu -
+lar interaction features related to diseases are extracted and 
+refined through cross-view contrastive learning, based on 
+which more informative disease representation can be 
+obtained from both genetic and transcriptional perspectives; 
+(iii) different from other existing methods, DiSMVC meas -
+ures disease similarity in a supervised manner by incorporat -
+ing priori disease association knowledge, so as to capture 
+strongly discriminative association patterns.
+There is still potential for further improvement in the 
+study. The occurrence and development of diseases is an ex -
+tremely complex process that is influenced by various biologi -
+cal and environmental factors. Therefore, considering more 
+disease related bio-entities such as proteins, metabolites and 
+microbes is beneficial to enhance the richness and compre -
+hensiveness of disease representation. We use similar, comor -
+bid conditions as positive labels, leading to limitation in 
+detecting biologically similar diseases that share underlying 
+mechanisms but may not necessarily be comorbid. 
+Incorporating auxiliary supervised signals from DisGeNET 
+can help capture biological similarities between diseases. 
+Finally, the integration of additional knowledge inevitably 
+introduces noise. More high-quality data sources or advanced 
+heterogeneous network learning techniques are expected to 
+extract meaningful information while mitigate noise 
+interference.
+Acknowledgements
+We are very much indebted to the three anonymous 
+reviewers, whose constructive comments are very helpful for 
+enhancing the quality of this paper.
+Supplementary data
+Supplementary data are available at Bioinformatics online.
+Conflict of interest
+There is no conflict of interest.
+Funding
+This work was supported by the National Natural Science 
+Foundation of China [62302359, U22A2039, 62302378, 
+Figure 7. The network of bio-entity associations for three representative diseases. Three diseases are shown in rhombuses, and their associated genes, 
+SNPs, and pathways are shown in triangles, circles, and octagons, respectively
+Table 3. Top 10 disease pairs predicted by DiSMVC.
+Rank Disease Disease Evidence
+1 Bleeding esophageal varices Fatty liver, alcoholic PMID: 34225788
+2 Fatty liver, alcoholic Biliary cirrhosis PMID: 34225788
+3 Diabetic retinopathy Autoimmune hepatitis PMID: 30625487
+4 Endometriosis Autoimmune hepatitis Unconfirmed
+5 Liver diseases Biliary cirrhosis PMID: 34225788
+6 Esophageal varices Fatty Liver, alcoholic PMID: 34225788
+7 Polyarthritis Autoimmune hepatitis PMID: 34025065
+8 Esophageal varices Interstitial pulmonary fibrosis Unconfirmed
+9 Hepatitis, alcoholic Biliary cirrhosis PMID: 34225788
+10 Bleeding esophageal varices Left-sided heart failure Unconfirmed
+DiSMVC                                                                                                                                                                                                                                            9 
+
+
+--- Page 10 ---
+
+62374121] and the Natural Science Basic Research Program 
+of Shaanxi [2023-JC-QN-0636].
+References
+Adler A, Kirchmeier P, Reinhard J et al. PhenoDis: a comprehensive 
+database for phenotypic characterization of rare cardiac diseases. 
+Orphanet J Rare Dis 2018;13:22.
+Ai C, Yang H, Ding Y et al. Low rank matrix factorization algorithm 
+based on multi-graph regularization for detecting drug–disease asso -
+ciation. IEEE-ACM Trans Comput Biol Bioinf 2023;20:3033–43.
+Bang D, Lim S, Lee S et al. Biomedical knowledge graph learning for 
+drug repurposing by extending guilt-by-association to multiple 
+layers. Nat Commun2023;14:3570.
+Bello SM, Shimoyama M, Mitraka E et al. Disease ontology: improving 
+and unifying disease annotations across species. Dis Model Mech 
+2018;11:dmm032839.
+Cao C, Shao M, Zuo C et al. RAVAR: a curated repository for rare 
+variant-trait associations. Nucleic Acids Res 2024;52:D990–7.
+Cao C, Wang J, Kwok D et al. webTWAS: a resource for disease candi -
+date susceptibility genes identified by transcriptome-wide associa -
+tion study. Nucleic Acids Res 2022;50:D1123–30.
+Cheng L, Li J, Ju P et al. SemFunSim: a new method for measuring dis -
+ease similarity by integrating semantic and gene functional associa -
+tion. PLoS One 2014;9:e99415.
+Chen Y, Hu Y, Hu X et al. CoGO: a contrastive learning framework to 
+predict disease similarity based on gene network and ontology struc -
+ture. Bioinformatics 2022;38:4380–6.
+Chen J, Lin J, Hu Y et al. RNADisease v4.0: an updated resource of 
+RNA-associated diseases, providing RNA–disease analysis, enrich -
+ment and prediction. Nucleic Acids Res 2023a;51:D1397–404.
+Chen Y, Wang J, Wang C et al. AutoEdge-CCP: a novel approach for 
+predicting cancer-associated CircRNAs and drugs based on auto -
+mated edge embedding. PLoS Comput Biol 2024;20:e1011851.
+Chen L, Yu L, Gao L. Potent antibiotic design via guided search from 
+antibacterial activity evaluations. Bioinformatics 2023b; 
+39:btad059.
+Dai C, Jiang Y, Yin C et al. scIMC: a platform for benchmarking com -
+parison and visualization analysis of scRNA-seq data imputation 
+methods. Nucleic Acids Res 2022;50:4877–99.
+Deng Y, Gao L, Wang B et al. HPOSim: an R package for phenotypic 
+similarity measure and enrichment analysis based on the human 
+phenotype ontology. PLoS One 2015;10:e0115692.
+Dhammi IK, Kumar S. Medical subject headings (MeSH) terms. Indian 
+J Orthop 2014;48:443–4.
+Dong G, Feng J, Sun F et al. A global overview of genetically interpret -
+able multimorbidities among common diseases in the UK Biobank. 
+Genome Med 2021;13:110.
+Dwibedi D, Aytar Y, Tompson J et al. With a little help from my 
+friends: nearest-neighbor contrastive learning of visual representa -
+tions. In: 2021 IEEE/CVF International Conference on Computer 
+Vision (ICCV 2021). Montreal, QC, Canada, October 10–17, IEEE 
+2021, 9588–97.
+Fabregat A, Korninger F, Viteri G et al. Reactome graph database: effi -
+cient access to complex pathway data. PLoS Comput Biol 2018; 
+14:e1005968.
+Feng J, Wu S, Yang H et al. Microbe-bridged disease-metabolite associ -
+ations identification by heterogeneous graph fusion. Brief 
+Bioinform 2022;23:bbac423.
+Gao Z, Ma H, Wang Y et al. Synergistic disease similarity measurement 
+via unifying hierarchical relation perception and association captur -
+ing. In: Proceedings of the 32nd ACM International Conference on 
+Information and Knowledge Management. Birmingham, United 
+Kingdom: Association for Computing Machinery, 2023, 3892–96.
+Gargano MA, Matentzoglu N, Coleman B et al. The human phenotype 
+ontology in 2024: phenotypes around the world. Nucleic Acids Res 
+2024;52:D1333–46.
+Giles TD, Sander GE. The new international classification of diseases 
+(ICD-10): the hypertension community needs a greater input. J Clin 
+Hypertens (Greenwich) 2012;14:1–2.
+Gomez-Paramio I, Ayme S, Middleton-Price H et al. Orphanet: more 
+comprehensible information about rare diseases services in the UK. 
+J Med Genet 2011;48:S92.
+Gribskov M, Robinson NL. Use of receiver operating characteristic 
+(ROC) analysis to evaluate sequence matching. Comput Chem 
+1996;20:25–33.
+Hasanin T, Khoshgoftaar TM, Leevy JL. A comparison of performance 
+metrics with severely imbalanced network security big data. In: 
+2019 IEEE 20th International Conference on Information Reuse 
+and Integration for Data Science (IRI), Los Angeles, CA, USA, 
+IEEE, 2019, 83–8.
+Kanehisa M, Goto S. KEGG: kyoto encyclopedia of genes and genomes. 
+Nucleic Acids Res 2000;28:27–30.
+Kim CY, Baek S, Cha J et al. HumanNet v3: an improved database of 
+human gene networks for disease research. Nucleic Acids Res 2022; 
+50:D632–9.
+Kipf TN, Welling M. Semi-supervised classification with graph convo -
+lutional networks. In: 5th International Conference on Learning 
+Representations. Toulon, France, OpenReview.net, 2017.
+Le DH. Machine learning-based approaches for disease gene prediction. 
+Brief Funct Genomics 2020;19:350–63.
+Li Z, Jin J, He W et al. CoraL: interpretable contrastive meta-learning 
+for the prediction of cancer-associated ncRNA-encoded small pepti -
+des. Brief Bioinform 2023;24:bbad352.
+Li YH, Bandar ZA, McLean D. An approach for measuring semantic 
+similarity between words using multiple information sources. IEEE 
+Trans Knowledge Data Eng 2003;15:871–82.
+Li J-H, Liu S, Zhou H et al. starBase v2.0: decoding miRNA-ceRNA, 
+miRNA-ncRNA and protein-RNA interaction networks from large- 
+scale CLIP-Seq data. Nucleic Acids Res 2014;42:D92–7.
+Ma YJ, Jiang HM. NinimHMDA: neural integration of neighborhood 
+information on a multiplex heterogeneous network for multiple 
+types of human microbe–disease association. Bioinformatics2020; 
+36:5665–71.
+Ma C-Y, Luo Y-M, Zhang T-Y et al. Predicting coronary heart disease 
+in Chinese diabetics using machine learning. Comput Biol Med 
+2024;169:107952.
+Mathur S, Dinakarpandian D. Finding disease similarity based on im -
+plicit semantic similarity. J Biomed Inform 2012;45:363–71.
+Ning L, Cui T, Zheng B et al. MNDR v3.0: mammal ncRNA-disease re -
+pository with increased coverage and annotation. Nucleic Acids Res 
+2021;49:D160–4.
+Niu M, Wang C, Zhang Z et al. A computational model of circRNA- 
+associated diseases based on a graph neural network: prediction, 
+and case studies for follow-up experimental validation. BMC Biol 
+2024;22:24.
+€
+Ozt €urk H, 
+€
+Ozg €ur A, Ozkirimli E. DeepDTA: deep drug-target binding 
+affinity prediction. Bioinformatics 2018;34:i821–9.
+Pakhomov S, Mclnnes B, Adam T et al. Semantic similarity and related -
+ness between clinical terms: an experimental study. AMIA 
+Symposium 2010;2010:572.
+Peng J, Xue H, Hui W et al. An online tool for measuring and visualiz -
+ing phenotype similarities using HPO. BMC Genomics 2018; 
+19:571–97.
+Pi ~nero J, Bravo 
+�
+A, Queralt-Rosinach N et al. DisGeNET: a comprehen -
+sive platform integrating information on human disease-associated 
+genes and variants. Nucleic Acids Res 2017;45:D833–9.
+Sanchez-Fernandez A, Rumetshofer E, Hochreiter S et al. CLOOME: 
+contrastive learning unlocks bioimaging databases for queries with 
+chemical structures. Nat Commun 2023;14:7339.
+Sherry ST, Ward MH, Kholodov M et al. dbSNP: the NCBI database of 
+genetic variation. Nucleic Acids Res 2001;29:308–11.
+Singh R, Sledzieski S, Bryson B et al. Contrastive learning in protein lan -
+guage space predicts interactions between drugs and protein targets. 
+Proc Natl Acad Sci USA 2023;120:e2220778120.
+10                                                                                                                                                                                                                                       Wei et al. 
+
+
+--- Page 11 ---
+
+Sun Z, Huang Q, Yang Y et al. PSnoD: identifying potential snoRNA- 
+disease associations based on bounded nuclear norm regularization. 
+Brief Bioinform 2022;23:bbac240.
+Veli �ckovi �c P, Cucurull G,  Casanova A et al. Graph attention networks. 
+In: 6th International Conference on Learning Representations 
+(ICLR 2018), Vancouver, BC, Canada, OpenReview.net, 2018.
+Wang JZ, Du Z, Payattakool R et al. A new method to measure the se -
+mantic similarity of GO terms. Bioinformatics 2007;23:1274–81.
+Wang Q, Wang B, Xu Z et al. PSSM-Distil: protein secondary structure 
+prediction (PSSP) on low-quality PSSM by knowledge distillation 
+with contrastive learning. AAAI 2021;35:617–25.
+Wang L, You Z-H, Li Y-M et al. GCNCDA: a new method for predict -
+ing circRNA-disease associations based on graph convolutional net -
+work algorithm. PLoS Comput Biol2020;16:e1007568.
+Wang L, You Z-H, Huang D-S et al. MGRCDA: metagraph recommen -
+dation method for predicting CircRNA-disease association. IEEE 
+Trans Cybern 2023a;53:67–75.
+Wang R, Jiang Y, Jin J et al. DeepBIO: an automated and interpretable 
+deep-learning platform for high-throughput biological sequence 
+prediction, functional annotation and visualization analysis. 
+Nucleic Acids Res 2023b;51:3017–29.
+Wang X, Cheng Y, Yang Y et al. Multitask joint strategies of self- 
+supervised representation learning on biomedical networks for drug 
+discovery. Nat Mach Intell2023c;5:445–56.
+Wang Y, Lei X, Pan Y. Microbe–disease association prediction using 
+RGCN through microbe–drug–disease network. IEEE/ACM Trans 
+Comput Biol Bioinform 2023d;20:3353–62.
+Wang Y, Gao Y-L, Wang J et al. MSGCA: drug–disease associations 
+prediction based on multi-similarities graph convolutional autoen -
+coder. IEEE J Biomed Health Inform 2023e;27:3686–94.
+Wei H, Liu B. iCircDA-MF: identification of circRNA-disease associa -
+tions based on matrix factorization. Brief Bioinform 2020; 
+21:1356–67.
+Wei H, Xu Y, Liu B. iCircDA-LTR: identification of circRNA-disease 
+associations based on learning to rank. Bioinformatics 2021; 
+37:3302–10.
+Xiang J, Zhang J, Zhao Y et al. Biomedical data, computational meth -
+ods and tools for evaluating disease-disease associations. Brief 
+Bioinform 2022;23:bbac006.
+Yan C, Duan G, Li N et al. PDMDA: predicting deep-level miRNA–dis -
+ease associations with graph neural networks and sequence features. 
+Bioinformatics 2022;38:2226–34.
+Yang W, Wang P, Luo M et al. DeepCCI: a deep learning framework 
+for identifying cell–cell interactions from single-cell RNA sequenc -
+ing data. Bioinformatics 2023;39:btad596.
+Yang L, Wang KQ, Wang GH. Evaluating disease similarity based on 
+gene network reconstruction and representation. Bioinformatics 
+2021;37:3579–87.
+Yan K, Lv H, Guo Y et al. sAMPpred-GAT: prediction of antimicrobial 
+peptide by graph attention network and predicted peptide structure. 
+Bioinformatics 2023;39:btac715.
+Yi H-C, You Z-H, Huang D-S et al. Graph representation learning in 
+bioinformatics: trends, methods and applications. Brief Bioinform 
+2022;23:bbab340.
+Yu G, Wang L-G, Yan G-R et al. DOSE: an R/bioconductor package 
+for disease ontology semantic and enrichment analysis. 
+Bioinformatics 2015;31:608–9.
+Zeng X, Wang F, Luo Y et al. Deep generative molecular design 
+reshapes drug discovery. Cell Rep Med 2022b;3:100794.
+Zeng X, Xiang H, Yu L et al. Accurate prediction of molecular proper -
+ties and drug targets using a self-supervised image representation 
+learning framework. Nat Mach Intell 2022a;4:1004–16.
+Zhang WX, Liu B. iSnoDi-LSGT: identifying snoRNA-disease associa -
+tions based on local similarity constraints and global topological 
+constraints. RNA 2022;28:1558–67.
+Zhang X, Wang Y, Wei Q et al. DRBPPred-GAT: accurate prediction 
+of DNA-binding proteins and RNA-binding proteins based on 
+graph multi-head attention network. Knowledge Based Syst 2024; 
+285:111354.
+Zhou J, Cui G, Hu S et al. Graph neural networks: a review of methods 
+and applications. AI Open 2020;1:57–81.
+Zhu H, Hao H, Yu L. Identifying disease-related microbes based on 
+multi-scale variational graph autoencoder embedding Wasserstein 
+distance. BMC Biol 2023;21:294.
+Zulfiqar H, Guo Z, Ahmad RM et al. Deep-STP: a deep learning-based 
+approach to predict snake toxin proteins by using word embed -
+dings. Front Med (Lausanne) 2023;10:1291352.
+# The Author(s) 2024. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits 
+unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+Bioinformatics, 2024, 40, 1–11
+https://doi.org/10.1093/bioinformatics/btae306
+Original Paper
+DiSMVC                                                                                                                                                                                                                                         11 
