@@ -1,0 +1,884 @@
+# Source PDF: Reading Literature/files/76/Liu et al. - 2025 - PBAE-PEG-based lipid nanoparticles for lung cell-specific gene delivery.pdf
+
+
+
+--- Page 1 ---
+
+Original Article
+PBAE-PEG-based lipid nanoparticles
+for lung cell-speciﬁc gene delivery
+Bingxin Liu,1,2 Yamato Sajiki,3 Nicole Littleﬁeld,4 Yongan Hu,4 William D. Stuart,1 Anusha Sridharan,1 Xuemei Cui,2
+Matthew E. Siefert, 5 Koichi Araki,3,6 Assem G. Ziady, 5,6 Donglu Shi,2,7 Jeffery A. Whitsett, 1,6 and Yutaka Maeda 1,6
+1Perinatal Institute, Division of Neonatology, Perinatal, and Pulmonary Biology, Cincinnati Children ’s Hospital Medical Center, Cincinnati, OH 45229, USA; 2Materials
+Science and Engineering Program, Department of Mechanical and Materials Engineering, University of Cincinnati College of Medicine, Cincinnati, O H 45221, USA;
+3Division of Infectious Diseases, Center for In ﬂammation and Tolerance, Cincinnati Children ’s Hospital Medical Center, Cincinnati, OH 45229, USA; 4School of
+Polymer Science and Polymer Engineering, University of Akron, Akron, OH 44325, USA; 5Division of Bone Marrow Transplantation and Immune De ﬁciency,
+Cincinnati Children ’s Hospital Medical Center, Cincinnati, OH 45229, USA; 6Department of Pediatrics, University of Cincinnati College of Medicine, Cincinnati, OH
+45229, USA; 7Department of Biomedical Engineering, College of Engineering and Applied Science, University of Cincinnati, Cincinnati, OH 45221, USA
+Exempliﬁed by successful use in COVID-19 vaccination, de-
+livery of modi ﬁed mRNA encapsulated in lipid nanoparticles
+(LNPs) provides a framework for treating various genetic
+a n da c q u i r e dd i s o r d e r s .H o w e v e r ,L N P st h a tc a nd e l i v e r
+mRNA into speci ﬁc lung cell types have not yet been
+established. Here, we sought to determine whether poly
+(b-amino ester)s (PBAE) or PEGylated PBAE (PBAE-PEG)
+in combination with 4A3-SC8/DOPE/cholesterol/DOTAP
+LNPs could deliver mRNA into different types of lung cells
+in vivo . PBAE-PEG/LNP was similar to Lipofectamine
+MessengerMAX followed by PBAE/LNP for mRNA transfec-
+tion ef ﬁciency in HEK293T cells in vitro .P B A E - P E G / L N P
+administered by intravenous (IV) injection achieved 73%
+mRNA transfection ef ﬁciency into lung endothelial cells,
+while PBAE-PEG/LNP administered by intratracheal (IT) in-
+jection achieved 55% ef ﬁciency in lung alveolar type II
+(ATII) epithelial cells in mice in vivo . PBAE/LNP adminis-
+tered by IT injection were superior for speci ﬁc delivery
+into lung airway club epithelial cells compared to PBAE-
+PEG/LNP. Lipofectamine MessengerMAX was inactive
+in vivo . 5-Methoxyuridine-modi ﬁed mRNA was more ef ﬁ-
+cient than unmodi ﬁed mRNA in vivo but not in vitro .O u r
+ﬁndings indicate that PBAE-PEG/LNP and PBAE/LNP can
+transfect multiple lung cell types in vivo , which can be
+applied in gene therapy targeting genetic lung diseases.
+INTRODUCTION
+Genetic and acquired disorders affecting lung function contribute to
+the global burden of lung disease. Mutations in genes critical for
+normal functions of pulmonary epithelial, endothelial, and mesen-
+chymal cells cause a number of debilitating conditions, including
+cystic ﬁbrosis, surfactant protein disorders, ciliary dyskinesia, and
+pulmonary phospholipid clearance disorders. An intact form of a
+number of genes, including SFTPC,
+1 SFTPB,2 NKX2-1,3 ABCA3,4
+CFTR,5 TBX4,6 and FOXF1,7 is essential for lung formation or func-
+tion.8 Mutations or dysregulation of these genes cause life-threatening
+diffuse pulmonary disorders in infants and children.
+Recent advances in nanoparticle development have shown signi ﬁcant
+promise. Technologies such as organ-targeting lipids (e.g., selective
+organ targeting [SORT]),
+9– 12 preformed vesicles (PFV)-lipid nano-
+particles (LNPs),13 and polymer-LNPs14– 16 present substantial poten-
+tial for gene therapy. SORT LNPs, for instance, exhibit remarkable
+lung-targeting ability, enhanced by increased 1,2-dioleoyl-3-trime-
+thylammonium propane (DOTAP) to improve lung targeting via
+intravenous (IV) administration and include ionizable amino lipids
+and helper lipids to enhance transfection ef ﬁciency. SORT LNPs
+have demonstrated both lung endothelial and epithelial transfection
+ability.
+9– 11 Similarly, SM-102 was shown to improve lung transfection
+efﬁciency.12 Poly(b-amino ester)s (PBAEs) have also been tested for
+delivering DNA and mRNA into lungs by intratracheal (IT) or IV in-
+jection.
+17,18 The combination of PBAE and LNPs comprising 1,2-di-
+oleoyl-sn-glycero-3-phosphoethanolamine (DOPE)/cholesterol/C14-
+polyethylene glycol (PEG) was tested for delivering mRNA into lung
+endothelial cells by IV injection.
+15 These LNPs and PBAE exhibit low
+toxicity, biocompatibility, and biodegradability compared with poly-
+ethylenimine-based and poly-
+L-lysine-based nanoparticles. 12,19,20
+However, the combination of PBAE-PEG (or PBAE) and SORT lipids
+(4A3-SC8/DOPE/cholesterol/DOTAP; hereafter, LNP) to create
+PBAE-PEG/LNP or PBAE/LNP has not been extensively explored.
+In the present study, we synthesized two distinct types of PBAEs,
+PBAE-PEG and PBAE, and combined them with LNPs to produce
+two unique nanoparticle formulations that we tested in vitro and
+in vivo. IV injection of both PBAE-PEG/LNP and PBAE/LNP selec-
+tively delivered mRNA into pulmonary endothelial cells. IT adminis-
+tration of these nanoparticles demonstrated that PBAE-PEG/LNP
+Received 24 July 2024; accepted 22 January 2025;
+https://doi.org/10.1016/j.ymthe.2025.01.037.
+Correspondence: Jeffery A. Whitsett, M.D., Perinatal Institute, Division of
+Neonatology, Perinatal, and Pulmonary Biology, Cincinnati Children ’s Hospital
+Medical Center, Cincinnati, OH 45229, USA.
+E-mail: jeffrey.whitsett@cchmc.org
+Correspondence: Yutaka Maeda, D.V.M., Ph.D., Perinatal Institute, Division of
+Neonatology, Perinatal, and Pulmonary Biology, Cincinnati Children ’s Hospital
+Medical Center, Cincinnati, OH 45229, USA.
+E-mail: yutaka.maeda@cchmc.org
+1154 Molecular Therapy Vol. 33 No 3 March 2025 ª 2025 The American Society of Gene and Cell Therapy. Published by Elsevier Inc.
+All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+--- Page 2 ---
+
+selectively targeted pulmonary epithelial cells, including alveolar type
+II (ATII) epithelial cells, while PBAE/LNP were more selective for de-
+livery into airway club epithelial cells.
+RESULTS
+Synthesis of PBAE and PBAE-PEG
+Synthesis of PBAE- or PBAE-PEG-based LNPs was accomplished
+using methods and techniques that were previously reported by Mas-
+torakos et al.
+17 Brieﬂy, PBAE was synthesized through step-growth
+polymerization via Michael addition to facilitate the reaction be-
+tween 1,4-butanediol diacrylate and 4-amino-1-butanol. PBAE was
+then capped by applying hydrophilic 1,3-diaminopropane capping
+agent. As the PBAE backbone is relatively hydrophobic, this resulted
+in the creation of amphipathic polymers ( Figure 1A). Finally, PBAE-
+PEG was made by reacting the capped terminal primary amine
+groups of the PBAE polymer chain with methoxy-PEG-succinimidyl
+succinates ( Figure 1 A). Reaction completion was veri ﬁed by
+1H
+NMR ( Figures 1 B and 1C). For capped PBAE, the chemical shift
+d = 1.59 ppm corresponds to the resonance of the methylene protons
+beta to the nitrogen in the PBAE backbone, while the chemical shifts
+between 1.19 and 1.25 ppm suggest the presence of protons of 1,3-
+diaminopropane ( Figure 1 B). For PBAE-PEG, the chemical shift
+d = 3.59 ppm corresponds to the protons of methylene and methyl
+groups of PEG, indicating the successful formation of PBAE-PEG.
+The molecular weight of capped PBAE was determined by end-
+group analysis using
+1H NMR spectra ( Figure 1 C) and calculated
+to be /C244,400 g/mol ( Table S1 ), which is close to the value reported
+by Mastorakos et al. 17
+In vitro transfection validation of PBAE and PBAE-PEG-based
+LNPs
+The amphipathic polymers PBAE and PBAE-PEG were combined
+with other amphipathic lipids (4A3-SC8/DOPE/cholesterol/
+DOTAP dissolved in ethanol) to form PBAE LNPs, which were
+vortex mixed with mRNA and then dialyzed in PBS at pH 7 ( Fig-
+ure 2 A) to encapsulate mRNA in PBAE/LNP or PBAE-PEG/LNP
+(Figure 2 B).
+To determine the best molar ratio between PBAE-PEG (or PBAE) and
+LNP for transfection ef ﬁciency in vitro , we tested different molar
+Figure 1. Creation of PBAE and PEGylated PBAE
+(A) Uncapped poly( b-amino ester)s (PBAE) polymers were synthesized by the Michael addition reaction of 1,4-butanediol diacrylate and 4-amino-1-butanol to produce th e
+PBAE backbone. Subsequently, uncapped PBAE polymers were capped with 1,3-diaminopropane (capped PBAE). PEGylated PBAE (PBAE-PEG) was synthesize db y
+conjugating methoxy-PEG-succinimidyl succinate to capped PBAE at a 2:1 PEG:PBAE molar ratio. (B) Chemical structure of capped PBAE (PBAE) was chara cterized by 1H
+NMR spectroscopy. (C) Chemical structure of PEGylated PBAE (PBAE-PEG) was characterized by 1H NMR spectroscopy.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1155
+
+
+--- Page 3 ---
+
+ratios ranging from 0.5:135 to 5:135 (PBAE-PEG:LNP or PBAE:LNP)
+along with only LNP and Lipofectamine MessengerMAX (Thermo
+Fisher) using luciferase mRNA (unmodi ﬁed) at a mass ratio of 30:1
+(PBAE-PEG/LNP:mRNA or PBAE/LNP:mRNA) in HEK293T cells
+in vitro and assessed transfection ef ﬁciency by measuring luciferase
+activity. A molar ratio of 2.5:135 provided the highest transfection ef-
+ﬁciency for both PBAE-PEG/LNP and PBAE/LNP ( Figure 2 C).
+PBAE-PEG/LNP transfection efﬁciency was similar to Lipofectamine
+MessengerMAX, followed by PBAE/LNP and LNP alone. Thus, we
+used a molar ratio of 2.5:135 for subsequent studies.
+Figure 2. PBAE-PEG or PBAE-based lipid nanoparticles are capable of transfecting mRNA in vitro
+(A) PBAE-PEG/lipid nanoparticles (LNPs) or PBAE/LNP dissolved in ethanol were assembled by vortex mixing with mRNA dissolved in water at pH 4 and then dialyzed in PBS
+at pH 7 overnight. (B) Schematic shows PBAE-PEG/LNP (LNP: 4A3-SC8/DOPE/cholesterol/DOTAP) carrying mRNA. (C) Transfection efﬁciency of PBAE-PEG /LNP or
+PBAE/LNP at different molar ratios from 0.5:135 to 5:135 (PBAE-PEG:LNP or PBAE:LNP) carrying unmodiﬁed luciferase mRNA (2 mg) along with Lipofectamine
+MessengerMAX was assessed using luciferase assay in HEK293T cells. Forty-eight hours after transfection, luciferase activity was measured. Resul ts are normalized by
+protein weight and expressed as mean ± SD of replicates for each group (n = 3, unpaired, two-tailed Student’s t test). (D) Transfection efﬁciency of PBAE-PEG/LNP or PBAE/
+LNP with unmodiﬁed luciferase mRNA at different mass ratios from 10:1 to 90:1 (PBAE-PEG/LNP:mRNA or PBAE/LNP:mRNA) was assessed using luciferase as say in
+HEK293T cells as described in (C). (E) Hydrodynamic diameters of PBAE-PEG/LNP or PBAE/LNP with unmodiﬁed luciferase mRNA at different mass ratios from 10:1 to 90:1
+(PBAE-PEG/LNP:mRNA or PBAE/LNP:mRNA) were measured using Zetasizer. Results are expressed as mean ± SD of replicates for each group (n = 3, unpaired, two-tailed
+Student’s t test). (F) The zeta potential of PBAE-PEG/LNP or PBAE/LNP with unmodiﬁed luciferase mRNA at different mass ratios were measured as described in (E). Results
+are also expressed as described in (E). (G) Diameters of PBAE-PEG/LNP (top) and PBAE/LNP (bottom) with unmodiﬁed luciferase mRNA (1 mg/mL) that compose meso-
+porous structures were 211 and 204 nm, respectively, which were measured by transmission electron microscopy (TEM). (H) The hydrodynamic diameters of PBAE-PEG/
+LNP carrying unmodiﬁed luciferase mRNA at pH 7, 6, and 5 that were measured using a Zetasizer indicate that PBAE-PEG/LNP with unmodiﬁed luciferase mRN A were
+responsive to pH change. Red and blue bars indicate size (nm) and PDI, respectively. Results are expressed as mean ± SD of replicates for each group ( n = 3, unpaired,
+two-tailed Student’s t test). **** and ** indicate p < 0.0001 and p < 0.01, respectively. (I) RNA gel electrophoresis indicates the release of unmodiﬁed luciferase mRNA from
+PBAE-PEG/LNP with unmodiﬁed luciferase mRNA at a lower pH (pH 4–6) but not at pH 7. Several panels were created with BioRender.com.
+Molecular Therapy
+1156 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 4 ---
+
+Next, we sought to determine which mass ratio between PBAE-PEG/
+LNP (or PBAE/LNP) and mRNA provides the best transfection ef ﬁ-
+ciency using luciferase mRNA in HEK293T cells in vitro . Ratios of
+30:1 and 60:1 (PBAE-PEG/LNP:mRNA or PBAE/LNP:mRNA) pro-
+vided the highest transfection efﬁciency as measured by luciferase activ-
+ity compared to those of 10:1 or 90:1 (Figure 2D). The size and surface
+charge of PBAE-PEG/LNP or PBAE/LNP with different amounts of
+luciferase mRNA (unmodiﬁed) was determined by Zetasizer. The size
+of PBAE-PEG/LNP itself was 184.3 nm. When assembled with the
+mRNA at a mass ratio of 10:1 (PBAE-PEG/LNP:mRNA), the size signif-
+icantly increased to 245.6 nm. When assembled with mRNA at a mass
+ratio of 30:1 or higher (PBAE-PEG/LNP:mRNA), the size signiﬁcantly
+decreased to below 144.3 nm ( Figure 2E). Likewise, the size of PBAE/
+LNP alone was 208 nm. When assembled with mRNA at a mass ratio
+of 10:1 (PBAE/LNP:mRNA), the size signi ﬁcantly increased to
+260.3 nm. When assembled with mRNA at a mass ratio of 30:1 or higher
+(PBAE/LNP:mRNA), the size signiﬁcantly decreased to below 176 nm
+(Figure 2E). The zeta potential of PBAE-PEG/LNP or PBAE/LNP itself
+was 24.6 or 41.8 mV, respectively. When assembled with mRNA at a
+mass ratio of 30:1, the zeta potential of PBAE-PEG/LNP/mRNA or
+PBAE/LNP/mRNA was 0.77 and 20.2 mV, respectively. When assem-
+bled with mRNA at a mass ratio of 60:1 and 90:1, the zeta potential of
+PBAE-PEG/LNP/mRNA or PBAE/LNP/mRNA was higher at 10.3
+and 27.4 mV, respectively ( Figure 2F). These in vitro results suggest
+that PBAE-PEG/LNP or PBAE/LNP with mRNA at the mass ratio of
+30:1 or 60:1 is applicable for in vivo studies. Due to cost-effectiveness,
+we chose PBAE-PEG/LNP or PBAE/LNP with mRNA at a mass ratio
+of 30:1 for the further in vitro and in vivo studies below.
+We assessed the morphological characteristics of PBAE-PEG/LNP or
+PBAE/LNP with mRNA. Transmission electron microscopy (TEM)
+indicated that PBAE-PEG/LNP and PBAE/LNP demonstrate a meso-
+porous structure with sizes of 211 and 204 nm, respectively (Figure 2G).
+To predict how PBAE-PEG/LNP releases mRNA after entering cells,
+we measured the size of PBAE-PEG/LNP in PBS at pH 7 and 100 or
+10 mM citric acid buffer at pH 6 and pH 5. At neutral pH 7, PBAE-
+PEG/LNP exhibited an average size of 145.2 nm (polydispersity index
+[PDI] = 0.137). As the pH decreased, the size increased progressively
+from 293.0 nm (PDI = 0.266) at pH 6 to 667.9 nm (PDI = 0.562) at
+pH 5 ( Figure 2 H), indicating that PBAE-PEG/LNP is responsive to
+pH change. Consistent with these size distribution results, mRNA
+was released from PBAE-PEG/LNP at a lower pH (pH 4 – 6) but not
+at pH 7 (Figure 2I). These results suggest that PBAE-PEG/LNP releases
+mRNA in the endocytosis process at low pH.
+In vitro transfection validation of PBAE-PEG/LNP and PBAE/LNP
+with 5-methoxyuridine modiﬁed mRNA
+To be applicable for in vivo studies, since 5-methoxyuridine modiﬁed
+(5moU) mRNA is less immunogenic than unmodi ﬁed mRNA, 21 we
+tested PBAE-PEG/LNP encapsulating 5moU luciferase mRNA along
+with unmodiﬁed mRNA in HEK293T cells in vitro. PBAE-PEG/LNP
+with 5moU luciferase mRNA signi ﬁcantly induced luciferase activity
+similar to that achieved with unmodi ﬁed mRNA ( Figure 3 A), indi-
+cating that PBAE-PEG/LNP can deliver 5moU mRNA as well as un-
+modiﬁed mRNA. The transfection ef ﬁciency of PBAE-PEG/LNP or
+PBAE/LNP with 5moU mRNA was also con ﬁrmed by ﬂuorescence
+analysis using 5moU mCherry mRNA in HEK293T cells in vitro ,
+which further indicated that PBAE-PEG/LNP is superior to PBAE/
+LNP in transfecting HEK293T cells ( Figures 3B and 3C).
+In vivo transfection validation of PBAE-PEG/LNP or PBAE/LNP
+To determine whether PBAE-PEG/LNP or PBAE/LNP can deliver
+mRNA into lung cells in vivo, we compared the transfection efﬁciency
+of 5moU or unmodi ﬁed luciferase mRNA (12.5 mg) by PBAE-PEG/
+LNP at the molar ratio of 2.5:135 using IV or IT injection into NU/
+J nude mice ( Figure 4 A). Luciferase activity in a whole mouse body
+AB C
+Figure 3. PBAE-PEG/LNP and PBAE/LNP can transfect 5moU mRNA in vitro
+(A) Transfection efﬁciency of PBAE-PEG/LNP carrying 5moU or unmodiﬁed luciferase mRNA (2 mg) at the mass ratio of 30:1 (PBAE-PEG/LNP:mRNA) was assessed using
+luciferase assay in HEK293T cells. Forty-eight hours after transfection, luciferase activity was measured. Results are normalized by protein weig ht and expressed as mean ±
+SD of replicates for each group ( n = 3, unpaired, two-tailed Student’s t test). (B) Fluorescence microscopy was conducted to assess transfection efﬁciency by PBAE-PEG/
+LNP or PBAE/LNP carrying 5moU mCherry mRNA (2 mg) using HEK293T cells. Immunoﬂuorescence images were captured 48 h after transfection. Scale bar indicates
+275 mm. (C) Transfection efﬁciency for (B) was quantiﬁed by counting ﬂuorescence-positive cells. Results are expressed as mean ± SD of replicates for each group ( n =3 ,
+unpaired, two-tailed Student’s t test).
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1157
+
+
+--- Page 5 ---
+
+Figure 4. PBAE-PEG or PBAE-based LNPs are capable of transfecting mRNA into lung cells in vivo
+(A) Different routes of injection (intravenous [IV; top] vs. intratracheal [IT; bottom]) with PBAE-PEG/LNP or PBAE/LNP with 5moU luciferase mRNA we re conducted to deliver
+mRNA to the mouse lung. (The drawing was created with BioRender.com.) (B) Luminescence from whole bodies of NU/J nude mice (n = 4) that were transfected by IV (top) or
+IT (bottom) injections of PBAE-PEG/LNP with 5moU luciferase mRNA (12.5 mg), PBAE/LNP with 5moU luciferase mRNA (12.5 mg), or PBAE-PEG/LNP with unmodiﬁed
+luciferase mRNA (12.5 mg) were visualized 24 h after transfection using IVIS. The molar ratio of 2.5:135 (PBAE-PEG:LNP or PBAE:LNP) was used. Shown are two repre-
+sentative images of four mice (see Figure S1 for the complete group). (C) Luminescence from different organs (lung, spleen, liver, heart, and kidney) of FVB/N mice
+(n = 3/group) transfected by IV (top) or IT (bottom) injections of PBAE-PEG/LNP with 5moU or unmodiﬁed luciferase mRNA (12.5 mg) was captured 24 h after transfection
+using IVIS. The molar ratio of 2.5:135 (PBAE-PEG:LNP) was used. Shown are representative images of one mouse (see Figure S2 for three mice at different PBAE-PEG:LNP
+or PBAE:LNP molar ratios). (D) Luminescence intensity ( n = 3/group) that is described in (C) was quantiﬁed by ImageJ. Results are expressed as mean ± SD of triplicates for
+each group (unpaired, two-tailed Student’s t test). (E) Luminescence from lungs and livers of FVB/N mice (n = 3/group) transfected by IV (left) or IT (right) injections of only LNP,
+PBAE/LNP, or PBAE-PEG/LNP with 5moU luciferase mRNA (10 mg) was captured 12 h after transfection using IVIS. A molar ratio of 2.5:135 (PBAE-PEG:LNP or PBAE:LNP)
+was used. (F) Luminescence intensity from lungs and livers described in (E) was quantiﬁed by ImageJ. Results are expressed as mean ± SD of triplicates for each group
+(unpaired, two-tailed Student’s t test).
+Molecular Therapy
+1158 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 6 ---
+
+assessed by in vivo imaging systems (IVIS) indicated that 5moU lucif-
+erase mRNA was superior to unmodi ﬁed luciferase mRNA for trans-
+fection into multiple organs using PBAE-PEG/LNP or PBAE/LNP
+in vivo regardless of IV or IT injection ( Figures 4 B and S1). Based
+on these data, we focused on PBAE-PEG/LNP or PBAE/LNP using
+5moU mRNA for further in vivo studies.
+To determine which organs were transfected by PBAE-PEG/LNP or
+PBAE/LNP with 5moU luciferase mRNA, we extracted ﬁve organs
+(lung, liver, spleen, kidney, and heart) from FVB/N mice that were
+transfected with PBAE-PEG/LNP or PBAE/LNP at different molar ra-
+tios of PBAE-PEG (or PBAE):LNP (1:135, 2.5:135, and 4:135) carrying
+5moU luciferase mRNA (10mg) by IV or IT. Regardless of molar ratio,
+IV-injected PBAE-PEG/LNP with 5moU luciferase mRNA provided
+the highest luciferase activity in lungs, followed by spleens and livers.
+However, IT-injected PBAE-PEG/LNP with 5moU luciferase mRNA
+provided luciferase activity in lungs but not in other organs regardless
+of molar ratio (Figures 4C, 4D, and S2A). We quantiﬁed which molar
+ratio of PBAE-PEG (or PBAE):LNP provided the highest lung luciferase
+activity and found that the 2.5:135 molar ratio was signi ﬁcantly better
+than the other molar ratios (1:135 and 4:135) for both PBAE-PEG/
+LNP and PBAE/LNP, regardless of route of injection ( Figures S2 B
+and S2C). We also compared the in vivo transfection ef ﬁciency
+of PBAE-PEG/LNP or PBAE/LNP to LNP alone. As shown in
+Figures 4 E and 4F, luciferase activity delivered by PBAE-PEG/LNP
+was the highest, followed by PBAE/LNP and LNP only for IV-mediated
+lung and liver transfection and IT-mediated lung transfection, indi-
+cating that both PBAE-PEG/LNP and PBAE/LNP are superior to
+LNP only for in vivo transfection targeting lung and/or liver. Of note,
+neither PBAE-PEG/LNP nor PBAE/LNP with 5moU luciferase
+mRNA (12.5mg) administered by IV or IT injection caused liver toxicity
+(Figure S3 A; no increase in alanine aminotransferase [ALT] was
+observed) or lung inﬂammation (Figure S3B).
+PBAE-PEG/LNP or PBAE/LNP deliver mRNA into lung
+endothelial cells by IV injection and lung epithelial cells by IT
+injection in vivo
+To determine which lung cell types are transfected by PBAE-PEG/
+LNP or PBAE/LNP with 5moU mRNA in vivo, we performed ﬂuores-
+cence-activated cell sorting (FACS) analysis using isolated Ai14
+tdTomato mouse lung cells transfected with 5moU Cre mRNA by
+IT and IV injection ( Figure 5A). In Ai14 tdTomato mice, tdTomato
+is induced upon loxP recombination driven by transfected Cre.
+22 IV
+injection of PBAE-PEG/LNP or PBAE/LNP with Cre mRNA resulted
+in transfection into PECAM-1 (CD31)
++ lung endothelial cells at
+73.2% or 63.0% ef ﬁciency, respectively, but not into EpCAM
+(CD326)+ lung epithelial cells, PDGFRA (CD140a) + lung ﬁbroblasts,
+or PTPRC (CD45)+ lung immune cells (Figures 5B and 5C). However,
+IT injection of PBAE-PEG/LNP or PBAE/LNP with Cre mRNA re-
+sulted in transfection into EpCAM (CD326)
++ lung epithelial cells at
+55.4% or 28.3% ef ﬁciency, respectively, but not into PECAM-1
+(CD31)+ lung endothelial cells, PDGFRA (CD140a)+ lung ﬁbroblasts,
+or PTPRC (CD45)+ lung immune cells (Figures 5B and 5C). These re-
+sults indicate that our PBAE-PEG/LNP and PBAE/LNP target spe-
+ciﬁc lung cell types (lung endothelial cells or lung epithelial cells)
+depending on the injection route (IV or IT).
+PBAE-PEG/LNP or PBAE/LNP delivers mRNA into ERG + lung
+endothelial cells but not into lung alveolar epithelial or airway
+epithelial cells when delivered IV in vivo
+We also validated lung cell types in which PBAE-PEG/LNP or PBAE/
+LNP containing 5moU Cre mRNA is delivered by IV administration
+A
+B
+C Figure 5. PBAE-PEG/LNP and PBAE/LNP deliver
+mRNA into lung endothelial cells by IV injection and
+lung epithelial cells by IT injection
+(A) Gating strategy of ﬂuorescence-activated cell sorting
+(FACS) analysis for the identiﬁcation of cell lineage
+populations (CD31
++CD45– as endothelial cells, CD326 +
+CD45– as epithelial cells, CD140a +CD45– as ﬁbroblasts,
+and CD45 + as immune cells) from whole-lung single-
+cell suspension is shown. (B) Representative FACS
+histograms show tdTomato expression in endothelial
+cells (CD31
++CD45–), epithelial cells (CD326 +CD45–), lung
+ﬁbroblasts (CD140a+CD45–), and immune cells (CD45 +)
+from lungs of Ai14 tdTomato mice 4 days after IV or IT
+injection of PBAE-PEG/LNP and PBAE/LNP carrying
+5moU Cre mRNA (12.5 mg administered twice on days
+0 and 2). (C) Graph displays the frequency of
+tdTomato
+high cells in endothelial cells, epithelial cells,
+ﬁbroblasts, and immune cells obtained as described in
+(B). Results were pooled from three independent
+experiments with four mice per group. Each symbol
+represents an individual mouse. Results are expressed as
+mean ± SD of replicates for each group ( n = 4, unpaired,
+two-tailed Student’s t test). ****, ***, **, and * indicate p <
+0.0001, p < 0.001, p < 0.01, and p < 0.05, respectively.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1159
+
+
+--- Page 7 ---
+
+to Ai14 tdTomato mice using confocal immuno ﬂuorescence. Consis-
+tent with the FACS analysis ( Figure 5), tdTomato expression, which
+was induced by IV injection of both PBAE-PEG/LNP and PBAE/
+LNP with 5moU Cre mRNA, was colocalized with ERG (lung endo-
+thelial cell marker; see Figures 6 A and S4) but not NKX2-1 (lung
+epithelial cell marker; see Figures 6 B and S5), LAMP3 (lung ATII
+cell marker; see Figures 6 B and S5), SCGB1A1 (lung airway
+club cell marker; see Figures 6C and S6), TUBA1A (lung airway cili-
+ated cell marker; see Figures 6C and S6), or MEOX2 (lung ﬁbroblast
+marker; see Figures 6D and S7), indicating that IV injection of PBAE-
+PEG/LNP or PBAE/LNP with 5moU mRNA delivers mRNA into
+lung endothelial cells speci ﬁcally.
+PBAE-PEG/LNP delivers mRNA into both lung ATII epithelial
+cells and lung airway club epithelial cells, while PBAE/LNP
+delivers mRNA into lung airway club epithelial cells when
+delivered IT in vivo
+FACS data indicated that IT injection of PBAE-PEG/LNP or PBAE/
+LNP with 5moU mRNA delivers mRNA into EpCAM (CD326)+ lung
+epithelial cells ( Figure 5). We used confocal immuno ﬂuorescence to
+determine which lung epithelial cell types are transfected with
+5moU Cre mRNA in Ai14 tdTomato mice by IT injection. While
+PBAE-PEG/LNP did not induce tdTomato expression in ERG +
+lung endothelial cells ( Figures 7A and S8), PBAE-PEG/LNP induced
+tdTomato expression in both LAMP3/NKX2-1 + lung ATII epithelial
+cells ( Figures 7 B, S9, and S10) and SCGB1A1 + lung airway club
+epithelial cells ( Figures 7 C, S10, and S11). PBAE-PEG/LNP did not
+induce tdTomato expression in TUBA1A + lung airway ciliated
+epithelial cells ( Figures 7 C and S11) or MEOX2 + lung ﬁbroblasts
+(Figures 7D and S12).
+While PBAE/LNP did not induce tdTomato expression in ERG + lung
+endothelial cells either ( Figures 7 A and S8), PBAE/LNP induced
+tdTomato expression signi ﬁcantly more in SCGB1A1 + lung airway
+club epithelial cells ( Figures 7 C, S10, and S11) than in LAMP3/
+NKX2-1+ lung ATII epithelial cells ( Figures 7 B, S9, and S10).
+PBAE/LNP did not induce tdTomato expression in TUBA1A + lung
+airway ciliated epithelial cells ( Figures 7 C and S11) or MEOX2 +
+lung ﬁbroblasts ( Figures 7 D and S12). These data indicate that
+PBAE-PEG/LNP administered by in vivo IT injection is superior
+for the targeting of both lung ATII epithelial cells and airway club
+epithelial cells, while PBAE/LNP is superior for speci ﬁcally targeting
+lung airway club epithelial cells over lung ATII epithelial cells.
+DISCUSSION
+Despite advances in nanoparticle technology, pulmonary cell-speci ﬁc
+delivery systems remain challenging and have not been clinically
+applied yet. In our study, we developed two nanoparticles, PBAE-
+PEG/LNP and PBAE/LNP, to deliver mRNA into lung endothelial
+cells via IV injection and into lung epithelial cells, including lung
+ATII cells and airway club cells, via IT injection without causing liver
+toxicity and lung in ﬂammation. Our results demonstrated that
+PEGylation affects targeting ability. Speci ﬁcally, PBAE-PEG/LNP
+delivered mRNA into lung epithelial cells, including ATII and airway
+club cells, while PBAE/LNP targeted airway club cells better than
+ATII cells via IT injection.
+In this study, PEGylation of PBAE facilitated delivery of mRNA into
+lung ATII epithelial cells beyond airway club epithelial cells. We hy-
+pothesize that PEGylation helps to (1) stabilize LNPs, (2) reduce their
+immunogenicity, and (3) prevent phagocytosis by alveolar macro-
+phages, which results in wider targeting of lung epithelial cells in
+the alveolar regions. PBAE-PEG/LNP can be considered a potential
+candidate for delivering therapeutic cargo into ATII epithelial cells
+for genetic disorders, for example, ABCA3 de ﬁciency. However,
+PBAE/LNP also presents a promising alternative for speci ﬁc pulmo-
+nary conditions where targeted gene delivery into airway club epithe-
+lial cells, which serve as progenitors of goblet and ciliated epithelial
+cells, is needed (e.g., cystic ﬁbrosis).
+We have designed a formulation of LNPs for mRNA delivery
+based on previously reported LNP formulations.
+10,15,17 However,
+as reported previously, Dlin-MC3-DMA and SM-102 can be
+used instead of 4A3-SC8 for ionizable lipids.
+12,23 Different combi-
+nations of helper lipids, including DOPE, distearoylphosphatidyl-
+choline, dimyristoyl glycerol-PEG, and C14-PEG, may improve
+the transfection ef ﬁciency.
+10,15 For further optimization, probably
+the most ef ﬁcient approach would be to combine machine learning
+with high-throughput lipid synthesis, 24 which might provide the
+best LNP formulation for IT and/or IV administration of mRNA
+in the future.
+For the COVID-19 vaccine, N1-methylpseudouridine-modi ﬁed
+mRNA was used to reduce mRNA immunogenicity and increase
+the half-life of synthetic mRNA.
+25,26 In our study, we used 5moU
+mRNA commercially available from TriLink, which provided suc-
+cessful transfection ef ﬁciency with PBAE-PEG/LNP and PBAE/
+LNP in vivo . However, N1-methylpseudouridine-modi ﬁed mRNA
+might provide better transfection ef ﬁciency considering that protein
+expression from N1-methylpseudouridine-modiﬁed mRNA is higher
+than that from 5moU mRNA and the immunogenicity from N1-
+methylpseudouridine-modiﬁed mRNA is lower than that from
+5moU mRNA according to the products at the TriLink Biotechnol-
+ogies site ( https://www.trilinkbiotech.com/browse/stocked-mrnas).
+We will test N1-methylpseudouridine-modi ﬁed mRNA with PBAE-
+PEG/LNP and PBAE/LNP in a future study.
+In summary, our work proposes that PBAE-PEG/LNP and PBAE/
+LNP have different targeting abilities after IT or IV injection. Our
+study demonstrated the possibility of selective gene transfer for future
+therapeutic mRNA or genome editing via Cas9 mRNA and guide
+RNA(s) into pulmonary endothelial and epithelial cells. Our study
+provides a framework for designing temporary or permanent strate-
+gies for pulmonary gene therapy for disorders caused by mutations in
+ABCA3, CFTR, SFTPB, and SFTPC, and other monogenic lung dis-
+eases. Further studies are needed to assess the duration of expression
+and whether levels of protein expression will be suf ﬁcient to be an
+effective treatment to genetic disorders.
+Molecular Therapy
+1160 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 8 ---
+
+A
+B
+C
+D
+Figure 6. IV injection of PBAE-PEG/LNP and PBAE/LNP carrying mRNA targets ERG + lung endothelial cells
+Lungs of Ai14 tdTomato mice 4 days after transfection with PBAE-PEG/LNP and PBAE/LNP carrying 5moU Cre mRNA were harvested and sectioned for immunoﬂu o-
+rescence staining to identify which lung cell types were transfected with Cre mRNA (12.5 mg administered twice on days 0 and 2), resulting in tdTomato expression as
+described in Figure 5. Cell nuclei were counterstained with DAPI (blue). Shown are representative images from three mice. Scale bar indicates 100 mm. (A) tdTomato (red) was
+co-expressed with the endothelial cell marker ERG (green). (B) tdTomato (red) was co-expressed with neither the lung epithelial cell marker NKX2-1 ( white) nor the alveolar
+type II (ATII) epithelial cell marker LAMP3 (green). (C) tdTomato (red) was co-expressed with neither the airway club epithelial cell marker SCGB1A1 (white) nor the airway
+ciliated epithelial cell marker TUBA1A (green). (D) tdTomato (red) was not co-expressed with the ﬁbroblast marker MEOX2 (green).
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1161
+
+
+--- Page 9 ---
+
+A
+B
+C
+D
+Figure 7. IT injection of PBAE-PEG/LNP with mRNA targets both NKX2-1/LAMP3 + ATII epithelial cells and SCGB1A1 + airway club epithelial cells, while
+PBAE/LNP with mRNA targets SCGB1A1 + airway club epithelial cells better than NKX2-1/LAMP3 + ATII epithelial cells in mouse lungs
+Lungs of Ai14 tdTomato mice 4 days after transfection with PBAE-PEG/LNP and PBAE/LNP carrying 5moU Cre mRNA were harvested and sectioned for immunoﬂu o-
+rescence staining to identify which lung cell types were transfected with Cre mRNA (12.5 mg administered twice on days 0 and 2), resulting in tdTomato expression as
+described in Figure 5. Cell nuclei were counterstained with DAPI (blue). Shown are representative images from three mice. Scale bar indicates 100 mm. (A) tdTomato (red) was
+not co-expressed with the endothelial cell marker ERG (green). (B) tdTomato (red) was co-expressed with the lung epithelial cell marker NKX2-1 (whit e) and the ATII epithelial
+cell marker LAMP3 (green). (C) tdTomato (red) was co-expressed with the airway club epithelial cell marker SCGB1A1 (white) but not the airway ciliate d epithelial cell marker
+TUBA1A (green). (D) tdTomato (red) was not co-expressed with the ﬁbroblast marker MEOX2 (green).
+Molecular Therapy
+1162 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 10 ---
+
+MATERIALS AND METHODS
+Materials
+We purchased 1,4-butanediol diacrylate (catalog no. 411744),
+4-amino-1-butanol (catalog no. 178330), 1,3-diaminopropane (cata-
+log no. D23602), citric acid (catalog no. C0759), and ALT Activity
+Assay (catalog no. MAK052) from Sigma-Aldrich (St. Louis, MO).
+We purchased 18:1 TAP (DOTAP) (catalog no. 890890) and 18:1
+DOPE (catalog no. 850725) from Avanti Polar Lipids (Alabaster,
+AL). We purchased 4A3-SC8 (catalog no. N-1438) from Echelon Bio-
+sciences (Salt Lake City, UT). Methoxy PEG Succinimidyl Succinate
+(catalog no. M-SS-5000) was purchased from JenKem Technology
+USA (Plano, TX). CleanCap mCherry mRNA (5moU) (catalog no.
+L-7203), CleanCap FLuc mRNA (5moU) (catalog no. L-7202), and
+CleanCap Cre mRNA (catalog no. L-7211) were purchased from
+TriLink Biotechnologies (San Diego, CA).
+D-Luciferin Biolumines-
+cent Substrate (catalog no. 770504) was purchased from Revvity
+(Waltham, MA).
+Synthesis of PBAE and PEGylated PBAE
+Synthesis of the PBAE polymer backbone was conducted via a two-
+step Michael addition reaction, where 1,4-butanediol diacrylate and
+4-amino-1-butanol were combined in a 1.2:1 molar ratio and reacted
+at 90
+/C14C for 24 h to produce uncapped PBAE polymers. These poly-
+mers were subsequently precipitated three times in cold ether to elim-
+inate any unreacted materials and then dried under vacuum. For the
+capping of the terminal acrylate groups, the PBAE polymers were sol-
+ubilized in tetrahydrofuran (THF) at a concentration of 100 mg/mL,
+and 30 molar equiv of 1,3-diaminopropane were introduced. The re-
+action was carried out with stirring at room temperature for 4 to 5 h.
+Finally, the end-capped PBAE polymers were isolated by precipita-
+tion in cold ether to remove any unreacted reagents and then dried
+under vacuum. Methoxy-PEG-succinimidyl succinates were then
+conjugated to the two terminal primary amine groups on both ends
+of the 1,3-diaminopropane-capped PBAE polymer chain. This pro-
+cess involved transferring the capped PBAE polymers along with
+2.05 molar equiv of 5 kDa methoxy-PEG-succinimidyl succinate
+into a glass vial, which was then evacuated and ﬁlled with nitrogen.
+The reactants were dissolved in THF, and the mixture was stirred
+at room temperature overnight. The resultant PBAE-PEG polymer
+was then precipitated and washed three times with cold ether,
+followed by drying under vacuum. PBAE polymers were stored
+at /C020
+/C14C.
+Creation of PBAE-PEG/LNP and PBAE/LNP
+LNP without PBAE-PEG or PBAE was prepared by dissolving
+4A3-SC8, DOPE, cholesterol, and DOTAP at a molar ratio of
+20:20:35:60 in ethanol. PBAE-PEG/LNP and PBAE/LNP were pre-
+pared by dissolving lipids (4A3-SC8, DOPE, cholesterol, and
+DOTAP) along with PBAE-PEG or PBAE in ethanol at the molar ra-
+tio of 20:20:35:60:2.5. Concurrently, mRNA was dissolved in a 10 mM
+citrate buffer at pH 4. The lipids in ethanol and the RNA in the citrate
+buffer were then rapidly mixed using a vortex as described previ-
+ously
+10 at an ethanol-aqueous volume ratio of 1:3. This mixture
+was incubated at room temperature for 10 min and then dialyzed
+in PBS at pH 7 overnight, which achieved a ﬁnal weight ratio of
+30:1 (total lipids:mRNA). The PBAE-PEG/LNP formulation com-
+prises an LNP composition that includes 4A3-SC8, DOPE, choles-
+terol, PBAE-PEG, and DOTAP in a molar ratio of 20:20:35:2.5:60,
+respectively. The PBAE/LNP formulation consists of 4A3-SC8,
+DOPE, cholesterol, PBAE, and DOTAP, also in a molar ratio of
+20:20:35:2.5:60.
+In vitro HEK293T cell transfections
+The HEK293T cell line was cultured in Dulbecco ’s Modiﬁed Eagle’s
+Medium (catalog no. 11960044; Thermo Fisher, Waltham, MA) en-
+riched with 10% fetal bovine serum (FBS) (catalog no. F4135;
+Sigma-Aldrich) and 1% penicillin/streptomycin (catalog no.
+15140122; Thermo Fisher). Cell cultures were incubated at 37
+/C14C
+and 5% CO2. A total of 2 mg (each well of a 24-well plate) of mCherry
+5moU (or unmodi ﬁed) mRNA or luciferase 5moU (or unmodi ﬁed)
+mRNA was transfected using PBAE-PEG/LNP, PBAE/LNP at
+different molar ratios (0:135, 0.5:135, 1:135, 1.5:135, 2:135, 2.5:135
+3:135, 3.5:135, 4:135 4.5:135, and 5:135), or Lipofectamine
+MessengerMAX into HEK293T cells, which were harvested 24 – 48 h
+after transfection. Luciferase assays were performed in accordance
+with the Luciferase Assay System (catalog no. E1501; Promega, Mad-
+ison, WI). Fluorescence images were obtained with an EVOS ﬂuores-
+cence microscope (Thermo Fisher).
+Characterization of PBAE-PEG/LNP and PBAE/LNP
+The hydrodynamic diameter and surface potential of PBAE-PEG/
+LNP and PBAE/LNP were measured using Zetasizer (Malvern,
+Malvern, UK). Chemical structures of polymer products with
+chloroform-D (CDCl
+3) as the solvent were characterized by 1H
+NMR spectroscopy using a Bruker AV 400 MHz spectrometer (Bill-
+erica, MA). The molecular weight of capped PBAE was determined by
+end-group analysis of the 1H NMR result.27 TEM on PBAE-PEG/LNP
+and PBAE/LNP that carried unmodi ﬁed luciferase mRNA at a con-
+centration of 1 mg/mL was conducted by the Integrated Pathology
+Research Facility at Cincinnati Children ’s Hospital Medical Center
+(CCHMC). Gel electrophoresis was performed using a MOPS-based
+1.2% agarose gel containing formaldehyde and ethidium bromide in
+1/C2MOPS buffer.
+Mouse studies
+All animal experiments conducted were approved by the Institutional
+Animal Care and Use Committee. For in vivo whole-body imaging
+studies with PBAE-PEG/LNP or PBAE/LNP encapsulating 5moU
+or unmodi ﬁed luciferase mRNA, NU/J hairless nude mice aged 8 –
+12 weeks obtained from The Jackson Laboratory were used. At 24 h
+after IV or IT injection, mice received an intraperitoneal injection
+of 200 mL
+D-luciferin (30 mg/mL). To assess in vivo luciferase activity,
+we used IVIS Lumina III and Spectrum CT in vivo imaging systems
+(PerkinElmer, Waltham, MA). Whole-body imaging was performed
+10 min after
+D-luciferin administration, and luminescence intensity
+was quanti ﬁed using Living Image software (Spectral Instruments,
+Tucson, AZ). For ex vivo imaging, FVB/N mice aged 8 – 12 weeks
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1163
+
+
+--- Page 11 ---
+
+obtained from The Jackson Laboratory were administered PBAE-
+PEG/LNP or PBAE/LNP encapsulating 5moU or unmodi ﬁed lucif-
+erase mRNA by IV or IT injection. At 12 or 24 h after injection,
+mice received an intraperitoneal injection of 200 mL
+D-luciferin
+(30 mg/mL) and were euthanized 10 min later. Internal organs
+such as heart, liver, spleen, lung, and kidney were collected for lumi-
+nescence imaging by IVIS Lumina III and Spectrum CT in vivo imag-
+ing systems (PerkinElmer). For the cell-speci ﬁc transfection study,
+B6.Cg-Gt(ROSA)26Sor
+tm14(CAG-tdTomato)Hze/J(Ai14) Cre reporter
+mice (Ai14 tdTomato mice) were obtained from The Jackson Labora-
+tory. PBAE-PEG/LNP or PBAE/LNP with 5moU Cre mRNA were
+administered to Ai14 tdTomato mice by either IV or IT injection.
+Lungs were harvested 4 days after the PBAE-PEG/LNP or PBAE/
+LNP administration containing mRNA. Single-cell suspensions
+were made from the mouse lungs. Lung sections were also prepared
+from the mouse lungs for lung histology analysis using hematoxylin
+and eosin staining. Plasma ALT activity, an indicator of liver injury,
+was measured using a Diagnostic ALT test kit from Sigma-Aldrich
+(catalog no. MAK052) according to the manufacturer ’s instructions.
+Flow cytometry analysis
+Lungs from Ai14 tdTomato mice were digested in PBS medium with
+480 U/mL collagenase type 1 (catalog no. 17100017; Thermo Fisher),
+5 U/mL dispase (catalog no. CLS354235; Sigma-Aldrich), and
+0.025 mg/mL DNase I (catalog no. D-300-100; Gold Biotechnology,
+St. Louis, MO). Red blood cells (RBCs) were removed using RBC lysis
+buffer (catalog no. 420301; BioLegend, San Diego, CA) for 5 min on
+ice. Single-cell suspensions from mouse lungs (2 /C210
+6 cells/well,
+96-well plate) were stained with an antibody cocktail for 30 min on
+ice. The following antibodies were used for surface staining: CD45
+(clone: I3/2.3, BioLegend), CD31 (clone: 390, Invitrogen, Waltham,
+MA), CD326 (clone: G8.8, Invitrogen), and CD140a (clone: APA5,
+Invitrogen). To exclude dead cells from the analysis, the LIVE/
+DEAD Fixable Near-IR Dead Cell Stain Kit (Invitrogen) was used. Af-
+ter surface staining, cells were washed three times with PBS contain-
+ing 2% fetal bovine serum (catalog no. A5256701; Thermo Fisher).
+Samples were run on a BD LSRFortessa (BD Biosciences, Franklin
+Lakes, NJ), and data were analyzed using FlowJo (BD Biosciences).
+Confocal immunoﬂuorescence analysis
+Lungs harvested from Ai14 tdTomato mice were sectioned at 5 mm
+for confocal immuno ﬂuorescence studies using a previously estab-
+lished protocol.28 Speciﬁc cell types within these sections were iden-
+tiﬁed using a series of primary antibodies: 1:200 goat anti-tdTomato
+(catalog no. AB8181; OriGene, Rockville, MD) to detect tdTomato
+expression,
+29 1:500 rabbit anti-ERG (catalog no. EPR3864; Abcam,
+Cambridge, UK) for lung endothelial cells, 30 1:1,000 rabbit anti-
+NKX2-1 (catalog no. 8G7G3-1; Seven Hills, Cincinnati, OH) for
+lung epithelial cells,
+31 1:500 guinea pig anti-LAMP3 (catalog no.
+391 005; SYSY, Göttingen, Germany) for ATII epithelial cells, 32
+1:500 rabbit anti-SCGB1A1 (catalog no. WRAB-3950; Seven Hills)
+for airway club epithelial cells,
+33 1:500 mouse anti-TUBA4A (anti-
+TUBA1A in mouse; catalog no. T7451; Sigma-Aldrich) for airway
+ciliated epithelial cells, 34 and 1:50 rabbit anti-MEOX2 (catalog no.
+HPA053793; Atlas Antibodies, Bromma, Sweden) for lung ﬁbro-
+blasts.35 Sections were incubated with labeled secondary antibodies
+(Invitrogen) to visualize the primary antibody binding: donkey
+anti-rabbit Alexa Fluor AF 555 (catalog no. A-31572) and AF 647
+(catalog no. A32733) for rabbit primary antibodies, goat anti-mouse
+AF 488 (catalog no. A-11001) for mouse primary antibodies, donkey
+anti-guinea pig AF 488 (catalog no. A-11073) for guinea pig primary
+antibodies, and donkey anti-goat AF 555 (catalog no. A-21432) for
+goat primary antibodies. Fluorescence images were captured using a
+Nikon A1R confocal microscope. The captured images were analyzed
+using Imaris software (Nikon, Melville, NY).
+DATA AVAILABILITY
+All the raw data is available in Table S2.
+ACKNOWLEDGMENTS
+This work was supported by NIH grants (U01HL134745, U01HL148856, R01HL164414,
+R01CA240317, and R01AI139675), University of Cincinnati Cancer Center Pilot Project
+Award Program grant (S323349-2023 Ride Cincinnati-Maeda, the Bergman Family Lung
+Cancer Research Fund, and the Tim Kimmel Family Lung Cancer Research Fund), Cin-
+cinnati Children ’s Hospital Medical Center (Trustee Award Grant, CF-RDP Pilot &
+Feasibility Grant, GAP funding). Y.S. was supported by NIH T32 Vaccinology Training
+Program T32AI165396 and the Japan Society for the Promotion of Science Overseas
+Research Fellowships. We thank Jichao Chen, Anne Perl, Jason Gokey, Sheila Bell, Joseph
+Kitzmiller, Zicheng Deng, Andrew Dunn, Cheng Tan, Iris Fink-Baldauf, Jaymi St. Arnold,
+Mary Durbin, and CCHMC Bio-Imaging and Analysis Facility core (RRID:
+SCR_022628), CCHMC Research Flow Cytometry Facility core (RRID: SCR_022635),
+and CCHMC Integrated Pathology Research Facility core (RRID: SCR_022637) for tech-
+nical assistance and discussions.
+AUTHOR CONTRIBUTIONS
+Conceptualization, B.L., A.G.Z., D.S., J.A.W., and Y.M. Methodology, B.L., Y.S., N.L.,
+Y.H., W.D.S., A.S., X.C., M.E.S., and Y.M. Investigation, B.L., J.A.W., and Y.M. Data cu-
+ration, B.L., Y.S., N.L., Y.H., K.A., J.A.W., and Y.M. Formal analysis, Y.M. Validation,
+Y.M. Writing, B.L., W.D.S., J.A.W., and Y.M. Resources, J.A.W. and Y.M. Supervision,
+Y.M. Project administration, J.A.W. and Y.M. Funding acquisition, K.A., J.A.W.,
+and Y.M.
+DECLARATION OF INTERESTS
+The authors ﬁled an invention disclosure on the combination of PBAE-PEG or PBAE
+with LNPs.
+SUPPLEMENTAL INFORMATION
+Supplemental information can be found online at https://doi.org/10.1016/j.ymthe.2025.
+01.037.
+REFERENCES
+1. Nogee, L.M., Dunbar, A.E., Wert, S.E., Askin, F., Hamvas, A., and Whitsett, J.A.
+(2001). A Mutation in the Surfactant Protein C Gene Associated with Familial
+Interstitial Lung Disease. N. Engl. J. Med. 344, 573 – 579. https://doi.org/10.1056/
+NEJM200102223440805.
+2. Nogee, L.M., Garnier, G., Dietz, H.C., Singer, L., Murphy, A.M., DeMello, D.E., and
+Colten, H.R. (1994). A mutation in the surfactant protein B gene responsible for fatal
+neonatal respiratory disease in multiple kindreds. J. Clin. Invest. 93, 1860 – 1863.
+https://doi.org/10.1172/JCI117173.
+3. Devriendt, K., Vanhole, C., Matthijs, G., and de Zegher, F. (1998). Deletion of
+Thyroid Transcription Factor-1 Gene in an Infant with Neonatal Thyroid
+Dysfunction and Respiratory Failure. N. Engl. J. Med. 338, 1317 – 1318. https://doi.
+org/10.1056/NEJM199804303381817.
+Molecular Therapy
+1164 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 12 ---
+
+4. Shulenin, S., Nogee, L.M., Annilo, T., Wert, S.E., Whitsett, J.A., and Dean, M. (2004).
+ABCA3 Gene Mutations in Newborns with Fatal Surfactant De ﬁciency. N. Engl. J.
+Med. 350, 1296– 1303. https://doi.org/10.1056/NEJMOA032178.
+5. Kerem, B., Rommens, J.M., Buchanan, J.A., Markiewicz, D., Cox, T.K., Chakravarti,
+A., Buchwald, M., and Tsui, L.C. (1989). Identi ﬁcation of the Cystic Fibrosis
+Gene: Genetic Analysis. Science 245, 1073– 1080. https://doi.org/10.1126/SCIENCE.
+2570460.
+6. Kerstjens-Frederikse, W.S., Bongers, E.M.H.F., Roofthooft, M.T.R., Leter, E.M.,
+Douwes, J.M., Van Dijk, A., Vonk-Noordegraaf, A., Dijk-Bos, K.K., Hoefsloot,
+L.H., Hoendermis, E.S., et al. (2013). TBX4 mutations (small patella syndrome) are
+associated with childhood-onset pulmonary arterial hypertension. J. Med. Genet.
+50, 500– 506. https://doi.org/10.1136/JMEDGENET-2012-101152.
+7. Stankiewicz, P., Sen, P., Bhatt, S.S., Storer, M., Xia, Z., Bejjani, B.A., Ou, Z.,
+Wiszniewska, J., Driscoll, D.J., Maisenbacher, M.K., et al. (2009). Genomic and
+Genic Deletions of the FOX Gene Cluster on 16q24.1 and Inactivating Mutations
+of FOXF1 Cause Alveolar Capillary Dysplasia and Other Malformations. Am. J.
+Hum. Genet. 84, 780– 791. https://doi.org/10.1016/J.AJHG.2009.05.005.
+8. Whitsett, J.A. (2010). Review: The intersection of surfactant homeostasis and innate
+host defense of the lung: lessons from newborn infants. Innate Immun. 16, 138– 142.
+https://doi.org/10.1177/1753425910366879.
+9. Cheng, Q., Wei, T., Farbiak, L., Johnson, L.T., Dilliard, S.A., and Siegwart, D.J. (2020).
+Selective organ targeting (SORT) nanoparticles for tissue-speci ﬁc mRNA delivery
+and CRISPR – Cas gene editing. Nat. Nanotechnol. 15, 313 – 320. https://doi.org/10.
+1038/s41565-020-0669-6.
+10. Wang, X., Liu, S., Sun, Y., Yu, X., Lee, S.M., Cheng, Q., Wei, T., Gong, J., Robinson, J.,
+Zhang, D., et al. (2023). Preparation of selective organ-targeting (SORT) lipid nano-
+particles (LNPs) using multiple technical methods for tissue-speci ﬁc mRNA delivery.
+Nat. Protoc. 18, 265– 291. https://doi.org/10.1038/s41596-022-00755-x.
+11. Sun, Y., Chatterjee, S., Lian, X., Traylor, Z., Sattiraju, S.R., Xiao, Y., Dilliard, S.A.,
+Sung, Y.C., Kim, M., Lee, S.M., et al. (2024). In vivo editing of lung stem cells for du-
+rable gene correction in mice. Science 384, 1196 – 1202. https://doi.org/10.1126/
+SCIENCE.ADK9428.
+12. Zeng, G., He, Z., Yang, H., Gao, Z., Ge, X., Liu, L., Liu, Z., and Chen, Y. (2024).
+Cationic Lipid Pairs Enhance Liver-to-Lung Tropism of Lipid Nanoparticles for
+In Vivo mRNA Delivery. ACS Appl. Mater. Inter. 16, 25698 – 25709. https://doi.
+org/10.1021/ACSAMI.4C02415.
+13. Eygeris, Y., Henderson, M.I., Curtis, A.G., Jozi /C19c, A., Stoddard, J., Reynaga, R., Chirco,
+K.R., Su, G.L.N., Neuringer, M., Lauer, A.K., et al. (2024). Preformed Vesicle
+Approach to LNP Manufacturing Enhances Retinal mRNA Delivery. Small 20,
+e2400815. https://doi.org/10.1002/SMLL.202400815
+.
+14. Kaczmarek, J.C., Patel, A.K., Kauffman, K.J., Fenton, O.S., Webber, M.J., Heartlein,
+M.W., DeRosa, F., and Anderson, D.G. (2016). Polymer-Lipid Nanoparticles for
+Systemic Delivery of mRNA to the Lungs. Angew. Chem. Int. Ed. Engl. 55, 13808–
+13812. https://doi.org/10.1002/ANIE.201608450.
+15. Kaczmarek, J.C., Kauffman, K.J., Fenton, O.S., Sadtler, K., Patel, A.K., Heartlein,
+M.W., Derosa, F., and Anderson, D.G. (2018). Optimization of a Degradable
+Polymer-Lipid Nanoparticle for Potent Systemic Delivery of mRNA to the Lung
+Endothelium and Immune Cells. Nano Lett. 18, 6449 – 6454. https://doi.org/10.
+1021/acs.nanolett.8b02917.
+16. Kaczmarek, J.C., Patel, A.K., Rhym, L.H., Palmiero, U.C., Bhat, B., Heartlein, M.W.,
+DeRosa, F., and Anderson, D.G. (2021). Systemic delivery of mRNA and DNA to the
+lung using polymer-lipid nanoparticles. Biomaterials 275, 120966. https://doi.org/10.
+1016/j.biomaterials.2021.120966.
+17. Mastorakos, P., da Silva, A.L., Chisholm, J., Song, E., Choi, W.K., Boyle, M.P.,
+Morales, M.M., Hanes, J., and Suk, J.S. (2015). Highly compacted biodegradable
+DNA nanoparticles capable of overcoming the mucus barrier for inhaled lung gene
+therapy. Proc. Natl. Acad. Sci. USA 112, 8720 – 8725. https://doi.org/10.1073/pnas.
+1502281112.
+18. Capasso Palmiero, U., Kaczmarek, J.C., Fenton, O.S., and Anderson, D.G. (2018).
+Poly(b-amino ester)-co-poly(caprolactone) Terpolymers as Nonviral Vectors for
+mRNA Delivery In Vitro and In Vivo. Adv. Healthc. Mater. 7, 1800249. https://
+doi.org/10.1002/ADHM.201800249.
+19. Jain, S., Kumar, S., Agrawal, A.K., Thanki, K., and Banerjee, U.C. (2013). Enhanced
+transfection efﬁciency and reduced cytotoxicity of novel lipid-polymer hybrid nano-
+plexes. Mol. Pharm. 10, 2416– 2425. https://doi.org/10.1021/MP400036W.
+20. Karlsson, J., Rhodes, K.R., Green, J.J., and Tzeng, S.Y. (2020). Poly(beta-amino ester)s
+as gene delivery vehicles: challenges and opportunities. Expert Opin. Drug Deliv. 17,
+1395– 1410. https://doi.org/10.1080/17425247.2020.1796628.
+21. Wang, C., Zhang, Y., and Dong, Y. (2021). Lipid Nanoparticle-mRNA Formulations
+for Therapeutic Applications. Acc. Chem. Res. 54,4 2 8 3– 4293. https://doi.org/10.
+1021/ACS.ACCOUNTS.1C00550.
+22. Madisen, L., Zwingman, T.A., Sunkin, S.M., Oh, S.W., Zariwala, H.A., Gu, H., Ng,
+L.L., Palmiter, R.D., Hawrylycz, M.J., Jones, A.R., et al. (2010). A robust and high-
+throughput Cre reporting and characterization system for the whole mouse brain.
+Nat. Neurosci. 13, 133– 140. https://doi.org/10.1038/NN.2467.
+23. Kim, J., Jozic, A., Lin, Y., Eygeris, Y., Bloom, E., Tan, X., Acosta, C., MacDonald, K.D.,
+Welsher, K.D., and Sahay, G. (2022). Engineering Lipid Nanoparticles for Enhanced
+Intracellular Delivery of mRNA through Inhalation. ACS Nano 16, 14792 – 14806.
+https://doi.org/10.1021/ACSNANO.2C05647.
+24. van der Meel, R., Grisoni, F., and Mulder, W.J.M. (2024). Lipid discovery for mRNA
+delivery guided by machine learning. Nat. Mater. 23, 880 – 881. https://doi.org/10.
+1038/s41563-024-01934-9.
+25. Karikó, K., Buckstein, M., Ni, H., and Weissman, D. (2005). Suppression of RNA
+recognition by Toll-like receptors: The impact of nucleoside modi ﬁcation and the
+evolutionary origin of RNA. Immunity 23, 165 – 175. https://doi.org/10.1016/j.im-
+muni.2005.06.008.
+26. Nance, K.D., and Meier, J.L. (2021). Modi ﬁcations in an Emergency: The Role of
+N1-Methylpseudouridine in COVID-19 Vaccines. ACS Cent. Sci. 7, 748 – 756.
+https://doi.org/10.1021/ACSCENTSCI.1C00197.
+27. Izunobi, J.U., and Higginbotham, C.L. (2011). Polymer molecular weight analysis by
+1H NMR spectroscopy. J. Chem. Educ. 88, 1098 – 1104. https://doi.org/10.1021/
+ED100461V.
+28. Rindler, T.N., Stockman, C.A., Filuta, A.L., Brown, K.M., Snowball, J.M., Zhou, W.,
+Veldhuizen, R., Zink, E.M., Dautel, S.E., Clair, G., et al. (2017). Alveolar injury and
+regeneration following deletion of ABCA3. JCI Insight 2, e97381. https://doi.org/
+10.1172/JCI.INSIGHT.97381.
+29. DiGiovanni, G.T., Han, W., Sherrill, T.P., Taylor, C.J., Nichols, D.S., Geis, N.M.,
+Singha, U.K., Calvi, C.L., McCall, A.S., Dixon, M.M., et al. (2023). Epithelial Yap/
+Taz are required for functional alveolar regeneration following acute lung injury.
+JCI Insight 8, e173374. https://doi.org/10.1172/JCI.INSIGHT.173374.
+30. Vila Ellis, L., Cain, M.P., Hutchison, V., Flodby, P., Crandall, E.D., Borok, Z., Zhou, B.,
+Ostrin, E.J., Wythe, J.D., and Chen, J. (2020). Epithelial Vegfa Speci ﬁes a Distinct
+Endothelial Population in the Mouse Lung. Dev. Cell 52, 617 – 630.e6. https://doi.
+org/10.1016/j.devcel.2020.01.009.
+31. Zhou, L., Lim, L., Costa, R.H., and Whitsett, J.A. (1996). Thyroid transcription
+factor-1, hepatocyte nuclear factor-3beta, surfactant protein B, C, and Clara cell
+secretory protein in developing mouse lung. J. Histochem. Cytochem. 44, 1183 –
+1193. https://doi.org/10.1177/44.10.8813084.
+32. Little, D.R., Lynch, A.M., Yan, Y., Akiyama, H., Kimura, S., and Chen, J. (2021).
+Differential chromatin binding of the lung lineage transcription factor NKX2-1 re-
+solves opposing murine alveolar cell fates in vivo. Nat. Commun. 12, 2509. https://
+doi.org/10.1038/s41467-021-22817-6.
+33. Stripp, B.R., Lund, J., Mango, G.W., Doyen, K.C., Johnston, C., Hultenby, K., Nord,
+M., and Whitsett, J.A. (1996). Clara cell secretory protein: a determinant of PCB bio-
+accumulation in mammals. Am. J. Physiol. 271, L656– L664. https://doi.org/10.1152/
+AJPLUNG.1996.271.4.L656.
+34. Tan, Y., Huang, Z., Jin, Y., Wang, J., Fan, H., Liu, Y., Zhang, L., Wu, Y., Liu, P., Li, T.,
+et al. (2024). Lipid droplets sequester palmitic acid to disrupt endothelial ciliation and
+exacerbate atherosclerosis in male mice. Nat. Commun. 15, 8273. https://doi.org/10.
+1038/s41467-024-52621-x.
+35. Narvaez Del Pilar, O., Gacha Garay, M.J., and Chen, J. (2022). Three-axis classi ﬁca-
+tion of mouse lung mesenchymal cells reveals two populations of myo ﬁbroblasts.
+Development 149, dev200081. https://doi.org/10.1242/DEV.200081.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1165

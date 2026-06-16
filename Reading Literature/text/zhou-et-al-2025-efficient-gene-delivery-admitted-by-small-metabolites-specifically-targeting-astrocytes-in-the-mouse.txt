@@ -1,0 +1,1129 @@
+# Source PDF: Reading Literature/files/81/Zhou et al. - 2025 - Efficient gene delivery admitted by small metabolites specifically targeting astrocytes in the mouse.pdf
+
+
+
+--- Page 1 ---
+
+Original Article
+Efﬁcient gene delivery admitted
+by small metabolites speciﬁcally targeting
+astrocytes in the mouse brain
+Haibin Zhou,1,2,7 Jiajing Dai,1,7 Dong Li,1,2,7 Luyao Wang,2,3 Meng Ye,2 Xiaoling Hu,1 Joseph LoTurco,4 Ji Hu,5,6
+and Wenzhi Sun 1,2
+1School of Basic Medical Sciences, Capital Medical University, Beijing 100069, China; 2Chinese Institute for Brain Research, Beijing 102206, China; 3College of Biological
+Sciences, China Agricultural University, Beijing 100193, China; 4Department of Physiology and Neurobiology, Institute for Systems Genomics, Institute for Brain and
+Cognitive Science, University of Connecticut, Storrs, CT 06268, USA; 5School of Life Science and Technology, ShanghaiTech University, Shanghai 201210, China;
+6Shanghai Key Laboratory of Psychotic Disorders, Shanghai Mental Health Center, Shanghai 200030, China
+The development of ef ﬁcient and targeted methods for deliv-
+ering DNA in vivo has long been a major focus of research.
+In this study, we introduce a gene delivery approach admitted
+by small metabolites (gDAM) for the ef ﬁcient and targeted de-
+livery of naked DNA into astrocytes in the adult brains of mice.
+gDAM uses a straightforward combination of DNA and small
+metabolites, including glycine, L-proline, L-serine, L-histidine,
+D-alanine, Gly-Gly, and Gly-Gly-Gly, to achieve astrocyte-spe-
+ciﬁc delivery of naked DNA, resulting in transient and robust
+gene expression in these cells. Using gDAM, we successfully
+co-deliver the PiggyBac transposon and the CRISPR-Cas9 sys-
+tem to induce long-term overexpression of the oncogene
+EGFRvIII and knockout of tumor suppressor genes Nf1,
+Pten, and Trp53 in astrocytes, leading to the development of
+astrocyte-derived gliomas in immunocompetent mice. Further-
+more, gDAM facilitates the delivery of naked DNA to periph-
+eral glioma astrocytes. The overexpression of interferon- b
+and granulocyte-macrophage colony-stimulating factor in
+these peripheral glioma astrocytes signi ﬁcantly prolongs the
+overall survival of mice bearing 73C glioma cells. This
+approach offers a new perspective on developing gene delivery
+systems that speci ﬁcally target astrocytes to meet the varied
+needs of both research and gene therapy. The innovative strat-
+egy behind gDAM is expected to provide fresh inspiration in
+the quest for DNA delivery to other tissues, such as skeletal
+muscle and skin.
+INTRODUCTION
+The intricate nature of the brain is de ﬁned by a myriad of cell types,
+each characterized by distinctive functionalities and morphologies.
+Astrocytes, which constitute approximately 20% –40% of cells in the
+CNS, play a pivotal role in the development and maintenance of
+the CNS. They contribute to the integrity of the blood-brain barrier,
+provide metabolic support to neurons, and facilitate neurogenesis and
+synaptogenesis.
+1,2 The activation and dysregulation of astrocytes in
+neurodegenerative diseases are increasingly recognized as key mech-
+anisms linked to the progression of neuronal damage. 3–5 Moreover,
+astrocytes have been shown to play an important role in the brain tu-
+mor microenvironment,
+6,7 implicating them in the progression and
+proliferation of brain tumors.
+Gene delivery techniques are critical for exploring the manifold func-
+tions of astrocytes, and viral vectors are favored vehicles for gene
+delivery due to their high transfection ef ﬁciency.
+8,9 Adeno-associated
+virus (AAV) vectors are considered the safest option among viral vec-
+tors; however, their potential to trigger undesired immune responses
+still poses signi ﬁcant challenges and concerns in clinical trials.
+10,11
+Additionally, AAV suffers from a notoriously limited packaging ca-
+pacity due to its small capsid size (approximately 260 Å in diameter).
+As a result, only genomes up to approximately 4.7 kb can be efﬁciently
+packaged and produced, which limits the inclusion of large cell-type-
+speciﬁc promoters and large transgenes.
+12 Another critical issue asso-
+ciated with viral vectors is the lack of cell-speci ﬁc targeting. Despite
+the development of various astrocyte-speci ﬁc promoters, including
+GfaABC1D, glial ﬁbrillary acidic protein (GFAP), and Aldh1l1, op-
+tions for precise genetic manipulation of astrocytes are currently
+limited.
+13–15 A recently reported toolbox of AAVs has dramatically
+increased astrocytic speciﬁcity through multiple miRNA-targeting se-
+quences designed to degrade transgenes in neurons and endothelial
+cells.16 However, the addition of miRNA-targeting sequences may
+severely compromise the already limited packaging capacity of
+AAV vectors. Therefore, there is a pressing need to develop highly ac-
+curate and effective technologies for the genetic manipulation of as-
+trocytes to advance the understanding of their intrinsic functions
+Received 15 July 2024; accepted 8 January 2025;
+https://doi.org/10.1016/j.ymthe.2025.01.006.
+7These authors contributed equally
+Correspondence: Ji Hu, School of Life Science and Technology, ShanghaiTech
+University, Shanghai 201210, China.
+E-mail: huji@shanghaitech.edu.cn
+Correspondence: Wenzhi Sun, School of Basic Medical Sciences, Capital Medical
+University, Beijing 100069, China.
+E-mail: sunwenzhi@cibr.ac.cn
+1166 Molecular Therapy Vol. 33 No 3 March 2025 ª 2025 The American Society of Gene and Cell Therapy. Published by Elsevier Inc.
+All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+--- Page 2 ---
+
+and astrocyte-mediated multicellular interactions, as well as to
+pioneer novel therapeutic approaches for CNS disorders.
+To address the limitations of viral vectors in brain-targeted gene
+therapy and therapeutic genome editing, nonviral vectors have
+gained increasing attention as promising alternatives. Several
+nonviral methods have been developed, including chemical-based
+nanoparticles and naked DNA.
+17–19 Non-viral vectors are consid-
+ered to have signi ﬁcant potential to overcome challenges associated
+with viral vectors, such as production dif ﬁculties, packaging size,
+and concerns about immunogenicity. 20,21 However, the suboptimal
+transfection ef ﬁciency of nanoparticles in the brain severely limits
+their applicability in gene therapies for CNS diseases. While the
+tropism of nonviral vectors can be enhanced through continuous
+optimization of the programmable properties of nanomaterials,
+22
+highly cell-type-speci ﬁc and safe nonviral vectors remain extremely
+rare in the CNS.
+The use of naked DNA as a gene delivery vector has been a part of
+genetic research and biotechnology for several decades. Interest in
+its potential for gene delivery began to increase signi ﬁcantly in the
+early 1990s, after demonstrations that plasmid DNA could be deliv-
+ered directly into muscle tissue and subsequently express the intended
+genes.
+23–26 Over the years, various strategies, including electropora-
+tion and hydrodynamic pressure have been developed to enhance
+the cellular uptake ef ﬁciency of naked DNA vectors.
+27–31 Despite
+the simplicity of naked DNA as a gene delivery system, its effective-
+ness has been signi ﬁcantly hampered by low delivery ef ﬁciency and
+well-known cytotoxicity when applied to the adult brain. Therefore,
+there is an urgent need to further enhance the ef ﬁciency and speci-
+ﬁcity of nonviral vectors for brain-targeted delivery.
+Herein, we introduce a novel gene delivery method called gene deliv-
+ery approach admitted by small metabolites (gDAM), which effec-
+tively delivers naked DNA to achieve transient and robust gene
+expression exclusively in astrocytes within the murine brain. gDAM
+is notable for its ability to carry large genetic payloads and deliver
+multiple genes simultaneously. This method is both practical and
+effective, representing a signi ﬁcant advancement over traditional
+AAV-based techniques and other nonviral delivery systems. gDAM
+shows great potential for enhancing basic research on astrocytes
+and for developing therapeutic strategies for CNS diseases.
+RESULTS
+Glycine-mediated delivery of naked DNA targets speciﬁcally in
+astrocytes
+The quest to deliver genetic material with precision and ef ﬁciency
+to targeted brain cell populations is pivotal for advancing our un-
+derstanding of neurological functions and developing therapeutic
+interventions. To address this challenge, we identi ﬁed glycine, a
+simple metabolic molecule, as an effective facilitator for delivering
+naked DNA plasmids to brain cells. Our approach involved admin-
+istering a mixture of a plasmid vector encoding the ﬂuorescent pro-
+tein mScarlet and 300 mM glycine to the midbrain of mice ( Fig-
+ure 1 A). Five days after administration, we observed a striking
+aggregation of ﬂuorescently transfected cells near the injection sites,
+indicating successful gene uptake and expression in the brain cells
+(Figure 1 B).
+To evaluate the indispensable role of glycine in the gDAM
+approach, we varied its concentration from 0 to 300 mM. The re-
+sults demonstrated a positive correlation between glycine concentra-
+tion and ﬂuorescent protein expression. In contrast, no expression
+was observed when the plasmid DNA was mixed with PBS lacking
+glycine ( Figure 1 C). Subsequent quanti ﬁcation revealed that the
+number of tdTomato-expressing cells increased with the glycine
+concentration, ranging from approximately 17 ± 4 transfected cells
+at 25 mM to 5,269 ± 517 cells at 300 mM ( Figures 1 D and 1E).
+Additional experiments using glycine with a plasmid encoding
+eGFP under the cytomegalovirus (CMV) promoter showed a similar
+trend of concentration-dependent increases in ﬂuorescence intensity
+(Figure S1 ).
+The glycine transporter type-1 (GlyT1), found in presynaptic neurons
+and astrocytes, is considered the primary regulator of extracellular
+glycine levels in the brain.
+32,33 Blocking GlyT1 can slow the clearance
+of extracellular glycine, prolonging its presence in the interstitial
+space and maintaining its concentration. To ascertain the pivotal
+role of glycine, we added bitopertin, a GlyT1 inhibitor, to the
+gDAM mixture containing 100 mM glycine. The addition of bito-
+pertin increased the number of transfected cells and the ﬂuorescence
+intensity of eGFP by 2.9 and 3.8 times, respectively ( Figure S2), rein-
+forcing the importance of glycine availability in the extracellular
+milieu for successful gDAM gene delivery.
+To con ﬁrm the cell types transfected by gDAM, confocal images
+captured at higher magniﬁcation revealed that all transfected cells dis-
+played characteristic astrocyte morphology ( Figure 1 F). To further
+verify that the gDAM-transfected cells are astrocytes, Aldh1l1-
+eGFP mice, which express eGFP speci ﬁcally in brain astrocytes,
+were crossbred with Ai9 transgenic mice. In the presence of Cre re-
+combinase, which is particularly sensitive to off-target expression,
+Cre-mediated recombination results in the expression of tdTomato
+in the crossbred mice. The co-expression of eGFP and tdTomato in-
+dicates that the transfected tdTomato-labeled cells can be identiﬁed as
+astrocytes ( Figure S3 A). Subsequently, a mixture of plasmid vectors
+expressing Cre recombinase and 300 mM glycine was injected into
+the midbrain of the crossbred mice. The confocal images revealed
+that all gDAM-transfected tdTomato-labeled cells were also eGFP
+positive, conﬁrming that the gDAM-transfected cells were indeed as-
+trocytes (Figures 1G and S3B–S3C). In comparison, when an AAV vi-
+rus encoding Cre recombinase controlled by the astrocyte-speci ﬁc
+promoter (GfaABC1D) was injected into the crossbred mice, only
+62% of the AAV-transfected cells were eGFP positive ( Figures 1 G
+and 1H). These ﬁndings underscore that gDAM speci ﬁcally targets
+astrocytes, achieving 100% speciﬁcity (Figure 1H). To further corrob-
+orate these observations, immunoﬂuorescence staining for microglial
+(ionized calcium-binding adaptor molecule 1 [Iba1]) ( Figure S4 A),
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1167
+
+
+--- Page 3 ---
+
+neuronal (NeuN) ( Figure S4 B), oligodendrocyte precursor (NG2)
+(Figure S4C), and pre-myelinating and myelinating oligodendrocyte
+(CNPase) ( Figure S4 D) markers was performed, none of which
+were found to be positive in transfected tdTomato-labeled cells. How-
+ever, nearly 20% of the gDAM-transfected cells were positive for
+Olig2, albeit with faint staining levels ( Figure S4 E). Nonetheless,
+Olig2 staining in the crossbred mice of Aldh1l1-eGFP and Ai9 trans-
+genic mice showed that all transfected cells with faint Olig2 staining
+were also eGFP positive (Figure S4F), indicating that these Olig2-pos-
+itive cells were indeed astrocytes.
+AB
+C DE
+FG
+H
+Figure 1. gDAM facilitates the rapid expression of naked DNA speciﬁcally in astrocytes
+(A) Schematic illustration depicting the gDAM injection protocol, wherein a mixture of plasmid DNA and glycine solution was injected into the brain p arenchyma of mice. (B)
+Representative images of ﬂuorescently transfected cells using a mixture of plasmids encoding mScarlet (ﬁnal concentration: 1mg/mL) and glycine solution (ﬁnal concentration:
+300 mM). Scale bar, 1 mm. (C) Representative images of transfected tdTomato-labeled cells expressing Cre recombinase in Ai9 mice via gDAM with varyin g concentrations
+of glycine (0, 25, 50, 100, 200, and 300 mM). The hypotonicity of the gDAM delivery vehicles, which contained less than 300 mM glycine, was adjusted to normal physiological
+osmotic pressure by adding different concentrations of NaCl. Scale bar, 200 mm. (D) Total number of transfected tdTomato-labeled cells per injection course for each glycine
+concentration (25, 50, 100, 200, and 300 mM). (E) Number of transfected tdTomato-labeled cells in each 50-mm-thick brain slice for glycine concentrations (25, 50, 100, 200,
+and 300 mM). One out of every three consecutive slices was chosen for the quantiﬁcation analysis. (F) Example images of transfected tdTomato-labeled cells illustrating the
+typical morphology of astrocytes. Scale bar, 20 mm. (G) Representative images of transfected tdTomato-labeled cells co-localized with astrocytes expressing eGFP in
+Aldh1l1-eGFP::Ai9 mice, as well as images illustrating the expression speciﬁcity of AAV vectors. Using AAV vectors, Cre recombinase was expressed i n Aldh1l1-eGFP::Ai9
+mice under the control of the astrocyte-speciﬁc promoter GfaABC1D. Asterisks indicate transfected tdTomato-labeled cells lacking eGFP expressio n. Scale bar, 50 mm. (H)
+Ratios of eGFP and tdTomato double-positive cells to tdTomato-positive cells for gDAM and AAV vectors, respectively (rAAV2/5-GfaABC1D-Cre, 3 /C21012 vg/mL).
+Molecular Therapy
+1168 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 4 ---
+
+gDAM facilitates the rapid and transient expression of foreign
+genes in astrocytes
+To elucidate the gene expression kinetic proﬁles of gDAM, we injected
+plasmid DNA expressing eGFP under the control of the CMV pro-
+moter and collected brain tissues at various intervals post-injection:
+days 3, 5, 10, 15, 20, 25, and 30 (Figure 2A). The ﬂuorescence intensity
+of eGFP was quanti ﬁed from 50- mm-thick brain sections and sub-
+jected to exponential decay analysis.
+34 The results showed that
+eGFP expression peaked at approximately day 4, followed by a decline
+to half-maximal ﬂuorescence intensity by day 10.5, with the signal
+becoming negligible by day 25 (Figure 2B). Correspondingly, the ﬂuo-
+rescence brightness of single astrocytes expressing eGFP aligned well
+with this temporal expression pattern on days 5, 15, and 30 after in-
+jection (Figure 2C). In parallel, AAV vectors expressing eGFP under
+the control of the GfaABC1D promoter were used. Very weak ﬂuores-
+cence intensity was observed on day 5 following the administration of
+AAV vectors (Figures 2D and 2F). However, theﬂuorescence intensity
+continued to increase and did not reach a plateau even by day 30 (Fig-
+ure 2E). Collectively, these ﬁndings suggest that the delivery of DNA
+plasmid vectors by gDAM results in rapid and transient expression of
+foreign genes within astrocytes.
+gDAM achieves long-term expression of foreign genes in
+astrocytes through piggyBac transposon-mediated genomic
+integration
+Achieving long-term correction of genetic disorders requires the
+targeted delivery of therapeutic DNA to speci ﬁc cells and tissues,
+as well as ensuring stable expression at therapeutic doses. The pig-
+gyBac (PB) transposon system has emerged as a powerful method
+for achieving somatic integration. In this study, we engineered a
+donor vector containing eGFP within a transposable element,
+along with a helper vector encoding the transposase enzyme ( Fig-
+ure S6 A). To test the ability of gDAM to deliver multiple plasmid
+vectors simultaneously, we ﬁrst delivered two plasmid vectors ex-
+pressing eGFP and tdTomato protein, respectively ( Figures S5 A–
+S5C) or three plasmid vectors expressing eGFP, TagBFP, and
+tdTomato protein ( Figures S5 D–S5F). We found that the co-
+expression ef ﬁciency of the two plasmids reached 73.5% ( Fig-
+ure S5 C), while the co-expression ef ﬁciency of the three vectors
+reached 62.2% ( Figure S5 F). Next, we delivered the PB system
+via gDAM and measured ﬂuorescence intensity at 5 and 25 days,
+observing a notable 2.6-fold increase in eGFP ﬂuorescence inten-
+sity ( Figure S6 B). Continuous expression was observed even after
+six months, as indicated by the bright ﬂuorescence of eGFP-
+labeled astrocytes. Notably, eGFP-positive cells were not observed
+after 6 months in the absence of transposase ( Figure S6 C).
+Furthermore, genomic DNA was extracted from brain tissues at
+the injection sites, and PCR ampli ﬁcation of the eGFP gene yielded
+a fragment of the desired size. In contrast, no PCR product was
+detected in the control group, which consisted of eGFP plasmid
+vectors alone without transposase expression ( Figure S6 D). These
+data indicate that PB delivered by gDAM successfully integrates
+foreign genes into the genome of astrocytes, thereby achieving
+long-term expression.
+AB C
+DE F
+Figure 2. Dynamics of gDAM-mediated gene expression
+(A and D) Representative images of eGFP-positive astrocytes after injection of the gDAM delivery vehicles (A) and AAV2/5 vectors (D) at different tim e points (5, 15, 25, and
+30 days). The insets show enhanced brightness for visualizing the dim cells. Scale bar, 200 mm. (B and E) Box plots illustrating total eGFP brightness at various time points (3,
+5, 10, 15, 20, 25, and 30 days) after injection. The ﬁtted curve is in red. Fluorescence intensity was normalized to the peak value at 5 days for gDAM (B) and 30 d for AAV2/5 (E).
+(C, F) Fluorescence intensity of individual single cells at 5, 15, and 30 days after injection of gDAM (C) and AAV virus (F) ( n = 4 mice). The solid pink bar represents the median.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1169
+
+
+--- Page 5 ---
+
+A diverse array of small metabolites facilitates the delivery of
+DNA plasmid vectors into astrocytes
+Glycine is an important nutrient and 1 of the 20 basic amino acids
+that comprise proteins. However, it remains unclear whether other
+basic amino acids, similar to glycine, can also facilitate the delivery
+of naked DNA into brain cells. We substituted glycine in the
+gDAM with other L-type amino acids and found that most L-type
+amino acids were able to facilitate the delivery and expression of
+plasmid vectors to some extent. Notably, L-proline, L-serine, and
+L-histidine demonstrated comparable delivery ef ﬁciency to glycine.
+In contrast, no transfected tdTomato-positive cells were observed
+when using valine, phenylalanine, and methionine for DNA delivery
+(Figure 3A).
+In addition to being a basic amino acid and a building block of pro-
+teins, glycine is also an important neurotransmitter and is required
+for multiple metabolic synthesis pathways. The diverse functionality
+of glycine prompted us to investigate the potential of non-protein
+amino acids in the delivery of naked DNA. Several D-amino acids
+have been identi ﬁed in the brain and are known to have speci ﬁc
+biological functions in mammals. Therefore, we assessed the
+delivery ef ﬁciency of D-type amino acids, and the results indicated
+that certain partial stereoisomers, particularly D-alanine, exhibited
+high delivery ef ﬁciency (6,346 ± 508 cells) ( Figures 3 B and S7).
+Furthermore, a variety of metabolically synthesized non-protein
+amino acids, including gamma-aminobutyric acid (GABA), hypo-
+taurine, taurine, sarcosine, b-alanine, L-hydroxyproline, L-orni-
+thine, L-citrulline, and betaine, demonstrated signi ﬁcant delivery ef-
+ﬁciency ( Figures 3 C and S8). Intriguingly, certain dipeptides and
+tripeptides also exhibited promising effects on delivery ef ﬁciency,
+such as Gly-Gly, Gly-Gly-Gly, and Leu-Gly. Notably, there was a
+signiﬁcant difference in delivery ef ﬁciency between Leu-Gly and
+Gly-Leu as well as between Gly-His and His-Gly, despite only
+differing in the order of amino acids. Additionally, L-azetidine-2-
+carboxylic acid, a plant-derived L-proline analog, transfected a
+considerable number of tdTomato-positive cells (2,244 ± 77 cells)
+(Figure S9 ). The differences in the ef ﬁciency of these amino acids
+in gene delivery may indicate that they have speci ﬁc roles in the
+brain and astrocytes.
+gDAM did not cause notable brain tissue damage
+Considering that the concentration of these metabolites added to
+gDAM (300 mM) signi ﬁcantly exceeds typical physiological levels,
+there is a potential for damage. GFAP activation plays a critical
+role in astroglial activation under most pathological conditions
+including injury and neurodegeneration. After the injections, we
+monitored GFAP expression and found no discernible increase
+near the injection sites, suggesting negligible GFAP activation ( Fig-
+ure S10 ). Microglia can be activated during neuroin ﬂammation and
+acute injuries. Examination of microglia using Iba1 immunostaining
+showed no signi ﬁcant change compared with PBS injections alone
+(Figure S11 ). Moreover, terminal deoxynucleotidyl transferase
+(TdT) dUTP nick-end labeling (TUNEL) staining revealed only iso-
+lated cells near the injection trajectory, likely attributable to the pas-
+sage of the pipette ( Figure S12 ). Ultimately, these experiments
+indicated no substantial tissue damage or in ﬂammatory reactions
+attributable to gDAM.
+gDAM was used to achieve CRISPR-Cas9-based genome
+editing
+CRISPR-Cas9 is a highly effective gene editing tool that is widely
+used in scienti ﬁc and clinical research. To enable CRISPR-Cas9-
+based genome editing, a large plasmid vector (approximately 10
+kbp) was designed, containing three discrete open reading frames:
+CBh-Cas9, U6-single guide RNA (sgRNA) targeting the eYFP
+gene, and CMV-mCherry as the ﬂuorescent reporter for Cas9
+expression. A randomized sequence served as a non-targeting con-
+trol. Another plasmid vector expressing Cre recombinase was used
+to induce eYFP expression in astrocytes in the midbrain of Ai3 mice
+(Figure 4 A and Table S1 ). The targeted sgRNA bound to the Cas9
+protein, resulting in the loss of function of eYFP, and leading to the
+exclusive expression of mCherry in astrocytes. In contrast, both
+mCherry and Cre recombinase-induced eYFP are co-expressed in
+astrocytes in the control group ( Figure 4 B). A quanti ﬁcation assay
+revealed that approximately 89.8% of transfected mCherry-labeled
+astrocytes in the sgYFP group were devoid of eYFP expression,
+compared with 11.3% in the control group ( Figure 4 C), indicating
+that CRISPR-Cas9 successfully induced mutations in the eYFP
+genes of astrocytes. Sanger sequencing was performed to identify
+sequence alterations, revealing that the delivery of CRISPR-Cas9
+via gDAM induced frameshift indels at the targeted loci of eYFP
+genes in astrocytes ( Figure 4 D).
+gDAM induced gliomas from mature astrocytes in
+immunocompetent mice
+To investigate the potential of gDAM to induce gliomas in mouse
+brains by introducing multiple mutations into astrocytes, we simul-
+taneously delivered four plasmids into the mouse midbrain. This
+included two plasmids encoding the Cas9 protein and sgRNAs tar-
+geting the tumor suppressor genes Trp53, Pten, and Nf1 (Fig-
+ure S13A), as well as two plasmids encoding the PB system for inte-
+grating the oncogene EGFRvIII into the chromosomal genome of
+astrocytes ( Figure 4 E). Tumors were detected in approximately
+86.7% of mice (13 out of 15) and none survived beyond 9 months
+(Figures 4F and 4G). The progression of gliomas was monitored us-
+ing magnetic resonance imaging (MRI), which revealed signi ﬁcant
+growth within a month ( Figure 4 H). Hematoxylin and eosin
+(H&E) staining further characterized the histological features of ma-
+lignant glioblastoma multiforme, displaying hemorrhage, aneu-
+ploidy, and necrosis — hallmarks of malignant gliomas ( Figure 4 I).
+Glioma cells were isolated and cultured in vitro , with the primary
+glioma cells proliferating rapidly and multicellular tumorsphere-
+like structures observed at 14 days, indicating a degree of malig-
+nancy ( Figure 4 J). To further verify that the induced gliomas were
+derived from astrocytes, Sanger sequencing was performed on the
+cultured glioma cells, con ﬁrming genomic mutations in the tumor
+suppressor genes ( Trp53, Pten, and Nf1) within the sgRNA-targeting
+region ( Figure 4 K and Table S2 ). Additionally, the mCherry
+Molecular Therapy
+1170 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 6 ---
+
+ﬂuorescence signal was detected in the tumor region ( Figures S13 B
+and S13C), which was speci ﬁcally designed to integrate into the
+genome via the PB transposon system along with the oncogene
+EGFRvIII. These ﬁndings suggest that the induced gliomas in
+mice originated from astrocytes with genomic alterations driven
+by gDAM.
+A
+B
+C
+D
+Figure 3. Other small metabolites also facilitate efﬁcient delivery of naked DNA
+(A) Representative images and the number of transfected tdTomato-labeled astrocytes using L-type proteinogenic amino acids as delivery vehicles. Amino acids in delivery
+vehicles have different concentrations: 300 mM (L-Pro, L-His, L-Ser, L-Gln, L-Thr, L-Ala, L-Asn, L-Lys, L-Arg, and L-Val), 260 mM (L-Ile), 220 mM (L- Met), 170 mM (L-Leu),
+and 100 mM (L-Phe). Other proteinogenic L-type amino acids have not been used as delivery vehicles because of their excitotoxicity or extremely low wa ter solubility. Scale
+bar, 500 mm. (B) Representative images and the number of transfected tdTomato-labeled astrocytes using D-type amino acids as delivery vehicles. The ﬁnal conc entrations
+of D-type amino acids were the same as that of the corresponding L-type. Scale bar, 500 mm. (C) Representative images and the number of transfected tdTomato-labeled
+astrocytes using non-proteinogenic amino acids as delivery vehicles. The ﬁnal concentrations of all nonproteinogenic amino acids were 300 mM. Scal e bar, 500 mm. (D)
+Representative images and the number of transfected tdTomato-labeled astrocytes using peptides as delivery vehicles. The ﬁnal concentrations of a ll peptides used were
+300 mM. Plasmid DNA (1 mg/mL) encoding Cre recombinase was delivered to Ai9 reporter mice. Scale bar, 500 mm.
+Gly-Pro vs. Pro-Gly, n.s.p = 0.056. Gly-His vs. His-Gly, * p = 0.0206. Gly-Leu vs. Leu-Gly, * p = 0.0141.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1171
+
+
+--- Page 7 ---
+
+A B
+C D
+EF
+G
+HI
+JK
+(legend on next page)
+Molecular Therapy
+1172 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 8 ---
+
+gDAM-diated over-expression of interferon- b and granulocyte-
+macrophage colony-stimulating factor in tumor-surrounding
+astrocytes prolongs the survival of glioma-bearing mice
+Interferon-b (IFN-b) and granulocyte-macrophage colony-stimu-
+lating factor (GM-CSF) have been implicated in the immunotherapy
+of gliomas, raising the question of whether the overexpression of these
+cytokines in the astrocytes surrounding gliomas could enhance the
+survival of glioma-bearing mice. To verify the expression of foreign
+genes in the astrocytes of the periglioma, 4,000 eGFP
++ 73C glioma
+cells, derived from an astrocyte ( BRAFV600E; Pten/C0//C0; Trp53/C0//C0),
+were transplanted into the brain parenchyma of C57BL/6J mice.
+Five days after implantation, gDAM delivery of a DNA plasmid vec-
+tor expressing the ﬂuorescent protein mScarlet was administrated
+(Figure 5 A). Astrocytes at the periphery of the 73C glioma were
+ﬂuorescently labeled, demonstrating that ef ﬁcient astrocyte-speci ﬁc
+uptake and expression of foreign genes are feasible in the periglioma
+region (Figure 5B).
+To assess the therapeutic impact of IFN- b and GM-CSF, two plasmid
+vectors expressing these cytokines were designed and delivered to the
+glioma cells 5 days after implantation ( Figure 5 C). The results re-
+vealed that the simultaneous expression of both cytokines signi ﬁ-
+cantly prolonged the survival of glioma-bearing mice, improving
+the median survival to 26 days compared with 17 days in the control
+group ( Figure 5 D). The median survival was also improved in the
+IFN-b-expressing group (24 days) but not in the GM-CSF-expressing
+group (16 days) (Figure 5D), suggesting that the improved survival of
+glioma-bearing mice may be primarily mediated by IFN-b. To further
+investigate the therapeutic effects of AAV vectors that express both
+cytokines, two AAV vectors were design to express IFN- b and GM-
+CSF individually under the control of the GfaABC1D promoter ( Fig-
+ure S14 ). The co-expression of these two cytokines via viral vectors
+did not result in a signi ﬁcant improvement in the median survival
+time of glioma-bearing mice (20 days) ( Figure 5D), and the relatively
+poor therapeutic effects may be attributed to low expression levels
+during the early expression stage of AAV. Next, the volumes of estab-
+lished gliomas were measured by MRI at 9 and 14 days after implan-
+tation. At 14 days after implantation, the glioma volumes in the IFN-
+b + GM-CSF group were approximately half the size of those in the
+control group (control group, 18.3 ± 2.5 mm
+3; IFN- b + GM-CSF
+group, 8.7 ± 2.0 mm3)( Figure 5E).
+To con ﬁrm whether T cells are responsible for inhibiting glioma
+growth, we performed immuno ﬂuorescence staining of CD4 and
+CD8. This revealed that an increased number of CD4-and CD8-pos-
+itive T cells within the tumor area at 9 and 14 days after implantation
+(Figures 5F–5H and S15A). Flow cytometry analysis also indicated a
+signiﬁcant increase in the proportion of CD4
++ and CD8+ T cells rela-
+tive to the total cell population at 15 days after implantation ( Fig-
+ure 5I). Taken together, these ﬁndings suggest that the simultaneous
+overexpression of IFN- b and GM-CSF in periglioma astrocytes may
+enhance the inﬁltration of CD4+ and CD8+ T cells, leading to inhibi-
+tion of glioma growth.
+DISCUSSION
+Astrocytes are a major type of glial cell, and the genetic manipulation
+of astrocytes is essential for understanding their functions in physi-
+ology and pathology.
+35 Here, we present an appealing approach for
+astrocyte-speciﬁc DNA delivery using a simple mixture of naked
+DNA and small metabolites. Until now, genetic manipulation tar-
+geting astrocytes has mainly relied on AAV vectors carrying astro-
+cyte-speciﬁc promoters, commonly the GFAP promoter and the
+GfaABC1D promoter. Although signi ﬁcant efforts have been made
+to achieve more precise astrocyte-targeted expression, unwanted
+leaky expression remains an unavoidable issue. Inducible promoters
+and cell-state-speciﬁc promoters have also received increasing atten-
+tion due to their important roles in biological research and gene ther-
+apy.
+36–39 However, developing conditional promoters that are both
+cell speci ﬁc and cell state speci ﬁc is undoubtedly more challenging.
+gDAM enables the precise astrocyte-speci ﬁc DNA delivery without
+the limitations of cell-speci ﬁc promoters, potentially facilitating
+Figure 4. gDAM enables single plasmid-mediated genome editing and glioma model development
+(A) Schematic diagram illustrating the strategy for CRISPR-Cas9 knock out the eYFP in Ai3 reporter mice using gDAM. The plasmid DNA consisted of two plasmid vectors:
+one (1,0006 bp) encoding the SpyCas9 protein under the CBh promoter, sgRNA under the U6 promoter, and reporter gene mCherry under the CMV promoter, and the other
+(6,422 bp) encoding Cre recombinase to activate the expression of eYFP in Ai3 mice. In control experiments, sg-eYFP was replaced with a random DNA sequence of the
+same length. These mixtures were individually injected into the midbrains of the Ai3 reporter mice. (B) Representative images showing the colocaliz ation of transfected
+mCherry- and eYFP-labeled cells in CRISPR-Cas9 knockout and control mice. Brain sections were obtained at 7 days after injection. eYFP is shown as gre en in these cells,
+whereas yellow cells indicate the co-expression of both mCherry and eYFP. DAPI staining is shown in blue. Scale bar, 100 mm. (C) Histogram of the proportion of eYFP-
+negative cells among all transfected mCherry-labeled cells (n = 4 mice). There were 89.9 ± 2.2% of transfected mCherry-labeled cells that were eYFP-negative in the sg-eYFP
+mice ( n = 4), **** p < 0.0001. (D) Sanger sequencing analysis indicated that sg-eYFP successfully induced indel mutations at the target site of eYFP. sgRNA-targeting
+sequence is shown in red. Del, deletion; In, insertion mutation; PAM, protospacer-adjacent motif. (E) Strategy for developing a glioma model using g DAM. The four plasmids
+were mixed with gDAM delivery vehicles and delivered to the midbrains of C57BL/6J mice. (F) Images showing a mouse and brain affected by gliomas. (G) Ka plan-Meier
+curves for the overall survival of mice after plasmid injection. Plasmids p1234 in glycine solution were injected ( n = 15 mice) and control group 1 was injected with plas-
+mids p1234 in PBS (n = 4 mice), and control group 2 was injected with PB-eGFP (p4 + p5: PB-CAG-eGFP) in glycine solution ( n = 6). Log rank test, **** p < 0.0001, p1234 in
+gDAM vs. PB-eGFP or p1234 in PBS. (H) T2-weighted MRI of the same mouse in (F) with gliomas in the brain on days 241 and 266. The intensity of T2 signal in the midbrain
+increased dramatically within 26 days. Asterisk: T2-weighted MRI showing a hyperintense lesion in the corpus callosum with rapid glioma progressio n. (I) H&E staining of
+gliomas brain section. The brain was found to be malformed. Typical pathological features of malignant glioma, including necrotic region (green arr ow), intratumoral
+hemorrhage (orange arrow), and giant aneuploid cells with pleomorphic nuclei (yellow arrow) are shown. Scale bars, 1 mm and 50 mm (on the magniﬁed images). (J) Bright-
+ﬁeld images of primary glioma cells from glioma mice, as shown in (J) at two different time points. DIV, days in vitro. Scale bar, 300 mm. (K) Mutation validation of the cultured
+glioma cells in (J) by sanger sequencing showing a frameshift mutation that occurred in all three tumor suppressor genes ( Trp53, Nf1, and Pten).
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1173
+
+
+--- Page 9 ---
+
+A
+C
+E
+F
+GH I
+D
+B
+Figure 5. Over-expression of IFN- b and GM-CSF in the peritumoral astrocytes prolonged the overall survival of glioma-bearing mice
+(A) Schematic schedule for implantation of glioma cells and overexpression of therapeutic proteins by gDAM. Gliomas were generated by intracranial implantation of 4,000
+eGFP+ 73C glioma cells in C57BL/6J mice. Astrocyte-targeting delivery of plasmid vectors by gDAM was performed at day 5 after implantation of glioma cells. (B)
+(legend continued on next page)
+Molecular Therapy
+1174 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 10 ---
+
+conditional gene expression in astrocytes in vivo. Crucially, by avoid-
+ing the use of viral agents and synthetic nanocarriers, gDAM could
+mitigate associated risks and drawbacks, such as immunogenicity,
+cytotoxicity, and complexity, thereby offering a streamlined and
+biocompatible alternative for the delivery of therapeutic genes.
+Initially, glycine was identi ﬁed as an ef ﬁcient vehicle for delivering
+naked DNA to astrocytes, with delivery ef ﬁciency dependent on its
+concentration. A few astrocytes were sparsely transfected at glycine
+concentrations as low as 25 mM. Glycine is 1 of the 20 basic amino
+acids that make up proteins; these proteinogenic amino acids have
+identical backbones but variable side chain R-groups. Among these
+structurally similar amino acids, glycine, serine, proline, and histidine
+demonstrated comparable efﬁciency in terms of DNA delivery. Addi-
+tionally, non-essential amino acids seem to be more ef ﬁcient than
+essential amino acids ( Figure S7). Certain amino acids, such as gluta-
+mate, cysteine, and aspartate, were excluded from the experiments
+due to excitotoxicity,
+40–43 while tryptophan and tyrosine were not
+included because of their low water solubility. A comparison of
+L-type and D-type amino acids in terms of delivery efﬁciency revealed
+that most L-type amino acids had better efﬁciency than D-type amino
+acids, except for D-Ala, which surprisingly showed higher ef ﬁciency
+than L-Ala. Some D-amino acids have been discovered in mammalian
+brains and are emerging as a new and signi ﬁcant class of signaling
+molecules.
+44 Our results suggest that D-type amino acids may play
+potential roles in astrocytes. We further examined other intracellular
+non-proteinogenic amino acids in the brain. GABA is the primary
+inhibitory neurotransmitter, and taurine, hypotaurine, sarcosine
+(N-methylglycine), betaine (trimethylglycine), and b-alanine have
+also been shown to have neuroprotective effects in the CNS.
+45–49 In
+this study, these non-proteinogenic amino acids also demonstrated
+high ef ﬁciency for the delivery of naked DNA. Notably, we found
+that some oligopeptides such as Gly-Gly, Gly-Gly-Gly, and Gly-
+Leu, exhibited similar effects. Signi ﬁcant differences in delivery
+efﬁciencies were observed between Gly-Leu and Leu-Gly, while
+Gly-Pro and Pro-Gly were found to be completely ineffective in deliv-
+ering naked DNA. This suggests that these peptides themselves played
+important roles in the delivery of naked DNA, rather than the amino
+acids resulting from the potential degradation of these peptides.
+Collectively, diverse small molecules have demonstrated astrocyte-
+targeted delivery of naked DNA, and it is reasonable to speculate
+that other small molecules with similar functions likely exist. How-
+ever, the mechanism behind the speci ﬁc targeting of astrocytes and
+the variable delivery ef ﬁciency of small metabolites remains unclear,
+warranting further research.
+Gene therapy is a promising therapeutic modality for correcting
+many genetic disorders.
+50 The potential off-target outcomes of gene
+editing raise signi ﬁcant concerns in clinical applications, 51 and the
+long-term expression of genetic manipulation tools undoubtedly in-
+creases off-target risks. Using gDAM delivery, we measured the
+expression level of eGFP driven by the ubiquitous CMV promoter
+at different time points. The results showed that eGFP expression
+peaked on the fourth day, with no expression observed on the 25th
+day. Sustained, even permanent, therapeutic effects of gene therapy
+are particularly appealing for treating neurological disorders in
+certain cases. Integrating foreign DNA into the genome of host cells
+is an important method of gene therapy for achieving stable and long-
+term expression, and signi ﬁcant efforts have been made to develop
+and improve genomic integration techniques in recent years.
+52,53
+PB is a highly ef ﬁcient genomic integration tool that delivers large
+transgenes through a two-vector transposon system, which consists
+of a transposase vector and a donor vector containing the gene of in-
+terest ﬂanked by inverted terminal repeats.
+54 In this study, PB was
+applied to successfully integrate eGFP into the astrocyte genome to
+achieve long-term expression. Additionally, a notable obstacle of
+AAV vectors is their small packaging capacity (approximately 4.7
+kb in most cases).
+12 In contrast with viral vectors, nonviral delivery
+vehicles are generally considered to have a higher DNA loading
+capacity. Using gDAM delivery, we constructed easy and ef ﬁcient
+all-in-one CRISPR-Cas9 vectors to knock out the eYFP gene in the
+astrocytes of Ai3 transgenic mice. Furthermore, by combining
+CRISPR-Cas9 with the PB system, we accomplished mutations in tu-
+mor suppressor genes ( Nf1, Pten, Trp53) and overexpression of the
+proto-oncogene (EGFRvIII) in immunocompetent mice, successfully
+inducing astrocyte-derived gliomas. This glioma model has two
+outstanding traits: (1) the cellular origin of gliomas is clear, which
+may contribute to the study of gliomagenesis and the early progres-
+sion of astrocyte-derived gliomas, and (2) owing to the various driver
+genes for tumorigenesis, ﬂexible mutation combinations allow for
+Representative images of the delivery of plasmid vectors overexpressing mScarlet ﬂuorescent proteins using gDAM at day 5 after implantation of glioma cells. Astrocytes (red)
+at periphery of the 73C glioma (green) were transfected successfully. The mice were sacriﬁced 9 d after glioma cells implantation. Scale bar, 200 mm. (C) Schematic diagram
+of the therapeutic plasmid vectors overexpressing IFN- b and GM-CSF. (D) Kaplan-Meier survival curve of mice bearing eGFP + 73C glioma in the control group (expressing
+mScarlet protein, n = 7), IFN- b group (n = 5), GM-CSF group ( n = 8), IFN- b + GM-CSF group (co-expressing both IFN- b and GM-CSF, n = 8), and AAV: IFN- b + GM-CSF
+group (n = 6). The p value was calculated by using log rank Mantel-Cox test. Control vs. GM-CSF, n.s.p = 0.7415. Control vs. IFN-b,* p = 0.0292. Control vs. IFN-b + GM-CSF,
+*p = 0.0202. Control vs. AAV: IFN-b + GM-CSF, n.s.p = 0.2598. (E) T2-weighted MRI of the brain of the control and IFN-b + GM-CSF groups at 9 and 14 d after implantation of
+glioma cells, and assessment of the tumor volume based on hyperintense MRI signals. The dashed lines (yellow) delineate the tumor areas. Arrow heads s how the lesions
+caused by rapid tumor progression. n.s.p = 0.4 (day 9) and **p = 0.0076 (day 14). (F) Shown are representative immunoﬂuorescence images of CD4 (left) and CD8 (right) in the
+control group and IFN- b + GM-CSF group at 14 days post-implantation of eGFP + 73C glioma cells (green). Scale bar, 100 mm. (G) Quantitative analysis of CD4 + and CD8+
+T cell inﬁltration into transplanted gliomas at 9 days post-implantation in the control and IFN- b + GM-CSF groups. ** p = 0.0012 (CD4 + T) and ** p = 0.0022 (CD8 + T).
+(H) Quantitative analysis of CD4 + and CD8+ T cells inﬁltration into the transplanted gliomas at 14 days post-implantation in the control group and IFN- b + GM-CSF group.
+**p = 0.0043 (CD4 + T) and * p = 0.0262 (CD8 + T). (I) Flow cytometry analysis of CD4 + and CD8 + cell proportions relative to tumor cells in eGFP + 73C glioma at 15 days
+after implantation of glioma cells. Results are expressed as the mean ± SEM of the percentage of CD4 + or CD8+ T cells/tumor cells. * p = 0.0176 (CD4+ T) and **p = 0.0040
+(CD8+ T).
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1175
+
+
+--- Page 11 ---
+
+exploration of the effects of different mutations on tumorigenesis in a
+relatively easy and cost-effective manner.
+Immunotherapies are emerging as promising avenues that may offer
+new hope for the treatment of gliomas. 55,56 Tumor-associated astro-
+cytes play an important role in modulating the immune microenvi-
+ronment of gliomas.
+6,7 It has been described that the function of
+IFN-b and GM-CSF in inhibiting tumor growth requires T cells. 57
+In this study, periglioma astrocytes are used as a source of therapeutic
+proteins. Rapid and robust expression of IFN-b and GM-CSF in peri-
+glioma astrocytes through gDAM improved the in ﬁltration of CD4 +
+and CD8+ T cells, thereby slowing glioma progression. This strategy
+could be harnessed as an alternative and adjunctive approach to the
+therapeutic treatment of gliomas.
+In summary, gDAM is a novel approach that uses small molecule me-
+tabolites to effectively deliver naked DNA speci ﬁcally into astrocytes.
+By avoiding the use of viral vectors and the incorporation of nanoma-
+terials, gDAM circumvents the limitations and potential complica-
+tions associated with these materials. The innovative strategy behind
+gDAM is expected to inspire new avenues in the search for gene de-
+livery in other tissues, such as skeletal muscle and skin, which are
+important targets for vaccines and gene therapy.
+MATERIALS AND METHODS
+Mice
+Mice were group housed, with up to ﬁve mice per cage, under a 12-h
+light/dark cycle (lights on from 7:00 AM to 7:00 PM). They had ad libi-
+tum access to water and food in an environment maintained at 22/C14C–
+25/C14C and 50% relative humidity. The adult C57BL/6J, Aldh1l1-eGFP
+(Jax Stock No. 012704), Ai3 (Jax Stock No. 007903), and Ai9 (Jax
+Stock No. 007909) mice were used in the experiments. All experi-
+mental procedures were approved by the Institutional Animal Care
+and Use Committee at the Chinese Institute for Brain Research.
+Stereotaxic injection of plasmid and AAV vectors
+Mice were anesthetized with pentobarbital (100 mg/kg, intraperitone-
+ally) and positioned in a stereotactic apparatus with a heating pad
+maintained at 37
+/C14C. Their eyes were protected with chlortetracyclin
+hydrochloride eye ointment. The skull surface was cleaned with 3%
+hydrogen peroxide to remove any fascia. The bregma and lambda
+points were used to adjust the mouse ’s head to a horizontal position.
+Using a microsyringe pump, 1 mL of the gDAM mixture was slowly
+injected at a rate of 1 nL/s into the targeted brain areas. Each mouse
+was injected with a total of 1 mL of AAV vectors expressing IFN- b
+(1.5 /C210E12 vg/mL) and GM-CSF (8.3 /C210E11 vg/mL), with 500
+nL for each vector. The glass pipettes were held in place for at least
+5 min after the injection before being withdrawn.
+Stereotaxic injection of eGFP + 73C glioma cells
+Each C57BL/6J mouse received a stereotactic injection of 4,000 eGFP+
+73C tumor cells into the midbrain at a rate of 5 nL/s. The tumor cells
+treated with acridine orange/propidium iodide staining were accu-
+rately counted using a cell counter to ensure consistency among the
+model mice. After the counting process, the cells were promptly
+placed on ice and injected within a 2-h window to maintain their
+viability. The injections were performed at the following coordinates:
+AP 3.2 mm, ML 1.2 mm, and DV 3.6 mm. On theﬁfth day after tumor
+cell transplantation, therapeutic plasmids mixed with a 300 mM pro-
+line solution (1 mg) were injected at the same coordinates.
+Histology and imaging
+At the speci ﬁed times following gDAM delivery, mice were perfused
+with PBS followed by 4% paraformaldehyde in PBS. The brains were
+removed, post- ﬁxed overnight in 4% paraformaldehyde in PBS, and
+dehydrated in 30% sucrose for 24 h. The brains were sectioned in
+the coronal orientation at a thickness of 50 mm for cell counting
+and immunostaining. Fluorescence images were acquired using a Le-
+ica SP8 confocal microscope with a 20 /C2objective, or a Nikon A1R
+confocal microscope equipped with a 20 /C2oil objective (CFI Plan
+Fluor NA 0.75/C2) and 40/C2oil objective (CFI Plan Fluor NA 0.95). Im-
+ages were analyzed using ImageJ software.
+To quantify the ﬂuorescence intensity corresponding to the activation
+of microglia (Iba1 staining) and astrocytes (GFAP staining) around
+the injection sites, we obtained confocal images from three consecutive
+slices of each mouse brain. We used a consistent set of imaging param-
+eters— such as laser power, pinhole, PMT gain, offset value, and ﬁlter
+settings— to enable comparative measurements across images. The
+brightest sample from all mice was used to deﬁne the optimal confocal
+settings. We then applied these settings to the acquisition of the re-
+maining images to prevent overexposure and ensure the accuracy of
+ﬂuorescence intensity measurements. To quantify the density of
+Iba1-positive cells around the injection sites, we performed a three-
+dimensional reconstruction of three areas of the slice, measuring a vol-
+ume of 318 /C2318 /C250 mm around the injection sites (using a 40/C2oil
+objective) for four injection sites from two animals. One of every three
+consecutive brain slices was selected for cell counting. All tdTomato
+and DAPI double-positive cells were counted, and the total number
+of transfected cells per brain was calculated by multiplying the total
+number of cells counted within the sections by three.
+Quantiﬁcation of ﬂuorescent protein expression
+All images were obtained using the same set of imaging parameters,
+including laser power, PMT gain, offset value, and ﬁlter settings.
+These parameters were predetermined using the brightest brain slice
+among all mice to prevent potential saturation. Protein expression
+was quanti ﬁed as the average intensity in arbitrary units and as the
+percentage area of the sample exhibiting immuno ﬂuorescence that
+was 3 standard deviations above the background mean.
+Evaluation of multi-plasmid co-expression
+Mice were sacriﬁced 5 days after gDAM administration of two or three
+ﬂuorescent protein plasmids,p-eGFP-c1, p-TagBFP, and p-tdTomato-
+N1, each of which was adjusted to a working concentration of 1mg/mL.
+Mouse brains were prepared as described above and sectioned at a
+thickness of 50 mm on a freezing microtome. Confocal ﬂuorescence
+images were acquired by using a Nikon A1R laser scanning confocal
+Molecular Therapy
+1176 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 12 ---
+
+microscope. The ﬂuorescence intensity of each astrocyte was decom-
+posed into RGB channels and then represented based on the average
+intensity above the threshold of the corresponding image stack from
+a region of interest within each astrocyte soma. The threshold was
+deﬁned as 3 standard deviations above the background mean of each
+channel. If the value of a channel was less than this threshold, the cor-
+responding ﬂuorescent protein was not expressed in the cell.
+Immunohistological staining
+Serial coronal sections, 16 mmo r4 0 mm thick, were cut to encompass
+the entire region surrounding the injection sites. Immunostaining was
+conducted on free- ﬂoating sections, which were ﬁrst incubated in a
+blocking solution consisting of 5% (v/v) BSA in PBS with 0.3% Triton
+X-100 for at least 1 h at room temperature. Subsequently, the sections
+were incubated in the same blocking solution for at least 1 h at room
+temperature, followed by incubation with primary antibodies at 4
+/C14C
+on a shaking platform. Primary antibodies included mouse anti-
+NeuN antibody (Millipore; 1:300, incubated for 48 h), rabbit anti-
+GFAP antibody (Sigma-Aldrich; 1:300, incubated for 16 h), chicken
+anti-Olig2 antibody (Abcam; 1:300, incubated for 16 h), mouse anti-
+CNPase antibody (Abcam; 1:500, incubated for 48 h), rabbit anti-
+Iba1 antibody (Wako Chemical; 1:1000, incubated for 16 h), rabbit
+anti-NG2 antibody (Millipore; 1:500, incubated for 48 h), rabbit
+anti-Ki67 antibody (Abcam; 0.5 mg/mL, incubated for 16 h), rabbit
+anti-CD8 antibody (Abcam; 1:500, incubated for 48 h), and rat anti-
+CD4 antibody redFluor 710 conjugate (Cell Signaling Technologies;
+1:400, incubated for 48 h). After three washes with 1 /C2PBS, sections
+were incubated with secondary antibodies for 2 h at room tempera-
+ture. Secondary antibodies included goat anti-rabbit IgG conjugated
+to Alexa Fluor 488, goat anti-mouse IgG conjugated to Alexa Fluor
+488, goat anti-chicken IgG conjugated to Alexa Fluor 488, goat anti-
+mouse IgG conjugated to Alexa Fluor 546, goat anti-chicken IgG con-
+jugated to Alexa Fluor 568, goat anti-chicken IgG conjugated to Alexa
+Fluor 647, goat anti-rabbit IgG conjugated to Alexa Fluor 546, goat
+anti-rabbit IgG conjugated to Alexa Fluor 647, and goat anti-rat IgG
+conjugated to Alexa Fluor 546. Finally, brain sections were stained
+with DAPI solution at 1 –5 mg/mL and then rinsed with 1 /C2PBS. Sec-
+tions were mounted on slides, coverslipped with Vectashield moun-
+ting medium (Vector Laboratories), and sealed with nail polish.
+TUNEL and H&E staining
+All sections were ﬁxed with 4% paraformaldehyde for 10 min at room
+temperature. The sections were processed with 0.1% Triton X-100 for
+5 min, followed by a blocking solution for 1 h at room temperature.
+The slides were then transferred to TUNEL (Biotium, 30074) working
+solution for 1 h at 37
+/C14C and then rinsed. Nuclei were counterstained
+with DAPI and coverslips were sealed in place with nail polish. The
+H&E staining was performed using a Hematoxylin-Eosin Stain Kit
+(Solarbio, G1120).
+Genomic DNA extraction and sequencing analysis of brain
+tissue
+Genomic DNA from the brain tissue around the injection site was ex-
+tracted by using a DNeasy Blood & Tissue Kit (QIAGEN, 69504). The
+genomic region ﬂanking the CRISPR target site was PCR-ampli ﬁed
+using Herculase II high- ﬁdelity polymerase (Agilent Technologies).
+PCR products were gel-puri ﬁed and cloned using a Zero Blunt
+TOPO PCR Cloning Kit (Life Technologies, K2875-J10). Mutations
+were identiﬁed by Sanger sequencing.
+The culture of primary glioma cells
+We obtained 400- mm brain slices using a vibrotome (Leica VT1200).
+Tissues from the glioma region were isolated and cut into small pieces
+with sterile scissors in Hibernation buffer containing 1 mg/mL pro-
+nase and 2.5 mg/mL DNAse. The tumor pieces were incubated at
+37
+/C14C for 30 min and pipetted gently 5–10 times, followed by termina-
+tion of digestion of the glioma tissues with 10% FBS (Gibco,
+10099141). Subsequently, the tumor tissue homogenate was centri-
+fuged in a 10% density gradient medium (Gigma, D1556) at 600 /C2g
+for 10 min. After discarding the supernatant, cells were resuspended
+and cultured in glioma medium containing neurobasal; glutamine,
+penicillin/streptomycin, sodium pyruvate, gentamycin; Trace Elem-
+ents B, D-Biotin, SATO (Transferrin; BSA; Putrescine; Progesterone;
+sodium selenite), insulin, B27 minus VA, epidermal growth factor/
+ﬁbroblast growth factor, and platelet-derived growth factor-AA.
+The culture of eGFP + 73C glioma cells
+The eGFP + 73C glioma cells, derived from primary mouse astrocy-
+tes and harboring mutations including Trp53/C0//C0, Pten/C0//C0, and
+BrafV600E, were cultured in DMEM supplemented with 10% fetal
+bovine serum.
+MRI evaluation
+The MRI experiments were conducted using a Bruker 7.0 T MRI
+scanner (Bruker Pharmascan 70/60) with a slice thickness of
+0.5 mm. The scanner was equipped with a 23-mm surface coil and
+a 12-cm diameter self-shielded gradient system for signal acquisition.
+The user interface was operated using Paravision 5.1 software (Bruker
+BioSpin) on a Linux PC running Topspin 2.0. Anesthesia was induced
+using a mixture of 5% isoﬂurane and 95% O
+2 in a Plexiglass chamber,
+followed by maintenance with a mixture of 2% isoﬂurane and 98% O2
+at the magnetic ﬁeld center. The respiratory rate of mice was moni-
+tored using an animal physiological monitoring system. Glioma vol-
+ume was quanti ﬁed from T2-weighted images using the Insight Seg-
+mentation and Registration Toolkit Simple Neuron Analysis of
+Pathology software.
+Flow cytometry
+Tumor-bearing mice were deeply anesthetized for euthanasia and
+immediately perfused with PBS. Subsequently, eGFP-positive tumor
+tissues were dissected under a Leica ﬂuorescent stereomicroscope,
+ﬁnely minced using ophthalmic scissors, and digested in a solution
+containing papain (20 –30 U/mL, Worthington Biochemical,
+LS003127) and DNAase (20 U/mL, Sigma, 10104159001) at 37
+/C14C
+for 30 min to obtain a single-cell suspension. Each sample was resus-
+pended in 1 mL PBS, and Fc block buffer (Puri ﬁed Rat Anti-Mouse
+CD16/CD32; BD, 553142) was added at a concentration of 1 mg per
+1 million cells, followed by a 5-min incubation at 4
+/C14C. The samples
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1177
+
+
+--- Page 13 ---
+
+were incubated with the following antibody combination without
+washing off the Fc block buffer for 30 min at room temperature:
+CD45/APC-Cyannine7 (1.25 mL/106 cells; Biolegend, 103116),
+CD3/Brilliant510 (2.5 mL/106 cells; Biolegend, 100353), CD4/PE
+(1.25 mL/106 cells; Biolegend, 100407), and CD8/APC (1.25 mL/106
+cells; Biolegend, 140410). After staining, the samples were washed
+twice with PBS and stained with DAPI before analysis on the
+FACSAria Fusion (BD) using FACSDIVA and FlowJo v10 software.
+The gating strategy used during the analysis is shown in Figure S15B.
+Data analysis
+All statistical analyses were performed using GraphPad Prism soft-
+ware or MATLAB R2016b (MathWorks). The data were considered
+to be statistically signiﬁcant at p < 0.05. Asterisks denote statistical sig-
+niﬁcance: *p < 0.05, **p < 0.01, ***p < 0.001, ****p < 0.0001. Unless
+otherwise indicated, values are reported as the mean ± SEM.
+DATA AND CODE AVAILABILITY
+The authors con ﬁrm that the data supporting the ﬁndings of this study are available
+within the article and its supplemental information .
+ACKNOWLEDGMENTS
+We thank all members of Sun Lab at the Chinese Institute for Brain Research, Beijing and
+the Hu Lab at ShanghaiTech University. The authors thank Drs. S. Qin, J. Chen, and W.
+Xiong for critical reading of this manuscript. This work was supported by grants from the
+STI2030-Major Projects (2022ZD0204700 to W.S.), the National Natural Science Foun-
+dation of China (31671086, 61890951, & 61890950 to J.H.) and Startup Funds from CIBR
+to W.S.
+AUTHOR CONTRIBUTIONS
+W.S., J.H., and H.Z. conceived the study. H.Z. and J.D. conducted most of the experi-
+ments. D.L. and L.W. contributed to DNA puri ﬁcation. X.H. and M.Y. helped conduct
+the immunostaining and the culture of primary glioma cells. J.L. contributed to a critical
+reagent. H.Z., J.D., and W.S. analyzed the data. W.S. and H.Z. wrote the manuscript with
+feedback from the other authors.
+DECLARATION OF INTERESTS
+The Chinese Institute for Brain Research, Beijing, has ﬁled patent applications related to
+this work with W.S., J.H., and H.Z. listed as inventors.
+SUPPLEMENTAL INFORMATION
+Supplemental information can be found online at https://doi.org/10.1016/j.ymthe.2025.
+01.006.
+REFERENCES
+1. Murphy-Royal, C., Ching, S., and Papouin, T. (2023). A conceptual framework for
+astrocyte function. Nat. Neurosci. 26, 1848 –1856. https://doi.org/10.1038/s41593-
+023-01448-8.
+2. Westergard, T., and Rothstein, J.D. (2020). Astrocyte Diversity: Current Insights and
+Future Directions. Neurochem. Res. 45, 1298–1305. https://doi.org/10.1007/s11064-
+020-02959-7.
+3. Brandebura, A.N., Paumier, A., Onur, T.S., and Allen, N.J. (2023). Astrocyte contri-
+bution to dysfunction, risk and progression in neurodegenerative disorders. Nat. Rev.
+Neurosci. 24,2 3–39. https://doi.org/10.1038/s41583-022-00641-1.
+4. Patani, R., Hardingham, G.E., and Liddelow, S.A. (2023). Functional roles of reactive
+astrocytes in neuroin ﬂammation and neurodegeneration. Nat. Rev. Neurol. 19,
+395–409. https://doi.org/10.1038/s41582-023-00822-1.
+5. Qian, K., Jiang, X., Liu, Z.-Q., Zhang, J., Fu, P., Su, Y., Brazhe, N.A., Liu, D., and Zhu,
+L.-Q. (2023). Revisiting the critical roles of reactive astrocytes in neurodegeneration.
+Mol. Psychiatry 28, 2697–2706. https://doi.org/10.1038/s41380-023-02061-8.
+6. Henrik Heiland, D., Ravi, V.M., Behringer, S.P., Frenking, J.H., Wurm, J., Joseph, K.,
+Garrelfs, N.W.C., Strähle, J., Heynckes, S., Grauvogel, J., et al. (2019). Tumor-associ-
+ated reactive astrocytes aid the evolution of immunosuppressive environment in glio-
+blastoma. Nat. Commun. 10, 2541. https://doi.org/10.1038/s41467-019-10493-6.
+7. Watson, D.C., Bayik, D., Storevik, S., Moreino, S.S., Sprowls, S.A., Han, J.,
+Augustsson, M.T., Lauko, A., Sravya, P., Røsland, G.V., et al. (2023). GAP43-depen-
+dent mitochondria transfer from astrocytes enhances glioblastoma tumorigenicity.
+Nat. Cancer 4, 648–664. https://doi.org/10.1038/s43018-023-00556-5.
+8. Yu, X., Nagai, J., and Khakh, B.S. (2020). Improved tools to study astrocytes. Nat. Rev.
+Neurosci. 21,1 2 1–138. https://doi.org/10.1038/s41583-020-0264-8.
+9. Nectow, A.R., and Nestler, E.J. (2020). Viral tools for neuroscience. Nat. Rev.
+Neurosci. 21,6 6 9–681. https://doi.org/10.1038/s41583-020-00382-z.
+10. Costa Verdera, H., Kuranda, K., and Mingozzi, F. (2020). AAV Vector
+Immunogenicity in Humans: A Long Journey to Successful Gene Transfer. Mol.
+Ther. 28,7 2 3–746. https://doi.org/10.1016/j.ymthe.2019.12.010.
+11. Stone, D., Aubert, M., and Jerome, K.R. (2023). Adeno-associated virus vectors and
+neurotoxicity— lessons from preclinical and human studies. Gene Ther. https://doi.
+org/10.1038/s41434-023-00405-1.
+12. Wang, J.-H., Gessler, D.J., Zhan, W., Gallagher, T.L., and Gao, G. (2024). Adeno-asso-
+ciated virus as a delivery vector for gene therapy of human diseases. Signal Transduct
+Target. Ther. 9, 78. https://doi.org/10.1038/s41392-024-01780-w.
+13. Kawabata, H., Konno, A., Matsuzaki, Y., Sato, Y., Kawachi, M., Aoki, R., Tsutsumi, S.,
+Togai, S., Kobayashi, R., Horii, T., et al. (2024). Improving cell-speci
+ﬁc recombination
+using AAV vectors in the murine CNS by capsid and expression cassette optimiza-
+tion. Mol. Ther. Methods Clin. Dev. 32, 101185. https://doi.org/10.1016/j.omtm.
+2024.101185.
+14. Koh, W., Park, Y.M., Lee, S.E., and Lee, C.J. (2017). AAV-Mediated Astrocyte-
+Speciﬁc Gene Expression under Human ALDH1L1 Promoter in Mouse Thalamus.
+Exp. Neurobiol. 26, 350–361. https://doi.org/10.5607/en.2017.26.6.350.
+15. Taschenberger, G., Tereshchenko, J., and Kügler, S. (2017). A MicroRNA124 Target
+Sequence Restores Astrocyte Speci ﬁcity of gfaABC1D-Driven Transgene Expression
+in AAV-Mediated Gene Transfer. Mol. Ther. Nucleic Acids 8,1 3–25. https://doi.org/
+10.1016/j.omtn.2017.03.009.
+16. Gleichman, A.J., Kawaguchi, R., Sofroniew, M.V., and Carmichael, S.T. (2023). A
+toolbox of astrocyte-speciﬁc, serotype-independent adeno-associated viral vectors us-
+ing microRNA targeting sequences. Nat. Commun. 14, 7426. https://doi.org/10.1038/
+s41467-023-42746-w.
+17. Mendes, B.B., Conniot, J., Avital, A., Yao, D., Jiang, X., Zhou, X., Sharf-Pauker, N.,
+Xiao, Y., Adir, O., Liang, H., et al. (2022). Nanodelivery of nucleic acids. Nat. Rev.
+Methods Primers 2, 24. https://doi.org/10.1038/s43586-022-00104-y.
+18. Mitchell, M.J., Billingsley, M.M., Haley, R.M., Wechsler, M.E., Peppas, N.A., and
+Langer, R. (2021). Engineering precision nanoparticles for drug delivery. Nat. Rev.
+Drug Discov. 20, 101–124. https://doi.org/10.1038/s41573-020-0090-8.
+19. Sahu, K.K., Pradhan, M., Singh, D., Singh, M.R., and Yadav, K. (2023). Non-viral nu-
+cleic acid delivery approach: A boon for state-of-the-art gene delivery. J. Drug Deliv.
+Sci. Tech. 80, 104152. https://doi.org/10.1016/j.jddst.2023.104152.
+20. Williams, L., and Larsen, J. (2024). Nanoparticle-mediated delivery of non-viral gene
+editing technology to the brain. Prog. Neurobiol. 232, 102547. https://doi.org/10.
+1016/j.pneurobio.2023.102547.
+21. Lu, Z.-G., Shen, J., Yang, J., Wang, J.-W., Zhao, R.-C., Zhang, T.-L., Guo, J., and
+Zhang, X. (2023). Nucleic acid drug vectors for diagnosis and treatment of brain dis-
+eases. Signal Transduct Target. Ther. 8, 39. https://doi.org/10.1038/s41392-022-
+01298-z.
+22. Kim, J., Eygeris, Y., Ryals, R.C., Jozi /C19c, A., and Sahay, G. (2024). Strategies for non-viral
+vectors targeting organs beyond the liver. Nat. Nanotechnol. 19, 428–447. https://doi.
+org/10.1038/s41565-023-01563-4.
+23. Wolff, J.A., Malone, R.W., Williams, P., Chong, W., Acsadi, G., Jani, A., and Felgner,
+P.L. (1990). Direct Gene Transfer into Mouse Muscle in Vivo. Science 247, 1465 –
+1468. https://doi.org/10.1126/science.1690918.
+Molecular Therapy
+1178 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 14 ---
+
+24. Acsadi, G., Jiao, S.S., Jani, A., Duke, D., Williams, P., Chong, W., and Wolff, J.A.
+(1991). Direct gene transfer and expression into rat heart in vivo. New Biol. 3,7 1–81.
+25. Tang, D.-C., DeVit, M., and Johnston, S.A. (1992). Genetic immunization is a simple
+method for eliciting an immune response. Nature 356, 152 –154. https://doi.org/10.
+1038/356152a0.
+26. Wolff, J.A., and Budker, V. (2005). The Mechanism of Naked DNA Uptake and
+Expression. In Advances in Genetics (Elsevier), pp. 1 –20.
+27. Aihara, H., and Miyazaki, J. (1998). Gene transfer into muscle by electroporation
+in vivo. Nat. Biotechnol. 16, 867–870. https://doi.org/10.1038/nbt0998-867.
+28. Babiuk, S., Baca-Estrada, M.E., Foldvari, M., Storms, M., Rabussay, D., Widera, G.,
+and Babiuk, L.A. (2002). Electroporation improves the ef ﬁcacy of DNA vaccines in
+large animals. Vaccine 20, 3399 –3408. https://doi.org/10.1016/S0264-410X(02)
+00269-4.
+29. Barnabé-Heider, F., Meletis, K., Eriksson, M., Bergmann, O., Sabelström, H., Harvey,
+M.A., Mikkers, H., and Frisén, J. (2008). Genetic manipulation of adult mouse neuro-
+genic niches by in vivo electroporation. Nat. Methods 5, 189–196. https://doi.org/10.
+1038/nmeth.1174.
+30. Nomura, T., Nishimura, Y., Gotoh, H., and Ono, K. (2016). Rapid and ef ﬁcient gene
+delivery into the adult mouse brain via focal electroporation. Sci. Rep. 6, 29817.
+https://doi.org/10.1038/srep29817.
+31. Suda, T., Yokoo, T., Kanefuji, T., Kamimura, K., Zhang, G., and Liu, D. (2023).
+Hydrodynamic Delivery: Characteristics, Applications, and Technological Advances.
+Pharmaceutics 15, 1111. https://doi.org/10.3390/pharmaceutics15041111.
+32. Marques, B.L., Oliveira-Lima, O.C., Carvalho, G.A., De Almeida Chiarelli, R., Ribeiro,
+R.I., Parreira, R.C., Da Madeira Freitas, E.M., Resende, R.R., Klempin, F., Ulrich, H.,
+et al. (2020). Neurobiology of glycine transporters: From molecules to behavior.
+Neurosci. Biobehav. Rev. 118,9 7 –110. https://doi.org/10.1016/j.neubiorev.2020.
+07.025.
+33. Shahsavar, A., Stohler, P., Bourenkov, G., Zimmermann, I., Siegrist, M., Guba, W.,
+Pinard, E., Sinning, S., Seeger, M.A., Schneider, T.R., et al. (2021). Structural insights
+into the inhibition of glycine reuptake. Nature 591, 677–681. https://doi.org/10.1038/
+s41586-021-03274-z.
+34. Rusilowicz-Jones, E.V., Urbé, S., and Clague, M.J. (2022). Protein degradation on the
+global scale. Mol. Cell 82, 1414–1423. https://doi.org/10.1016/j.molcel.2022.02.027.
+35. Lee, H.-G., Wheeler, M.A., and Quintana, F.J. (2022). Function and therapeutic value
+of astrocytes in neurological diseases. Nat. Rev. Drug Discov.
+21,3 3 9–358. https://doi.
+org/10.1038/s41573-022-00390-x.
+36. Pedone, E., Postiglione, L., Aulicino, F., Rocca, D.L., Montes-Olivas, S., Khazim, M.,
+Di Bernardo, D., Pia Cosma, M., and Marucci, L. (2019). A tunable dual-input system
+for on-demand dynamic gene expression regulation. Nat. Commun. 10, 4481. https://
+doi.org/10.1038/s41467-019-12329-9.
+37. Wu, M.-R., Nissim, L., Stupp, D., Pery, E., Binder-Nissim, A., Weisinger, K., Enghuus,
+C., Palacios, S.R., Humphrey, M., Zhang, Z., et al. (2019). A high-throughput
+screening and computation platform for identifying synthetic promoters with
+enhanced cell-state speci ﬁcity (SPECS). Nat. Commun. 10, 2880. https://doi.org/10.
+1038/s41467-019-10912-8.
+38. Greco, F.V., Pandi, A., Erb, T.J., Grierson, C.S., and Gorochowski, T.E. (2021).
+Harnessing the central dogma for stringent multi-level control of gene expression.
+Nat. Commun. 12, 1738. https://doi.org/10.1038/s41467-021-21995-7.
+39. De Carluccio, G., Fusco, V., and Di Bernardo, D. (2024). Engineering a synthetic gene
+circuit for high-performance inducible expression in mammalian systems. Nat.
+Commun. 15, 3311. https://doi.org/10.1038/s41467-024-47592-y.
+40. Wood, H. (2024). GluA2 modulator targets excitotoxicity in MS. Nat. Rev. Neurol. 20,
+63. https://doi.org/10.1038/s41582-023-00922-y.
+41. Olney, J.W., Zorumski, C., Price, M.T., and Labruyere, J. (1990). L-Cysteine, a
+Bicarbonate-Sensitive Endogenous Excitotoxin. Science 248, 596 –599. https://doi.
+org/10.1126/science.2185543.
+42. Herring, B.E., Silm, K., Edwards, R.H., and Nicoll, R.A. (2015). Is Aspartate an
+Excitatory Neurotransmitter? J. Neurosci. 35, 10168 –10171. https://doi.org/10.
+1523/JNEUROSCI.0524-15.2015.
+43. Kampmann, M. (2024). Molecular and cellular mechanisms of selective vulnerability
+in neurodegenerative diseases. Nat. Rev. Neurosci. 25, 351 –371. https://doi.org/10.
+1038/s41583-024-00806-0.
+44. Souza, I.N.d.O., Roychaudhuri, R., de Belleroche, J., and Mothet, J.-P. (2023). d-
+Amino acids: new clinical pathways for brain diseases. Trends Mol. Med. 29,
+1014–1028. https://doi.org/10.1016/j.molmed.2023.09.001.
+45. Singh, P., Gollapalli, K., Mangiola, S., Schranner, D., Yusuf, M.A., Chamoli, M., Shi,
+S.L., Lopes Bastos, B., Nair, T., Riermeier, A., et al. (2023). Taurine de ﬁciency as a
+driver of aging. Science 380, eabn9257. https://doi.org/10.1126/science.abn9257.
+46. Bhatt, M., Di Iacovo, A., Romanazzi, T., Roseti, C., and Bossi, E. (2023). Betaine — The
+dark knight of the brain. Basic Clin. Pharma Tox. 133, 485 –495. https://doi.org/10.
+1111/bcpt.13839.
+47. Tanas, A., Tozlu, Ö.Ö., Gezmi ş, T., Hacimüftüo
+/C21glu, A., Abd El-Aty, A.M., Ceylan, O.,
+Mardino/C21glu, A., and Türkez, H. (2022). In Vitro and In Vivo Neuroprotective Effects
+of Sarcosine. Biomed. Res. Int. 2022, 5467498. https://doi.org/10.1155/2022/5467498.
+48. Kopach, O., Rusakov, D.A., and Sylantyev, S. (2022). Multi-target action of b-alanine
+protects cerebellar tissue from ischemic damage. Cell Death Dis. 13, 747. https://doi.
+org/10.1038/s41419-022-05159-z.
+49. Ra ﬁee, Z., García-Serrano, A.M., and Duarte, J.M.N. (2022). Taurine Supplementation
+as a Neuroprotective Strategy upon Brain Dysfunction in Metabolic Syndrome and
+Diabetes. Nutrients 14, 1292. https://doi.org/10.3390/nu14061292.
+50. Sun, J., and Roy, S. (2021). Gene-based therapies for neurodegenerative diseases. Nat.
+Neurosci. 24, 297–311. https://doi.org/10.1038/s41593-020-00778-1.
+51. Cancellieri, S., Zeng, J., Lin, L.Y., Tognon, M., Nguyen, M.A., Lin, J., Bombieri, N.,
+Maitland, S.A., Ciuculescu, M.-F., Katta, V., et al. (2023). Human genetic diversity al-
+ters off-target outcomes of therapeutic gene editing. Nat. Genet. 55,3 4 –43. https://
+doi.org/10.1038/s41588-022-01257-y.
+52. Meng, X., Jia, R., Zhao, X., Zhang, F., Chen, S., Yu, S., Liu, X., Dou, H., Feng, X.,
+Zhang, J., et al. (2024). In vivo genome editing via CRISPR/Cas9-mediated homol-
+ogy-independent targeted integration for Bietti crystalline corneoretinal dystrophy
+treatment. Nat. Commun. 15, 3773. https://doi.org/10.1038/s41467-024-48092-9.
+53. Hansen, S., McClements, M.E., Corydon, T.J., and MacLaren, R.E. (2023). Future
+Perspectives of Prime Editing for the Treatment of Inherited Retinal Diseases. Cells
+12, 440. https://doi.org/10.3390/cells12030440.
+54. Chen, Q., Luo, W., Veach, R.A., Hickman, A.B., Wilson, M.H., and Dyda, F. (2020).
+Structural basis of seamless excision and speci ﬁc targeting by piggyBac transposase.
+Nat. Commun. 11, 3446. https://doi.org/10.1038/s41467-020-17128-1.
+55. Yasinjan, F., Xing, Y., Geng, H., Guo, R., Yang, L., Liu, Z., and Wang, H. (2023).
+Immunotherapy: a promising approach for glioma treatment. Front. Immunol. 14,
+1255611. https://doi.org/10.3389/ﬁmmu.2023.1255611.
+56. Boussiotis, V.A., and Charest, A. (2018). Immunotherapies for malignant glioma.
+Oncogene 37, 1121–1141. https://doi.org/10.1038/s41388-017-0024-z.
+57. Chen, K.-S., Reinshagen, C., Van Schaik, T.A., Rossignoli, F., Borges, P., Mendonca,
+N.C., Abdi, R., Simon, B., Reardon, D.A., Wakimoto, H., and Shah, K. (2023).
+Bifunctional cancer cell –based vaccine concomitantly drives direct tumor killing
+and antitumor immunity. Sci. Transl. Med. 15, eabo4778. https://doi.org/10.1126/sci-
+translmed.abo4778.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1179

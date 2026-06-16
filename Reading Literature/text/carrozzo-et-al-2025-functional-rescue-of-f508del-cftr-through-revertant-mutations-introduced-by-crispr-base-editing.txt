@@ -1,0 +1,1266 @@
+# Source PDF: Reading Literature/files/79/Carrozzo et al. - 2025 - Functional rescue of F508del-CFTR through revertant mutations introduced by CRISPR base editing.pdf
+
+
+
+--- Page 1 ---
+
+Original Article
+Functional rescue of F508del-CFTR
+through revertant mutations introduced
+by CRISPR base editing
+Irene Carrozzo,1,7 Giulia Maule,1,7 Carmelo Gentile,1 Alessandro Umbach,1 Matteo Ciciani,1 Daniela Guidone,2
+Martina De Santis, 2 Gianluca Petris,1,5,6 Luis Juan Vicente Galietta, 2,3 Daniele Arosio,4,8 and Anna Cereseto 1,8,9
+1Department CIBIO, University of Trento, Via delle Regole 101, 38123 Trento, Italy; 2Telethon Institute of Genetics and Medicine, 80078 Pozzuoli, Italy; 3Department of
+Translational Medical Sciences, University of Napoli “Federico II”, 80138 Napoli, Italy; 4Institute of Biophysics, CNR, Via alla Cascata 56/C, 38123 Trento, Italy
+Cystic ﬁbrosis (CF) is a life-shortening autosomal recessive
+disease caused by mutations in the CFTR gene, resulting in
+functional impairment of the encoded ion channel. F508del
+mutation, a trinucleotide deletion, is the most frequent cause
+of CF, affecting approximately 80% of persons with CF
+(pwCFs). Even though current pharmacological treatments
+alleviate the F508del-CF disease symptoms, there is no de ﬁni-
+tive cure. Here, we leveraged revertant mutations (RMs) in cis
+with F508del to rescue CFTR protein folding and restore its
+function. We developed CRISPR base editing strategies to ef ﬁ-
+ciently and precisely introduce the desired mutations in the
+F508del locus. Both editing and CFTR function recovery
+were veriﬁed in CF cellular models, including primary epithe-
+lial cells derived from pwCFs. The efﬁcacy of the CFTR recovery
+strategy was validated in cultures of pseudostrati ﬁed epithelia
+from pwCF cells showing full recovery of ion transport. Addi-
+tionally, we observed an additive effect by combining our strat-
+egy with small molecules that enhance F508del activity, thus
+paving the way to combinatorial therapies.
+INTRODUCTION
+Cystic ﬁbrosis (CF) is a life-shortening autosomal recessive disease that
+affects at least 100.000 people worldwide.1,2 It is caused by mutations in
+the CF transmembrane conductance regulator (CFTR) gene, which en-
+codes a transmembrane channel localized at the apical surface of the
+epithelial cells.
+3 CFTR is fundamental to maintaining correct homeosta-
+sis across epithelial membranes by ensuring mucus hydration and clear-
+ance, in particular, in the airways. Indeed, CFTR impairment affects
+multiple organs, yet the morbidity and mortality of persons with CF
+(pwCFs) are caused mainly by progressive obstructive lung disease.
+1,2
+According to the CFTR2 database, 4 more than 700 mutations in the
+CFTR gene are causative of CF. The most common mutation is the
+F508del (present in 80% of pwCFs), a deletion of 3 nt that determines
+the loss of a phenylalanine residue.
+2,4 This genetic alteration results in
+a misfolded CFTR protein that is targeted for degradation by the
+ubiquitin-proteasome system.
+5 A small fraction of mutated CFTR
+can evade early degradation and reach the plasma membrane (PM),
+but it remains insufﬁciently active and unstable. Efﬁcient CF therapies
+were developed consisting of small molecules that modulate CFTR
+folding (correctors) or gating activity (potentiators).2 The current rec-
+ommended treatment for pwCFs carrying the F508del mutation (in
+one or both alleles) is a combination of three modulators, elexacaf-
+tor-tezacaftor-ivacaftor (ETI), consisting of two correctors and a
+potentiator.
+2 Although ETI signi ﬁcantly improves the health of
+pwCFs, it is not a deﬁnitive cure and requires lifelong administration.
+As often occurs with pharmacological regimens, these treatments can
+cause side effects and occasionally may not produce the desired ther-
+apeutic efﬁcacy due to various factors, including genetic variability.
+6,7
+Genome editing is a new powerful instrument for gene therapy to treat
+genetic diseases.8 In CF, various genome editing strategies have been
+developed to repair CFTR mutations, including the F508del defect. 9
+Given the nature of this mutation being a small deletion, several groups
+used the homology-directed repair (HDR) strategy allowing the replace-
+ment of sequences favored by programmable nucleases, including zinc-
+ﬁnger nucleases or Cas9.
+10– 15 However, this method is limited to speciﬁc
+target cells as it depends on speciﬁc phases of the cell cycle (S-G2/M) and
+is associated with risks of genotoxicity induced by the DNA double-
+strand breaks (DSBs).
+16– 18 Recent technological advancements in
+genome editing include the development of prime editing, 19 aD S B -
+free approach that was efﬁciently used to correct F508del reaching up
+Received 6 September 2024; accepted 8 January 2025;
+https://doi.org/10.1016/j.ymthe.2025.01.011.
+5Present address: Fondazione Italiana Fegato ONLUS - Italian Liver Foundation
+NPO, 34149 Trieste, Italy
+6Present address: Department of Medicine, Università degli Studi di Udine, 33100
+Udine, Italy
+7These authors contributed equally
+8These authors contributed equally
+9X (formerly Twitter): @CIBIOcrispr
+Correspondence: Daniele Arosio, Institute of Biophysics, CNR, Via alla Cascata
+56/C, 38123 Trento, Italy.
+E-mail: daniele.arosio@cnr.it
+Correspondence: Anna Cereseto, Department CIBIO, University of Trento, Via
+delle Regole 101, 38123 Trento, Italy.
+E-mail: anna.cereseto@unitn.it
+970 Molecular Therapy Vol. 33 No 3 March 2025 ª 2025 The American Society of Gene and Cell Therapy. Published by Elsevier Inc.
+All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+
+
+--- Page 2 ---
+
+to 50% function compared to wild type.20,21 Nonetheless, prime editing
+generates a high percentage of unwanted small insertions/deletions (in-
+dels) with unpredicted outcomes,
+20,21 and its composition with multiple
+elements increases the molecular size of the delivery cargo, thus chal-
+lenging the in vivo treatments.
+22,23
+Previous studies showed that revertant mutations (RMs) in cis with
+F508del can stimulate the proper folding and function of CFTR pro-
+tein.
+24 The ﬁrst RM was identi ﬁed in 1991 with a pwCF reporting a
+milder form of CF. 25 The genetic analysis revealed a compound
+F508del-R553Q and R553X, the latter corresponding to a nonsense
+mutation. Therefore, the milder phenotype was very likely generated
+by the second-site mutation in the F508del-CFTR locus which at least
+partially abrogated the CF phenotype. This observation prompted the
+search for additional RMs, leading to the identi ﬁcation of I539T,
+G550E, R555K, and R1070W.
+26– 32 Most of these RMs are located
+within the nucleotide binding domain (NBD1) of CFTR, except for
+the R1070W, which resides in the fourth intracellular loop (ICL4)
+(Figure 1A). RMs in the NBD1 reduce the thermodynamic and kinetic
+instability during F508del-CFTR biogenesis, 29– 31 while R1070W re-
+stores the ICL4-NBD1 interface. 30,32
+Here, we exploit CRISPR base editors to introduce RMs into the
+F508del-CFTR locus as a strategy to restore CFTR activity. The ef ﬁ-
+ciency, precision, and competitive molecular size among the genome ed-
+iting tools offer the opportunity for a deﬁnitive cure to F508del pwCFs.
+RESULTS
+Restoration of F508del defect mediated by RMs in CF cell lines
+We evaluated the impact of RMs I539T, G550E, R553Q, R555K, and
+R1070W on F508del-CFTR by ﬁrst analyzing the protein maturation.
+Different CFTR maturation products are generated during the pro-
+tein channel biogenesis, which can be detected through western
+blot analysis: a non-glycosylated form, band A (135 kDa); an imma-
+ture partly glycosylated form, band B (150 kDa); and a fully glycosy-
+lated mature form, band C (170 kDa).
+33 The F508del-CFTR carrying
+AB
+CD E
+Figure 1. RMs rescue F508del-CFTR maturation, localization, and function
+(A) Schematic representation of CFTR protein structure, highlighting its ﬁve domains: two transmembrane domains (TMD1 and TMD2), each formed by six transmembrane
+segments, two cytosolic nucleotide binding domains (NBD1 and NBD2), and the regulatory domain (R). (Bottom) Exons and the locations of the F508del an d RMs within the
+CFTR locus. Corresponding protein domains are color coded. (B) Representative western blot analysis of CFTR produced by the F508del modiﬁed with the indicated RMs
+and transduced in HEK293T cells with lentiviral vectors. The blot was developed with anti-CFTR antibodies (top) or a-actinin (bottom). Bands A, B, and C are indicated by the
+arrows. (C) Histograms representing the percentage of CFTR (3HA-tagged) rescued at the PM detected by ﬂow cytometry. Samples are normalized to wtCFT R, which is
+considered 100% at the PM. Data are means ± SDs from n = 2 independent experiments. Gating strategy is shown in Figure S1 A. (D and E) HS-YFP quenching assay
+performed in HEK293T stably expressing HS-YFP and transfected with the indicated CFTR variants. (D) Representative traces of HS-YFP assay recorded with a ﬂuorescence
+microscope (see methods). Cells were stimulated with 10 mM forskolin before the addition of iodide (I /C0), indicated by the arrow. (E) Quantiﬁcation of CFTR activity as a
+measure of HS-YFP quenching from n = 4 independent experiments. CFTR function is calculated as 1 /C0F/F0 using values recorded 7 s after I /C0addition and normalized on
+wtCFTR sample. Data are means ± SDs.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 971
+
+
+--- Page 3 ---
+
+the RMs, single or in combination, were expressed in HEK293T cells
+using lentiviral vectors. The I539T-R1070W and G550E-R1070W
+induced the formation of mature CFTR proteins at levels comparable
+to wild-type CFTR, while partial maturation rescue was observed with
+the single I539T, G550E, R555K, R1070W, and combined R555K-
+R1070W RMs ( Figure 1B).
+To further evaluate the rescue efﬁcacy of the RMs on F508del-CFTR,w e
+analyzed CFTR cellular localization, which is physiologically at the PM if
+not impaired by mutations that alter protein folding.
+34 We performed
+ﬂow cytometry analyses using a triple hemagglutinin (3HA)-tag located
+at the fourth external loop of CFTR. The amount of CFTR restored at the
+PM (Figures 1Ca n dS1A) mirrored the levels of maturation observed by
+western blot, showing a strong localization rescue by the combinations
+I539T-R1070W and G550E-R1070W and also by the I539T, while the
+remaining mutations showed variably lower levels of rescue.
+Finally, to assess the CFTR function, we performed the halide-sensi-
+tive yellow ﬂuorescent protein (HS-YFP) assay
+35,36 in HEK293T cells.
+This assay exploits the quenching property of HS-YFP by iodide an-
+ions. In cells where CFTR is functionally active, iodide ions enter the
+cells through the CFTR channels, leading to the quenching of HS-
+YFP, which results in ﬂuorescence decrease, while in CFTR
+/C0cells
+the ﬂuorescence remains unaltered. This assay was performed in
+HEK293T stably expressing HS-YFP and transfected with various
+F508del-CFTR variants. Consistent with the maturation and cellular
+localization data, the I539T, G550E, and R555K combined with
+R1070W rescued CFTR activity to near wild-type levels. Partial or
+no rescue was observed with the single revertants and the combina-
+tion R553Q-R1070W ( Figures 1D and 1E).
+CRISPR-base editing strategies to introduce RMs in F508del-
+CFTR
+CRISPR-base editor strategies were developed to introduce RMs
+I539T, G550E, R553Q, R555K, and R1070W in the F508del-CFTR lo-
+cus (Figure S1B). We used HEK293T cells carrying the F508del-CFTR
+cDNA to monitor the incorporation of speciﬁc RMs and to assess any
+nucleotide modi ﬁcations occurring beyond the primary target,
+known as bystander edits. 37
+Depending on the RM to be inserted, we used either adenine base
+editors (ABEs)
+38 or cytosine base editors (CBEs) 39 for A>G or C>T
+substitutions, respectively, utilizing different versions of nucleotide
+deaminases.40– 42 By leveraging the highest compatibility with proto-
+spacer adjacent motif (PAM) recognition sequences surrounding the
+target sites, we tested base editors made with three SpCas9 variants,
+SpCas9-NG,
+43 SpG, and SpRY. 44 For each base editor, several sin-
+gle-guide RNAs (sgRNAs) were tested, indicated with numbers corre-
+sponding to the position of the target nucleotide relative to the PAM
+sequence
+45 (Figures S2A– S2E).
+To insert the I539T mutation, we tested several ABE versions (ABE8e,
+ABE8.20m, and ABEmax). 40– 42 We obtained variable levels of A>G
+conversions at the target nucleotide, with up to 45% of editing with
+SpG-ABEmax, SpG-ABE8.20m, and SpG-ABE8e ( Figure 2 A). Most
+of the ABEs tested showed substantial bystander activity in positions
+A4 and A9, except for NG-ABEmax and SpG-ABEmax, which
+showed minimal conversion at A4 and less than 10% conversion at
+A9, resulting in a silent N537N mutation.
+To insert G550E, R553Q, R555K, and R1070W mutations, we used
+two CBE versions, BE4max and AncBEmax,
+41 combined with diff-
+erent sgRNAs and SpCas9 variants ( Figures 2B– 2E).
+For the G550E mutation, we obtained up to 45% editing at the target
+cytosine (C5), associated with relevant bystander edits throughout the
+base editing window (Figure 2B). Two speciﬁc bystander edits, C2 and
+C8, are predicted to have a major functional impact since they pro-
+duce CF-causing mutations (G551D and S549N)
+46 (Figure 2B).
+The R553Q was introduced, with up to 50% ef ﬁciency at C6 using
+various combinations of CBEs and sgRNAs ( Figure 2 C) showing
+main bystander edits at C15 ( Figure 2 C). Interestingly, the C15
+bystander introduces another RM, the G550E, which is bene ﬁcial in
+the rescue of the F508del- CFTR folding. The most ef ﬁcient editing
+strategies, as a result of both speciﬁc and synergistic bystander editing,
+were obtained with SpRY-BE4max and SpG-BE4max with sgRNA+6,
+generating the simultaneous introduction of G550E-R553Q RMs.
+The R555K was generated with SpRY-BE4max in combination with
+two different sgRNAs. Target base conversion reached over 50% ef ﬁ-
+ciency with sgRNA+5 (Figure 2D), with the advantage of introducing
+a second RM, the R553Q through a bystander edit in C11, thus result-
+ing in double R553Q-R555K RMs. The R1070W mutation was intro-
+duced using SpRY-BE4max and SpG-AncBE4max, resulting in up to
+30% editing at C5. Additionally, a bystander edit at C2 generated a si-
+lent mutation, the F1068F ( Figure 2E).
+Next, we explored the possibility of using a single base editor to intro-
+duce combinations of RMs. The possible compatible combinations
+were R553Q-R555K, R553Q-R1070W, and R555K-R1070W, while
+I539T and G550E could not be inserted together with others. The
+R553Q-R555K, R553Q-R1070W, and R555K-R1070W were inserted
+using SpRY-BE4max, while the R553Q-R1070W was inserted with
+SpG-AncBE4max. The RM combinations were overall ef ﬁciently edi-
+ted ( Figure 2 F). We observed a more evident reduction of R555K
+editing when combined with the R553Q, probably due to sgRNAs
+interference (Figure 2F). Bystander edits were similar to those of sin-
+gle-guide strategies ( Figure S3).
+Rescue of F508del-CFTR with RMs introduced via base editing
+We evaluated the rescue of the F508del-CFTR modi ﬁed by using the
+most efﬁcient base editing strategy identiﬁed in Figure 2. We analyzed
+PM localization, which showed partial rescue (5% – 31% compared to
+wild type) with all RMs ( Figure 3 A). Interestingly, the individual
+R553Q and R555K showed higher PM recovery than the correspond-
+ing modiﬁcations in F508del-CFTR cDNA (compare with Figure 1C).
+The higher PM recovery was probably due to bystander editing
+Molecular Therapy
+972 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 4 ---
+
+AB
+C
+DE
+F
+Figure 2. Insertion of RMs in the F508del- CFTR locus through CRISPR base editors
+Editing efﬁciency in F508del- CFTR HEK293T cells transfected with the indicated base editors and sgRNAs used (A–E) individually or (F) in combination to generate RMs
+indicated at each graph. Editing was quantiﬁed by EditR tool 43 after PCR ampliﬁcation and Sanger sequencing of the target locus and compared with nontreated (NT) cells.
+The target base for each RM is highlighted in red; bystander edits are shown in black. Data are means ± SDs from n = 3 independent experiments.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 973
+
+
+--- Page 5 ---
+
+AB
+CD
+EF
+(legend on next page)
+Molecular Therapy
+974 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 6 ---
+
+introduced by the additional RMs, as reported in Figures 2C and 2D.
+We also assessed PM localization with combinations of RMs which
+showed higher CFTR rescue, with the maximum generated by
+R555K-R1070W reaching 40% of the wild-type level ( Figure 3 B).
+The R553Q-R555K RMs showed more decreased PM localization
+than the R555K introduced individually ( Figures 3 A and 3B), prob-
+ably due to interference between the sgRNAs (see Figures 2D and 2F).
+CFTR function was then evaluated through HS-YFP quenching assay.
+Among single RMs, R555K showed the highest activity (up to 40%)
+(Figures 3 C and 3D), while with the double RMs, R555K-R1070W
+showed up to 56% of wild-type activity ( Figures 3E and 3F), paralle-
+ling the results observed with PM analysis.
+Combinatorial rescue of F508del-CFTR with RMs and CFTR
+modulators
+We investigated the potential synergism between RMs and pharma-
+cological treatments, including the corrector lumacaftor, which en-
+hances CFTR folding, and the potentiator ivacaftor, which improves
+CFTR gating. To this end, we performed the HS-YFP quenching assay
+in HEK293T cells stably expressing the variants of F508del-CFTR
+cDNA carrying the RMs.
+We observed that individual RMs enhanced the activity of F508del-
+CFTR when treated with either modulators alone or in combination
+(Figures 4 and S4), with the exception of R553Q, where no synergism
+was observed. For the majority of combined RMs, I539T-R1070W,
+G550E-R1070W, and R555K-R1070W, which already increased
+F508del-CFTR activity close to wild-type levels, we detected only a
+modest improvement in CFTR function when modulators were
+added. Conversely, RM combinations with lower baseline activity,
+R553Q-R555K and R553Q-R1070W, synergized with both modula-
+tors, reaching wild-type levels of activity.
+Efﬁciency and precision of F508del- CFTR base editing in
+patient-derived primary bronchial epithelial cells
+The base editing strategy was tested in CF models, consisting of cultures
+of human primary bronchial epithelial (HBE) cells derived from a pa-
+tient homozygous for the F508del mutation. Base editors were deliv-
+ered by electroporation of RNA for both mRNA and sgRNA modiﬁed
+for optimal ef ﬁcacy (see methods) and by using speci ﬁc ratios
+(Figures S5A and S5B). The efﬁcacy of F508del modiﬁcation with single
+or double RMs was as efﬁcient as in the HEK293T models (Figures 5A–
+5E). RNA delivery of base editors reduces bystander activity as previ-
+ously reported,
+45 likely due to transient expression. This reduction
+was not observed for the I539T mutation, which showed off-target
+(OT) editing at A9, nevertheless leading to the generation of a silent
+mutation (Figure 5A), as observed in HEK293T cells ( Figure 2A).
+To assess the editing speciﬁcity, as reported before,45,48– 50 we ﬁrst pe-
+rformed a whole OT genome analysis (GUIDE sequencing [GUIDE-
+seq])
+51 with SpG or SpRY nucleases, followed by deep sequencing
+analysis of the nominated OTs in cells treated with base editors. A
+limited number of OT sites were revealed by SpG targeting the
+I539T locus ( n = 5) or SpRY targeting R555K ( n = 1) and R1070W
+(n = 9) loci. In contrast, a higher number of OTs ( n = 20) were
+retrieved with the sgRNA R553Q+6 (Figure S6). The deep sequencing
+analyses to verify base editing on the retrieved OTs were performed in
+HBE cells by examining OTs with at least R30 sequencing reads in
+GUIDE-seq, thus largely over background levels. The percentage of
+base conversion reported in Figure 5F is the sum of all adenines or cy-
+tosines modiﬁed into the sgRNA spacer sequence. We measured 10%
+cumulative A>G conversion at OT1 with SpG-ABEmax I539T+7,
+corresponding to intron 1 of the KCNT2 gene. SpRY-BE4max
+R553Q+6 showed three main OT sites, OT1, OT2, and OT4, among
+which the strongest was OT1, with a C>T conversion higher than the
+on-target site, corresponding to intron 3 of the GALNT6 gene. Finally,
+SpRY-BE4max R1070W+6 exhibited almost 8% C>T conversion in
+OT2 corresponding to intron 1 of the FLRT2 gene. No indels were de-
+tected beyond the reported A>G or C>T conversions ( Figure S7).
+Functional rescue of CFTR anion transport
+Based on the editing ef ﬁciency and precision combined with the ca-
+pacity of the RMs to rescue CFTR activity, we selected the R555K-
+R1070W RMs for further characterization to restore the F508del
+function. For this purpose, we analyzed terminally differentiated
+pseudostratiﬁed epithelia generated from HBE cells under air-liquid
+interface (ALI) conditions. To evaluate CFTR-dependent transepithe-
+lial ion transport, we measured short-circuit current (Isc) in a Ussing
+chamber-like system.
+52,53
+In the ﬁrst set of experiments, we blocked the sodium current medi-
+ated by ENaC with amiloride and then stimulated CFTR activity
+with the membrane-permeable cyclic AMP (cAMP) analog 8-(4-
+chlorophenylthio) adenosine 3 ’,5’-cyclic monophosphate (CPT-
+cAMP). Subsequently, we added the selective CFTR blocker
+CFTR
+inh-172 (I-172) to abolish CFTR current. CFTR-dependent chlo-
+ride secretion, as indicated by the amplitude of the current elicited by
+CPT-cAMP and the extent of current drop resulting from I-172 addi-
+tion, was larger in cells edited with the R1070W and R555K-R1070W
+compared to HBE cultures not treated (NT) or treated with a scramble
+sgRNA (CTR) (Figures 6A and S8). In particular, the drop caused by
+Figure 3. Rescue of F508del-CFTR localization and function induced by insertion of RMs
+(A and B) Percentage of CFTR at the PM measured by ﬂow cytometry in wtCFTR and F508del- CFTR HEK293T cells transfected with the indicated base editors and sgRNAs
+producing (A) single or (B) double RMs or with a scramble sgRNA (CTR). Data are means ± SDs from n = 3 independent experiments. Samples are normalized to wtCFTR,
+which was set at 100%. (C–F) HS-YFP quenching assay in HEK293T endogenously expressing HS-YFP and F508del-CFTR cDNA and transfected with the indicat ed base
+editors and sgRNAs to insert (C and D) single or (E and F) double RMs or a scramble sgRNA (CTR). Cells were stimulated with 10 mM forskolin before addition of iodide,
+indicated by the black arrow. (C and E) Representative traces of HS-YFP quenching assay recorded through ﬂuorescence microscopy. (D and F) Quantiﬁca tion of CFTR
+function as 1 /C0F/F0 obtained 7 s from iodide addition. Data are means ± SDs from n = 4 independent experiments.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 975
+
+
+--- Page 7 ---
+
+the inhibitor (DI-172) showed a 3- to 4-fold increase in CFTR function
+with respect to NT or CTR in both R1070W- and R555K-R1070W-
+edited cells. Conversely, no signi ﬁcant enhancement could be
+observed with the single R555K.
+In epithelia modi ﬁed with the R1070W and R1070W/R555K RMs,
+the CFTR current is approximately 1.13 and 1.78 mA, which corre-
+spond to 3.39 and 5.34 mA/cm2 (Figure 6 A). These data represent a
+15%– 20% and a 23% – 31% activity rescue, respectively, with respect
+to an average CFTR function observed in non-CF epithelia under
+similar conditions (DI-172 = 17 – 23 mA/cm
+2).53,54
+We also veriﬁed the potential additive effect that could be generated be-
+tween RMs and ivacaftor, the potentiator molecule composing the ETI
+treatment. Ivacaftor, added after CPT-cAMP during Isc recordings,
+resulted in a further increase in CFTR-dependent current with a conse-
+quent enlargement of the effect of I-172 (Figure 6B). The effect of iva-
+caftor was particularly evident in cells edited with R1070W and R555K-
+R1070W. An increase in current by ivacaftor was also evident in traces
+from cells edited with R555K. We calculated DI-172 for all conditions.
+In this set of experiments, cells edited with R1070W and R555K-
+R1070W again showed an improvement in DI-172 value (3- to
+4-fold increase compared to controls). There was also a positive trend
+for R555K cells, but this was not statistically signi ﬁcant (Figure 6B).
+Finally, a third set of experiments was conducted with complete ETI
+by combining ivacaftor with the two correctors tezacaftor and elexa-
+caftor. Under this condition, CFTR function was similarly rescued ir-
+respective of the presence/absence of gene editing ( Figure 6 C). The
+lack of additive effects between pharmacological treatment and
+gene editing is likely due to the maximum F508del-CFTR rescue
+already obtained with ETI.
+Overall, our data demonstrate that the insertion of RMs, speci ﬁcally
+R1070W, in the F508del- CFTR locus of HBE cells ef ﬁciently rescues
+the CFTR ion-channel activity.
+Finally, we also calculated the fraction of the total current that is acti-
+vated by CPT-cAMP alone from the experiments performed in
+Figures 6 B and 6C. The results, shown in Figure S9 A, indicate that
+insertion of R1070W signiﬁcantly increases this parameter compared
+to R555K. These results suggest that R1070W, besides improving the
+trafﬁcking of mutant CFTR to the PM, also improves the gating as
+indicated by the proportionally reduced effect of ivacaftor.
+We also evaluated the effect of gene editing on the effect of amiloride,
+added at the beginning of recordings. The amplitude of amiloride re-
+ﬂects not only the activity of the sodium channel ENaC but also in
+general the driving forces that underlie transepithelial ion transport.
+Figure 4. Evaluation of synergistic effects of RMs and modulators by HS-YFP quenching assay
+Quantiﬁcation of CFTR activity through HS-YFP quenching assay performed in HEK293T cells stably expressing F508del-CFTR variants and transfected with HS-YFP. Cells
+were treated either with forskolin, lumacaftor, or ivacaftor individually or in combination. CFTR function is expressed as 1 /C0F/F0 based on ﬂuorescence values recorded 7 s
+after iodide addition. Data are means ± SDs from n = 2 independent experiments.
+Molecular Therapy
+976 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 8 ---
+
+AB C
+DE
+F
+(legend on next page)
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 977
+
+
+--- Page 9 ---
+
+As shown in Figure S9B, the amplitude of the current blocked by ami-
+loride was not signi ﬁcantly affected by the electroporation procedure
+(CTR) or by gene editing.
+DISCUSSION
+Technological advancements in genome editing offer new opportu-
+nities for treating genetic diseases like CF. Several strategies have
+been developed to repair CF causing mutations including the
+F508del,
+9 the most frequent in pwCFs. 1 In several studies, the HDR
+capacity to substitute genomic fragments enhanced by nucleases
+was exploited to repair CF mutations, including the F508del.
+10– 15
+Nonetheless, despite relevant advancements, HDR remains a complex
+approach as it requires the delivery of a donor template and it is
+limited to dividing cells. 55 This poses signi ﬁcant obstacles for the
+treatment of the lung epithelium and potentially other tissues
+composed of differentiated and undifferentiated cells. Lungs are
+prioritized targets in CF as this is the organ mainly hampered by
+the disease. Natural barriers in human lungs further exacerbated in
+CF by the accumulation of thick and sticky mucus continue to pose
+a signiﬁcant challenge for effective delivery to these organs.
+56 Several
+viral and non-viral systems have been tested over the years, and
+recently, newly developed lipid nanoparticles, with an optimized
+formulation, have enabled targeted delivery of the CRISPR-Cas9 sys-
+tem to the lungs in vivo,
+57,58 prompting a signiﬁcant advancement in
+the ﬁeld of gene therapy for CF.
+Nonetheless, the role of different cell types in the lung epithelium has
+not been de ﬁned yet, thus eluding the best cellular target for gene
+correction. Epithelial stem cells, while promising targets due to their
+fundamental role in tissue regeneration, present risks since nuclease
+activity associated with HDR and other genome editing strategies
+may negatively impact their staminal properties with potential down-
+stream negative effects in derived tissues.
+59– 61 Moreover, DSBs gener-
+ated by nucleases in HDR and other approaches have been reported to
+induce genomic rearrangements, including translocation and chro-
+mosome aberrations. 16– 18 In recent years, more DSB free tools have
+been developed. Prime editing is an ef ﬁcient genome editing strategy
+for both dividing and non-dividing cells and allows the introduction
+of all 12 possible types of point mutations, small insertions, and small
+deletions.
+19 This tool is composed of various elements requiring ﬁne-
+tuning for ef ﬁcient and precise editing. A ﬁrst attempt to correct the
+F508del locus through prime editing showed an overall low ef ﬁciency
+and high levels of indels introduced on both alleles due to the addi-
+tional nicking sgRNA.
+20 More recently, an intensive optimization
+study produced an enhanced prime editing strategy to repair the
+F508del mutation.20,21 The optimization comprises several modi ﬁca-
+tions of the editor, including the co-expression of a non-physiological
+dominant-negative mismatch repair protein (MLH1dn), which re-
+sulted in the recovery of CFTR activity similar to levels obtained
+with pharmacological treatments. The correction of the mutation
+was associated with indels that, even though less than the previous
+prime editing or HDR approach, still are remarkably high (around
+10% at the highest editing conditions).
+Base editing has emerged as another promising strategy for correcting
+CF mutations.
+45,62– 64 It is usually more ef ﬁcient than prime edit-
+ing20,21 and is better suited for delivery due to reduced complexity
+compared to HDR, requiring a co-delivery with donor DNA template,
+and prime editor, using two guide RNAs (prime editing gRNA and
+nicking gRNA) plus a cofactor (MLH1dn) to enhance the editing.
+Nonetheless, base editors are limited to A>G or C>T transitions, mak-
+ing them unsuitable for correcting deletions like the F508del. To over-
+come this limitation, we explored the use of RMs to compensate for
+the F508del-CFTR defect.
+24 We selected RMs compatible with a
+base editing strategy to be introduced into the F508del allele as single
+or combined mutations. I539T, G550E, R553Q, and R555K, located
+in the NBD1 domain, are mainly responsible for restoring the protein
+folding,
+26– 31 while the R1070W at the TMD2 domain increases PM
+levels and also improves protein gating. 24,30,32 The combination of
+R555K and R1070W mutations proved particularly effective, as
+they act at different stages of CFTR biogenesis and complement
+each other in restoring CFTR function. The success of this approach
+was further enhanced by an opportunistic bystander edit that intro-
+duced an additional beneﬁcial mutation, R553Q,
+65 resulting in a triple
+modiﬁcation (R553Q-R555K-R1070W) using a single base editor and
+two sgRNAs.
+A second bystander edit associated with this RM combination was
+observed with the sgRNA for R1070W producing a silent mutation
+thus very likely innocuous. Testing additional deaminase variants
+with a narrowed editing window
+66,67 and different Cas9 ortho-
+logs68– 71 might enhance speci ﬁcity, avoiding the modi ﬁcation of
+OT bases. However, we already observed a lowering of bystander edits
+to background levels in HBE cells, probably as a result of transient
+expression of base editors delivered as RNA, as reported before.
+45
+The OT pro ﬁle for selected sgRNAs was quite heterogeneous with
+diverse percentages of non-speci ﬁc modi ﬁcations. Focusing on the
+R555K-R1070W RMs, we detected exclusively a non-speci ﬁc edit in
+the intronic region of the FLRT2 gene, which deserves further
+Figure 5. Insertion of RMs in HBE cells using base editors and evaluation of editing precision
+(A–D) Editing efﬁciency for the insertion of single RMs in HBE cells homozygous for the F508del-CFTR gene. Editing was quantiﬁed by deep sequencing an alyses. HBE were
+electroporated with mRNA encoding the indicated base editors and chemically modiﬁed sgRNAs speciﬁc for the target nucleotide or a scramble sgRNA (CT R). The target
+nucleotides are highlighted in red; bystander nucleotides are in black. Data are means ± SDs from n = 2 independent experiments. (E) Histograms reporting the editing
+efﬁciency obtained for the insertion of RM combinations in HBE cells homozygous for the F508del- CFTR gene. Cells were electroporated with SpRY-CBE4max mRNA and
+two targeting sgRNAs or a scramble sgRNA (CTR). Editing was quantiﬁed by the EditR tool 47 on Sanger sequencing chromatograms. Data are means ± SDs from n =2
+independent experiments. (F) Deep sequencing analysis of off-targets (OTs) identiﬁed through GUIDE-seq analysis. Cumulative A>G or C>T base conve rsions inside the
+sgRNA spacer are reported. Data are means ± SDs from n = 2 independent experiments.
+Molecular Therapy
+978 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 10 ---
+
+investigation to determine the impact in the target cells. The deep
+sequence analysis showed no indel formation at the target site, thus
+precluding genotoxic activity as observed for HDR and prime editing.
+The capacity of the R555K-R1070W, introduced through base editing,
+to recover F508del-CFTR function was validated in terminally differ-
+entiated HBE cells derived from patients by measuring the short-cir-
+cuit current in pseudostrati ﬁed epithelia grown in culture. The
+A
+B
+C
+Figure 6. RMs insertion in HBE cells promote CFTR
+activity rescue
+(A–C) Representative short-circuit current traces and
+summary of results obtained from epithelia generated
+from NT cells or cells treated with SpRY-CBE4max-CTR
+(scramble sgRNA) or SpRY-CBE4max-sgRNAs to insert
+the mutations. Editing efﬁciency is shown in Figure S8 .
+For the representative traces, the identity of the
+compound addition (arrows) is shown for simplicity only
+in the far-left trace and the initial part of the recording,
+containing the effect of amiloride, has been removed. In
+each panel, the scatter dot plots report the amplitude of
+the current drop elicited by CFTRinh-172 (I-172). (A)
+Recordings with sequential addition of CPT-cAMP
+(cAMP) followed by I-172. (B) Recordings in which 1 mM
+ivacaftor (iva) was added in the apical solution after
+CPT-cAMP. (C) Recordings in which epithelia were
+previously incubated with tezacaftor and elexacaftor for
+24 h. Scatter dot plots represent the results from
+epithelia of n R 7 of two independent experiments.
+Data are presented as means ± SDs.
+genome editing strategy alone recovered CFTR
+activity, while it did not alter the sodium chan-
+nel ENaC, as well as more general transepithe-
+lial ion transport, as observed by the response
+to the amiloride. A synergistic effect between
+the editing and pharmacological treatment
+was observed by using potentiators, molecules
+that improve the CFTR gating, in particular
+with R555K-R1070W or R1070W alone. These
+results indicate that the recovery of F508del-
+CFTR PM proximity by editing is suf ﬁcient to
+retrieve normal current ﬂows by the potentiator
+treatment. Conversely, pharmacological cock-
+tails containing both correctors and potentia-
+tors (ETI) reached the maximum enhancement
+of F508del-CFTR recovery, and no bene ﬁts
+could be generated by the RMs. Nonetheless,
+CFTR activity analyzed in cell lines expressing
+the F508del-CFTR modi ﬁed with RMs showed
+an incremental effect of both correctors and po-
+tentiators with the majority of the editing strate-
+gies. These results suggest that increasing the
+editing ef ﬁcacy through more advanced tools
+may lead to powerful combinatorial treatments
+increasing the therapeutic ef ﬁcacy of the CFTR modulators to lower
+the drug dosage regimen.
+Even though CFTR modulators have signiﬁcantly improved the qual-
+ity of life of pwCFs and extended their lifespan, the burden of lifelong
+and costly treatments, which are also occasionally inef ﬁcacious, high-
+light the urgent need for a more de ﬁnitive cure. Indeed, with this
+study, we ﬁrst prove that beyond the value of a potential permanent
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 979
+
+
+--- Page 11 ---
+
+cure for CF, genome editing offers the opportunity to design a combi-
+natorial treatment to increase the treatment solutions.
+Harnessing the CFTR folding and activity by targeting speci ﬁc do-
+mains is a new frontier for the treatment of CF.
+METHODS
+Plasmids
+pCHMWS-CFTR-wt-ires-PURO and pCHMWS-CFTR-F508del-
+ires-PURO plasmids (kindly provided by Prof. Marianne Carlon,
+KU Leuven, Leuven, Belgium) contain a 3HA-tag in the fourth extra-
+cellular loop of CFTR and a puromycin resistance.
+pLenti-CFTR-wt-ires-PURO and pLenti-CFTR-F508del-ires-PURO
+plasmids were cloned starting from a pLenti-FNLS-P2A-PURO pla-
+smid. pLenti-FNLS-P2A-PURO was a gift from Lukas Dow (Addgene
+plasmid no. 110841; http://n2t.net/addgene:110841; RRID: Addg-
+ene_110841).
+50 The BE4max-P2A-PURO sequence was substituted
+with CFTR-ires-PURO derived by PCR on the pCHMWS-CFTR
+plasmids, using BamHI and MluI restriction enzyme digestion.
+F508del-CFTR RMs were cloned into the pLenti-CFTR-F508del-
+ires-PURO plasmid using PCR ampli ﬁcation and BsmBI restriction
+enzyme. The oligonucleotides used for cloning are listed in
+Table S1 .
+Plasmids expressing sgRNAs were cloned in a pUC19-sgRNAopt
+(pUC19 plasmid with sgRNA cassette derived from pX330) as
+described before.
+72 pX330-U6-Chimeric_BB-CBh-hSpCas9 was a
+gift from Feng Zhang (Addgene plasmid no. 42230; http://n2t.net/
+addgene:42230; RRID: Addgene_42230).73 The sgRNA spacers are re-
+ported in Table S2.
+The HS-YFP (YFP-H148Q/I152L/F46L) plasmid encoded for HS-
+YFP was used for the YFP assay.
+In the base editing experiments, the following plasmids were
+cloned by restriction enzyme strategies: pCMV-SpG-ABEmax,
+pCMV-SpG-ABE8e, pCMV-SpG-ABE8.20m, pCMV-NG-ABEmax,
+45
+pCMV-NG-ABE8e,45 pCMV-AncBE4max-SpG, pCAG-CBE4max-
+NG-P2A-EGFP, and pCMV-AncBE4max-NG. pCAG-CBE4max-
+SpRY-P2A-EGFP and pCAG-CBE4max-SpG-P2A-EGFP were a
+gift from Benjamin Kleinstiver (Addgene plasmid no, 139999; http://
+n2t.net/addgene:139999; RRID: Addgene_139999) (Addgene plas-
+mid no. 139998; http://n2t.net/addgene:139998; RRID: Addgene_
+139998).
+44
+pIVT-CMV-SpG-ABEmaxP2A-EGFP and pIVT-CBE4max-SpRY-
+P2A-EGFP, used for in vitro RNA transcription, were constructed
+starting from pCMV-SpG-ABEmax and pCAG-CBE4max-SpRY-
+P2A-EGFP introducing the ABE/CBE-Cas9 sequence in the pIVT-
+SpRY-ABE9 plasmid by EcoRI restriction enzyme digestion. The ol-
+igonucleotides used for cloning are listed in Table S3.
+For GUIDE-seq analyses, pCMV-T7-SpG-P2A-EGFP and pCMV-
+T7-SpRY-P2A-EGFP plasmids were used. pCMV-T7-SpG-P2A-
+EGFP and pCMV-T7-SpRY-P2A-EGFP were a gift from Benjamin
+Kleinstiver (Addgene plasmid no. 139988; http://n2t.net/addgene:
+139988; RRID: Addgene_139988) (Addgene plasmid no. 139989;
+http://n2t.net/addgene:139989; RRID: Addgene_139989).
+44
+Cell lines
+HEK293T cells were obtained from the American Type Culture Collec-
+tion ( www.atcc.org). HEK293T stably expressing HS-YFP, wtCFTR,
+and F508del-CFTR were kindly provided by Prof. M.S. Carlon (KU
+Leuven, Leuven, Belgium). HEK293T cell lines stably expressing the
+different CFTR variants were generated by lentiviral transduction.
+Cells were cultured in Dulbecco’sm o d iﬁed Eagle’s medium (Life Tech-
+nologies) supplemented with 10% fetal bovine serum (Life Technolo-
+gies), 10 U/mL antibiotics (penicillin-streptomycin; Life Technologies),
+and 2 mM
+L-glutamine at 37/C14C in a 5% CO 2 humidiﬁed atmosphere.
+Lentiviral production and transduction of cell lines
+Lentiviral particles were produced in HEK293T cells at 80% con ﬂu-
+ency in 100-mm dishes. A total of 10 mg pLenti-CFTR-F508del-
+RMs-ires-PURO plasmid, 6.5 mg D8.91 packaging plasmid, and
+3.5 mg VSV-G were transfected using polyethylenimine. The viral su-
+pernatant was collected after 48 h and ﬁltered in a 0.45-mm PES ﬁlter,
+and aliquots were stored at /C080/C14C. Vector titers were measured as
+reverse transcriptase units (RTUs) by SYBR Green I-based qPCR-
+based product-enhanced reverse transcriptase method.
+73
+For transduction experiments, 150,000 HEK293T cells were seeded in
+a 24-well plate and transduced after 24 h with 1 RTU of lentiviral vec-
+tors. At 48 h later, cells were selected with puromycin (2mg/mL). Cells
+were kept under puromycin selection, and experimental analyses
+were performed 3 weeks after transduction.
+Cell line transfection
+HEK293T cells or HEK293T stably expressing HS-YFP were co-
+transfected with 750 ng base editor and 250 ng sgRNA encoding plas-
+mids (sgRNA scramble [CTR] and sgRNAs to insert I539T, R553Q,
+R555K, and R1070W). Transfections were performed using Transit
+LT1 reagent (Mirus Bio) according to the manufacturer ’s protocol.
+Cell pellets were collected 3 days post-transfection for editing
+analyses.
+Editing analyses
+Genomic DNA was extracted using QuickExtract DNA extraction so-
+lution (Epicentre). Target regions were ampli ﬁed by PCR with HOT
+FIREPol DNA Polymerase (Solis BioDyne) using 100– 500 ng DNA as
+template. Oligos are listed in Tables S4 and S5. PCR products were
+puriﬁed using NucleoSpin Gel and PCR Clean-up (Macherey-
+Nagel) and sequenced by Sanger sequencing. To evaluate editing ef ﬁ-
+ciency, the chromatograms were analyzed using EditR software. 47
+Molecular Therapy
+980 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 12 ---
+
+Western blotting
+Cell pellets were collected from cells stably expressing CFTR variants
+and lysed with radioimmunoprecipitation assay buffer. A total of
+20 mg of the whole lysates quanti ﬁed by bicinchoninic acid assay
+(Thermo Fisher Scienti ﬁc) were separated by SDS-PAGE in a 6%
+polyacrylamide gel and then transferred to a polyvinylidene ﬂuoride
+membrane. Membranes were probed with a mix of four mouse mono-
+clonal CFTR antibodies purchased from the CFF Foundation (Ab 570
+and 596 diluted 1:500; Ab 660 and TJA9 diluted 1:1,000) and mouse
+anti-a-actinin (sc-17829, Santa Cruz, 1:1,000). Detection was per-
+formed with Pierce enhanced chemiluminescence reagent (Thermo
+Fisher Scientiﬁc) using the Uvitec Alliance Instrument.
+Flow cytometry
+Cells were stained with HA.11 antibody (no. 901515, BioLegend,
+1:1,000) at 4 /C14C for 45 min, followed by Alexa 488 secondary anti-
+body (no. A-11001, Thermo Fisher Scienti ﬁc, 1:500) for 30 min
+and then analyzed at BD FACS Canto, as previously described. 74
+Cells not expressing CFTR were used as a negative control to deter-
+mine the fraction of positive cells. wtCFTR and F508del-CFTR cells
+were used to determine the fraction of cells expressing CFTR at the
+PM ( Figure S1 ).
+HS-YFP assay
+All transfections were performed using Transit LT1 reagent (Mirus
+Bio) according to the manufacturer ’s protocol. HEK293T stably ex-
+pressing HS-YFP were transfected with 750 ng plasmids encoding
+CFTR wt, F508del, or F508del-RMs. After 24 h of transfection, cells
+were seeded into 96-well plates pre-coated with poly-
+D-lysine (no.
+A3890401, Thermo Fisher). After 24 h, HS-YFP quenching assays
+were conducted as follows.
+Cells were washed with Dulbecco ’s PBS (DPBS; NaCl 137 mM, KCl
+2.7 mM, Ca
+2Cl 0.7 mM, MgCl 2 1.1 mM, KH 2PO4 1.5 mM,
+Na2HPO4 8.1 mM) and incubated in 60 mL DPBS containing either
+the CFTR activator forskolin (no. S2449 Selleckchem, 10 mM) or
+DMSO as a negative control for 20 min at 37 /C14C. Fluorescence was
+measured using an inverted epi ﬂuorescence microscope equipped
+with a 490-nm excitation ﬁlter (Chroma Technology, ET490/20 /C2)
+and a 540-nm emission ﬁlter. Continuous ﬂuorescence recording
+was performed for 35 s. After an initial 5-s recording, 165 mLI /C0buffer
+(NaI 137 mM, KCl 2.7 mM, CaCl 0.7 mM, MgCl 2 1.1 mM, KH 2PO4
+1.5 mM, Na 2PO4 8.1 mM) was added, and ﬂuorescence was moni-
+tored for an additional 30 s. YFP quenching was calculated as the ratio
+F/F0 at the end of the recording interval and CFTR function was ex-
+pressed as 1 /C0(F/F0).
+For analysis of CFTR recovery induced by base editing, 150,000
+HEK293T cells stably expressing HS-YFP were seeded into 24-well
+plates and transfected with 750 ng base editor and 250 ng sgRNA
+(sgRNA scramble [CTR] and sgRNAs to insert I539T, R553Q,
+R555K, and R1070W). At 24 h post-transfection, cells were moved
+into 96-well plates, and HS-YFP was performed after an additional
+24 h.
+To evaluate the synergistic effects between revertants and pharmaco-
+logical modulators, HEK293T cells stably expressing CFTR variants
+were transfected with 250 ng plasmid encoding HS-YFP. The
+following day, cells were seeded in 96-well plates and incubated
+with either lumacaftor (no. S1565, Selleckchem, 2.5 mM) or DMSO
+for 24 h. After overnight incubation, cells were washed with DPBS,
+and a solution containing both the potentiator ivacaftor (no. S1144,
+Selleckchem, 3 mM) and forskolin (10 mM) were added for 20 min
+before starting the HS-YFP quenching assay.
+In vitro mRNA transcription
+SpG-ABEmax and SpRY-BE4max mRNAs were synthesized by T7
+polymerase in vitro transcription using HighYield T7 RNA Synthesis
+Kit (Jena Bioscience). In detail, 750 ng linearized pIVT-SpG-ABE-
+max-EGFP and pIVT-SpRY-BE4max-EGFP plasmids were used as
+a template for the reaction. CleanCap Reagent M6 (TriLink BioTech-
+nologies, 15 mM) was added to the reaction. mRNA was puriﬁed with
+LiCl precipitation and resuspended in diethylpyrocarbonate-double-
+distilled H
+2O. The sgRNAs (standard or with chemical modi ﬁca-
+tions)75 were synthetically ordered and produced from Integrated
+DNA Technologies ( Table S6).
+Electroporation of cell lines
+A total of 200,000 HEK293T cells stably expressing F508del-CFTR
+were electroporated with 3 mg base editor mRNA either alone (con-
+trol) or with 3 mg sgRNA. Electroporation was performed with the
+Amaxa 4D-Nucleofector (SE Cell Line buffer, CM-130 program).
+Next, cells were seeded into a 12-well plate and collected after
+3 days for editing analysis.
+HBE cell culture and electroporation
+HBE cells were derived from a patient homozygous for the F508del
+and were provided by the Primary Cell Culture Service of the Italian
+Cystic Fibrosis Research Foundation. The Ethics Committee of the Is-
+tituto Giannina Gaslini approved this study, and informed consent
+was obtained from all participating CF subjects. Cells were cultured
+in LHC9/RPMI 1640 (1:1) without serum, as previously descri-
+bed,
+52,53 supplemented with rho-associated protein kinase 1 inhibitor
+(Y-27632, Merck, 5 mM), SMAD-signaling inhibitors, bone mor-
+phogenetic protein antagonist (DMH-1, Merck, 1 mM), and trans-
+forming growth factor b antagonist (A 83-01, Merck, 1 mM).
+76 We
+electroporated 200,000 cells with the Amaxa 4D-Nucleofector (P3
+primary cells buffer, DN-100 program) and seeded into a 12-well
+plate previously treated with collagen.
+Several amounts of base editor mRNA and sgRNA R553Q+6 (stan-
+dard or with chemical modiﬁcations)
+75 were tested in electroporation
+experiments to ﬁnd the most efﬁcient condition (Figure S7). After the
+initial setting, the electroporation was performed for all the other re-
+vertants using 6 mg base editor mRNA either alone or with 6 mg
+sgRNA scramble (CTR) and sgRNAs to insert I539T, R553Q,
+R555K, and R1070W. After 3 days, cells were collected for editing
+analysis.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 981
+
+
+--- Page 13 ---
+
+Short-circuit current recordings
+HBE cells, resuspended in LHC9/RPMI 1640 proliferative medium,
+were seeded at high density on transwell (cc3470, Corning Costar,
+0.33 cm
+2 surface) porous inserts (150,000 cells per insert). After
+24 h, to achieve the air-liquid interface condition, the medium on
+the apical side was totally removed, whereas the medium on the baso-
+lateral side was replaced with PneumaCult ALI (STEMCELL Technol-
+ogies) differentiation medium. Short-circuit current experiments were
+performed after 2– 3 weeks in culture, when epithelia were fully differ-
+entiated. Transwell supports carrying the epithelia were mounted in
+vertical chambers with internal ﬂuid circulation (EM-CSYS-8, Physi-
+ologic Instruments). The apical and basolateral compartments were
+ﬁlled with a solution containing (in mM) 126 NaCl, 0.38 KH
+2PO4,
+2.13 K2HPO4, 1 CaCl2, 1 MgSO4, 24 NaHCO3, 10 glucose, and phenol
+red. Solutions were continuously bubbled with a mixture of 5% CO 2-
+95% air and kept at 37 /C14C. The transepithelial voltage was clamped at
+0 mV with an eight-channel voltage-clamp ampli ﬁer (VCC MC8,
+Physiologic Instruments) connected to apical and basolateral com-
+partments with Ag/AgCl electrodes through agar bridges (1 M KCl
+in 2% agar). The resulting short-circuit current was recorded with
+the Acquire & Analyze 2.3 software (Physiologic Instruments). During
+experiments, epithelia were sequentially treated with amiloride
+(10 mM, apical) to block ENaC-dependent current, CPT-cAMP
+(100 mM, apical and basolateral) to stimulate CFTR activity, and
+CFTRinh-172 (20 mM, apical) for CFTR inhibition.
+GUIDE-seq
+GUIDE-seq analysis was performed as previously described. 45,77 In
+short, HEK293 cells were transfected with 500 ng SpGCas9 or
+SpRYCas9 plasmids, 250 ng sgRNA plasmids, 10 pmol dsODNs
+and 50 ng pEGFP-IRES-PURO plasmid using Lipofectamine 3000
+(Invitrogen). At 24 h after transfection, cells were split and selected
+with 1 mg/mL puromycin. Genomic DNA was extracted (DNeasy
+Blood and Tissue Kit, no. 69506, Qiagen) and sheared to an average
+length of 500 bp using sonication (Focused-ultrasonicator, Covaris).
+End-repair and sequencing adaptor ligation were performed using
+NEBNext Ultra End Repair/dA Tailing Module (E7546S, New En-
+gland Biolabs) and NEBNextUltra Ligation module (E7595S, New
+England Biolabs) following the procedures reported by Nobles
+et al.
+78 Ampliﬁcation steps were then performed following the
+GUIDE-seq protocol from Tsai et al., 51 and libraries were quanti ﬁed
+using the Qubit dsDNA High Sensitivity Assay kit (Q33233, Invitro-
+gen). Next-generation sequencing was performed on an Illumina
+MiSeq sequencing device using Illumina Reagent kit V2-150PE.
+Raw sequencing data (FASTQ ﬁles) were analyzed using the
+GUIDE-seq computational pipeline (version 1.0.2) available at
+https://github.com/tsailabSJ/guideseq. The GUIDE-seq data are avail-
+able in Table S7.
+Targeted deep sequencing
+Genomic DNA was extracted from HBE cells (F508del/F508del)
+3 days after electroporation. The loci of interest (on-target and OT)
+were ampli ﬁed using Phusion high- ﬁdelity polymerase (Thermo
+Scientiﬁc). Amplicons were indexed by PCR using Nextera indexes
+(Illumina), pooled in equimolar concentrations, and sequenced on
+an Illumina Miseq system using an Illumina Miseq Reagent kit
+V-300 cycles (2 /C2150 bp paired end). Primers used for PCR ampli-
+ﬁcation are listed in Table S8 . FASTQ data were analyzed using
+CRISPResso version 2.3.1.
+79
+Statistical analysis
+All statistical analyses were performed by GraphPad Prism 10 soft-
+ware. For HBE cells, ordinary one-way analysis of variance (ANOVA)
+was performed, using Dunnett ’s post hoc test. Statistical signi ﬁcance
+was deﬁned as *p < 0.05, **p < 0.01, ***p < 0.001, ****p < 0.0001, and
+ns, not signi ﬁcant.
+DATA AND CODE AVAILABILITY
+GUIDE-seq and targeted deep-sequencing data have been deposited at BioProject
+(https://www.ncbi.nlm.nih.gov/bioproject/) under the accession number PRJNA11
+50519. All other relevant data are available from the authors upon request.
+ACKNOWLEDGMENTS
+We are grateful to Dr. Cereseto ’s lab members for helpful discussions throughout the
+project. We thank the Next-Generation Sequencing facility at the University of Trento
+for technical support. We are grateful to Prof. Marianne Carlon for sharing reagents
+and for precious insights on CFTR testing. This work was fully supported by the Italian
+Cystic Fibrosis Foundation for Research (FFC) through FFC#3-2019, FFC#2-2021, and
+GenDel-CF for which we thank all the FFC delegations, FFC support groups and com-
+panies that have adopted them and by CARITRO Foundation grant no. 2018.256.
+AUTHOR CONTRIBUTIONS
+I.C., G.M., C.G., A.U., D.G., and M.D.S. designed and performed the experiments. I.C.,
+G.M., C.G., A.U., D.G., M.D.S., L.J.V.G., and M.C. collected and analyzed the data.
+G.P., G.M., D.A., and A.C. conceived and designed the study. I.C., G.M., A.U., L.J.V.G.,
+D.G., D.A., and A.C. wrote and edited the paper. A.C. and D.A. were responsible for
+the coordination of the study. All authors read, corrected, and approved the ﬁnal
+manuscript.
+DECLARATION OF INTERESTS
+A.C. and G.P. are co-founders of and hold stock in Alia Therapeutics, a genome editing
+company.
+SUPPLEMENTAL INFORMATION
+Supplemental information can be found online at https://doi.org/10.1016/j.ymthe.2025.
+01.011.
+REFERENCES
+1. Ong, T., and Ramsey, B.W. (2023). Cystic Fibrosis: A Review. JAMA 329, 1859– 1871.
+https://doi.org/10.1001/jama.2023.8120.
+2. Jia, S., and Taylor-Cousar, J.L. (2023). Cystic Fibrosis Modulator Therapies. Annu.
+Rev. Med. 74, 413– 426. https://doi.org/10.1146/annurev-med-042921-021447.
+3. Cutting, G.R. (2015). Cystic ﬁbrosis genetics: from molecular understanding to clin-
+ical application. Nat. Rev. Genet. 16,4 5– 56. https://doi.org/10.1038/nrg3849.
+4. The Clinical and Functional TRanslation of CFTR ( CFTR2) (US CF Foundation,
+Johns Hopkins University, The Hospital for Sick Children). http://cftr2.org.
+5. Ward, C.L., Omura, S., and Kopito, R.R. (1995). Degradation of CFTR by the ubiq-
+uitin-proteasome pathway. Cell 83, 121– 127. https://doi.org/10.1016/0092-8674(95)
+90240-6.
+6. Sondo, E., Cresta, F., Pastorino, C., Tomati, V., Capurro, V., Pesce, E., Lena, M.,
+Iacomino, M., Baf ﬁco, A.M., Coviello, D., et al. (2022). The L467F-F508del
+Complex Allele Hampers Pharmacological Rescue of Mutant CFTR by Elexacaftor/
+Tezacaftor/Ivacaftor in Cystic Fibrosis Patients: The Value of the Ex Vivo Nasal
+Molecular Therapy
+982 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 14 ---
+
+Epithelial Model to Address Non-Responders to CFTR-Modulating Drugs. Int. J.
+Mol. Sci. 23, 3175. https://doi.org/10.3390/ijms23063175.
+7. Relling, M.V., and Evans, W.E. (2015). Pharmacogenomics in the clinic. Nature 526,
+343– 350. https://doi.org/10.1038/nature15817.
+8. Healey, N. (2024). Next-generation CRISPR-based gene-editing therapies tested in
+clinical trials. Nat. Med. 30, 2380 – 2381. https://doi.org/10.1038/d41591-024-
+00056-8.
+9. Maule, G., Arosio, D., and Cereseto, A. (2020). Gene Therapy for Cystic Fibrosis:
+Progress and Challenges of Genome Editing. Int. J. Mol. Sci. 21, 3903. https://doi.
+org/10.3390/ijms21113903.
+10. Lee, C.M., Flynn, R., Hollywood, J.A., Scallan, M.F., and Harrison, P.T. (2012).
+Correction of the DF508 Mutation in the Cystic Fibrosis Transmembrane
+Conductance Regulator Gene by Zinc-Finger Nuclease Homology-Directed Repair.
+Biores. Open Access 1,9 9– 108. https://doi.org/10.1089/biores.2012.0218.
+11. Schwank, G., Koo, B.-K., Sasselli, V., Dekkers, J.F., Heo, I., Demircan, T., Sasaki, N.,
+Boymans, S., Cuppen, E., van der Ent, C.K., et al. (2013). Functional repair of CFTR
+by CRISPR/Cas9 in intestinal stem cell organoids of cystic ﬁbrosis patients. Cell Stem
+Cell 13, 653– 658. https://doi.org/10.1016/j.stem.2013.11.002.
+12. Ruan, J., Hirai, H., Yang, D., Ma, L., Hou, X., Jiang, H., Wei, H., Rajagopalan, C., Mou,
+H., Wang, G., et al. (2019). Efﬁcient Gene Editing at Major CFTR Mutation Loci. Mol.
+Ther. Nucleic Acids 16,7 3– 81. https://doi.org/10.1016/j.omtn.2019.02.006.
+13. Vaidyanathan, S., Salahudeen, A.A., Sellers, Z.M., Bravo, D.T., Choi, S.S., Batish, A.,
+Le, W., Baik, R., de la O, S., Kaushik, M.P., et al. (2020). High-Ef ﬁciency, Selection-
+free Gene Repair in Airway Stem Cells from Cystic Fibrosis Patients Rescues CFTR
+Function in Differentiated Epithelia. Cell Stem Cell 26, 161 – 171.e4. https://doi.org/
+10.1016/j.stem.2019.11.002.
+14. Vaidyanathan, S., Baik, R., Chen, L., Bravo, D.T., Suarez, C.J., Abazari, S.M.,
+Salahudeen, A.A., Dudek, A.M., Teran, C.A., Davis, T.H., et al. (2022). Targeted
+replacement of full-length CFTR in human airway stem cells by CRISPR-Cas9 for
+pan-mutation correction in the endogenous locus. Mol. Ther. 30, 223 – 237. https://
+doi.org/10.1016/j.ymthe.2021.03.023.
+15. Crane, A.M., Kramer, P., Bui, J.H., Chung, W.J., Li, X.S., Gonzalez-Garay, M.L.,
+Hawkins, F., Liao, W., Mora, D., Choi, S., et al. (2015). Targeted correction and
+restored function of the CFTR gene in cystic ﬁbrosis induced pluripotent stem cells.
+Stem Cel Rep. 4, 569– 577. https://doi.org/10.1016/j.stemcr.2015.02.005.
+16. Leibowitz, M.L., Papathanasiou, S., Doer ﬂer, P.A., Blaine, L.J., Sun, L., Yao, Y., Zhang,
+C.-Z., Weiss, M.J., and Pellman, D. (2021). Chromothripsis as an on-target conse-
+quence of CRISPR-Cas9 genome editing. Nat. Genet. 53
+, 895 – 905. https://doi.org/
+10.1038/s41588-021-00838-7.
+17. Nahmad, A.D., Reuveni, E., Goldschmidt, E., Tenne, T., Liberman, M., Horovitz-
+Fried, M., Khosravi, R., Kobo, H., Reinstein, E., Madi, A., et al. (2022). Frequent aneu-
+ploidy in primary human T cells after CRISPR – Cas9 cleavage. Nat. Biotechnol. 40,
+1807– 1813. https://doi.org/10.1038/s41587-022-01377-0.
+18. Kosicki, M., Tomberg, K., and Bradley, A. (2018). Repair of double-strand breaks
+induced by CRISPR-Cas9 leads to large deletions and complex rearrangements.
+Nat. Biotechnol. 36, 765– 771. https://doi.org/10.1038/nbt.4192.
+19. Anzalone, A.V., Randolph, P.B., Davis, J.R., Sousa, A.A., Koblan, L.W., Levy, J.M.,
+Chen, P.J., Wilson, C., Newby, G.A., Raguram, A., and Liu, D.R. (2019). Search-
+and-replace genome editing without double-strand breaks or donor DNA. Nature
+576, 149– 157. https://doi.org/10.1038/s41586-019-1711-4.
+20. Geurts, M.H., de Poel, E., Pleguezuelos-Manzano, C., Oka, R., Carrillo, L., Andersson-
+Rolf, A., Boretto, M., Brunsveld, J.E., van Boxtel, R., Beekman, J.M., and Clevers, H.
+(2021). Evaluating CRISPR-based prime editing for cancer modeling and CFTR
+repair in organoids. Life Sci. Alliance 4, e202000940. https://doi.org/10.26508/lsa.
+202000940.
+21. Sousa, A.A., Hemez, C., Lei, L., Traore, S., Kulhankova, K., Newby, G.A., Doman, J.L.,
+Oye, K., Pandey, S., Karp, P.H., et al. (2025). Systematic optimization of prime editing
+for the ef ﬁcient functional correction of CFTR F508del in human airway epithelial
+cells. Nat. Biomed. Eng. 9,7 – 21. https://doi.org/10.1038/s41551-024-01233-3.
+22. Lino, C.A., Harper, J.C., Carney, J.P., and Timlin, J.A. (2018). Delivering CRISPR: a
+review of the challenges and approaches. Drug Deliv. 25, 1234– 1257. https://doi.org/
+10.1080/10717544.2018.1474964.
+23. van Haasteren, J., Li, J., Scheideler, O.J., Murthy, N., and Schaffer, D.V. (2020). The
+delivery challenge: ful ﬁlling the promise of therapeutic genome editing. Nat.
+Biotechnol. 38, 845– 855. https://doi.org/10.1038/s41587-020-0565-5.
+24. Prins, S., Corradi, V., Sheppard, D.N., Tieleman, D.P., and Vergani, P. (2022). Can
+two wrongs make a right? F508del-CFTR ion channel rescue by second-site muta-
+tions in its transmembrane domains. J. Biol. Chem. 298, 101615. https://doi.org/10.
+1016/j.jbc.2022.101615.
+25. Dörk, T., Wulbrand, U., Richter, T., Neumann, T., Wolfes, H., Wulf, B., Maass, G.,
+and Tümmler, B. (1991). Cystic ﬁbrosis with three mutations in the cystic ﬁbrosis
+transmembrane conductance regulator gene. Hum. Genet. 87,4 4 1– 446. https://doi.
+org/10.1007/BF00197165.
+26. DeCarvalho, A.C.V., Gansheroff, L.J., and Teem, J.L. (2002). Mutations in the nucle-
+otide binding domain 1 signature motif region rescue processing and functional de-
+fects of cystic ﬁbrosis transmembrane conductance regulator delta f508. J. Biol.
+Chem. 277, 35896– 35905.
+https://doi.org/10.1074/jbc.M205644200.
+27. Teem, J.L., Carson, M.R., and Welsh, M.J. (1996). Mutation of R555 in CFTR-
+delta F508 enhances function and partially corrects defective processing. Recept.
+Channels 4,6 3– 72.
+28. He, L., Aleksandrov, L.A., Cui, L., Jensen, T.J., Nesbitt, K.L., and Riordan, J.R. (2010).
+Restoration of domain folding and interdomain assembly by second-site suppressors
+of the DeltaF508 mutation in CFTR. FASEB J. 24, 3103 – 3112. https://doi.org/10.
+1096/fj.09-141788.
+29. Rabeh, W.M., Bossard, F., Xu, H., Okiyoneda, T., Bagdany, M., Mulvihill, C.M., Du,
+K., di Bernardo, S., Liu, Y., Konermann, L., et al. (2012). Correction of both NBD1
+energetics and domain interface is required to restore DF508 CFTR folding and func-
+tion. Cell 148, 150– 163. https://doi.org/10.1016/j.cell.2011.11.024.
+30. Thibodeau, P.H., Richardson, J.M., Wang, W., Millen, L., Watson, J., Mendoza, J.L.,
+Du, K., Fischman, S., Senderowitz, H., Lukacs, G.L., et al. (2010). The Cystic Fibrosis-
+causing Mutation DF508 Affects Multiple Steps in Cystic Fibrosis Transmembrane
+Conductance Regulator Biogenesis. J. Biol. Chem. 285, 35825 – 35835. https://doi.
+org/10.1074/jbc.M110.131623.
+31. Mendoza, J.L., Schmidt, A., Li, Q., Nuvaga, E., Barrett, T., Bridges, R.J., Feranchak,
+A.P., Brautigam, C.A., and Thomas, P.J. (2012). Requirements for ef ﬁcient correction
+of DF508 CFTR revealed by analyses of evolved sequences. Cell 148, 164– 174. https://
+doi.org/10.1016/j.cell.2011.11.023.
+32. Okiyoneda, T., Veit, G., Dekkers, J.F., Bagdany, M., Soya, N., Xu, H., Roldan, A.,
+Verkman, A.S., Kurth, M., Simon, A., et al. (2013). Mechanism-based corrector com-
+bination restores DF508-CFTR folding and function. Nat. Chem. Biol. 9, 444 – 454.
+https://doi.org/10.1038/nchembio.1253.
+33. O ’Riordan, C.R., Lachapelle, A.L., Marshall, J., Higgins, E.A., and Cheng, S.H. (2000).
+Characterization of the oligosaccharide structures associated with the cystic ﬁbrosis
+transmembrane conductance regulator. Glycobiology 10, 1225 – 1233. https://doi.
+org/10.1093/glycob/10.11.1225.
+34. Farinha, C.M., Santos, L., and Ferreira, J.F. (2024). Cell type-speci ﬁc regulation of
+CFTR traf ﬁcking-on the verge of progress. Front. Cel Dev. Biol. 12, 1338892.
+https://doi.org/10.3389/fcell.2024.1338892.
+35. Vijftigschild, L.A.W., van der Ent, C.K., and Beekman, J.M. (2013). A novel ﬂuores-
+cent sensor for measurement of CFTR function by ﬂow cytometry. Cytometry. A. 83,
+576–
+584. https://doi.org/10.1002/cyto.a.22275.
+36. Galietta, L.V., Jayaraman, S., and Verkman, A.S. (2001). Cell-based assay for high-
+throughput quantitative screening of CFTR chloride transport agonists. Am. J.
+Physiol. Cel Physiol. 281, C1734 – C1742. https://doi.org/10.1152/ajpcell.2001.281.5.
+C1734.
+37. Rees, H.A., and Liu, D.R. (2018). Base editing: precision chemistry on the genome and
+transcriptome of living cells. Nat. Rev. Genet. 19, 770 – 788. https://doi.org/10.1038/
+s41576-018-0059-1.
+38. Gaudelli, N.M., Komor, A.C., Rees, H.A., Packer, M.S., Badran, A.H., Bryson, D.I.,
+and Liu, D.R. (2017). Programmable base editing of A $Tt oG $C in genomic DNA
+without DNA cleavage. Nature 551, 464– 471. https://doi.org/10.1038/nature24644.
+39. Komor, A.C., Kim, Y.B., Packer, M.S., Zuris, J.A., and Liu, D.R. (2016).
+Programmable editing of a target base in genomic DNA without double-stranded
+DNA cleavage. Nature 533, 420– 424. https://doi.org/10.1038/nature17946.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 983
+
+
+--- Page 15 ---
+
+40. Gaudelli, N.M., Lam, D.K., Rees, H.A., Solá-Esteves, N.M., Barrera, L.A., Born, D.A.,
+Edwards, A., Gehrke, J.M., Lee, S.-J., Liquori, A.J., et al. (2020). Directed evolution of
+adenine base editors with increased activity and therapeutic application. Nat.
+Biotechnol. 38, 892– 900. https://doi.org/10.1038/s41587-020-0491-6.
+41. Koblan, L.W., Doman, J.L., Wilson, C., Levy, J.M., Tay, T., Newby, G.A., Maianti, J.P.,
+Raguram, A., and Liu, D.R. (2018). Improving cytidine and adenine base editors by
+expression optimization and ancestral reconstruction. Nat. Biotechnol. 36,
+843– 846. https://doi.org/10.1038/nbt.4172.
+42. Richter, M.F., Zhao, K.T., Eton, E., Lapinaite, A., Newby, G.A., Thuronyi, B.W.,
+Wilson, C., Koblan, L.W., Zeng, J., Bauer, D.E., et al. (2020). Phage-assisted evolution
+of an adenine base editor with improved Cas domain compatibility and activity. Nat.
+Biotechnol. 38, 883– 891. https://doi.org/10.1038/s41587-020-0453-z.
+43. Nishimasu, H., Shi, X., Ishiguro, S., Gao, L., Hirano, S., Okazaki, S., Noda, T.,
+Abudayyeh, O.O., Gootenberg, J.S., Mori, H., et al. (2018). Engineered CRISPR-
+Cas9 nuclease with expanded targeting space. Science 361, 1259 – 1262. https://doi.
+org/10.1126/science.aas9129.
+44. Walton, R.T., Christie, K.A., Whittaker, M.N., and Kleinstiver, B.P. (2020).
+Unconstrained genome targeting with near-PAMless engineered CRISPR-Cas9 var-
+iants. Science 368,2 9 0– 296. https://doi.org/10.1126/science.aba8853.
+45. Amistadi, S., Maule, G., Ciciani, M., Ensinck, M.M., De Keersmaecker, L., Ramalho,
+A.S., Guidone, D., Buccirossi, M., Galietta, L.J.V., Carlon, M.S., and Cereseto, A.
+(2023). Functional restoration of a CFTR splicing mutation through RNA delivery
+of CRISPR adenine base editor. Mol. Ther. 31, 1647 – 1660. https://doi.org/10.1016/
+j.ymthe.2023.03.004.
+46. Veit, G., Da Fonte, D.F., Avramescu, R.G., Premchandar, A., Bagdany, M., Xu, H.,
+Bensinger, D., Stubba, D., Schmidt, B., Matouk, E., and Lukacs, G.L. (2020).
+Mutation-speciﬁc dual potentiators maximize rescue of CFTR gating mutants.
+J. Cyst. Fibros. 19, 236– 244. https://doi.org/10.1016/j.jcf.2019.10.011.
+47. Kluesner, M.G., Nedveck, D.A., Lahr, W.S., Garbe, J.R., Abrahante, J.E., Webber, B.R.,
+and Moriarity, B.S. (2018). EditR: A Method to Quantify Base Editing from Sanger
+Sequencing. CRISPR J. 1, 239– 250. https://doi.org/10.1089/crispr.2018.0014.
+48. Antoniou, P., Hardouin, G., Martinucci, P., Frati, G., Felix, T., Chalumeau, A.,
+Fontana, L., Martin, J., Masson, C., Brusson, M., et al. (2022). Base-editing-mediated
+dissection of a g-globin cis-regulatory element for the therapeutic reactivation of fetal
+hemoglobin expression. Nat. Commun. 13,6 6 1 8– 6622. https://doi.org/10.1038/
+s41467-022-34493-1.
+49. Gehrke, J.M., Cervantes, O., Clement, M.K., Wu, Y., Zeng, J., Bauer, D.E., Pinello, L.,
+and Joung, J.K. (2018). An APOBEC3A-Cas9 base editor with minimized bystander
+and off-target activities. Nat. Biotechnol. 36, 977 – 982. https://doi.org/10.1038/
+nbt.4199.
+50. Zafra, M.P., Schatoff, E.M., Katti, A., Foronda, M., Breinig, M., Schweitzer, A.Y.,
+Simon, A., Han, T., Goswami, S., Montgomery, E., et al. (2018). Optimized base ed-
+itors enable ef ﬁcient editing in cells, organoids and mice. Nat. Biotechnol. 36,
+888– 893. https://doi.org/10.1038/nbt.4194.
+51. Tsai, S.Q., Zheng, Z., Nguyen, N.T., Liebers, M., Topkar, V.V., Thapar, V., Wyvekens,
+N., Khayter, C., Iafrate, A.J., Le, L.P., et al. (2015). GUIDE-seq enables genome-wide
+proﬁling of off-target cleavage by CRISPR-Cas nucleases. Nat. Biotechnol. 33,
+187– 197. https://doi.org/10.1038/nbt.3117.
+52. Scudieri, P., Caci, E., Bruno, S., Ferrera, L., Schiavon, M., Sondo, E., Tomati, V.,
+Gianotti, A., Zegarra-Moran, O., Pedemonte, N., et al. (2012). Association of
+TMEM16A chloride channel overexpression with airway goblet cell metaplasia.
+J. Physiol. 590, 6141– 6155. https://doi.org/10.1113/jphysiol.2012.240838.
+53. Scudieri, P., Musante, I., Venturini, A., Guidone, D., Genovese, M., Cresta, F., Caci, E.,
+Palleschi, A., Poeta, M., Santamaria, F., et al. (2020). Ionocytes and CFTR Chloride
+Channel Expression in Normal and Cystic Fibrosis Nasal and Bronchial Epithelial
+Cells. Cells 9, 2090. https://doi.org/10.3390/cells9092090.
+54. Capurro, V., Tomati, V., Sondo, E., Renda, M., Borrelli, A., Pastorino, C., Guidone,
+D., Venturini, A., Giraudo, A., Mandrup Bertozzi, S., et al. (2021). Partial rescue of
+F508del-CFTR stability and traf ﬁcking defects by double corrector treatment. Int.
+J. Mol. Sci. 22, 5262. https://doi.org/10.3390/ijms22105262.
+55. Mao, Z., Bozzella, M., Seluanov, A., and Gorbunova, V. (2008). DNA repair by
+nonhomologous end joining and homologous recombination during cell cycle in hu-
+man cells. Cell Cycle 7, 2902– 2906. https://doi.org/10.4161/cc.7.18.6679.
+56. Zierden, H.C., Josyula, A., Shapiro, R.L., Hsueh, H.T., Hanes, J., and Ensign, L.M.
+(2021). Avoiding a sticky situation: Bypassing the mucus barrier for improved local
+drug delivery. Trends Mol. Med. 27, 436 – 450. https://doi.org/10.1016/j.molmed.
+2020.12.001.
+57. Chen, K., Han, H., Zhao, S., Xu, B., Yin, B., Trinidad, M., Burgstone, B.W., Murthy,
+N., and Doudna, J.A. (2023). Lung and liver editing by lipid nanoparticle delivery of a
+stable CRISPR-Cas9 RNP. Preprint at bioRxiv. https://doi.org/10.1101/2023.11.15.
+566339.
+58. Wang, X., Liu, S., Sun, Y., Yu, X., Lee, S.M., Cheng, Q., Wei, T., Gong, J., Robinson, J.,
+Zhang, D., et al. (2023). Preparation of selective organ-targeting (SORT) lipid nano-
+particles (LNPs) using multiple technical methods for tissue-speci ﬁc mRNA delivery.
+Nat. Protoc. 18, 265– 291. https://doi.org/10.1038/s41596-022-00755-x.
+59. Zhang, Z., Bao, X., and Lin, C.-P. (2023). Progress and Prospects of Gene Editing in
+Pluripotent Stem Cells. Biomedicines 11, 2168. https://doi.org/10.3390/biomedi-
+cines11082168.
+60. Ihry, R.J., Worringer, K.A., Salick, M.R., Frias, E., Ho, D., Theriault, K., Kommineni,
+S., Chen, J., Sondey, M., Ye, C., et al. (2018). p53 inhibits CRISPR-Cas9 engineering in
+human pluripotent stem cells. Nat. Med. 24, 939 – 946. https://doi.org/10.1038/
+s41591-018-0050-6.
+61. Schiroli, G., Conti, A., Ferrari, S., Della Volpe, L., Jacob, A., Albano, L., Beretta, S.,
+Calabria, A., Vavassori, V., Gasparini, P., et al. (2019). Precise Gene Editing
+Preserves Hematopoietic Stem Cell Function following Transient p53-Mediated
+DNA Damage Response. Cell Stem Cell 24,5 5 1– 565.e8. https://doi.org/10.1016/j.
+stem.2019.02.019.
+62. Mention, K., Cavusoglu-Doran, K., Joynt, A.T., Santos, L., Sanz, D., Eastman, A.C.,
+Merlo, C., Langfelder-Schwind, E., Scallan, M.F., Farinha, C.M., et al. (2023). Use
+of adenine base editing and homology-independent targeted integration strategies
+to correct the cystic ﬁbrosis causing variant. Hum. Mol. Genet. 32, 3237 – 3248.
+https://doi.org/10.1093/hmg/ddad143.
+63. Geurts, M.H., de Poel, E., Amatngalim, G.D., Oka, R., Meijers, F.M., Kruisselbrink, E.,
+van Mourik, P., Berkers, G., de Winter-de Groot, K.M., Michel, S., et al. (2020).
+CRISPR-Based Adenine Editors Correct Nonsense Mutations in a Cystic Fibrosis
+Organoid Biobank. Cell Stem Cell 26, 503 – 510.e7. https://doi.org/10.1016/j.stem.
+2020.01.019.
+64. Krishnamurthy, S., Traore, S., Cooney, A.L., Brommel, C.M., Kulhankova, K., Sinn,
+P.L., Newby, G.A., Liu, D.R., and McCray, P.B. (2021). Functional correction of
+CFTR mutations in human airway epithelial cells using adenine base editors.
+Nucleic Acids Res. 49, 10558– 10572. https://doi.org/10.1093/nar/gkab788.
+65. Teem, J.L., Berger, H.A., Ostedgaard, L.S., Rich, D.P., Tsui, L.C., and Welsh, M.J.
+(1993). Identi ﬁcation of revertants for the cystic ﬁbrosis delta F508 mutation using
+STE6-CFTR chimeras in yeast. Cell 73, 335 – 346. https://doi.org/10.1016/0092-
+8674(93)90233-g.
+66. Kim, D., Lim, K., Kim, S.-T., Yoon, S.-H., Kim, K., Ryu, S.-M., and Kim, J.-S. (2017).
+Genome-wide target speci ﬁcities of CRISPR RNA-guided programmable deami-
+nases. Nat. Biotechnol. 35, 475– 480. https://doi.org/10.1038/nbt.3852.
+67. Anzalone, A.V., Koblan, L.W., and Liu, D.R. (2020). Genome editing with CRISPR-
+Cas nucleases, base editors, transposases and prime editors. Nat. Biotechnol. 38,
+824– 844. https://doi.org/10.1038/s41587-020-0561-9.
+68. Pedrazzoli, E., Demozzi, M., Visentin, E., Ciciani, M., Bonuzzi, I., Pezzè, L., Lucchetta,
+L., Maule, G., Amistadi, S., Esposito, F., et al. (2024). CoCas9 is a compact nuclease
+from the human microbiome for ef ﬁcient and precise genome editing. Nat.
+Commun. 15, 3478. https://doi.org/10.1038/s41467-024-47800-9.
+69. Fujii, W., Kakuta, S., Yoshioka, S., Kyuwa, S., Sugiura, K., and Naito, K. (2016).
+Zygote-mediated generation of genome-modi ﬁed mice using Streptococcus thermo-
+philus 1-derived CRISPR/Cas system. Biochem. Biophys. Res. Commun. 477,
+473– 476. https://doi.org/10.1016/j.bbrc.2016.06.070.
+70. Ran, F.A., Cong, L., Yan, W.X., Scott, D.A., Gootenberg, J.S., Kriz, A.J., Zetsche, B.,
+Shalem, O., Wu, X., Makarova, K.S., et al. (2015). In vivo genome editing using
+Staphylococcus aureus Cas9. Nature520,1 8 6– 191. https://doi.org/10.1038/nature14299.
+71. Edraki, A., Mir, A., Ibraheim, R., Gainetdinov, I., Yoon, Y., Song, C.-Q., Cao, Y.,
+Gallant, J., Xue, W., Rivera-Pérez, J.A., and Sontheimer, E.J. (2019). A compact,
+high-accuracy Cas9 with a dinucleotide PAM for in vivo genome editing. Mol. Cel
+73, 714– 726.e4. https://doi.org/10.1016/j.molcel.2018.12.003.
+Molecular Therapy
+984 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 16 ---
+
+72. Cong, L., Ran, F.A., Cox, D., Lin, S., Barretto, R., Habib, N., Hsu, P.D., Wu, X., Jiang,
+W., Marraf ﬁni, L.A., and Zhang, F. (2013). Multiplex genome engineering using
+CRISPR/Cas systems. Science 339, 819– 823. https://doi.org/10.1126/science.1231143.
+73. Petris, G., Casini, A., Montagna, C., Lorenzin, F., Prandi, D., Romanel, A., Zasso, J.,
+Conti, L., Demichelis, F., and Cereseto, A. (2017). Hit and go CAS9 delivered through
+a lentiviral based self-limiting circuit. Nat. Commun. 8, 15334. https://doi.org/10.
+1038/ncomms15334.
+74. Ensinck, M., De Keersmaecker, L., Heylen, L., Ramalho, A.S., Gijsbers, R., Farré, R.,
+De Boeck, K., Christ, F., Debyser, Z., and Carlon, M.S. (2020). Phenotyping of Rare
+CFTR Mutations Reveals Distinct Traf ﬁcking and Functional Defects. Cells 9, 754.
+https://doi.org/10.3390/cells9030754.
+75. Riesenberg, S., Helmbrecht, N., Kanis, P., Maricic, T., and Pääbo, S. (2022). Improved
+gRNA secondary structures allow editing of target sites resistant to CRISPR-Cas9
+cleavage. Nat. Commun. 13, 489. https://doi.org/10.1038/s41467-022-28137-7.
+76. Mou, H., Vinarsky, V., Tata, P.R., Brazauskas, K., Choi, S.H., Crooke, A.K., Zhang, B.,
+Solomon, G.M., Turner, B., Bihler, H., et al. (2016). Dual SMAD Signaling Inhibition
+Enables Long-Term Expansion of Diverse Epithelial Basal Cells. Cell Stem Cell 19,
+217– 231. https://doi.org/10.1016/j.stem.2016.05.012.
+77. Maule, G., Casini, A., Montagna, C., Ramalho, A.S., De Boeck, K., Debyser, Z., Carlon,
+M.S., Petris, G., and Cereseto, A. (2019). Allele speci ﬁc repair of splicing mutations in
+cystic ﬁbrosis through AsCas12a genome editing. Nat. Commun. 10, 3556. https://
+doi.org/10.1038/s41467-019-11454-9.
+78. Nobles, C.L., Reddy, S., Salas-McKee, J., Liu, X., June, C.H., Melenhorst, J.J., Davis,
+M.M., Zhao, Y., and Bushman, F.D. (2019). iGUIDE: an improved pipeline for
+analyzing CRISPR cleavage speci ﬁcity. Genome Biol. 20, 14. https://doi.org/10.
+1186/s13059-019-1625-3.
+79. Clement, K., Rees, H., Canver, M.C., Gehrke, J.M., Farouni, R., Hsu, J.Y., Cole, M.A.,
+Liu, D.R., Joung, J.K., Bauer, D.E., and Pinello, L. (2019). CRISPResso2 provides ac-
+curate and rapid genome editing sequence analysis. Nat. Biotechnol. 37, 224 – 226.
+https://doi.org/10.1038/s41587-019-0032-3.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 985

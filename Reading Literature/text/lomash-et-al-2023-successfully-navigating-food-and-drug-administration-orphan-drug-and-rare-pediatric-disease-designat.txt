@@ -1,0 +1,1026 @@
+# Source PDF: Reading Literature/files/68/Lomash et al. - 2023 - Successfully Navigating Food and Drug Administration Orphan Drug and Rare Pediatric Disease Designat.pdf
+
+
+
+--- Page 1 ---
+
+CLINICAL DEVELOPMENTS
+Open camera or QR reader and
+scan code to access this article
+and other resources online.
+Successfully Navigating Food and Drug Administration Orphan
+Drug and Rare Pediatric Disease Designations for AAV9-hPCCA
+Gene Therapy: The National Institutes of Health Platform
+Vector Gene Therapy Experience
+Richa Madan Lomash,1 Oleg Shchelochkov,2 Randy J. Chandler, 2 NIH PaVe-GT Team, { Charles P. Venditti, 2
+Anne R. Pariser, 3,* and Elizabeth A. Ottinger 1,*
+1Therapeutic Development Branch, Division of Preclinical Innovation, National Center for Advancing Translational Sciences (NCATS), NIH, Rockvil le, Maryland, USA;
+2Organic Acid Research Section, Molecular Medicine Branch, National Human Genome Research Institute (NHGRI), NIH, Bethesda, Maryland, USA; 3Division of Rare
+Diseases Research Innovation, NCATS, NIH, Rockville, Maryland, USA.
+{See Acknowledgments section.
+Orphan drug designation (ODD) is an important program intended to facilitate the development of orphan drugs in the
+United States. An orphan drug beneﬁting pediatric patients can qualify as a drug for a Rare Pediatric Disease Designation
+(RPDD) as well. The ODD and RPDD programs provide ﬁnancial incentives for development of diagnostic drugs, pre-
+ventive measures, and treatment of diseases affecting small patient populations (adult and pediatric) for which com-
+mercial development would otherwise be very challenging. In 2019, a multidisciplinary group of collaborators at
+National Institutes of Health (NIH) embarked upon a gene therapy platform program called Platform Vector Gene
+Therapy (PaVe-GT) intended to develop gene therapies for four such rare disorders. An important part of PaVe-GT is to
+publicly share scientiﬁc and regulatory experience gained at different stages during the implementation of the PaVe-GT
+platform utilizing illustrative examples. The PaVe-GT team recently obtained ODD and RPDD for an adeno-associated
+virus gene therapy to treat propionic acidemia. Given an increasing interest in obtaining ODD for gene therapy, espe-
+cially by small companies, research investigators, and patient groups, we overview the submission process and subse-
+quently provide examples of our ODD and RPDD applications. Our ODD and RPDD applications and templates can also
+be found on the PaVe-GT website. Shared reference documents will have great utility to assist parties who may have
+limited experience with the preparation of similar applications for their orphan product.
+Keywords: rare diseases, orphan drug, orphan drug designation, Rare Pediatric Disease Designation, ﬁnancial incentives,
+gene therapy
+INTRODUCTION: THE PLATFORM VECTOR
+GENE THERAPY PROGRAM
+IN 2019, the National Center for Advancing Translational
+Sciences (NCATS) at the National Institutes of Health
+(NIH) embarked on a multiplexed approach to facilitate
+the standardization of gene therapy development of rare
+genetic diseases called the Platform Vector Gene Therapy
+(PaVe-GT) program. The main goal of PaVe-GT is to test
+whether the efﬁciency of gene therapy development and
+clinical implementation can be increased using shared
+approaches to streamline manufacturing, preclinical stud-
+ies, and clinical protocols to treat rare monogenic diseases.
+*Correspondence: Dr. Elizabeth A. Ottinger, Therapeutic Development Branch, Division of Preclinical Innovation, National Center for Advancing T ranslational Sciences
+(NCATS), NIH, 9800 Medical Center Drive Bldg B, Rm 326, Rockville, MD 20850, USA. E-mail: elizabeth.ottinger@nih.gov; Dr. Anne R. Pariser, Division of Rare Diseases
+Research Innovation, NCATS, NIH, Rockville, MD, USA. E-mail: anne.pariser@gmail.com
+ª Richa Madan Lomash et al. 2023; Published by Mary Ann Liebert, Inc. This Open Access article is distributed under the terms of the Creative Commons License [CC-BY]
+(http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the ori ginal work is properly cited.
+HUMAN GENE THERAPY, VOLUME 34, NUMBERS 5 and 6 DOI: 10.1089/hum.2022.232 j 217
+Mary Ann Liebert, Inc.
+
+
+--- Page 2 ---
+
+PaVe-GT has been described in more detail elsewhere, 1
+but brieﬂy, this program uses an adeno-associated virus
+(AAV) as a ‘‘platform’’ vector to develop gene therapies
+for four very low prevalence genetic diseases for which
+there would otherwise be no or little commercial interest.
+The diseases selected in PaVe-GT include two organic
+acidemias, propionyl-CoA carboxylase alpha subunit pro-
+pionic acidemia ( PCCA-related PA) and isolated meth-
+ylmalonic acidemia cobalamin type B ( MMAB-related
+MMA), and two congenital myasthenic syndromes caused
+by deﬁciency of DOK7 (downstream of tyrosine kinase 7)
+or Collagen Q (ColQ), a form of nonﬁbrillar collagen.
+PaVe-GT also intends to help the rare disease community
+better understand the regulatory requirements and oppor-
+tunities related to late-stage preclinical through early
+clinical development for investigational gene therapy drug
+products and ways to navigate the regulatory process.
+Our aim is to leverage the learnings and experience of
+PaVe-GT to other AAV gene therapy development pro-
+grams, irrespective of the capsid or disease type. As part
+of this effort, the program plans to release a series of reg-
+ulatory documentation and communications throughout
+our drug development program. Additional program infor-
+mation and project updates can be found on the PaVe-GT
+website (https://pave-gt.ncats.nih.gov/).
+The ﬁrst gene therapy product, adeno-associated virus
+serotype 9 human propionyl-CoA carboxylase, alpha sub-
+unit (AAV9-hPCCA, NCATS-BL0746) for the treatment
+of PCCA-related PA, was granted an Orphan Drug Des-
+ignation (ODD) by the U.S. Food and Drug Administra-
+tion (FDA) in 2021
+2 and subsequently a Rare Pediatric
+Disease Designation (RPDD) as a drug for the treatment
+of a rare pediatric disease, PCCA-related PA in 2022. The
+focus of this communication is to help readers understand
+the signiﬁcance of these incentive programs in stimulating
+drug development and illustrate how sponsors can utilize
+FDA guidance to prepare ODD or RPDD applications.
+A sponsor, as per FDA regulations (21CFR 312.3), is
+deﬁned as a person who takes responsibility for and
+initiates a clinical investigation. The sponsor may be a
+government agency, academic institution, pharmaceutical
+company, private organization, or an individual.
+3
+BACKGROUND: THE ORPHAN DRUG ACT,
+ODD, AND RPDD
+It is estimated that there are more than 7,000 rare dis-
+eases,4,5 the majority of which are single gene disorders.5,6
+While the number of people with an individual rare dis-
+ease is small, the total number of individuals living with
+a rare disease in the United States is estimated at 25–
+30 million.
+7 Most rare diseases ( *95%) do not have an
+FDA-approved therapy, 8 highlighting the considerable
+need for new treatments for this relatively large cohort
+of patients. Since an individual rare disease patient pop-
+ulation is small, drug proﬁtability is likely to be low in
+comparison to the cost of drug development, leading to a
+low return on investment for a company that develops
+‘‘orphan drugs.’’ The Orphan Drug Act (ODA), enacted
+in the United States in 1983, supports the development
+of orphan drugs (including biologics) for rare diseases or
+conditions by providing ﬁnancial incentives, thus reduc-
+ing the overall development costs.
+9 The ODA is admin-
+istered by FDA’s Ofﬁce of Orphan Product Development
+(OOPD),10 and they have issued regulations detailing
+requirements for granting an orphan designation. 11
+For a drug to qualify as an orphan drug, 9,11 it must:
+(a) Be intended for the treatment of a disease or con-
+dition affecting fewer than a total of 200,000
+people in the United States, or
+(b) If the drug is a vaccine, diagnostic drug, or pre-
+ventive drug, the persons to whom the drug will be
+administered in the United States must be fewer
+than 200,000 per year, or
+(c) For drugs intended for a disease or condition
+affecting 200,000 or more people, or for a vaccine,
+diagnostic drug, or preventive drug to be admin-
+istered to 200,000 or more persons per year in the
+United States, the drug may qualify as an orphan
+drug when there is no reasonable expectation the
+cost of developing such a drug would be proﬁt-
+able by sales in the United States.
+There are substantial ﬁnancial beneﬁts to obtaining an
+ODD
+12 that include:
+(a) Tax credits for qualiﬁed clinical testing upon
+approval,
+(b) Waiver of New Drug Application (NDA) or Bio-
+logics Licensing Application (BLA) Prescription
+Drug User Fee Act (PDUFA) fees ( *$3.1 M in
+2022)
+10 upon submission of the application,
+(c) Eligibility for 7-year marketing exclusivity,
+termed ‘‘orphan exclusivity,’’ postmarketing
+approval.9,13,14
+Another program to incentivize therapeutic invention,
+the Priority Review Vouchers (PRVs) program, originally
+established for neglected tropical diseases, was subsequ-
+ently expanded to include rare pediatric diseases.
+15 The
+RPDD program was started in 2012 and extended by
+the Congress in 2020
+16 with the intention of encourag-
+ing the development of drugs for rare pediatric disorders.
+RPDD can be used alone or in combination with other
+incentive programs, like ODD. A RPDD is for a serious
+or life-threatening rare disease or condition primarily
+affecting individuals from birth to 18 years. If a drug
+qualiﬁes under a RPDD, and receives marketing approval,
+a sponsor is eligible to receive a PRV that may be used
+for an expedited review of a subsequent marketing appli-
+218 LOMASH ET AL.
+
+
+--- Page 3 ---
+
+cation for a different product or sold to another sponsor. 17
+According to Government Accounting Ofﬁce (GAO)
+report, 31 PRVs (19 for rare pediatric diseases) were
+awarded until 2019; of these, 16 vouchers have been
+redeemed thus far by sponsors for several indications.
+18
+ODD REQUEST OVERVIEW
+In this article, we share our experience for successfully
+navigating the process of obtaining an ODD and a RPDD
+for an AAV9 gene therapy to treat PCCA-related PA. We
+submitted our applications separately, but the ODD and
+RPDD applications may be submitted simultaneously.
+Both applications typically rely upon similar information,
+so submitting together can streamline the process and
+timeline. Since we submitted the ODD ﬁrst, we will pri-
+marily outline the process using our ODD example.
+An ODD can be requested for a new drug, without
+any prior regulatory approval for treatment, prevention, or
+diagnosis of a rare disease or condition or for a previ-
+ously approved drug if it is intended to treat, prevent, or
+diagnose a rare disease or condition that is different from
+the prior marketing approval. In addition, before drug ap-
+proval, more than one sponsor may receive ODD for
+the same drug and the same rare disease or condition, but
+each sponsor seeking ODD must ﬁle a complete request for
+ODD, and the ﬁrst sponsor to receive FDA drug approval
+receives the ﬁnancial development beneﬁts and conditional
+marketing exclusivity.
+11,19 Similarly, a marketing applica-
+tion is conditionally designated as a RPDD with the ﬁnal
+determination made at the time of drug approval.17
+According to the recent FDA guidance, ‘‘Interpreting
+Sameness of Gene Therapy Products Under the Orphan
+Drug Regulations,’’20 FDA generally intends to determine
+whether two gene therapy products are different drugs on
+a case-by-case basis based on the principal molecular
+structural features, such as transgenes and vectors (cap-
+sids), for purposes of 21 CFR 316.3(b)(14)(ii). Usually,
+two AAV gene therapy products are considered differ-
+ent if they express a different transgene or have different
+vectors which could impact the tropism, immune response
+avoidance, or potential insertional mutagenesis. However,
+two gene therapy products are not considered to be dif-
+ferent drugs based solely on minor differences between
+their transgenes and/or vectors. If two gene therapy prod-
+ucts express the same transgene and have the same vector,
+determination of their sameness may also depend on
+additional features of the ﬁnal product that can contribute
+to the therapeutic effect such as regulatory elements ( e.g.,
+promoters, enhancers, and so on).
+A sponsor may request ODD at any time in its drug
+development process (preclinical through clinical phases)
+before submission of a marketing application.
+21 It is, how-
+ever, necessary to identify the lead investigational drug
+product for treating the orphan disease/condition before
+preparing the request since ODDs are speciﬁc to drug
+products. The information available can vary per pro-
+gram and any evidence that helps better describe the
+context of use of the proposed drug and its beneﬁt in the
+disease indication can support an ODD application. This
+evidence can be in the form of literature, expert opinion,
+disease models, basic and translational studies, or reports.
+Among the barriers that families and small patient
+advocacy groups face, the establishment of direct con-
+nections with researchers, clinicians, and disease experts
+for navigating disease information and estimating the
+patient population size are challenging. NCATS Division
+of Rare Diseases Research Innovation has resources such
+as the Genetic and Rare Diseases Information Center
+(GARD), Patient-toolkit, and Rare Diseases Clinical
+Research Network (RDCRN) to help groups further
+their understanding of the disease and make connections
+with appropriate experts. Scientiﬁc meetings organized
+by patient groups and patient focused conferences are also
+effective means to directly interact with researchers and
+clinicians. Once the right connections are made, sponsors
+may work with disease experts and drug developers to
+draft their own ODD application or outsource drafting
+of their application to commercial vendors providing such
+services.
+An overview of the ODD process is outlined in Fig. 1
+with the main considerations being:
+/C15 Proof of direct beneﬁt: Establishing a medically
+plausible basis for the drug’s effectiveness in the
+rare disease supported by efﬁcacy data from either
+clinical or nonclinical studies in a relevant model
+of the human disease.
+/C15 Patient population size in the United States: Estab-
+lishing the orphan status of the disease or condi-
+tion by determining population size from relevant
+literature and/or appropriate sources.
+As required by the OOPD, we drafted a comprehensive
+ODD request application and submitted it to FDA OOPD,
+with all the information outlined under 21 CFR 316.20
+‘‘Content, and format of a request for ODD.’’
+22 As a
+tool intended to assist sponsors in providing the ODD
+request information completely and succinctly, FDA
+OOPD provides the optional Form FDA 4035 ‘‘FDA
+Orphan Drug Designation Request Form,’’ where the
+requirements for an ODD request have been included.
+23
+Alternatively, sponsors may compile their own applica-
+tion based on FDA regulatory requirements. We com-
+piled our own application and, during the process, created
+a checklist to serve as a guide (Table 1) and prepared
+a template (available on PaVe-GT website). The lightly
+redacted ODD and RPDD applications that were submit-
+ted to the FDA are also provided (Supplementary Files S1
+and S2).
+ORPHAN DRUG AND RARE PEDIATRIC DISEASE DESIGNATION 219
+
+
+--- Page 4 ---
+
+APPROACH: CONTENT OF AN ODD
+APPLICATION
+ODD request statement
+The application request starts with a statement from the
+sponsor and the following is what we used for our appli-
+cation. ‘‘Pursuant to 21 CFR 316.20, National Institutes
+of Health (NIH), National Center for Advancing Trans-
+lational Sciences (NCATS) requests designation of adeno-
+associated virus serotype 9 human propionyl-CoA
+carboxylase, alpha subunit (AAV9-hPCCA) as an orphan
+drug product for treatment of patients with propionic
+acidemia (PA) resulting from a deﬁciency of propionyl-
+CoA carboxylase, alpha subunit (PCCA).’’ See Section 1
+in Supplementary File S1 for the complete statement.
+Figure 1. The ODD application compilation process. The application can be compiled as per the FDA requirements at different program stages once the lead
+investigational drug product has been identiﬁed. The application must include proof of direct beneﬁt, documentation of population size, and orphan drug
+regulatory history. Direct beneﬁt information and population size are critical, and substantial details in these sections make a strong applicatio n. FDA, Food and
+Drug Administration; ODD, orphan drug designation.
+Table 1. Orphan drug designation request checklist as per Food and Drug Administration regulations
+Required Section of the ODD Request Description of the Requirements
+, ODD request statement A statement from the sponsor requesting an ODD for an investigational drug product for a rare disease or
+condition. 21 CFR 316.20(b)(1)
+, Administrative information Name and address of the sponsor, sponsor’s primary and any alternate contact(s), and regulatory agent(s) (where
+applicable). 21 CFR 316.20(b)(2)
+, Description of the rare disease or condition,
+proposed indication and use of the drug,
+and the reasons why such therapy is needed
+A description of the rare disease or condition for which the investigational drug is being or will be investigated for,
+the proposed indication or indications for use of the drug, and the reasons why such therapy is needed. 21 CFR
+316.20(b)(3)
+, Description of the drug and scientiﬁc
+rationale for use
+Detailed description of investigational product; its physical and chemical properties, if these characteristics can be
+determined; and a discussion of the scientiﬁc rationale, based either on nonclinical or clinical efﬁcacy data, to
+establish a medically plausible basis for the use of the drug for the rare disease or condition. 21 CFR 316.20(b)(4)
+, Orphan drug status Only applicable to the sponsor of a drug that is otherwise the same drug as an already approved drug seeks ODD
+for the subsequent drug for the same rare disease or condition. If this is not applicable, provide a statement
+accordingly in the application under this section. 21 CFR 316.20(b)(5)
+, Patient subset considerations and medical
+plausibility of the chosen subset
+Only applicable to the sponsor of an ODD request for an investigational drug for only a subset of persons with a
+particular disease or condition that otherwise affects 200,000 or more people (‘‘orphan subset’’). If this is not
+applicable, provide a statement accordingly in the application under this section. 21 CFR 316.20(b)(6)
+, Regulatory status and marketing history This section should include a summary of the regulatory status and marketing history of the drug in the United
+States and in foreign countries. Include short description and assigned regulatory submission number to any
+historical regulatory submissions. 21 CFR 316.20(b)(7)
+, Documentation of patient population size Provide documentation that the investigational drug is either intended to treat a disease or condition aff ecting
+fewer than a total of 200,000 people in the United States (prevalence); the investigational drug is intended to
+treat an acute disease or condition affecting annually fewer than 200,000 people in the United States
+(incidence); or, for a disease or condition affecting more than 200, 000 in the United States, provide
+documentation that there is no reasonable expectation that costs of research and development of the drug for
+the indication can be recovered by sales of the drug in the United States. 21 CFR 316.20(b)(8)
+ODD, orphan drug designation.
+Source: 21CFR 316, Subpart C—Designation of an Orphan Drug.
+22
+220 LOMASH ET AL.
+
+
+--- Page 5 ---
+
+Description of the rare disease or condition,
+proposed indication and use of the drug,
+and the reasons why such therapy is needed
+The ODD application requires that an orphan disease
+or condition targeted by the proposed product be clearly
+described. To the extent possible, it is useful to describe
+the clinical manifestations, pathophysiology, clinical course
+(i.e., natural history), affected population (age range, age
+of onset, and demographics), medical care and therapies
+available to patients, disease mechanisms, and molecular
+underpinnings of the disease.
+For PCCA-related PA, we reviewed published litera-
+ture and gathered expert opinions and information from
+an NIH-conducted natural history study (NHS).
+24,25 We
+summarized the abovementioned sources to deﬁne the dis-
+ease (PCCA-related PA) and included information pertinent
+to its clinical manifestations and pathophysiology. Brieﬂy,
+PA is an autosomal recessive inborn error of metabolism for
+which the affected enzyme, PCC, a ubiquitously expressed
+mitochondrial enzyme, and its metabolic pathway for ami-
+no- and fatty-acid catabolism are known.
+26–28 PCC is a
+multimeric enzyme, composed of alpha (PCCA) and beta
+(PCCB) subunits, deﬁciency in either of which can result in
+PCCA-a n d PCCB-related PA with identical clinical mani-
+festations,29 and pathogenic variants in either subunit occur
+with equal frequency. Each form of PA (PCCA- and PCCB-
+related) is a life-threatening chronic condition, which usu-
+ally ﬁrst manifests in the newborn period. Chronic mani-
+festations of the disease are often punctuated by episodes of
+metabolic decompensation.
+Currently available therapies incompletely control the
+disease, and there are no FDA-approved drugs for the
+treatment of PA. It should be noted that the ODD was
+requested speciﬁcally for the PCCA-related PA only, as
+the gene replacement therapy targeting the alpha subunit
+(AAV9-hPCCA) would only be expected to address the
+PCCA-related form of PA and not have any effect on PA
+caused by pathogenic variants in the PCCB gene (Section
+3.1 in Supplementary File S1).
+Description of the drug and scientiﬁc rationale
+relevant to the disease/condition
+The drug’s description, including active ingredient, drug
+class/type, structure, physical and chemical properties,
+route of administration (ROA), formulation, and manu-
+facturer details, is of value to the ODD request. ODD is
+generally conferred to the active moiety rather than the
+product formulation; therefore, changes to the product for-
+mulation should not generally affect ODD status.
+30
+Data demonstrating that the investigational drug prod-
+uct has the ‘‘potential’’ or ‘‘promise’’ to treat, prevent, or
+diagnose the intended disease or condition are critical.
+Evidence supporting the scientiﬁc rationale, drug’s mech-
+anism of action, and its relevance to the disease/condition
+and efﬁcacy data through clinical and/or nonclinical
+studies must be included. In cases where clinical data
+and appropriate animal models don’t exist, in vitro data
+along with supporting information such as drug’s mech-
+anism of action, disease pathogenesis, and how the data
+relate to the disease may be presented.
+31–33
+The gene therapy drug, AAV9-hPCCA, is an AAV9
+vector expressing a functional human codon optimized
+complementary DNA (cDNA) encodingPCCA. The AAV9-
+hPCCA will deliver a functional copy of the human PCCA
+gene, allow for expression of wild-type PCCA protein, and
+help restore the PCC enzymatic activity. In our application,
+we provided a schematic for the AAV9-hPCCA drug prod-
+uct. In addition, we included descriptive information about
+the transgene sequence, AAV vector, and the essential ele-
+ments of the transgene (promoter, intron, etc.)w h i c hc o m -
+prise the drug product (Section 4 in Supplementary File S1).
+Since we submitted the ODD application in the pre-
+clinical development phase, we relied on the inclusion
+of nonclinical data for demonstrating drug efﬁcacy in a
+PCCA-deﬁcient mouse model of PA.
+We provided experimental details, including disease
+model used, doses administered, and dosing regimen
+(Section 4.2 in Supplementary File S1). AAV9-hPCCA
+administration to a PCCA-deﬁcient mouse model of
+PA showed increased survival, restored PCCA protein
+expression, and improved metabolic parameters, all sup-
+portive of the potential beneﬁts that AAV9-hPCCA
+administration would produce in humans with PCCA-
+related PA. It is important to note that safety or pharma-
+cology/toxicology information would not support scien-
+tiﬁc rationale and was not included in the ODD request.
+While not available in our case, any clinical data available
+in support of the scientiﬁc rationale could be included by a
+sponsor. Such data can include but are not limited to the
+study design, treatment population, dosing regimen and
+ROA, inclusion/exclusion criteria, and outcome measures.
+31
+Details of the timing of study drug administration in relation
+to the onset of the intended disease or condition should be
+clariﬁed. In addition, if there is an already approved ‘‘same
+drug,’’ supporting evidence to show clinical superiority of
+the proposed drug as per FDA criteria is needed to obtain an
+ODD.
+10 To claim that a new drug is clinically superior and of
+signiﬁcant beneﬁt, parameters such as a new formulation or
+a different ROA will not be sufﬁcient; the sponsor must
+address safety and efﬁcacy parameters and show major
+beneﬁt of this drug in patient care.
+34
+Documentation of patient population size:
+incidence versus prevalence
+A population estimate of the proposed disease or con-
+dition is quite important for the application and requires
+that sufﬁcient evidence to support the orphan nature of
+the disease or condition is provided to facilitate FDA’s
+determination of whether a drug qualiﬁes for ODD.
+22
+In instances when a sponsor requests ODD for a drug
+ORPHAN DRUG AND RARE PEDIATRIC DISEASE DESIGNATION 221
+
+
+--- Page 6 ---
+
+for only a subset of persons with a particular disease or
+condition that otherwise affects 200,000 or more people
+(‘‘orphan subset’’), it is required to demonstrate that the
+remaining persons with such disease or condition would
+not be appropriate candidates for use of the drug.
+22
+FDA OOPD has provided recommendations on their
+website detailing information required to designate a dis-
+ease or condition as rare in the United States (Table 2).
+Notably, the website states: ‘‘A Sponsor is expected to make
+a good faith effort in ﬁnding the most recent prevalence data
+that refers to US population.’’
+35 An ODD is generally
+granted based on prevalence which is deﬁned as the number
+of persons in the United States who have been diagnosed as
+having the disease or condition at the time of the submission
+of the request. For a disease or condition with an acute onset
+(i.e., <1-year duration), such as rare infections, poisonings,
+or exposures (e.g., snake bites), incidence estimates can be
+used. Incidence is deﬁned as the occurrence of new cases of
+disease or injury in a population over a speciﬁed time.
+There are several resources and databases that provide
+patient population estimates. It is however important to
+note that some of these may not have the most current
+information. Therefore it is best to assemble data from
+several sources to estimate the prevalence/incidence and
+present the case in the application with appropriate infor-
+mation and references to support it. Shourick et al also
+provide details of how population estimates can be made
+using literature quantiﬁcation.
+36 We have outlined a general
+search strategy for determining patient population size in
+the United States (Fig. 2A). Orphanet, a database focused
+on rare diseases, and Online Mendelian Inheritance in
+Man (OMIM), a compendium of human genes and phe-
+notypes are also publicly available sources of rare disease
+information. In the United States, Newborn screening
+(NBS) is conducted on a state-by-state basis with differ-
+ences in disease lists for screening, as well as the methods
+used to screen and identify patients and privacy policies.
+37
+Thus, to obtain NBS datasets or information, requests
+may need to be directed to individual state authorities.
+For determining the patient population size for PCCA-
+related PA in the United States, we performed an extensive
+literature search but did not ﬁnd reported population-based
+prevalence studies (Fig. 2B). We did not access NBS da-
+tabases directly, rather we surveyed literature summarizing
+data from the NBS studies spanning multiple years in
+different geographic regions within the United States or
+outside to understand the worldwide birth incidence of
+PA.
+38–43 Furthermore, we ﬁltered the published informa-
+tion to establish the birth incidence of PA speciﬁcally
+within the United States. The U.S. incidence data were then
+translated to estimate the prevalence using census data for
+the total U.S. population.
+44 In the general population,
+PCCA- and PCCB-related forms of PA occur at a similar
+frequency and, accordingly, we estimated the prevalence of
+PCCA-related PA to be half of all PA patients. We gathered
+expert opinion from clinicians and NHS24,25 to support the
+ﬁnal estimated prevalence ofPCCA-related PA determined
+to be between 50 and 1,981 patients in the United States
+(Fig. 2B and Section 8 in Supplementary File S1).
+Additional information
+Although not formally requested in FDA regulations,
+we included in our application package:
+(1) a cover letter signed by the sponsor, providing a
+brief description of the ODD application request,
+including the investigational drug product and the
+disease it is intended for;
+(2) full reference articles.
+Table 2. Food and Drug Administration Ofﬁce of Orphan Products Development: population size estimate recommendations to support
+designation of a disease or condition as rare in the United States
+Population size estimate recommendations from FDA OOPD website
+Besides referenced texts and journals, prevalence data for many rare diseases can be found on the internet at government and patient support group web sites. Copies of all
+materials documenting how the prevalence estimate was made should be provided in the designation request. If the reference source is from a website, a hard copy of
+the document should be included, as well as the website address. The date each website was accessed should also be provided for all website sources refe renced.
+A sponsor is expected to make a good faith effort in ﬁnding the most recent prevalence data that refer to a U.S. population. If only old and/or foreign dat a are available, the
+sponsor should explain this in the request. If data are old, the sponsor should explain why the data are still pertinent and, if from a foreign source, wh y data with that
+country’s population could also be representative of U.S. population.
+The sponsor should be reminded that the prevalence estimate must be current to reﬂect the prevalence at the time of submission of the request for ODD 21C FR x316.21.38
+To update this estimate, the sponsor should use U.S. population data available from the U.S. Census Bureau. 28
+Provide all calculations and cite references used to make the population estimate.
+Estimate should be current at the time of the submission of the ODD request. U.S. Census Bureau data can be used to update any population estimate
+When a range of estimates exists, FDA accepts only the largest estimate unless a justiﬁcation is provided why another estimate is more accurate.
+If the drug is intended for diagnosis or prevention of a rare disease or condition, provide the estimated number of people to whom the drug will be admini stered annually.
+If a disease is an acute condition ( i.e., <1 year duration) incidence may be used as an estimate of the population. However, note that if the disease is a relapsing/remitting
+disease where each episode is acute in duration, a prevalence estimate may still be required.
+If using data from a claims database or foreign data, clearly explain how such data are generalizable to the U.S. population and the limitations of the d ata.
+The National Cancer Institute’s SEER Program is one recommended resource for determining cancer statistics in the United States. 39 A complete prevalence is required.
+FDA, Food and Drug Administration; OOPD, Ofﬁce of Orphan Product Development; SEER, Surveillance, Epidemiology and End Results.
+Source: FDA OOPD. 35
+222 LOMASH ET AL.
+
+
+--- Page 7 ---
+
+Information speciﬁc to Rare Pediatric Drug
+Designation
+We submitted our RPDD request a few months after
+the ODD approval with much of the same information.
+The RPDD application needed modiﬁcation of the request
+statement and addition of an RPDD justiﬁcation state-
+ment that included the serious nature of the disease, tar-
+get population, and prevalence in relation to pediatric
+patients.
+APPLICATION SUBMISSION AND REVIEW
+Once the designation application is ready, the general
+process for FDA submission and review 10 is outlined
+in Fig. 3. After submission, the sponsor (or their agent)
+receives an acknowledgment letter which includes the
+OOPD assigned designation request number. Following
+the FDA OOPD review, a designation letter, a deﬁciency
+letter requesting additional information, or a denial letter
+is issued to the sponsor. The OOPD attempts to review
+Figure 2. Documentation of population size. (A) General search strategy to document current patient population size in the United States; (B) steps taken for
+determining current PA patient population size in the United States. PA, propionic acidemia; NBS, newborn screening; ODD, orphan drug designation.
+ORPHAN DRUG AND RARE PEDIATRIC DISEASE DESIGNATION 223
+
+
+--- Page 8 ---
+
+and provide a letter within 90 days from date of applica-
+tion receipt. A RPDD request can be submitted contem-
+poraneously with an ODD application or as a separate
+proposal. RPDDs submitted at the same time as ODD
+are reviewed by OOPD within 60 days of submission,
+whereas RPDDs submitted separately are independently
+assessed with no set timeline. We submitted the ODD
+and RPDD applications separately and received our des-
+ignation letters in 88 and 87 days, respectively.
+Please note that as per the ODA, FDA publishes the
+generic and/or trade name of a drug on their website after
+ODD is granted.
+45 FDA has provided exhaustive guidance
+and advice for ODD and RPDD submissions, meetings,
+content, and communications. Some of these resources
+are provided in Table 3, and sponsors are urged to con-
+sult the FDA OOPD website for the most up-to-date
+information.
+19
+DISCUSSION
+The ODD program offers ﬁnancial incentives for spon-
+sors and has been shown to have a positive correlation with
+innovation, investor valuation, and investments in rare dis-
+ease research and development. 46 There have been 5,099
+ODDs and 724 associated drug approvals, comprising both
+unique and repurposed drugs, since the inception of the
+program in 1983 until 2019.
+47,48 We also searched the FDA
+database Orphan Drug Designations and Approvals and
+found 1,190 designations and 248 approvals from January
+2020 until November 2022
+49 suggesting a steady increase
+in numbers in both categories. Drug approvals span several
+therapeutic areas and are most concentrated in oncology
+(34%), followed by metabolic and endocrine (15%) and
+hematology (11%).
+50 While the proportion of designa-
+tions for biologics versus small molecules remain stable,48
+approvals for biologics have almost doubled from 23% in
+1980s to 41% in 2010s.
+50 These trends suggest that the
+ODA has led to important advancements in the number
+of therapies being developed for treatment, prevention, and
+diagnosis of rare diseases.
+Utilizing keywords such as ‘‘adeno-associated,’’
+‘‘AAV,’’ and ‘‘gene therapy,’’ we also searched for
+ODDs in the FDA database, speciﬁc for AAV gene ther-
+apy.
+49 Upon manual curation of the datasets, we have
+found *195 ODDs (Supplementary File S3). Until
+now, there are three FDA approved AAV gene therapies,
+Luxturna, Zolgensma, and Hemgenix, for treatments of a
+rare retinal disorder (RPE65 mutation-associated retinal
+dystrophy), spinal muscular atrophy, and hemophilia B,
+respectively.
+51 The observation that there are nearly ten
+times the number of ODDs for AAV gene therapies com-
+pared to approved products reﬂects a massive expansion
+in the pipeline for new gene therapies, which is expected
+to continually grow.
+Figure 3. Overview of the submission process. The ODD application can be submitted to the FDA through different submission methods, following which an
+acknowledgment letter is issued. After review of the application, a decision is made and communicated to the sponsor within 90 days of application rec eipt,
+submission, and review.
+Table 3. FDA resources, guidance, and advice for ODD
+and RPDD applications
+Topic Information Source
+General advice OOPD website: FAQs 35
+How to submit ODD request OOPD website 19
+Recommended Tips for Creating an Orphan
+Drug Designation Application
+Webinar32 script33 and slides31
+Meetings with OOPD Guidance 52
+ODD Waivers, Reductions, and Refunds Guidance 12
+FDA OOPD Grants OOPD website: Orphan
+Products Grant Program 53
+Rare Pediatric Disease Priority Review
+Voucher Program
+Guidance17
+Pediatric Subpopulations of Common
+Diseases
+Guidance54
+Interpreting Sameness of Gene Therapy
+Products Under the OD Regulations
+Guidance20
+URLs for the websites cited in the table are included in the right column
+as well as available in the reference list.
+FAQ, Frequently Asked Question, OD, Orphan Drug.
+224 LOMASH ET AL.
+
+
+--- Page 9 ---
+
+Given the complexity of drug development, coordi-
+nation among members across different disciplines,
+including experimentalists, clinical disease experts, and
+preclinical drug development scientists, has facilitated
+the rapid preclinical development of an AAV9 gene ther-
+apy for PA. We fully acknowledge that programs with less
+support and expertise will require additional resources,
+and need more time, to enable an ODD. For these reasons,
+we plan to share the details of our regulatory documen-
+tation to assist those developing therapeutics for rare dis-
+eases. We believe that the dissemination activities of the
+PaVe-GT program such as providing a blueprint of suc-
+cessful ODD and RPDD applications as presented here
+will reduce the time in drafting these applications and
+improve their quality, making the process of getting such
+designations granted more efﬁcient. These efforts will
+beneﬁt academic and nonproﬁt drug developers and
+advance rare disease drug development to improve the
+health of a large population of patients with unmet medical
+needs.
+ACKNOWLEDGMENTS
+The authors specially thank Jean Dehdashti for pro-
+viding her regulatory expertise while drafting the ODD
+application. The authors also thank Deanna Portero for
+preparing the redacted ODD and RPDD ﬁles and Gabriela
+Zamora for her efforts in coordinating and organizing
+meetings associated with this article. The authors thank
+the entire NIH PaVe-GT Team (in alphabetical order):
+Gilberto V. Averion, Krishna Balakrishnan, Carsten G.
+Bo¨ nnemann, Philip J. Brooks, Steven J. Burden, Eggerton
+Campbell, Catherine Chen, Eun-Young Choi, Claire
+Driscoll, Oksana Dukhanina, Susan Ferry, A. Reghan
+Foley, Janelle Geist Hauserman, Lina Li, Donald C. Lo,
+Venkata Mangalampalli, Irini Manoli, Christopher Men-
+doza, Julien Oury, Forbes D. Porter, Deanna Portero, Lili
+Portilla, Jachinta Rooney, Dimah Saade, Jennifer L. Sloan,
+Mitali Tambe, Pramod Terse, Joshua Todd, London
+Toney, Carol Van Ryzin, Rodica Stan, Sury Vepa, Erik
+Wagner, Amy Wang, Xin Xu, and Yaqun Zou.
+AUTHORS’ CONTRIBUTIONS
+R.M.L., E.A.O., and A.R.P. contributed to the con-
+ceptualization, methodology and writing of the initial
+draft, reviewing, creating ﬁgures, and editing of the article.
+O.S., R.J.C., and C.P.V. reviewed and edited the article.
+The Orphan Drug and Rare Pediatric drug applications
+used in this article are based on the original research of
+O.S., R.J.C., and C.P.V., including design and conceptu-
+alization of the orphan drug (AAV9-hPCCA), demon-
+stration of preclinical efﬁcacy in animal models of PA,
+and clinical research.
+DISCLAIMER
+The content of this article is solely the opinions of the
+authors and does not necessarily represent the ofﬁcial
+views of the NIH.
+AUTHOR DISCLOSURE
+The authors have no competing interests relevant to this
+article.
+FUNDING INFORMATION
+PaVe-GT is funded by the NCATS Cures Acceleration
+Network. E.A.O. and R.M.L. are supported by the NCATS
+Intramural Research Program (1ZIATR00281). R.J.C.,
+O.S., and C.P.V. are supported by the Intramural Research
+Program of the NHGRI, NIH (1ZIAHG200318-16).
+SUPPLEMENTARY MATERIAL
+Supplementary File S1
+Supplementary File S2
+Supplementary File S3
+REFERENCES
+1. Brooks PJ, Ottinger EA, Portero D, et al. The
+Platform Vector Gene Therapies project: Increas-
+ing the efﬁciency of adeno-associated virus gene
+therapy clinical trial startup. Hum Gene Ther
+2020;31:1034–1042.
+2. US Food and Drug Administration (US FDA).
+Search Orphan Drug Designations and Approvals.
+Adeno-Associated Virus 9 Human Propionyl-CoA
+Carboxylase, Alpha Subunit (AAV9-hPCCA). 2021.
+Available from: https://www.accessdata.fda.gov/
+scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey
+=838121 [Last accessed: January 08, 2023].
+3. 21CFR 316, Title 21, Chapter I, Subchapter D Part
+312 Subpart A Deﬁnitions and Interpretations.
+4. The Power of Being Counted. 2022. Available
+from: https://rare-x.org/case-studies/the-power-
+of-being-counted/ [Last accessed: November 30,
+2022].
+5. Haendel M, Vasilevsky N, Unni D, et al. How
+many rare diseases are there? Nat Rev Drug
+Discov 2020;19:77–78.
+6. Online Mendelian Inheritance in Man (OMIM).
+OMIM Gene Map Statistics. 2023. Available from:
+https://www.omim.org/statistics/geneMap [Last
+accessed: January 08, 2023].
+7. National Institutes of Health National Center for
+Advancing Translational Sciences (NIH NCATS).
+Genetic and Rare Diseases Information Center
+(GARD). FAQs About Rare Diseases. Available
+from: https://rarediseases.info.nih.gov/about [Last
+accessed: January 08, 2023].
+8. National Organization for Rare Disorders. Orphan
+Drugs in the United States: An Examination of
+Patents and Orphan Drug Exclusivity. A NORD
+Commissioned Report with Avaler. 2021. Available
+from: https://rarediseases.org/wp-content/uploads/
+2021/03/NORD-Avalere-Report-2021_FNL-1.pdf
+[Last accessed: November 30, 2022].
+9. The Orphan Drug Act of 1983. Amended in 1984
+for prevalence. Pub L. No. 97–414, 96 Stat. 2049.
+1983.
+ORPHAN DRUG AND RARE PEDIATRIC DISEASE DESIGNATION 225
+
+
+--- Page 10 ---
+
+10. Food and Drug Administration Ofﬁce of Orphan Pro-
+duct Development (FDA OOPD). Designating an Or-
+phan Product: Drugs and Biological Products. 2022.
+Available from: https://www.fda.gov/industry/
+medical-products-rare-diseases-and-conditions/
+designating-orphan-product-drugs-and-biological-
+products [Last accessed: January 08, 2023].
+11. Code of Federal Regulations (CFR). Title 21, Part
+316. Orphan Drugs.
+12. FDA Guidance Document Prescription Drug User
+Fee Act Waivers, Reductions, and Refunds for
+Drug and Biological Products. 2011. Available
+from: https://www.fda.gov/regulatory-information/
+search-fda-guidance-documents/user-fee-waivers-
+reductions-and-refunds-drug-and-biological-products
+[Last accessed: November 30, 2022].
+13. Herder M. What is the purpose of the Orphan
+Drug Act? PLoS Med 2017;14:e1002191.
+14. Seoane-Vazquez E, Rodriguez-Monguio R,
+Szeinbach SL, et al. Incentives for orphan drug
+research and development in the United States.
+Orphanet J Rare Dis 2008;3:33.
+15. Aerts C, Barrenho E, Miraldo M, et al. The impact
+of the Priority Review Voucher on research and
+development for tropical diseases. Pharmaceut
+Med 2022;36:189–197.
+16. FDASIA. Publ. L. 112–144. 126 Stat. 993. Public
+Law 112–144 112th Congress 2012.
+17. Food and Drug Administration Ofﬁce of
+Orphan Product Development (FDA OOPD). Rare
+Pediatric Disease Priority Review Vouchers. Gui-
+dance for Industry. Draft Guidance, Revision 1.
+2019.
+18. Meyer RJ. Priority Review Vouchers: GAO report
+provides scant evidence of success. Clin Transl Sci
+2021;14:8–10.
+19. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Ofﬁce of Orphan
+Products Development. 2022. Available from:
+https://www.fda.gov/about-fda/ofﬁce-clinical-policy-
+and-programs/ofﬁce-orphan-products-development
+[Last accessed: January 08, 2023].
+20. Interpreting Sameness of Gene Therapy Products
+Under the Orphan Drug Regulations. 2021. Available
+from: https://www.fda.gov /regulatory-information/
+search-fda-guidance-documents/interpreting-sameness-
+gene-therapy-products-under-orphan-drug-regulations
+[Last accessed: November 30, 2022].
+21. 21CFR x316.23. Timing of requests for orphan-
+drug designation; designation of already approved
+drugs.
+22. 21CFR 316, Subpart C—Designation of an Orphan
+Drug. Section 316.20. Content and format of a
+request for orphan-drug designation.
+23. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Orphan Drug
+Designation Request Form. Form FDA 4035. 2021.
+Available from: https://www.fda.gov/industry/
+designating-orphan-product-drugs-and-biological-
+products/orphan-drug- designation-request-form
+[Last accessed: November 30, 2022].
+24. Shchelochkov OA, Manoli I, Juneau P, et al.
+Severity modeling of propionic acidemia using
+clinical and laboratory biomarkers. Genet Med
+2021;23:1534–1542.
+25. Shchelochkov OA, Manoli I, Sloan JL, et al.
+Chronic kidney disease in propionic acidemia.
+Genet Med 2019;21:2830–2835.
+26. Adhikari AN, Gallagher RC, Wang Y, et al. The
+role of exome sequencing in newborn screening
+for inborn errors of metabolism. Nat Med 2020;
+26:1392–1397.
+27. Almasi T, Guey LT, Lukacs C, et al. Systematic
+literature review and meta-analysis on the
+epidemiology of propionic acidemia. Orphanet J
+Rare Dis 2019;14:40.
+28. Chapman KA, Gramer G, Viall S, et al. Incidence of
+maple syrup urine disease, propionic acidemia,
+and methylmalonic aciduria from newborn
+screening data. Mol Genet Metab Rep 2018;15:
+106–109.
+29. Shchelochkov OA, Carrillo N, Venditti C. Propionic
+Acidemia. In: GeneReviews
+/C210 . (Adam MP, Ardinger
+HH, Pagonet RA, et al. eds.) Seattle, WA, Gene
+Reviews, 1993.
+30. Frequently Asked Questions (FAQ) About Designating
+an Orphan Product. FAQ 14; 2019. Available from:
+https://www.fda.gov/industry/designating-orphan-
+product-drugs-and-biological-products/frequently-
+asked-questions-faq-about-designating-orphan-product
+[Last accessed: January 08, 2023].
+31. Recommended Tips for Creating an Orphan Drug
+Designation Application Slides. 2018. Available from:
+chrome-extension://efaidnbmnnnibpcajpcglcleﬁnd
+mkaj/https://www.fda.gov/media/111762/download
+[Last accessed: January 08, 2023].
+32. Recommended Tips for Creating an Orphan Drug
+Designation Application Webinar. 2021. Available
+from: https://collaboration.fda.gov/p7qz15qb11s/
+?launcher=false&fcsContent=true&pbMode=normal
+[Last accessed: January 08, 2023].
+33. Recommended Tips for Creating an Orphan Drug
+Designation Application Script. 2018. Available
+from: chrome-extension://efaidnbmnnnibpcajpcgl
+cleﬁndmkaj/https://www.fda.gov/media/111624/
+download [Last accessed: January 08, 2023].
+34. 21CFR 316, Subpart D—Demonstration of Clinical
+Superiority.
+35. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Designating an
+Orphan Product: Drugs and Biological Products.
+Frequently Asked Questions (FAQ) About Desig-
+nating an Orphan Product. FAQ 8; 2019. Available
+from: https://www.fda.gov/industry/designating-
+orphan-product-drugs-and-biological-products/
+frequently-asked-questions-faq-about-designating-
+orphan-product [Last accessed: January 08, 2023].
+36. Shourick J, Wack M, Jannot AS. Assessing rare
+diseases prevalence using literature quantiﬁca-
+tion. Orphanet J Rare Dis 2021;16:139.
+37. Newborn Screening Translational Research Net-
+work. (2001–2022 American College of Medical
+Genetics and Genomics.). 2022. Available from:
+https://nbstrn.org/tools/nbs-vr?tab=nbs-program-
+information [Last accessed: January 08, 2023].
+38. Comeau AM, Larson C, Eaton RB. Integration of
+new genetic diseases into statewide newborn
+screening: New England experience. Am J Med
+Genet C Semin Med Genet 2004;125C:35–41.
+39. Frazier DM, Millington DS, McCandless SE, et al.
+The tandem mass spectrometry newborn screen-
+ing experience in North Carolina: 1997–2005.
+J Inherit Metab Dis 2006;29:76–85.
+40. Naylor EW, Chace DH. Automated tandem mass
+spectrometry for mass newborn screening for
+disorders in fatty acid, organic acid, and amino
+acid metabolism. J Child Neurol 1999;14(Suppl 1):
+S4–S8.
+41. Therrell BL, Jr., Lloyd-Puryear MA, Camp KM,
+et al. Inborn errors of metabolism identiﬁed via
+newborn screening: Ten-year incidence data and
+costs of nutritional interventions for research
+agenda planning. Mol Genet Metab 2014;113:
+14–26.
+42. Weisfeld-Adams JD, Morrissey MA, Kirmse BM,
+et al. Newborn screening and early biochemical
+follow-up in combined methylmalonic aciduria and
+homocystinuria, cblC type, and utility of methio-
+nine as a secondary screening analyte. Mol Genet
+Metab 2010;99:116–123.
+43. Zytkovicz TH, Fitzgerald EF, Marsden D, et al.
+Tandem mass spectrometric analysis for amino,
+organic, and fatty acid disorders in newborn dried
+blood spots: A two-year summary from the New
+England Newborn Screening Program. Clin Chem
+2001;47:1945–1955.
+44. US Census Bureau. US and World Population
+Clock. Available from: https://www.census.gov/
+popclock/ [Last accessed: April 21, 2021].
+45. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Public Identiﬁ-
+cation of Orphan Drug Designation. 2018. Available
+from: https://www.fda.gov/industry/designating-
+orphan-product-drugs-and-biological-products/
+public-identiﬁcation-orphan-drug-designation [Last
+accessed: January 08, 2023].
+46. Miller KL. Do investors value the FDA orphan
+drug designation? Orphanet J Rare Dis 2017;
+12:114.
+47. Miller KL, Fermaglich LJ, Maynard J. Using four
+decades of FDA orphan drug designations to
+describe trends in rare disease drug development:
+Substantial growth seen in development of drugs
+for rare oncologic, neurologic, and pediatric-onset
+diseases. Orphanet J Rare Dis 2021;16:265.
+48. Miller KL, Kraft S, Ipe A, et al. Drugs and biologics
+receiving FDA orphan drug designation: An anal-
+ysis of the most frequently designated products
+and their repositioning strategies. Expert Opin
+Orphan Drugs 2022;9:265–272.
+49. Search Orphan Drug Designations and Approvals.
+Available from: https://www.accessdata.fda.gov/
+scripts/opdlisting/oopd/index.cfm [Last accessed:
+November 30, 2022].
+226 LOMASH ET AL.
+
+
+--- Page 11 ---
+
+50. Miller KL, Lanthier M. Investigating the landscape
+of US orphan product approvals. Orphanet J Rare
+Dis 2018;13:183.
+51. Au HKE, Isalan M, Mielcarek M. Gene therapy
+advances: A meta-analysis of AAV usage in clinical
+settings. Front Med (Lausanne) 2021;8:809118.
+52. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Meetings with
+the Ofﬁce of Orphan Products Development. Gui-
+dance for Industry, Researchers, Patients Groups,
+and FDA Staff. 2015. Available from: https://
+www.fda.gov/regulatory-information/search-fda-
+guidance-documents/meetings-ofﬁce-orphan-products-
+development [Last accesssed: November 30, 2022].
+53. Orphan Products Grants Program. 2021. Available
+from: https://www.fda.gov/industry/medical-
+products-rare-diseases -and-conditions/orphan-
+products-grants-program [Last accessed: January
+08, 2023].
+54. Food and Drug Administration Ofﬁce of Orphan
+Product Development (FDA OOPD). Clariﬁcation of
+Orphan Designation of Drugs and Biologics for
+Pediatric Subpopulations of Common Dis-
+eases, 2017 Available from: https://www.fda.gov/
+regulatory-information/search-fda-guidance-
+documents/clariﬁcation-orphan-designation-
+drugs-and-biologics-pediatric-subpopulations-common-
+diseases [Last accessed: November 30, 2022].
+Received for publication December 9, 2022;
+accepted after revision January 17, 2023.
+Published online: January 24, 2023.
+ORPHAN DRUG AND RARE PEDIATRIC DISEASE DESIGNATION 227

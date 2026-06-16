@@ -150,6 +150,29 @@ class TestDatabaseAndScoring:
         assert ranked[0].composite_score >= 7.5
         assert {"OAV101-IT", "Zolgensma"} & {score.program_name for score in ranked[:3]}
 
+    def test_dmd_surfaces_microdystrophin_strategy(
+        self,
+        conn: sqlite3.Connection,
+    ) -> None:
+        disease = fetch_disease("ORPHA:98896")
+        assert disease is not None
+        gene = fetch_gene("DMD")
+
+        scores = rank_programs(disease, gene, conn)
+        scored = [score for score in scores if score.confidence != "fail"]
+        srp9001 = next(score for score in scores if score.program_name == "SRP-9001")
+
+        assert scored
+        assert scored[0].program_name == "SRP-9001"
+        assert srp9001.confidence == "high"
+        assert srp9001.packaging_fit > 0
+        assert srp9001.protein_class_match > 0
+        assert any("micro/mini-transgene strategy" in note for note in srp9001.notes)
+        assert any(
+            score.confidence == "fail" and "11055bp" in " ".join(score.notes)
+            for score in scores
+        )
+
 
 class TestReportsAndCLI:
     """Smoke test user-facing report generation and CLI commands."""

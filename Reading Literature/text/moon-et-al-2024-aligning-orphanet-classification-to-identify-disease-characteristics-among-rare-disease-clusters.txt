@@ -1,0 +1,258 @@
+# Source PDF: Reading Literature/files/74/Moon et al. - 2024 - Aligning Orphanet Classification to Identify Disease Characteristics among Rare Disease Clusters.pdf
+
+
+
+--- Page 1 ---
+
+Aligning Orphanet Classification to Identify Disease 
+Characteristics among Rare Disease Clusters
+Sungrim Moon,
+Division of Preclinical Innovation, National Center for Advancing Translational Sciences National 
+Institutes of Health Rockville, Maryland, USA
+Jessica Maine,
+Division of Preclinical Innovation, National Center for Advancing Translational Sciences National 
+Institutes of Health Rockville, Maryland, USA
+Ewy Mathe,
+Division of Preclinical Innovation, National Center for Advancing Translational Sciences National 
+Institutes of Health Rockville, Maryland, USA
+Qian Zhu
+Division of Preclinical Innovation, National Center for Advancing Translational Sciences National 
+Institutes of Health Rockville, Maryland, USA
+Abstract
+Understanding the underlying etiologies of rare diseases may facilitate research across multiple 
+conditions, enabling basket trail design and drug repurposing. In this study, we aligned clusters 
+of rare diseases with Orphanet classifications to represent their shared etiologies and establish a 
+foundation for further investigation on underly biological mechanism discovery. By utilizing the 
+linearized Orphanet categories, we connected 35 clusters of rare diseases into 18 classifications. 
+Significant associations were found between the categories “Rare Developmental Defects During 
+Embryogenesis” and “Rare Inborn Errors of Metabolism” and the clusters in this study, suggesting 
+that many rare diseases originating in the prenatal period or related to metabolism may present a 
+substantial opportunity for success in future investigation.
+Keywords
+rare disease; disease cluster; Orphanet classification; rare disease characteristics
+I. Introduction
+Rare diseases impact a limited number of individuals, explicitly affecting fewer than 
+200,000 individuals in the United States or fewer than 1 in 2,000 individuals in Europe 
+[1,2]. Due to the wide variety of disease presentations, rare diseases often involve lengthy 
+diagnostic processes and may go undiagnosed or misdiagnosed, presenting significant 
+Sungrim.Moon@nih.gov . 
+HHS Public Access
+Author manuscript
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 
+2025 September 11.
+Published in final edited form as:
+Proceedings (IEEE Int Conf Bioinformatics Biomed). 2024 December ; 2024: 4561–4563. doi:10.1109/
+bibm62325.2024.10822379.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 2 ---
+
+challenges [3,4]. Furthermore, many rare diseases have few effective treatment options and 
+incur high medical costs due to associated complications [5,6]. To tackle those challenges, 
+various research and treatment strategies for multiple rare diseases simultaneously, such as 
+basket clinical trials or drug repurposing, can be effective, specifically shared underlying 
+causal factors of targeting rare diseases [7].
+Our preliminary study demonstrated that clusters of rare diseases can be formed based on 
+their underlying causal genes and pathophysiology [8]. These clusters were created using 
+graph node embeddings derived from a knowledge graph that analyzed the overlap between 
+rare diseases tracked by the Genetic and Rare Diseases Information Center (GARD) [9] 
+and Orphanet [10], enriched with additional information on small molecules and biological 
+pathways. However, the clusters produced from this study are associated with broad scopes. 
+For instance, some clusters encompass more than 100 diseases, which has limitations in 
+etiologies.
+The Orphanet classification is a multi-hierarchical system for classifying rare diseases based 
+on clinical criteria and medical specialties [10]. It considers factors such as clinical features, 
+etiology, affected systems, and the genetic basis of the diseases [11]. In this study, we 
+systematically aligned clusters of rare diseases with the Orphanet classification to reveal 
+their underlying etiologies within or between the cluster and provide a way to utilize shared 
+mechanisms in future approaches such as basket clinical trials or drug repurposing.
+II. Method
+A. Dataset
+Our previous study resulted in 37 distinct clusters of rare diseases, with each cluster 
+averaging 87 diseases (mean 87.62, standard deviation 30.23, and median 83), totaling 3,242 
+diseases. Each rare disease is associated with a GARD ID, and a disease name represented 
+as a string.
+We used three Orphanet classification systems. The first is the Orphanet Rare Disease 
+Ontology (ORDO), which provides a structured vocabulary for rare diseases [12]. This 
+ontology includes the classification of rare diseases (ORPHA code), relationships between 
+diseases and genes, and connections to other terminologies and databases in OWL format 
+(ORDO_en_4.3.owl). The second, “Rare Diseases and Alignment with Terminologies and 
+Databases,” provides references for various terminologies (en_product1_new.xml) [13]. 
+The third one is the Orphanet linearization (en_product7.xml) [14]. This linearization 
+classification is designed to manage rare diseases from a mono-hierarchical perspective, 
+where each disease is assigned to a single medical specialty. Linearization parents are 
+selected from the classification’s top entities (n=31) [15]. We connected rare diseases 
+to Orphanet linearization classifications to simplify the complex representation of their 
+underlying etiologies.
+B. ORPHA code Identification for GARD rare diseases
+Two steps were employed to identify the ORPHA code for each rare disease: reference 
+matching and string matching. We utilized reference information associated with the GARD 
+Moon et al. Page 2
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 3 ---
+
+ID, ORPHA code, and other relevant terminology codes (such as ICD, UMLS, OMIM, 
+etc.) by searching the linked data in the <reference> notation within the “Rare Diseases 
+and Alignment with Terminologies and Databases” file. If the reference matching failed, 
+we proceeded with string matching. The string matching involved searching for the GARD 
+disease name in the <label> and <alternative term> notations in the ORDO XML file for the 
+corresponding ORPHA code.
+C. Linearization classification mapping
+We assigned the linearized class to each GARD rare disease based on the mapped ORPHA 
+codes from the above step.
+D. Enrichment analysis
+We performed Fisher’s exact test [16] for each cluster, comparing the counts of linearized 
+classifications within that cluster against those in the other clusters. Fisher’s exact test was 
+used to assess non-random associations between categorical variables in small sample sizes. 
+TABLE I is a contingency table used for Fisher’s exact test. Fisher’s exact test results were 
+adjusted for multiple comparisons using the Benjamini-Hochberg procedure, with an alpha 
+level of 0.01, applying the false discovery rate method to identify significant associations 
+while limiting the proportion of false positives. The enrichment results are visualized as 
+Sankey diagrams, illustrating the relationships between diseases in the clusters and orphaned 
+linearized classifications using the Plotly library in Python [17].
+III. Result
+The disease mapping results between GARD and Orphanet were successful for 3,242 out of 
+3,260 rare diseases, representing a 99.44% match.
+By enriching linearized classifications, we were able to map 35 out of 37 clusters to 
+18 Orphanet linearized classes. As shown in Fig. 1, the majority of these clusters were 
+enriched to two specific linearized classifications, “Rare Developmental Defects During 
+Embryogenesis (ORPHA93890)” with 10 clusters and “Rare Inborn Errors of Metabolism 
+(ORPHA68367)” with 7 clusters.
+A single cluster may correspond to one or multiple linearized Orphanet classifications. For 
+instance, the diseases in Cluster 17 encompass all relevant visual organs and associated eyes, 
+leading to its sole linearized classification as a “Rare Ophthalmic Disease (ORPHA97966)” 
+exclusively. In the case of Cluster 2, about half of the diseases corresponded to “Rare 
+Systemic or Rheumatologic Diseases (ORPHA98023),” while the other half were linked to 
+“Rare Infectious Diseases (ORPHA68416)”. This suggests that the rare diseases in Cluster 
+2 may exhibit a nuanced connection between rheumatologic diseases and infectious diseases 
+like Infection-Induced Arthritis (e.g., Rheumatic Fever, GARD:0005699) or Autoimmune 
+Responses in rheumatologic conditions (e.g., Adult-onset Still’s disease, GARD:0000436).
+Among the unmapped linearized classifications in our clusters, some are related to surgical 
+diseases, such as “Rare Surgical Cardiac Disease (ORPHA97965),” “Rare Surgical Thoracic 
+Disease (ORPHA97962),” “Rare Abdominal Surgical Disease (ORPHA17578),” and “Rare 
+Moon et al. Page 3
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 4 ---
+
+Maxillo-Facial Surgical Disease (ORPHA17578). These may be associated with clinical 
+events rather than the genetic or pathway information that initially generated the clusters of 
+rare diseases.
+IV. Discussion
+This study identified the underlying etiology of rare disease clusters, as enriched by 
+Orphanet linearized classifications. By focusing on 18 Orphanet linearized classifications, 
+we observed general characteristics of these clusters, such as their reliance on genetic 
+information rather than clinical information for classification. Specifically, we identified 
+“Rare Developmental Defects During Embryogenesis (ORPHA93890)” and “Rare Inborn 
+Errors of Metabolism (ORPHA68367)” as the primary underlying etiologies for these 
+clusters.
+The Orphanet linearized classification describes rare diseases only limitedly, as it tends 
+to select one parent classification from a specific set of entities in the hierarchy and 
+focuses primarily on the organ itself [15]. Specifically, developmental anomalies are 
+prioritized in linearized categories over diseases affecting the body system. As a result, 
+“Rare Developmental Defects During Embryogenesis (ORPHA93890)” includes many rare 
+diseases in our study.
+Additionally, linearized classification simplifies the representation by reducing complexity. 
+When a disease affects only one specific organ, it is classified solely under that organ. 
+Consequently, the “Inborn Errors of Metabolism (ORPHA68367)” classification often 
+addresses multiple organ issues instead of encompassing all organs, excluding the problem 
+that impacts just one organ. In other words, some diseases outside our 10 Clusters, 
+which respond solely to one organ, may be relevant to “Inborn Errors of Metabolism 
+(ORPHA68367)” but were omitted from our Fig. 1.
+We also review the diseases within the clusters aligned with “Rare Developmental Defects 
+During Embryogenesis (ORPHA93890)” in Fig. 1, as each disease is linked to a specific 
+Orphanet category, identified by its unique ORPHA code. These clusters may be categorized 
+depending on the anatomical locations or dysfunction of mechanisms. For example, diseases 
+in Clusters 32, 34, and 26 are highly associated with intellectual disabilities; Clusters 21 
+and 6 pertain to bone diseases; Cluster 27 relates to skin disorders, and Cluster 26 is 
+associated with eye diseases. This indicates that the Orphanet originated the affected systems 
+classifications, which can illustrate different body locations based on the cluster despite 
+these clusters sharing the exact etiology or underlying mechanism.
+We aim to expand our study to explore the specific mechanisms shared within the cluster, 
+using the case study of “Rare Inborn Errors of Metabolism (ORPHA68367),” which serves 
+as the primary focus of our research.
+Acknowledgment
+This project was partially supported by the intramural programs (ZIA TR000410-05) at NCATS/NIH. S.M. was 
+partially supported by the Office of Data Science Strategy ODSS/NIH.
+Moon et al. Page 4
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 5 ---
+
+References
+[1]. Klimova B, Storek M, Valis M, Kuca K. Global view on rare diseases: a mini review. Current 
+medicinal chemistry. 2017 Sep 1;24(29):3153–8. [PubMed: 28494745] 
+[2]. Ferreira CR. The burden of rare diseases. American journal of medical genetics Part A. 2019 
+Jun;179(6):885–92. [PubMed: 30883013] 
+[3]. Schieppati A, Henter JI, Daina E, Aperia A. Why rare diseases are an important medical and social 
+issue. The Lancet. 2008 Jun 14;371(9629):2039–41.
+[4]. Boycott KM, Rath A, Chong JX, Hartley T, Alkuraya FS, Baynam G, Brookes AJ, Brudno M, 
+Carracedo A, den Dunnen JT, Dyke SO. International cooperation to enable the diagnosis of all 
+rare genetic diseases. The American Journal of Human Genetics. 2017 May 4;100(5):695–705. 
+[PubMed: 28475856] 
+[5]. Pogue RE, Cavalcanti DP, Shanker S, Andrade RV , Aguiar LR, de Carvalho JL, Costa FF. Rare 
+genetic diseases: update on diagnosis, treatment and online resources. Drug discovery today. 
+2018 Jan 1;23(1):187–95. [PubMed: 29129805] 
+[6]. Baldwin Z, Jiao B, Basu A, Roth J, Bender MA, Elsisi Z, Johnson KM, Cousin E, Ramsey 
+SD, Devine B. Medical and non-medical costs of sickle cell disease and treatments from a 
+US perspective: a systematic review and landscape analysis. PharmacoEconomics-Open. 2022 
+Jul;6(4):469–81. [PubMed: 35471578] 
+[7]. Zanello G, Garrido-Estepa M, Crespo A, O’Connor D, Nabbout R, Waters C, Hall A, Taglialatela 
+M, Chan CH, Pearce DA, Dooms M. Targeting shared molecular etiologies to accelerate drug 
+development for rare diseases. EMBO molecular medicine. 2023 Jul 10;15(7):e17159. [PubMed: 
+37366158] 
+[8]. Sanjak J, Binder J, Yadaw AS, Zhu Q, Mathé EA. Clustering rare diseases within an ontology-
+enriched knowledge graph. Journal of the American Medical Informatics Association. 2024 Jan 
+1;31(1):154–64.
+[9]. Genetic and Rare Diseases Information Center. Accessed Oct 15, 2024. Available from: https://
+rarediseases.info.nih.gov.
+[10]. Orphanet. Accessed Oct 15, 2024. Available from: https://www.orpha.net.
+[11]. Rath A, Olry A, Dhombres F, Brandt MM, Urbero B, Ayme S. Representation of rare diseases 
+in health information systems: the Orphanet approach to serve a wide range of end users. Human 
+mutation. 2012 May;33(5):803–8. [PubMed: 22422702] 
+[12]. Orphanet Rare Disease ontology (ORDO). Accessed Oct 15, 2024. Available from: https://
+www.orphadata.com/ordo
+[13]. Rare diseases and alignment with ICD-10, ICD-11, OMIM, UMLS, MeSH, MedDRA and 
+GARD. Accessed Oct 15, 2024. Available from: https://www.orphadata.com/alignments/
+[14]. Linearisation of Rare Diseases. Accessed Oct 15, 2024. Available from: https://
+www.orphadata.com/linearisation/
+[15]. Linearization rules for Orphanet classifications. Accessed Oct 15, 2024. Available from: https://
+www.orpha.net/pdfs/orphacom/cahiers/docs/GB/Orphanet_linearisation_rules.pdf.
+[16]. Fisher RA. Statistical methods for research workers. Oliver and Boyd; 1928.
+[17]. Plotly Open Source Graphing Library for Python https://plotly.com/python/
+Moon et al. Page 5
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 6 ---
+
+Fig. 1. 
+Rare Disease Clusters to the Orphanet Linearization Category
+Moon et al. Page 6
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+
+
+--- Page 7 ---
+
+Author Manuscript Author Manuscript Author Manuscript Author Manuscript
+Moon et al. Page 7
+TABLE I.
+A Contingency Table for Fisher’s exact test
+Orphanet linearized classification j Not in Orphanet linearized classification j
+In Cluster i Aa Bb
+Not in Cluster i Cc Dd
+a.The count of rare diseases in cluster i that are presenting in Orphanet linearized classification j
+b.The count of rare diseases in cluster i that are not presenting in Orphanet linearized classification j
+c.The count of rare diseases not in cluster i that are presenting in Orphanet linearized classification j
+d.The count of rare diseases not in cluster i that are not presenting in Orphanet linearized classification j
+Proceedings (IEEE Int Conf Bioinformatics Biomed). Author manuscript; available in PMC 2025 September 11.

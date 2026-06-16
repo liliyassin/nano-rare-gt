@@ -1,0 +1,1514 @@
+# Source PDF: Reading Literature/files/84/Walkey et al. - 2025 - A comprehensive atlas of AAV tropism in the mouse.pdf
+
+
+
+--- Page 1 ---
+
+Original Article
+A comprehensive atlas of AAV tropism in the mouse
+Christopher J. Walkey, 1,19 Kathy J. Snow, 2,19 Jote Bulcha,3,4,13 Aaron R. Cox, 5,14 Alexa E. Martinez, 1,15
+M. Cecilia Ljungberg, 6,7 Denise G. Lanza, 8 Marco De Giorgi, 1 Marcel A. Chuecos, 1 Michele Alves-Bezerra,1,16
+Carlos Flores Suarez, 1,17 Sean M. Hartig, 5,9 Susan G. Hilsenbeck, 10 Chih-Wei Hsu,1 Ethan Saville,2 Yaned Gaitan,2
+Jeff Duryea, Jr.,2 Seth Hannigan,2 Mary E. Dickinson,1,18 Oleg Mirochnitchenko,11 Dan Wang,3,12 Cathleen M. Lutz,2
+Jason D. Heaney, 8 Guangping Gao,3,4 Stephen A. Murray, 2 and William R. Lagor 1
+1Department of Integrative Physiology, Baylor College of Medicine, Houston, TX 77030, USA; 2The Jackson Laboratory, 600 Main Street, Bar Harbor, ME 04609 USA;
+3Horae Gene Therapy Center and Department of Microbiology and Physiological Systems, University of Massachusetts Medical School, Worcester, MA 016 05, USA;
+4Li Weibo Institute for Rare Diseases Research, University of Massachusetts Medical School, Worcester, MA 01605, USA; 5Section of Diabetes, Endocrinology, and
+Metabolism, Department of Medicine, Baylor College of Medicine, Houston, TX 77030, USA; 6Department of Pediatrics, Baylor College of Medicine, Houston, TX
+77030, USA; 7Duncan Neurological Research Institute, Texas Children ’s Hospital, Houston, TX 77030, USA; 8Department of Molecular and Human Genetics, Baylor
+College of Medicine, Houston, TX, USA; 9Department of Molecular and Cellular Biology, Baylor College of Medicine, Houston, TX 77030, USA; 10Dan L. Duncan
+Comprehensive Cancer Center, Baylor College of Medicine, Houston, TX, USA; 11Ofﬁce of Research Infrastructure Programs, Division of Program Coordination,
+Planning, and Strategic Initiatives, Of ﬁce of the Director, National Institutes of Health, Bethesda, MD USA; 12RNA Therapeutics Institute, University of Massachusetts
+Medical School, Worcester, MA 01605, USA
+Gene therapy with adeno-associated virus (AAV) vectors re-
+quires knowledge of their tropism within the body. Here we
+analyze the tropism of 10 naturally occurring AAV serotypes
+(AAV3B, AAV4, AAV5, AAV6, AAV7, AAV8, AAV9,
+AAVrh8, AAVrh10, and AAVrh74) following systemic delivery
+into male and female mice. A transgene-expressing ZsGreen
+and Cre recombinase was used to identify transduction in a
+cell-dependent manner based on ﬂuorescence. Cre-driven acti-
+vation of tdTomato ﬂuorescence offered superior sensitivity for
+transduced cells. All serotypes except AAV3B and AAV4 had
+high liver tropism. Fluorescence activation revealed transduc-
+tion of unexpected tissues, including adrenals, testes, and
+ovaries. Rare transduced cells within tissues were also readily
+visualized. Biodistribution of AAV genomes correlated with
+ﬂuorescence, except in immune tissues. AAV4 was found to
+have a pan-endothelial tropism while also targeting pancreatic
+beta cells. This public resource enables selection of the best
+AAV serotypes for basic science and preclinical applications
+in mice.
+INTRODUCTION
+Gene therapy requires ef ﬁcient and speci ﬁc delivery of the nucleic
+acid cargo to the tissue and cell type of interest. Over the past three
+decades, adeno-associated viruses (AAVs) have emerged as the lead-
+ing viral vector for in vivo gene therapy, due to their ef ﬁcacy and
+favorable safety proﬁle.
+1 AAVs are non-cytopathic and can transduce
+both dividing and non-dividing cells. 2 AAV vectors elicit modest and
+generally manageable immune responses relative to other viral vec-
+tors.
+3,4 The recombinant AAV (rAAV) genome forms circular dou-
+ble-stranded episomes, which persist in the nucleus of the target
+cell. The frequency of chromosomal integrations of rAAV is low,
+and reported to be in the range of 1% –3% of hepatocytes in the liver,
+as an example.
+5,6 AAV vectors have been tested in more than 250 clin-
+ical trials, culminating in six products approved by the U.S. Food and
+Drug Administration at the time of this report. Despite this progress,
+our knowledge of AAV biology remains incomplete. An important
+goal is to improve the therapeutic utility of AAVs by broadening
+the range and speci ﬁcity of tissues and cell types that can be targeted
+for therapy.
+AAVs, members of the Parvoviridae family, consist of a 4.7-kb single-
+stranded DNA genome,
+7 surrounded by a 25-nm diameter non-en-
+veloped protein capsid. 8 AAVs are dependoviruses that require a
+helper virus, such as adenovirus or a herpes virus, for replication. 9
+The wild-type AAV genome contains two genes rep and cap, ﬂanked
+on either side by approximately 145 nucleotide hairpin like structures
+called inverted terminal repeats (ITRs).
+7 The rep gene encodes four
+proteins involved in replication, encapsidation, and integration of
+the viral genome. The cap gene produces three different capsid
+Received 9 October 2024; accepted 22 January 2025;
+https://doi.org/10.1016/j.ymthe.2025.01.041.
+13Present address: 4D Molecular Therapeutics, Emeryville, CA 94608, USA
+14Present address: Institute of Molecular Medicine, University of Texas Health
+Science Center at Houston, Houston, TX 77030, USA
+15Present address: Department of Neuroscience, Baylor College of Medicine,
+Houston, TX 77030, USA
+16Present address: Department of Biomedicine, Biotechnology and Public Health,
+Biomedical Research and Innovation Institute of Cadiz (INiBICA), University of
+Cadiz, 11002 Cadiz, Spain
+17Present address: Department of Experimental Therapeutics, MD Anderson
+Cancer Center, Houston, TX 77030, USA
+18Present address: The Jackson Laboratory, 600 Main Street, Bar Harbor, ME, 04609
+USA
+19These authors contributed equally
+Correspondence: William R. Lagor, Department of Integrative Physiology, Baylor
+College of Medicine, Houston, TX 77030, USA.
+E-mail: william.lagor@bcm.edu
+1282 Molecular Therapy Vol. 33 No 3 March 2025 ª 2025
+Published by Elsevier Inc. on behalf of The American Society of Gene and Cell Therapy.
+
+
+--- Page 2 ---
+
+proteins, VP1, VP2, and VP3.10 The VP capsid proteins assemble into
+an icosahedral structure of 60 total subunits, in a 1:1:10 ratio. 11 Three
+accessory proteins— assembly activating protein,12 membrane-associ-
+ated activating protein, 13 and protein X 14— are also encoded in an
+alternate open reading frame within Cap. rAAVs are generated by
+replacing the rep and cap genes with a transgene expression cassette,
+ﬂanked by the ITRs. In principle any transgene cassette up to approx-
+imately 4.9 kb can be packaged into rAAV, enabling treatment of
+many, but not all, gene therapy targets.
+The process of AAV transduction involves multiple sequential events
+including (1) trafﬁcking to the target tissue, (2) initial interaction with
+glycans at the cell surface, (3) binding to an internalization receptor,
+(4) retrograde transport from plasma membrane to the trans-Golgi
+network, (5) escape from the endosome, (6) avoidance of degradation
+in the cytoplasm, (7) nuclear import, (8) uncoating to release the sin-
+gle-stranded DNA genome, (9) second strand synthesis and forma-
+tion of circular DNA episomes, and (10) transcription and translation
+of the transgene.
+15 All steps of this complex itinerary are directed by
+interactions between the capsid and host factors on the cell surface or
+inside the target cell. Accordingly, the amino acid sequence of the Cap
+gene is the single most important determinant of AAV tropism.
+At least 13 distinct AAV serotypes encompassing hundreds of natu-
+rally occurring genomic variants have been isolated from multiple
+vertebrate species.
+16,17 AAV serotypes differ in their cap sequence,
+with the greatest diversity on surface-exposed variable loop regions
+that participate in receptor binding and antigenicity. AAV ’s ﬁrst
+interaction with target cells involves glycans present on numerous
+plasma membrane proteins. Glycan binding preferences are known
+for several serotypes including heparan sulfate proteoglycan for
+AAV2,
+18 N-linked galactose for AAV9,19 a2-3 or a2-6 N-linked sialic
+acid for AAV5,20 and a2-3 O-linked sialic acid for AAV4.20 For some
+serotypes, speciﬁc proteins have also been identi ﬁed as co-receptors,
+such as aVb5 integrin for AAV2, 21 platelet-derived growth factor for
+AAV5,22 and laminin receptor (LamR) for AAVs2, 3 and 9. 23 Most
+naturally occurring AAV serotypes, excluding AAV4 and
+AAVrh32.33,
+24 require a common receptor called AAV receptor
+(AAVR) to enter cells. 25 AAVR binds to conserved regions in the
+AAV capsid through its IgG-like polycystic kidney disease domains
+and facilitates endocytosis.
+26 Most AAV serotypes also require inter-
+actions with GPR108 to escape from the trans-Golgi network, with
+AAV5 as a notable exception. 27
+The tropism of rAAV vectors in vivo is determined by a complex
+interplay of many factors, including sex, age, dose, route of adminis-
+tration, residence time in the circulation, relative abundance of glycan
+and internalization receptors, competition between tissues, interac-
+tion with the innate and adaptive immune systems, and cell type-de-
+pendent pathways. It should be noted that AAV transduction in tissue
+culture is inef ﬁcient for most serotypes and does not predict in vivo
+tropism. Tropism can also vary greatly across species, and even
+among different strains of the same species. For example, AAV3B is
+exceptionally poor at transduction of mouse liver, but one of the
+best serotypes for human hepatocytes.
+28,29 Likewise, the engineered
+AAV9 peptide insertion variants AAV-PHP.B which crosses the
+blood brain barrier following systemic delivery, are effective only in
+mouse strains expressing the LY6A receptor.
+30 Despite important
+species differences, common themes do emerge, which have greatly
+improved our understanding of AAV biology and vectorology.
+The mouse remains the primary model for initial preclinical testing of
+AAV gene therapies. The vast majority of studies have focused on a
+limited subset of commonly used human and primate AAV isolates
+due to their likelihood for effective translation to humans. In a sem-
+inal paper, Zincarelli et al.
+31 performed the most extensive analysis of
+AAV tropism in mice to date. The authors proﬁled the biodistribution
+and expression of nine AAV serotypes (AAV1 –9) across nine
+tissues and six serial timepoints following tail vein injection of a lucif-
+erase reporter vector. This study revealed a strong tropism for the
+liver for almost all serotypes, with varying kinetics of expression.
+The value of such well-controlled comparative studies cannot be
+understated. However, the study design did not allow for a detailed
+examination of transduction at the level of individual cells and lacked
+a broad survey of organs and tissue types. It also focused only on
+male mice.
+In the current work, we performed a comprehensive survey of AAV
+tropism in male and female mice following systemic administration
+using ﬂuorescent reporter activation. We de ﬁne the biodistribution
+and functional transduction of 10 naturally occurring AAV serotypes
+across 22 different tissues, including reproductive organs and HSCs.
+By using ﬂuorescent protein activation as a readout of transduction,
+we were able to detect rare events and, in some cases, identify speci ﬁc
+target cell types. We have identi ﬁed novel tropisms for multiple
+serotypes, most notably AAV4, which broadly delivers to endothelial
+cells in most tissues as well as beta cells in the pancreas. Our results
+have generated a comprehensive atlas of murine AAV tropism that
+is freely available to researchers interested in using AAVs as gene
+delivery vehicles in vivo . Data and images associated with these
+studies are publicly available at https://scge.mcw.edu/toolkit. This
+resource will help in the selection of the best serotype for preclinical
+gene therapy studies, and open new doors for previously untargetable
+cell types.
+RESULTS
+Vector design and approach
+To date, most surveys of AAV tropism in mice have examined only a
+few serotypes focusing on small subsets of possible tissues, using
+readouts that lack cell type speci ﬁc resolution. To comprehensively
+evaluate AAV tropism in mice, we designed an AAV vector with a
+bi-directional chicken beta actin (CB) promoter with a cytomegalo-
+virus (CMV) enhancer element expressing both ZsGreen and Cre
+recombinase (Figure 1A).
+32 Recent work indicates that the Cre-medi-
+ated activation of a genomically encoded ﬂuorophore is a more sen-
+sitive method of detecting AAV transduction than AAV-mediated
+delivery.
+33,34 We chose to use the Ai9 reporter mouse strain, which
+harbors a CAG promoter-driven tdTomato bright red ﬂuorescent
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1283
+
+
+--- Page 3 ---
+
+reporter gene at the Rosa26 locus, with an intervening loxP-STOP-
+loxP cassette.35 The STOP cassette can be removed by Cre, perma-
+nently activating tdTomato expression. The Ai9 allele was carried
+on the C57BL/6J genetic background (a strain that expresses both
+AAVR as well as the LY6A receptor). We reasoned that the delivery
+of this bidirectional transgene into Ai9 mice would allow us to simul-
+taneously track cells with active transgene expression (ZsGreen), and
+those cells with a history of Cre expression (tdTomato) ( Figure 1B).
+ZsGreen levels are expected to vary as a function of AAV copy num-
+ber per cell, while tdTomato provides a binary readout of transduc-
+tion with a particularly bright and uniform signal, also marking
+daughter cells. Additionally, biodistribution of the AAV genome
+can be measured for a quantitative readout of tissue uptake in relation
+to transgene expression.
+AAV serotypes were chosen to re ﬂect a diversity of capsid sequences
+(Figure 1 C). As secondary criteria, we restricted our choices to nat-
+ural serotypes of highest preclinical and/or clinical relevance. Our
+ﬁnal list included: AAV3b, AAV4, AAV5, AAV6, AAV7, AAV8,
+AAV9, AAVrh8, AAVrh10, and AAVrh74 ( Figure 1 C).
+17,36–40 Fig-
+ure 1 D and Table S1 illustrate the relationships between capsid
+amino acid sequences. Our experimental work ﬂow is outlined in
+Figure 1 E. Five-week-old mice, homozygous for the Ai9 allele at
+the Rosa26 locus, were injected intravenously through the tail
+vein. This route of administration was chosen to allow even distri-
+bution throughout the body. The AAV dosage was 1E12 genome
+copies (GC) per mouse, equivalent to approximately 5E13 GC/kg,
+intended to maximize the ability to detect extra-hepatic transduc-
+AB
+CD   
+E      
+Figure 1. Experimental design for the analysis of
+AAV tropism survey in mice
+(A) AAV vector design. CMV enhancer element/bidirec-
+tional CB promoter allows for expression of both Cre and
+ZsGreen from the same AAV vector. (B) Detection. Cells
+transduced with AAV will express both the zsGreen ﬂuo-
+rescent reporter and Cre recombinase to activate the Ai9
+allele. ZsGreen ﬂuorescence reports levels of active AAV
+transgene expression, while TdTomato ﬂuorescence
+permanently marks cells with a history of transduction. (C)
+Serotypes. The transgene cassette was packaged into
+the indicated capsid serotypes. (D) Phylogenetic com-
+parison of AAV serotypes. VP1 capsid protein sequences
+relationships between different natural AAV serotypes.
+Serotypes used in this study are highlighted in orange. (E)
+Experimental workﬂow. For each serotype, two cohorts of
+four to six male and four to six female mice were injected
+intravenously and dissected 4 weeks later. From one
+cohort, genomic DNA was puriﬁed from a panel of organs
+for qPCR analysis. From the second cohort, the same
+organs were prepared and imaged by ﬂuorescent micro-
+scopy.
+tion. To reveal sexual dimorphism with respect
+to AAV tropism, and provide suf ﬁcient power
+for statistical analysis, four to six mice of each
+sex were injected. Four weeks after injection, a panel of 22 organs
+was harvested and prepared for either DNA isolation or ﬂuorescent
+imaging ( Table S2 ).
+Biodistribution
+Total DNA was prepared from each organ sample and assayed for the
+viral GC number by qPCR. Heatmap summaries of the results are
+presented in Figure 2A, while the same data for a subset of individual
+serotypes are shown in Figure 2 B and Table S3 . As expected for an
+intravenous injection, most serotypes (AAV5 –9, rh8, rh10, and
+rh74) displayed the strongest tropism for liver in both male and fe-
+male mice, with values exceeding 10
+6 GC/mg of genomic DNA. Signif-
+icant levels of AAV vector genomes were also observed in samples
+from adrenal glands, gastrocnemius muscle, diaphragm, heart, and
+skin. Two serotypes were notable exceptions to this pattern.
+AAV3B was found to have low transduction overall, with a total com-
+bined delivery to all organs of approximately 10
+5 GC/mg DNA and did
+not target the liver. AAV4 displayed tropism for the lung (1.3 /C2106
+GC/mg DNA for males and 2.3 /C2106 GC/mg DNA for females) and
+did not seem to transduce the liver effectively. These results closely
+match those found previously.
+31
+This comprehensive survey of serotypes allows for quantitative com-
+parisons of delivery within a single organ and across sexes. Figure S1
+and Table S4 identify the serotypes that produced the highest vector
+GC number in each organ. For example, in lung, AAV4 produced the
+highest viral GC number in both male and female mice. In a similar
+manner, AAV8 was the most effective serotype for transducing
+Molecular Therapy
+1284 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 4 ---
+
+bladder. Interestingly, there was some discordance between male and
+female mice with respect to the best performing serotypes. In male
+mice, AAVrh10 produced the highest combined viral GC number
+(5.1 /C210
+7 GC/mg DNA), as well as being the top scorer for fourteen
+of 20 organs. In female mice, AAVrh74 produced the highest com-
+bined viral load (5.1 /C210
+7 GC/mg DNA) and was the top scorer in
+9 of 20 organs. Overall, some differences were observed between
+male and female mice ( Figure S2), including more ef ﬁcient transduc-
+tion of liver in males versus female mice, as previously noted. 41,42
+Functional transduction
+The ability of an AAV to mediate functional transduction resulting in
+ﬂuorescent protein expression was assessed by imaging. As
+mentioned above, we used two simultaneous strategies to produce
+AB
+Figure 2. Biodistribution of 10 AAV serotypes across 22 different tissues
+(A) Viral biodistribution summary. Total DNA was isolated from each organ in individual mice. Absolute copy numbers of viral genomes were measured by qPCR, and
+calculated as AAV GCs per microgram of input DNA and shown on a log 10 scale. n = 4–6 for each serotype and each sex. (B) Sample tissue comparison. qPCR results are
+plotted to show all organs assayed for a particular serotype. Results from male (blue) and female (pink) mice injected with AAV9, AAV5, and AAV4 are sho wn, with somatic
+organs listed in alphabetical order, and reproductive organs at the end. Error bars represent ± SEM.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1285
+
+
+--- Page 5 ---
+
+ﬂuorescent reporter molecules: direct ﬂuorescence by expression of
+ZsGreen from the vector and Cre-mediated activation of tdTomato
+from the Ai9 allele. Initial examination of the images revealed that
+signiﬁcantly more cells expressed Cre-activated tdTomato than
+ZsGreen. This phenomenon was consistent through all serotypes
+and all tissues. A sample of these images comparing ZsGreen and
+tdTomato expression in tissues transduced with AAV4 and AAV9
+is shown in Figure S3. Depending on the tissue, ZsGreen ﬂuorescence
+sometimes displayed a punctate intracellular pattern, and there was
+generally higher background observed in the green channel. Given
+these factors, we restricted subsequent analyses to the tdTomato
+reporter.
+Representative images from organs with an average high (liver), me-
+dium (adrenal glands), and low (thymus) transduction efﬁciency across
+serotypes are shown for all 10 serotypes in Figure 3. Images for all 10
+AAV serotypes across the 22 different organs/tissues are shown inFig-
+ure S4. As expected from the biodistribution data, a strong tdTomato
+signal was observed in the liver for most serotypes with the exceptions
+of AAV3B and AAV4 ( Figure 3 A). This result provides an initial
+demonstration of the concordance between viral GC number and
+functional transduction measured by a ﬂuorescent reporter. Likewise,
+tdTomato ﬂuorescence images from the adrenal glands matched the
+biodistribution data. In this case,ﬂuorescent imaging revealed a consis-
+tent pattern of tdTomato expression in the cortex, especially toward the
+center of the organ, while the medulla was relatively untransduced (Fig-
+ure 3 B). This result demonstrates the advantage of using ﬂuorescent
+imaging to detect transduction: the ability to identify a particular region
+or cell type with a different AAV tropism within the intact organ.
+Finally, despite the low viral GC in several tissues for a variety of sero-
+types, Cre-mediated tdTomato expression was observed in a handful of
+cells, for example in the thymus with AAV6 and AAV7 ( Figure 3C).
+Likewise, although ﬂuorescent imaging revealed transduction in both
+testes and ovaries, the activated cells appeared somatic based on
+morphology and location (Figure 4). In testes, tdTomato-positive cells
+for all serotypes appeared exclusively outside the seminiferous tubules
+(i.e., within the interstitial space), as de ﬁned by DAPI staining ( Fig-
+ure 4A). In the ovary, tdTomato-positive cells appeared solely outside
+the follicles (i.e., within the medulla) (Figure 4B). Therefore, our imag-
+ing did not identify transduction of germ cells by any serotype. Hence,
+our technique allows the detection of rare transduction events in single
+cells, which may nonetheless be biologically relevant, particularly for
+immune cells and the germ line.
+To quantify functional transduction, we developed a novel image
+scanning technique that quanti ﬁes tdTomato
++ red ﬂuorescence per
+total area. Our results are summarized in Figure 5 and Table S5 .
+Notably, these results seem to closely match the viral biodistribution
+data from Figure 2 . For both males and females, liver is the most
+heavily transduced organ for serotypes for AAV5 –9, rh8, rh10, and
+rh74, reaching the maximum value of 100%. Adrenal gland, heart,
+and muscle (diaphragm and gastrocnemius) also produced strong
+signal for these serotypes. For AAV4, lung had the highest percentage
+of tdTomato-positive cells in males, as expected from our bio-
+distribution data. For females transduced with AAV4, heart and
+diaphragm showed a slightly higher percentage of tdTomato-positive
+cell and ﬁber area than lung ( Figures 5 and S5).
+Nonetheless, some differences between the viral biodistribution data
+and functional transduction were observed. For example, AAVrh8,
+rh10, and rh74 produced a signi ﬁcant number of tdTomato-positive
+cells in the uterus ( Figures 5 A, S4, and S5), despite a relatively low
+viral GC number ( Figure 2 A). Therefore, we sought to establish an
+overall correlation for all tissues and serotypes between viral GC
+number and tdTomato-positive cells ( Figure S6). The results indicate
+a strong overall correlation between viral GC number and tdTomato
++
+cells. Interestingly, the data produced sigmoidal curves. At the low
+end, this result suggests that a certain threshold of viral particles
+can enter a tissue before tdTomato allele activation by Cre occurs.
+At the high end, the curve ﬂattens once tdTomato-positive cells reach
+100%, and further transduction cannot be registered. Graphs with the
+same correlation data for individual organs are shown in Figure S7 .
+For most tissues, a direct relationship between viral GCs and tdTo-
+mato-positive cells is evident. However, three organs — spleen,
+thymus, and lymph nodes — seem to show reasonably high vector
+GC number without a corresponding amount of tdTomato-positive
+cells. This apparent non-functional transduction (DNA delivery
+without transgene expression) may be related to the immune function
+of these organs or re ﬂect promoter-speciﬁc silencing in these tissues.
+AAV4 has a pan-endothelial tropism and transduces pancreatic
+islets
+The tropism of AAV4 differed signi ﬁcantly from all the other sero-
+types tested, with poor liver transduction and a very strong signal
+in lung. This less studied AAV serotype is one of the most distinct
+in terms of capsid sequence and has a unique preference for a2-3
+O-linked sialic acid.
+20 AAV4 was reported to exhibit a cardiopulmo-
+nary tropism based on vector genomes and luciferase imaging, 43 but
+speciﬁc cell types were not identi ﬁed. To further interrogate cell type
+speciﬁcity, we generated AAV4 vectors expressing Cre recombinase,
+driven by either the CB promoter with CMV enhancer, or the EF1al-
+pha promoter. These vectors did not express ZsGreen, allowing a
+broader range of ﬂuorescent markers to be used for analysis. Intrave-
+nous delivery via the tail vein of AAV4-Cre to Ai9 mice resulted in
+substantial tdTomato-positive signal in lung outside the airways
+(Figure 6A). Flow cytometry revealed that the majority of tdTomato
+signal originated from endothelial cells based on CD31
++/CD45/C0
+expression. Remarkably, more than 85% of lung endothelial cells
+were transduced by AAV4 in both male and female mice. In contrast,
+only approximately 20% of non-immune, non-endothelial cells in the
+lung appeared to be transduced by AAV4 ( Figure 6B).
+These striking results prompted us to ask whether AAV4 might
+also transduce endothelial cells in other vascular beds, a historically
+neglected cell type for gene therapy applications. The experiment
+was repeated using an AAV4 vector expressing Cre driven by the
+EF1alpha promoter. To label the lumenal endothelial surface of the
+vasculature, DyLight649-conjugated tomato lectin was injected
+Molecular Therapy
+1286 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 6 ---
+
+A
+B
+C
+Figure 3. Functional transduction detected by ﬂuorescent imaging
+Organ samples were prepared and imaged for ﬂuorescent tdTomato (red) indicative of functional transduction. Nuclei were stained for DAPI (blue). Re presentative images
+from (A) liver (high transduction), (B) adrenal glands (medium transduction) and (C) thymus (low transduction) for each serotype are shown. Scale ba rs are 200 mm.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1287
+
+
+--- Page 7 ---
+
+intravenously before dissection. Sections from multiple organs were
+prepared at a thickness of forty microns and imaged for the ﬂuores-
+cent lectin and tdTomato. As expected, liver was poorly transduced
+with AAV4 showing only sparse dTomato
++ hepatocytes and possible
+signal in isolated liver sinusoidal endothelial cells. In stark contrast,
+impressive transduction of endothelial cells was seen in the stomach,
+bladder, adrenals, pancreas, brain, small intestine, and thymus ( Fig-
+ure 6C). A clear and distinct endothelial signal was also observed in
+the large intestine, muscle, lymph nodes, skin, ovary, and uterus
+(Figure S8 ). In separate experiments, we also con ﬁrmed strong
+endothelial delivery to the retina ( Figure S9A). AAV4 also mediated
+transduction of the largest vessel in the body, hitting 26% of endothe-
+lial cells in the thoracic aorta ( Figure S9B).
+In addition to its apparent pan-endothelial tropism, we also noted
+strong signal in pancreatic islets with AAV4 ( Figure S4). To con ﬁrm
+this result, we performed a second experiment with the Cre-only
+AAV4 construct. Co-staining with an antibody to insulin con ﬁrmed
+efﬁcient transduction of beta cells with AAV4 ( Figure 6 D). We re-
+examined other serotypes for transduction of pancreatic islets in
+our initial experiments ( Figure S10 A). Although AAV8 seemed to
+have some tropism for islets, it was much less speci ﬁc, with strong
+tdTomato signal from surrounding acinar cells following intravenous
+delivery ( Figure S10 B). AAV5 also seemed to transduce islets,
+although much less ef ﬁciently than AAV4. Strong transduction of
+pancreatic acinar cells was seen for AAV7, 9, rh8, rh10, and rh74.
+Hematopoietic and immune cell transduction
+We also analyzed transduction efﬁciency of bone marrow-derived he-
+matopoietic stem and progenitor cells, as well as circulating leuko-
+cytes. Cells isolated from bone marrow were stained with the appro-
+priate antibodies to identify functional transduction by Cre-induced
+A
+B
+Figure 4. Functional transduction of testes and ovary
+tdTomato ﬂuorescence (red) and DAPI nuclei (blue) for tissues from mice transduced with the indicated serotypes in (A) testes and (B) ovary. Scale bar s are 200 mm.
+Molecular Therapy
+1288 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 8 ---
+
+tdTomato expression by ﬂow cytometry (Figures 7 and S11; Table S6).
+Strong transduction of short- and long-term HSCs and multipotent
+progenitor cells (MPP1, MPP2, and MPP3) was observed for multiple
+serotypes. For AAVrh8, rh10, and rh74 transduction ef ﬁciency was
+greater than 50% in both males and females ( Figures 7 A, 7B, and
+S11A). Interestingly, AAV7 seemed to transduce HSCs more ef ﬁ-
+ciently in males than in females (66% vs. 53%; p = 0.03), while for
+AAV8, females showed a higher transduction ef ﬁciency in these cells
+compared with males (67% vs. 48%; p = 0.02). Interestingly, AAV9,
+which exhibited broad biodistribution and functional transduction
+across multiple organs, was relatively inef ﬁcient in bone marrow-
+derived cells.
+AB
+Figure 5. Quantiﬁcation of functional transduction across tissues
+(A) Image quantiﬁcation. tdTomato signal in each image was measured to quantify transduction efﬁciency from four images for each organ, serotype and sex, and expressed
+as a percentage of maximum coverage ( n = 4) Results are shown as a heatmap. (B) Sample tissue comparison. Image quantiﬁcation results are plotted to show all organs
+assayed for a particular serotype. Results from male (blue) and female (pink) mice injected with AAV9, AAV5, and AAV4 are shown, with somatic organs li sted in alphabetical
+order, and reproductive organs at the end.
+Error bars represent ± SEM.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1289
+
+
+--- Page 9 ---
+
+This analysis was extended to lineage-committed cell types within the
+bone marrow. Committed progenitor cells were generally less trans-
+duced than stem cells and multipotent progenitors ( Figures 7 C and
+S11B). Common myeloid progenitors were more strongly transduced
+than common lymphoid progenitors in both males and females by
+multiple AAV serotypes. However, the more differentiated myeloid
+progenitor cell types, granulocyte-macrophage progenitors, and
+megakaryocyte-erythrocyte progenitors were less transduced. Circu-
+lating leukocytes were also assayed for transduction, following isola-
+tion of peripheral blood mononucleated cells. Notably, overall trans-
+duction ef ﬁciency was signi ﬁcantly lower for these cells compared
+AB
+C
+D
+Figure 6. AAV4 exhibits a unique tropism for
+endothelial cells and pancreatic beta cells
+(A) Transduction of pulmonary endothelial cells by AAV4 -
+Fluorescent images and ﬂow cytometry plots showing
+induction of tdTomato expression (upper right quadrant) in
+endothelial cells (CD31
++, CD45 /C0) following injection with
+AAV4-Cre. (B) Quantiﬁcation of pulmonary endothelial
+cell transduction ﬂow cytometry results. Error bars
+represent ± SEM. (C) Transduction of endothelial cells in
+multiple tissues. Tissue sections from negative control
+and AAV4-Cre injected mice are shown, with DAPI
+staining for nuclei (blue), DyLight649-lectin staining for
+endothelial cells (yellow) and tdTomato (red). (D)
+Pancreas sections were stained with a ﬂuorescently
+labelled insulin antibody and imaged by confocal
+microscopy. Scale bars are 100 mm.
+with bone marrow-derived cells. For all cell
+types and serotypes, mean transduction ef ﬁ-
+ciencies were less than 10% ( Figures 7 D and
+S11C). Nonetheless, some differences were
+observed. CD11c + monocytes, which includes
+dendritic cells, were more highly transduced
+than other cell types, especially by AAVrh74.
+In contrast, natural killer (NK) cells showed a
+stronger transduction by AAV5 than other
+serotypes. Our results have produced the most
+complete survey of AAV tropism in the mouse
+hematopoietic system to date.
+DISCUSSION
+Currently, the most cited survey of AAV
+tropism in mice comes from the work Zincarelli
+et al.
+31 This study explored the viral bio-
+distribution of nine AAV serotypes (AAV1 –9)
+across eight organs (brain, kidney, heart, liver,
+lung, skeletal muscle, and testes). Systemic
+intravenous injection was used because it pro-
+vides broad tissue distribution and is broadly
+therapeutically relevant. The AAVs used in the
+experiments carried luciferase expression cas-
+settes under a ubiquitous promoter, allowing se-
+rial measurement of functional transduction
+through bioluminescent imaging. Their results identi ﬁed AAV9 as
+having the widest organ distribution and highest transgene expres-
+sion. However, this study was limited to male mice, and did not allow
+examination of transduction at the level of individual cells. More
+recent surveys have focused on assessing AAV tropism among cell
+types within a speci ﬁc organ, including brain,
+44,45 and eye, 44,45 or
+from a single serotype. 46
+Here, we performed a comprehensive evaluation of AAV tropism in
+mice, the most widely used preclinical model organism for gene ther-
+apy. Our experiments expand on prior work in several important
+Molecular Therapy
+1290 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 10 ---
+
+ways. We examined 10 serotypes originally isolated from humans
+(AAV3B, AAV5, AAV6, and AAV9) and non-human primates
+(AAV4, AAV7, AAV8, AAVrh8, AAVrh10, and AAVrh74), with a
+diversity of capsid structures. Our organ panel consisted of 22 sepa-
+rate tissues, as well hematopoietic stem and progenitor cells, and
+circulating immune cells. A dose of 1E12 GC (10-fold higher than
+in Zincarelli et al.) was chosen to ensure extrahepatic transduction
+was effectively captured. We also included both male and female
+mice in our analyses. Perhaps most important, we determined func-
+tional transduction by ﬂuorescent imaging of individual organ sec-
+tions. This technique allowed a detailed examination of functional
+transduction at the level of individual cells, rather than the broad or-
+gan-level detection of transgene expression from bioluminescence or
+beta-gal staining that is used traditionally. Additionally, by testing se-
+rotypes individually we avoided competition for common receptors
+or variable representation which can confound pooled library
+approaches.
+Results from our evaluation of viral biodistribution correlate well with
+the previous ﬁndings. In general, our values for viral GCs detected,
+calculated as GC/ mg total genomic DNA, were concordant with pre-
+viously published values.
+31 As expected, most serotypes (AAV6 –9,
+rh8, rh10, and rh74) preferentially transduced the liver. In addition,
+muscle (gastrocnemius and diaphragm), as well as heart, was strongly
+AB
+C
+D
+Figure 7. Transduction of HSCs, progenitor cells, and leukocytes
+(A) Schematic of the HSC and leukocyte lineages tested. (B) Percentage of transduced long term, short term and multipotent progenitors from bone marr ow, determined by
+tdTomato ﬂuorescence via ﬂow cytometry. Colors on heat maps indicate percent tdTomato-positive cells in each cell population. (C) Percentage of tra nsduced myeloid and
+lymphoid lineage-committed cells from bone marrow. (D) Percentage of transduced circulating leukocytes (peripheral blood leukocytes) isolated f rom peripheral blood.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1291
+
+
+--- Page 11 ---
+
+transduced by these serotypes. Notably, these serotypes are closely
+related evolutionarily, reinforcing the role of capsid structure in deter-
+mining viral tropism. 17 AAV5, which is the phylogenetically most
+distant from other serotypes, also transduced liver but failed to effec-
+tively transduce muscle and heart.
+By examining both male and female mice, we were able to uncover
+evidence of sexual dimorphism with respect to AAV tropism across
+the natural serotypes tested. As expected, stronger liver transduction
+was seen in males than females for most serotypes.
+41 The notable
+exception was AAVrh74, which produced a pronounced preference
+for transduction in female mice, not only in liver, but across all or-
+gans. In contrast, AAVrh10 showed a transduction preference for
+males for all organs except lymph nodes, which were very weakly
+transduced in both sexes. AAV6 also demonstrated a bias toward
+transduction in males across multiple organs. For most other organs
+and serotypes, sex differences were relatively minor. Nonetheless,
+sexual dimorphism remains an important consideration for AAV-
+mediated gene therapy, given the potential impact on ef ﬁcacy.
+47
+The extent and nature of sexual dimorphism in human AAV gene
+therapy remains an open question.
+To generate data revealing functional transduction, we used a dual
+ﬂuorescent reporter strategy. The transgene contained within our
+AAVs expressed both the ZsGreen ﬂuorescent reporter and Cre re-
+combinase. In the Ai9 reporter strain used in the studies, Cre expres-
+sion drives activation of tdTomato ﬂuorescent reporter expression.
+This event permanently marks the targeted cell and its daughter cells
+after transduction. During our initial examination of our ﬂuorescent
+images, we noted that Cre-driven tdTomato expression was visible in
+signiﬁcantly more cells than ZsGreen, irrespective of the tissue or
+serotype. tdTomato activation also had an excellent signal-to-noise
+ratio, allowing for more accurate discrimination of positive cells
+from background ﬂuorescence. Hence, we found that this technique
+was the most sensitive mechanism for detecting transduction, corrob-
+orating recent ﬁndings.
+33
+Our results strongly reinforce the utility of ﬂuorescent imaging for
+the detection of functional AAV transduction. We detected rare
+transduction events in individual cells from multiple tissues where
+the biodistribution data suggested a low tropism for a particular
+serotype. From a clinical point of view, rare transduction events by
+a therapeutic AAV may be consequential. Therefore, our results
+demonstrate the need for careful analysis of transduction of non-
+target tissues. In particular, we focused on sex organs for evidence
+of non-target transduction, given concerns over the possible germline
+transmission of genome alterations.
+We noted signiﬁcant transduction of both testes and ovaries. Howev-
+er, in testes only somatic cells located outside the tubules were trans-
+duced. Likewise in ovaries, the transduced cells appeared outside the
+follicles, also indicating that they were not part of the germ line.
+Schuettrumpf et al.
+48 found that vector genomes are detectable in
+semen from rabbits receiving an intravenous injection of AAV2 vec-
+tors. In follow-up work, Favaro et al. 49 analyzed the risk of germline
+transmission following intravenous delivery of AAV2 and AAV8 vec-
+tors expressing factor IX to rabbits. Although rAAV genomes were
+shed in rabbit semen, these were thought to be derived primarily
+from epithelial cells from the genitourinary tract. Studies in mice
+conﬁrm that AAV genomes are shed in semen, but consistently
+show a lack of transmission to offspring,
+50–52 even when mouse sper-
+matozoa are directly exposed to high doses of AAV2 before in vitro
+fertilization.53 The risk of germline transmission could theoretically
+be greater with AAV-based genome editing approaches. Nonetheless,
+we did not ﬁnd evidence of germ cell delivery in either male or female
+mice using a highly sensitive reporter that permanently marks trans-
+duced cells.
+Strong physical and functional transduction by AAV6 –9, plus rh8,
+rh10, and rh74 serotypes was also observed in adrenal glands, an or-
+gan not included in previous comparative surveys of AAV tropism,
+but which has previously been found to be transduced by AAV9.
+46
+This result validates our decision to include smaller, less frequently
+examined organs in our survey. Imaging revealed that the transduc-
+tion occurred primarily in the cortex, rather than the medulla. Adre-
+nal glands should hence be considered not only as a tissue potentially
+targetable with AAV delivery, but also one to consider in terms of side
+effects originating from non-target tissues. Further work is needed to
+determine to what degree this organ may also be transduced in non-
+human primates.
+Two serotypes differed in the liver-dominant tropism most frequently
+observed, with a viral GC number 100-fold lower in this organ
+compared with the other serotypes. Interestingly, these two serotypes,
+AAV3B and AAV4, differed in their tropism in non-hepatic tissues.
+AAV3B did not seem to transduce other organs in the place of liver.
+Instead, it did not seem to have an afﬁnity for any speciﬁc organ. This
+effect may be speciﬁc for mice, since previous studies have shown that
+while this serotype has a poor tropism for mouse liver, it can strongly
+transduce hepatocytes from humans and non-human primates.
+29 The
+greatest physical transduction for AAV3B was observed in lymph
+nodes and spleen, although ﬂuorescent imaging did not indicate func-
+tional transduction of these organs by this serotype. It is possible,
+given the role of these organs in mediating immune responses, that,
+in these tissues, virus particles are taken up but processed to generate
+an immune response, rather than for gene delivery. These bio-
+distribution data provide useful information about potential latent
+reservoirs of AAV that impact adaptive immunity and long-term
+efﬁcacy.
+A major ﬁnding of this work is the pan-endothelial tropism of AAV4,
+a lesser studied AAV serotype that is dif ﬁcult to produce at high titer.
+AAV4 transduced the liver relatively poorly, but strong transduction
+was observed in the lung, as previously reported.
+31,43 We found that
+pulmonary endothelial cells are the primary cell type targeted in the
+lung with AAV4 by the intravenous route. We also noted substantial
+and highly speci ﬁc endothelial cell transduction by AAV4 in
+many other organs (>10 different tissues), opening the door for
+Molecular Therapy
+1292 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 12 ---
+
+endothelial-directed gene therapies. AAV4 differs from other sero-
+types not only in capsid structure but also in its unique af ﬁnity for
+a2-3 O-linked sialic acid.20,43 Interestingly, AAV4 is the only serotype
+we tested which does not require AAVR for cell entry, potentially ex-
+plaining its poor liver tropism. It is also not clear why AAV4 is so
+effective for endothelial cells, although other serotypes (i.e., AAV8,
+AAV9) are presumably transcytosed through the endothelial barrier
+to enter parenchymal cells. Further work is needed to identify the
+endocytosis receptor for AAV4 and to de ﬁne its intracellular traf-
+ﬁcking itinerary, which results in endothelial transduction rather
+than transcytosis. In terms of pancreatic islet delivery, AAV8 has
+long been known to transduce beta cells following intravenous or
+intraperitoneal injection in mice.
+54–58 Previously, AAV8 was used
+to transduce acinar cells with three key beta cell transcription factors,
+attempting to convert acinar cells to restore depleted beta cells in dia-
+betes.
+59 However, AAV4 seems to have the greatest selectivity for beta
+cells over the acinar cells in pancreas with systemic intravenous
+delivery. Thus, our observations may be useful for the design of
+delivery vehicles for gene therapies that could directly target expan-
+sion of beta cells in diabetes.
+There is growing interest in targeting hematopoietic stem and pro-
+genitor cells for in vivo gene therapy and genome editing. Previous
+data suggest signi ﬁcant transduction of bone marrow-derived HSCs
+by AAV6, AAV8, and AAV9.
+60 Our data corroborate and extend
+these results. AAV-based gene editing of such cells within the bone
+marrow niche would allow for life changing gene therapies. For
+example, ex vivo gene editing therapies have just been approved for
+sickle cell disease and beta thalassemia. However, the high cost of
+such therapies combined with the dif ﬁcult logistics of bone marrow
+conditioning means that they are unlikely to be fully translated on
+a global scale to the populations who would most bene ﬁt. A single-
+dose AAV gene therapy that can target the bone marrow following
+systemic administration would be very powerful. It is also noteworthy
+that some immune cell populations were transduced in peripheral
+blood, primarily CD11c
++ monocytes, NK cells, and CD8 T cells, albeit
+with much lower ef ﬁciency. These cell types are potential targets
+for cancer immunotherapies (i.e., chimeric antigen receptor T and
+chimeric antigen receptor NK cells), as well as gene editing to eradi-
+cate residual HIV infection. Effectiveness of such therapies will
+depend both on the mode of action, as well as ef ﬁciency of delivery.
+This also suggests that unintended transduction of immune cell pop-
+ulations may play an underappreciated role in the safety and ef ﬁcacy
+of AAV gene therapies in general.
+The natural AAV capsids examined in this paper are amenable to
+engineering by multiple means, including rational design,
+61 PCR
+shufﬂing,62 mutagenic PCR, 43 library screens, 63 peptide display, 64
+biopanning,65 and directed evolution. 66,67 PCR shuf ﬂing has been a
+very successful approach, taking advantage of sequences already
+determined by evolution to be compatible with capsid assembly.
+Creating capsids rearranged from the naturally occurring serotypes
+can confer new and unexpected properties. For example, AAV-DJ
+is a chimeric capsid of AAV2/AAV8/AAV9 with enhanced transduc-
+tion of liver and lower extrahepatic transduction, along with a
+reduced innate immune response.
+62 Likewise, AAV-LK03 68 and
+AAV-NP5969 are shuf ﬂed capsids selected based on their improved
+afﬁnity for human over murine hepatocytes. Peptide insertion
+mutants, most often into the AAV2 or AAV9 capsid, can have a pro-
+found effect on vector tropism. For example, natural AAV serotypes
+are resistant to crossing the blood-brain barrier. Screening of seven-
+amino acid peptide sequences inserted into the AAV9 capsid revealed
+a variant, named AAV-PHP.B, that was 40-fold more ef ﬁcient at
+transducing the CNS.
+64 Additional peptide screening resulted in
+the identi ﬁcation of two further arti ﬁcial capsids: AAV-PHP.eB,
+with enhanced transduction of the brain, and AAV-PHP.S, with
+enhanced transduction in dorsal root ganglion and enteric and
+cardiac neurons. 70 Other notable peptide insertion mutants into
+AAV9 have been engineered for improved muscle delivery, such
+as AAVMYO
+71 and MyoAAV, 72 among others. There have also
+been considerable efforts to de ﬁne the capsid regions involved in
+receptor binding of many natural serotypes. Purposeful mutagenesis
+of these residues also can afford major gains, by detargeting
+particular organs such as liver.
+73,74 We anticipate that our data on
+the 10 natural serotypes in this paper will support further capsid en-
+gineering efforts.
+We administered AAVs by intravenous injection to maximize tissue
+distribution, avoiding any physical restriction to any particular organ.
+However, it is well recognized that the route of administration has a
+tremendous impact on tropism. For example, the natural serotypes
+tested in our studies do not cross the blood-brain barrier ef ﬁciently,
+but could be effective at transduction if delivered to the correct
+biological compartment. A previous study using direct intracerebral
+injection of ﬁve natural AAV serotypes revealed signi ﬁcant transduc-
+tion for AAV5, AAV7, and AAV9, with reduced tropism for AAV2
+and AAV8.
+75 These results differ from our biodistribution and func-
+tional transduction results, and almost certainly re ﬂect the difference
+in delivery route. A recent survey of 20 natural and engineered AAV
+serotypes delivered to mouse lung by intratracheal instillation identi-
+ﬁed a transduction ef ﬁciency of 30% for AAV4 in airway epithelium,
+but insigni ﬁcant transduction in pulmonary endothelial cells. These
+results reinforce the critical role that delivery route plays in deter-
+mining AAV tropism.
+76
+The experiments described in this paper were limited to Ai9 mice on a
+C57BL/6J genetic background. We chose this strain because of its
+wide use in research, particularly in the context of preclinical gene
+therapy. Nonetheless, differences in AAV tropism among mouse
+strains have been noted, and variances in transduction patterns
+may occur. For example, intracerebral delivery of ﬁve natural AAV
+serotypes (AAV2, AAV5, AAV7, AAV8, and AAV9) revealed signif-
+icant differences between C57BL/6 mice and FVB mice.
+75 AAV5 and
+AAV7 produced higher transduction in the cortex of C57BL/6 mice
+than FVB mice. Contralateral spreading of transduction was also
+markedly reduced in FVB compared with C57BL/6 following intra-
+striatal injection. In another example, the LY6A receptor is required
+for blood-brain barrier transcytosis and CNS transduction of the
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1293
+
+
+--- Page 13 ---
+
+engineered AAV9 derivative AAV-PHP.B following intravenous
+administration.30 C57BL6/J and FVB strains both express the LY6A
+receptor, but other laboratory strains such as BALB/c and CB do
+not, making them nonpermissive to CNS delivery via the intravenous
+route. Similarly, it is likely that AAVR expression also varies across
+strains which may result in differences in overall or tissue-speci ﬁc
+transduction. Genetic manipulation of endogenous AAVR expression
+has been used to improve surveys of hepatocyte tropism in human
+liver chimeric mice,
+77 as well as to hardwire arti ﬁcial AAV tropism
+for basic science research in a Cre-dependent manner. 78 Systematic
+examinations of AAV tropism across inbred mouse strains could be
+combined with genetic screens to learn more about AAV biology,
+but is beyond the scope of the current work.
+It remains to be determined how translatable these tropism data are
+to humans. Although there are many examples where tropism does
+not translate well across species, many common themes exist. For
+example, most approved AAV gene therapy products involve
+AAV2, AAV5, AAV8, or AAV9 capsids. These vectors were tested
+extensively in mouse, primate, and/or canine models before progress-
+ing to human clinical trials. Vectors capable of transducing liver, skel-
+etal muscle, CNS, and retina are generally effective across multiple
+species, albeit with varying ef ﬁciency. An important endeavor will
+be comparing tropism data from mice reported here, with that ob-
+tained in non-human primates, as well as with clinical outcomes.
+Ideally, cross-species-compatible vectors can be developed for speciﬁc
+tissues using these data as a starting point, thus streamlining the
+development of gene therapies from initial proof of concept in mice
+to ultimate application in humans.
+All data from these experiments are available through the Somatic
+Cell Genome Editing Consortium Toolkit ( https://scge.mcw.edu/
+toolkit) for further exploration and analysis. We believe this resource
+will be immediately useful for other researchers engaged in capsid en-
+gineering to target speci ﬁc cell types or tissues in mouse models, as
+well as for avoiding unintended delivery to non-target tissues. These
+data will inform the community of the most effective vectors for pre-
+clinical gene therapy in mice, and more broadly improve our under-
+standing of AAV biology. Moreover, the detailed documentation of
+targeted tissues and cell types, including the germline, is critical to
+the ongoing development and deployment of genome editor-based
+therapeutics.
+MATERIALS AND METHODS
+rAAV production
+AAV vectors were produced by standard triple-transfection in
+HEK293 cells. Three days post transfection, cells and culture media
+were harvested, and crude lysates were prepared. Downstream puri-
+ﬁcation was carried out by two rounds of CsCl sedimentation fol-
+lowed by dialysis. Puri ﬁed AAV vectors were sterilized using a
+0.22-micron ﬁlter and formulated in PBS with 5% sorbitol and
+0.001% of F-68. AAV vector genome titers were determined by
+droplet digital PCR. AAV vector purity was assessed by gel electro-
+phoresis followed by silver staining.
+AAV transduction in mice
+Mice used in experiments were from the Ai9 strain, B6.Cg- Gt(ROSA)
+26Sortm9(CAG-tdTomato)Hze/J (Madisen et al. 2010, JAX# 007909). At
+5 weeks of age, male and female mice were injected intravenously
+through the tail vein with rAAV. Injections were carried out in par-
+allel at BCM and JAX using the same viral batch. Four to six mice
+of each sex were injected with AAVs of each serotype. Dosage was
+1E12 GC/mouse, in a total volume of 0.2 mL PBS. Following injection,
+mice were housed under standard conditions, and fed ad libitum ,
+while monitoring for weight loss or other health issues. After 4 weeks,
+the mice were humanely euthanized and dissected for biodistribution
+and functional transduction analyses. In experiments involving label-
+ing of endothelial cells, 100 mg of DyLight649-labelled Lycopersicon
+esculentum (tomato) lectin (Vector Laboratories, DL-1178-1) was in-
+jected intravenously through the tail vein in a volume of 0.1 mL just
+before euthanasia and dissection. Tissue samples from each organ
+were prepared for imaging as described below. In addition, small sam-
+ples (approximately 50 mg) were ﬂash frozen in liquid nitrogen and
+stored at /C080
+/C14C for subsequent genomic DNA preparation. For brain
+samples, one hemisphere cut sagittally was used for DNA prepara-
+tion, to account for possible differences in AAV transduction between
+regions. All animal work was performed in accordance with the
+guidelines for animal care at Baylor College of Medicine (BCM)
+and the Jackson Laboratory (JAX), under approved Institutional
+Animal Care and Use Committee protocols.
+DNA isolation and qPCR
+Total DNA (viral and mouse genomic) isolation from frozen samples
+was performed using DNeasy Blood & Tissue kits (Qiagen) according
+to the manufacturer ’s instructions. Tissue disruption steps were
+repeated twice on muscle and heart samples to ensure quantitative re-
+covery of DNA. The DNA concentration in each sample was assayed
+by ﬂuorescence using a Quant-iT Broad Range kit (Invitrogen). Ab-
+solute viral GC numbers in each sample were determined by SYBR-
+based qPCR using a standard curve with the AAV transgene plasmid
+and validated primers speciﬁc to the Cre recombinase transgene (for-
+ward: 5
+0-TGA CGG TGG GAG AAT GTT AAT C-30; reverse: 50-GCT
+ACA CCA GAG ACG GAA ATC-3 0).33 Results were calculated as
+AAV GCs/mg total input DNA.
+Fluorescent imaging
+Tissue preparation and imaging at JAX were carried out as follows.
+Twelve mice per AAV serotype treatment group were euthanized
+via CO2 asphyxiation. For collection of blood cells and bone marrow
+for ﬂow cytometry analysis, immediately following con ﬁrmation of
+expiration, peripheral blood (250 –500 mL) was collected via cardiac
+puncture into K2-EDTA microtainer tubes (BD #365974) and leg
+bones (either 2 two or one femur and one tibia) were collected into
+cold 1/C2PBS in 12-well plates for isolation of bone marrow. The re-
+maining tissues: brain (sagittal bisection), eyes, inguinal lymph
+node, skin, bladder, ovary, uterus, epididymis, testes, large intestine,
+gastrocnemius muscle, diaphragm, heart, thymus, lung, spleen, kid-
+ney, liver, adrenal gland, pancreas, small intestine, and stomach
+were collected into seven vials and immersion ﬁxed in 25 mL, cold
+Molecular Therapy
+1294 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 14 ---
+
+4% PFA in 1 /C2PBS per vial at 4 /C14C on a shaking incubator for 4 –5h .
+Tissues were washed in cold 1 /C2PBS twice and then transferred to
+into cold 30% sucrose/1 /C2 PBS solution on a shaking incubator
+overnight to equilibrate. Excess connective tissue was trimmed and
+tissues were combined into seven groups per block to minimize the
+number of blocks per mouse, and then immersed in Tissue-Tek
+O.C.T in cryomolds, frozen on dry ice, and stored at /C080
+/C14C. Tissues
+were cryosectioned at 15 mm and sections mounted on Superfrost
+Plus slides (Thermo Fisher Scienti ﬁc), allowed to air dry for approx-
+imately 10 min at room temp, and washed with 1 /C2PBS twice for
+5 min. Slides were then stained with 1:10,000 Hoechst in 1 /C2PBS
+for 5 min, washed 2 /C2 with 1 /C2 PBS and slides mounted using
+ProLong Diamond Antifade Mountant, cured overnight, sealed
+with clear nail polish. Tissues were imaged using a wide ﬁeld DMi8
+microscope (Leica) using a 10 /C2or 20 /C2objective. Representative
+sections from each tissue were analyzed and at least three animals
+per sex per treatment were assessed, with most including four mice
+per sex per treatment. Quanti ﬁcation of tdTomato (RFP) signal and
+thus viral transduction was performed as follows: images were opened
+in QuPath,
+79 and cells were detected using the built-in watershed cell
+detection function based on DAPI/nuclear signal. All images from the
+same tissue type were processed with the same cell detection settings,
+with only slight changes in parameters used for different tissues to
+account for changing cell and nuclear diameters (i.e., adjusting sigma
+microns [range, 0.5 –0.9] and cell expansion microns). Background
+signal for RFP expression was determined empirically from unin-
+jected control tissues from Ai9 mice imaged at de ﬁned increasing
+exposure times and used to set detection threshold minimums for
+each image. RFP signal above background threshold was scored per
+cell (co-localization). Data recorded per image includes the total
+number of DAPI nuclei (cells) and the number of nuclei, which
+had RFP signal above threshold (transduced cells) and we report
+the calculated percent of transduced RFP
++ cells out of the total num-
+ber of cells per image (RFP + cells/total cells /C2100%).
+Tissue preparation and imaging at BCM were carried out as follows.
+Following euthanasia, animals were perfused brie ﬂy with PBS
+through a cardiac puncture, then organs were dissected. Tissue sam-
+ples from each organ were placed in 8 mL of freshly prepared 4% buff-
+ered paraformaldehyde and ﬁxed overnight at 4
+/C14C with mild shaking.
+The next day, ﬁxed samples were transferred to a 15% buffered su-
+crose solution, then 3 h later, transferred to a 30% buffered sucrose
+solution for equilibration overnight at 4
+/C14C. Next, the ﬁxed and cryo-
+preserved samples were frozen in OCT, sectioned at 14 mm, DAPI-
+stained for nuclei, and imaged on an Axioscan Z.1 slide scanner
+(Zeiss) under a 20 /C2objective, with the appropriate ﬂuorescence set-
+tings, at the RNA In Situ Hybridization Core at BCM. Sectioning was
+performed to maximize the imaged tissue surface area for each organ.
+Three non-consecutive sections from each sample were imaged. For
+experiments involving lectin labeling of the vasculature, 40- mm sec-
+tions were prepared to generate a wider depth of ﬁeld.
+Aortas were prepared for imaging by cutting the left and right carotid
+arteries and the left subclavian artery to release the aortic arch. Then,
+the aorta was cut at the level of the diaphragm. The heart and aortic
+arch were removed, and the remaining thoracic aorta was en face
+opened and pinned on a dissecting dish with the luminal side facing
+up. The thoracic aorta was ﬁxed overnight with 4% PFA (in PBS),
+then incubated overnight with 30% sucrose (in PBS) and stored in
+PBS at 4
+/C14C afterward. Am approximately 4-mm piece of aorta was
+cut and stained with DAPI (1:5,000 dilution in PBS, D3571, Invitro-
+gen) for 5 min, followed by a wash in PBS for 3 min. Then, the sample
+was placed ﬂat on a glass slide with the lumen faced up and covered
+with a coverslip with glycerol. Direct tdTomato, DyLight649-lectin
+and DAPI ﬂuorescence were detected using a Nikon A1-Rs confocal
+microscope using a 60 /C2objective at the Integrated Microscopy Core
+(BCM). Confocal sections were acquired every 2mm from the lumenal
+side to the ﬁrst layer of smooth muscle cells.
+For immuno ﬂuorescence images of pancreatic islets, PFA- ﬁxed and
+frozen pancreas sections were brought to room temperature for
+5 min and then placed 0.1% Triton X-100 in PBS for 5 min. A 1-h
+block was performed with 5% donkey serum in PBS, followed by a
+2-h incubation with primary antibodies to insulin (1:1,500; rabbit;
+Cell Signaling #3014s; RRID: AB_2126503) or amylase (1:1,000,
+mouse, Santa Cruz #sc-46657, RRID: AB_626668). Slides were
+washed twice in 0.01% Triton X-100 in PBS for 5 min each.
+Slides were then incubated with secondary antibodies for donkey
+anti-rabbit (1:1000; Jackson ImmunoResearch #711-175-152, RRID:
+AB_2340607) and DAPI (1:2,000; Sigma #32670) followed by two
+washes in 0.01% Triton X-100 in PBS for 5 min each and coverslip
+mounting with Prolong Gold Antifade (Invitrogen #P36930). Omis-
+sion of the primary antibody was used a control. Images were
+captured on a Nikon A1R confocal microscope.
+Flow cytometry
+To assess pulmonary endothelial cell transduction, three male and
+three female Ai9 mice were injected intravenously through the tail
+vein with 5E+11 GC/mouse of AAV4-CB6-PI-Cre. One male and
+one female mouse were injected with saline as negative controls.
+Mice were humanely euthanized two weeks post-injection, and lungs
+were excised and processed for ﬂow cytometry using a mouse lung
+dissociation kit according to the manufacturer ’s instructions (Milte-
+nyi Biotec). The resulting single cell suspension was resuspended in
+PBS/0.5%BSA/2 mM EDTA, and non-speci ﬁc antibody binding was
+blocked with anti-mouse CD16/CD32 (BD Pharmingen #553142)
+at 1:100 dilution for 15 min at 4
+/C14C. Cells were stained with ﬁxable
+Live/Dead Blue to exclude dead cells, and antibodies speci ﬁc for the
+following markers: CD31 (BV605, clone 390, BioLegend #102427),
+CD45.2 (ﬂuorescein isothiocyanate, clone 104, BioLegend #109806),
+CD11b (PerCP-eFluor710, clone M1/70, Invitrogen #46-0112-80) at
+a 1:100 dilution for 45 min at 4
+/C14C. Flow cytometry was performed
+on an LSRII (BD Biosciences) instrument, and data analyzed using
+FloJo software (v10, BD Biosciences).
+To assess cell transduction in hematopoietic lineages, whole blood
+and bone marrow were collected from Ai9 mice injected with
+1E+12 GC/mouse. Leg bones were kept cold in 1 /C2PBS in 12-well
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1295
+
+
+--- Page 15 ---
+
+plates on ice. Bones were crushed with mortar and pestle and rinsed
+with AutoMACS buffer (Miltenyi Cat# 130-091-222) with BSA (Mil-
+tenyi Cat#130-091-376) ( ﬁnal concentration of 0.5% BSA). Liquid
+was ﬁltered through Falcon 32235 5-mL tubes with cell strainer. Cells
+were centrifuged at 500 /C2g for 5 min and liquid decanted. Cells were
+resuspended at approximately 2 /C210^7 per mL and 1 /C210^6 cells
+were stained with either antibody cocktail BM-A or BM-B for
+30 min at 4
+/C14C. Samples were washed with PBS with 5 mM EDTA
+and 0.5% BSA, stained with 10 mLo f5 mg/mL DAPI (BD Biosciences,
+Cat.#564907).
+Per 200 mL of sample and analyzed on BD FACSymphony A5 with
+500K live cells set as stopping gate. Whole blood for white cells (pe-
+ripheral blood lymphocytes- PBL) was treated with 3 mL 1 /C2Leinco
+RBC Lysis buffer for 5 min at room temperature (RT), centrifuged for
+5 min at 500 /C2g, decanted, resuspended with 3 mL 1 /C2RBC Lysis
+Buffer for 5 min at RT, centrifuged for 5 min at 500xg, decanted,
+washed with 4mL PBS with 5mM EDTA and 0.5% BSA, centrifuged
+for 5 min at 500 /C2g, decanted, blotted on paper towel, and resus-
+pended in a total volume of 50 mL for staining. We added 10 mLo f
+PBL staining cocktail for 30 min at 4
+/C14C, washed with 2mL of PBS
+with 5 mM EDTA and 0.5% BSA, centrifuged for 5 min at 500/C2g, dec-
+anted, resuspended in 200 mL of PBS with 5 mM EDTA and 0.5%
+BSA, stained with 10 mLo f5 mg/mL DAPI, and run on the cytometer.
+Samples were analyzed on BD FACSymphony A5 and data analyzed
+using FloJo (v10, BD Biosciences).
+Antibody staining panels for HSCs (HSC, BM-A), committed
+lymphoid and myeloid progenitors (CLP/CMP, BM-B), and periph-
+eral blood lymphocytes are listed in Table S7. Speciﬁc cell populations
+were deﬁned by the following staining characteristics: long-term HSC
+(CD150
++, Flt3/C0, CD48/C0), short-term HSC (CD150 /C0, Flt3/C0, CD48/C0),
+MPP2 (CD150 +, Flt3 /C0, CD48 +), MPP3 (CD150, Flt3 /C0, CD48 +),
+MPP4 (CD150/C0, Flt3+, CD48+), CMP (CD34 +, CD16/32 low), MEP
+(CD34/C0, CD16/32 /C0), GMP (CD34 +, CD16/32 +), CD4 T cells
+(CD4+, CD3e +), CD8 T cells (CD8a +, CD3e +), B cells (CD19 +,
+B220+, CD3e /C0), eosinophils (Ly6G low, SSC +), CD11c + monocytes
+(Ly6G/C0, Lyb6C /C0, CD11c +, SSC low), Ly6C + monocytes (Ly6G /C0,
+Lyb6C+, CD11c-, SSC low), neutrophils (Ly6G +, SSC mid), and NK
+cells (NK1-1+, Not T/NotB).
+Statistical analysis
+All possible pairwise comparisons (k = 45) of AAV serotypes, within
+sex and organ (cell type), for each type of data (biodistribution, func-
+tion transduction, functional transduction by ﬂow cytometry) were
+performed using the pairwise.wilcox.test() function in package: stats
+of R version 4.3.2. The p values were calculated by the exact method
+unless there were ties, in which case, the function used the chi-square
+approximation with continuity correction. Within each organ and
+sex, p values were adjusted using the false discovery method.
+80
+DATA AND CODE AVAILABILITY
+All data and images associated with these studies are publicly available at https://scge.
+mcw.edu/toolkit, as part of the Somatic Cell Genome Editing initiative.
+ACKNOWLEDGMENTS
+This work was made possible by NIH grants U42 OD026645 to J.D.H., M.E.D., and
+W.R.L.; U42 OD035581 to J.D.H., W.R.L., and C.J.W; U42 OD026635 to S.A.M. and
+C.M.L.; and UG3 HL147367 to G.G. Additional support came from grants UG3
+HL151545, R01 HL132840, and R01 DK124477 to W.R.L., grants R01DK136694 and
+R56DK128098 to A.R.C., and grant K01DK128226 to M.A.-B. The Jackson Laboratory
+Imaging Sciences and Flow Cytometry Cores receive support from the JAX Cancer Center
+(P30CA034196). The BCM RNA In Situ Hybridization Core supported these studies and
+receives funding from the Baylor College of Medicine Intellectual and Developmental
+Disabilities Center (IDDRC) (P50HD103555). This project was also supported by the
+Cytometry and Cell Sorting Core at Baylor College of Medicine with funding from the
+CPRIT Core Facility Support Award (CPRIT-RP180672), the NIH (CA125123 and
+RR024574) and the assistance of Joel M. Sederstrom. Additional support was provided
+by the Quantitative Science Shared Resource at BCM (P30CA125123). We also thank Ka-
+zuhiro Oka and Austin Seal at the BCM Gene Vector Core for assistance with packaging
+AAV4-Cre vectors. Funding to support the work was provided by grants awarded to
+C.J.W., S.M.H., M.E.D., C.M.L., M.A.-B., J.D.H., S.A.M., G.G., and W.R.L.
+AUTHOR CONTRIBUTIONS
+The studies were conceived by W.R.L., J.D.H., C.J.W., D.W., G.G., C.M.L., K.J.S., and
+S.A.M. in consultation with O.M. and other members of the NIH Somatic Cell Genome
+Editing Consortium, and NIH program of ﬁcials. AAV vector design and production was
+carried out by J.B., D.W., and G.G. Studies of biodistribution of AAV genomes were
+conducted by C.J.W., A.E.M., M.D.G., and M.A.C. Studies of functional transduction
+by ﬂuorescence were carried out by K.J.S., E.S., J.D., Y.G., S.H., S.A.M., and C.M.L. Addi-
+tional sectioning and imaging was performed by M.C.L. Analysis of endothelial cell trans-
+duction was carried out by C.J.W., M.D.G., M.A.-B., C.F.S., and M.C.L. Analysis of
+pancreatic islet transduction was performed by A.R.C. and M.C.L. with support from
+S.M.H. Expertise on confocal microscopy imaging provided by C.W.H. Generation of
+experimental reporter mice was achieved by D.G.L. and J.D.H. Statistical analyses of
+transduction data was performed by C.J.W. and S.G.H. The manuscript was written by
+C.J.W., W.R.L., J.D.H., K.J.S., S.A.M., D.W., and G.G. with input and approval from all
+authors. The content is that of the authors and is not intended to represent the of ﬁcial
+views of the National Institutes of Health.
+DECLARATION OF INTERESTS
+The authors declare no competing interests.
+SUPPLEMENTAL INFORMATION
+Supplemental information can be found online at https://doi.org/10.1016/j.ymthe.2025.
+01.041.
+REFERENCES
+1. Pupo, A., Fernández, A., Low, S.H., François, A., Suárez-Amarán, L., and Samulski,
+R.J. (2022). AAV vectors: The Rubik ’s cube of human gene therapy. Mol. Ther. 30,
+3515–3541. https://doi.org/10.1016/j.ymthe.2022.09.015.
+2. Wu, Z., Asokan, A., and Samulski, R.J. (2006). Adeno-associated virus serotypes: vec-
+tor toolkit for human gene therapy. Mol. Ther. 14, 316–327. https://doi.org/10.1016/j.
+ymthe.2006.05.009.
+3. Rabinowitz, J., Chan, Y.K., and Samulski, R.J. (2019). Adeno-associated Virus (AAV)
+versus Immune Response. Viruses 11, 102. https://doi.org/10.3390/v11020102.
+4. Zinn, E., and Vandenberghe, L.H. (2014). Adeno-associated virus: ﬁt to serve. Curr.
+Opin. Virol. 8,9 0–97. https://doi.org/10.1016/j.coviro.2014.07.008.
+5. Greig, J.A., Martins, K.M., Breton, C., Lamontagne, R.J., Zhu, Y., He, Z., White, J.,
+Zhu, J.X., Chichester, J.A., Zheng, Q., et al. (2024). Integrated vector genomes may
+contribute to long-term expression in primate liver after AAV administration. Nat.
+Biotechnol. 42, 1232–1242. https://doi.org/10.1038/s41587-023-01974-7.
+6. Dalwadi, D.A., Calabria, A., Tiyaboonchai, A., Posey, J., Naugler, W.E., Montini, E.,
+and Grompe, M. (2021). AAV integration in human hepatocytes. Mol. Ther. 29,
+2898–2909. https://doi.org/10.1016/j.ymthe.2021.08.031.
+7. Srivastava, A., Lusby, E.W., and Berns, K.I. (1983). Nucleotide sequence and organi-
+zation of the adeno-associated virus 2 genome. J. Virol. 45, 555–564. https://doi.org/
+10.1128/JVI.45.2.555-564.1983.
+Molecular Therapy
+1296 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 16 ---
+
+8. Atchison, R.W., Casto, B.C., and Hammon, W.M. (1965). Adenovirus-Associated
+Defective Virus Particles. Science 149, 754 –756. https://doi.org/10.1126/science.
+149.3685.754.
+9. Geoffroy, M.C., and Salvetti, A. (2005). Helper functions required for wild type and
+recombinant adeno-associated virus growth. Curr. Gene Ther. 5, 265 –271. https://
+doi.org/10.2174/1566523054064977.
+10. Rose, J.A., Maizel, J.V., Jr., Inman, J.K., and Shatkin, A.J. (1971). Structural proteins of
+adenovirus-associated viruses. J. Virol. 8, 766 –770. https://doi.org/10.1128/JVI.8.5.
+766-770.1971.
+11. Snijder, J., van de Waterbeemd, M., Damoc, E., Denisov, E., Grinfeld, D., Bennett, A.,
+Agbandje-McKenna, M., Makarov, A., and Heck, A.J.R. (2014). De ﬁning the stoichi-
+ometry and cargo load of viral and bacterial nanoparticles by Orbitrap mass spec-
+trometry. J. Am. Chem. Soc. 136, 7295–7299. https://doi.org/10.1021/ja502616y.
+12. Sonntag, F., Schmidt, K., and Kleinschmidt, J.A. (2010). A viral assembly factor pro-
+motes AAV2 capsid formation in the nucleolus. Proc. Natl. Acad. Sci. USA 107,
+10220–10225. https://doi.org/10.1073/pnas.1001673107.
+13. Ogden, P.J., Kelsic, E.D., Sinai, S., and Church, G.M. (2019). Comprehensive AAV
+capsid ﬁtness landscape reveals a viral gene and enables machine-guided design.
+Science 366, 1139–1143. https://doi.org/10.1126/science.aaw2900.
+14. Hermonat, P.L., Santin, A.D., De Greve, J., De Rijcke, M., Bishop, B.M., Han, L.,
+Mane, M., and Kokorina, N. (1999). Chromosomal latency and expression at map
+unit 96 of a wild-type plus adeno-associated virus (AAV)/Neo vector and identi ﬁca-
+tion of p81, a new AAV transcriptional promoter. J. Hum. Virol. 2, 359–368.
+15. Riyad, J.M., and Weber, T. (2021). Intracellular traf ﬁcking of adeno-associated virus
+(AAV) vectors: challenges and future directions. Gene Ther. 28, 683–696. https://doi.
+org/10.1038/s41434-021-00243-z.
+16. Loeb, E.J., Havlik, P.L., Elmore, Z.C., Rosales, A., Fergione, S.M., Gonzalez, T.J.,
+Smith, T.J., Benkert, A.R., Fi ﬂis, D.N., and Asokan, A. (2024). Capsid-mediated con-
+trol of adeno-associated viral transcription determines host range. Cell Rep. 43,
+113902. https://doi.org/10.1016/j.celrep.2024.113902.
+17. Gao, G., Vandenberghe, L.H., Alvira, M.R., Lu, Y., Calcedo, R., Zhou, X., and Wilson,
+J.M. (2004). Clades of Adeno-associated viruses are widely disseminated in human
+tissues. J. Virol. 78, 6381–6388. https://doi.org/10.1128/JVI.78.12.6381-6388.2004.
+18. Kern, A., Schmidt, K., Leder, C., Müller, O.J., Wobus, C.E., Bettinger, K., Von der
+Lieth, C.W., King, J.A., and Kleinschmidt, J.A. (2003). Identi
+ﬁcation of a heparin-
+binding motif on adeno-associated virus type 2 capsids. J. Virol. 77, 11072 –11081.
+https://doi.org/10.1128/jvi.77.20.11072-11081.2003.
+19. Bell, C.L., Gurda, B.L., Van Vliet, K., Agbandje-McKenna, M., and Wilson, J.M.
+(2012). Identiﬁcation of the galactose binding domain of the adeno-associated virus
+serotype 9 capsid. J. Virol. 86, 7326–7333. https://doi.org/10.1128/JVI.00448-12.
+20. Kaludov, N., Brown, K.E., Walters, R.W., Zabner, J., and Chiorini, J.A. (2001). Adeno-
+associated virus serotype 4 (AAV4) and AAV5 both require sialic acid binding for
+hemagglutination and ef ﬁcient transduction but differ in sialic acid linkage speci-
+ﬁcity. J. Virol. 75, 6884–6893. https://doi.org/10.1128/JVI.75.15.6884-6893.2001.
+21. Summerford, C., Bartlett, J.S., and Samulski, R.J. (1999). AlphaVbeta5 integrin: a co-
+receptor for adeno-associated virus type 2 infection. Nat. Med. 5,7 8–82. https://doi.
+org/10.1038/4768.
+22. Di Pasquale, G., Davidson, B.L., Stein, C.S., Martins, I., Scudiero, D., Monks, A., and
+Chiorini, J.A. (2003). Identiﬁcation of PDGFR as a receptor for AAV-5 transduction.
+Nat. Med. 9, 1306–1312. https://doi.org/10.1038/nm929.
+23. Akache, B., Grimm, D., Pandey, K., Yant, S.R., Xu, H., and Kay, M.A. (2006). The 37/
+67-kilodalton laminin receptor is a receptor for adeno-associated virus serotypes 8, 2,
+3, and 9. J. Virol. 80, 9831–9836. https://doi.org/10.1128/JVI.00878-06.
+24. Dudek, A.M., Pillay, S., Puschnik, A.S., Nagamine, C.M., Cheng, F., Qiu, J., Carette,
+J.E., and Vandenberghe, L.H. (2018). An Alternate Route for Adeno-associated
+Virus (AAV) Entry Independent of AAV Receptor. J. Virol. 92, e02213-17. https://
+doi.org/10.1128/JVI.02213-17.
+25. Pillay, S., Meyer, N.L., Puschnik, A.S., Davulcu, O., Diep, J., Ishikawa, Y., Jae, L.T.,
+Wosen, J.E., Nagamine, C.M., Chapman, M.S., and Carette, J.E. (2016). An essential
+receptor for adeno-associated virus infection. Nature 530, 108 –112. https://doi.org/
+10.1038/nature16465.
+26. Silveria, M.A., Large, E.E., Zane, G.M., White, T.A., and Chapman, M.S. (2020). The
+Structure of an AAV5-AAVR Complex at 2.5 A Resolution: Implications for Cellular
+Entry and Immune Neutralization of AAV Gene Therapy Vectors. Viruses 12, 1326.
+https://doi.org/10.3390/v12111326.
+27. Dudek, A.M., Zabaleta, N., Zinn, E., Pillay, S., Zengel, J., Porter, C., Franceschini, J.S.,
+Estelien, R., Carette, J.E., Zhou, G.L., and Vandenberghe, L.H. (2020). GPR108 Is a
+Highly Conserved AAV Entry Factor. Mol. Ther. 28, 367 –381. https://doi.org/10.
+1016/j.ymthe.2019.11.005.
+28. Biswas, M., Marsic, D., Li, N., Zou, C., Gonzalez-Aseguinolaza, G., Zolotukhin, I.,
+Kumar, S.R.P., Rana, J., Butter ﬁeld, J.S.S., Kondratov, O., et al. (2020). Engineering
+and In Vitro Selection of a Novel AAV3B Variant with High Hepatocyte Tropism
+and Reduced Seroreactivity. Mol. Ther. Methods Clin. Dev. 19, 347 –361. https://
+doi.org/10.1016/j.omtm.2020.09.019.
+29. Wang, L., Bell, P., Somanathan, S., Wang, Q., He, Z., Yu, H., McMenamin, D., Goode,
+T., Calcedo, R., and Wilson, J.M. (2015). Comparative Study of Liver Gene Transfer
+With AAV Vectors Based on Natural and Engineered AAV Capsids. Mol. Ther. 23,
+1877–1887. https://doi.org/10.1038/mt.2015.179.
+30. Huang, Q., Chan, K.Y., Tobey, I.G., Chan, Y.A., Poterba, T., Boutros, C.L., Balazs,
+A.B., Daneman, R., Bloom, J.M., Seed, C., and Deverman, B.E. (2019). Delivering
+genes across the blood-brain barrier: LY6A, a novel cellular receptor for AAV-
+PHP.B capsids. PLoS One 14, e0225206. https://doi.org/10.1371/journal.pone.
+0225206.
+31. Zincarelli, C., Soltys, S., Rengo, G., and Rabinowitz, J.E. (2008). Analysis of AAV se-
+rotypes 1-9 mediated gene expression and tropism in mice after systemic injection.
+Mol. Ther. 16, 1073–1080. https://doi.org/10.1038/mt.2008.76.
+32. Lahey, H.G., Webber, C.J., Golebiowski, D., Izzo, C.M., Horn, E., Taghian, T.,
+Rodriguez, P., Batista, A.R., Ellis, L.E., Hwang, M., et al. (2020). Pronounced
+Therapeutic Bene ﬁt of a Single Bidirectional AAV Vector Administered
+Systemically in Sandhoff Mice. Mol. Ther. 28, 2150–2160. https://doi.org/10.1016/j.
+ymthe.2020.06.021.
+33. Lang, J.F., Toulmin, S.A., Brida, K.L., Eisenlohr, L.C., and Davidson, B.L. (2019).
+Standard screening methods underreport AAV-mediated transduction and gene ed-
+iting. Nat. Commun. 10, 3415. https://doi.org/10.1038/s41467-019-11321-7.
+34. Hillestad, M.L., Guenzel, A.J., Nath, K.A., and Barry, M.A. (2012). A vector-host sys-
+tem to ﬁngerprint virus tropism. Hum. Gene Ther. 23, 1116–1126. https://doi.org/10.
+1089/hum.2011.116.
+35. Madisen, L., Zwingman, T.A., Sunkin, S.M., Oh, S.W., Zariwala, H.A., Gu, H., Ng,
+L.L., Palmiter, R.D., Hawrylycz, M.J., Jones, A.R., et al. (2010). A robust and high-
+throughput Cre reporting and characterization system for the whole mouse brain.
+Nat. Neurosci. 13, 133–140. https://doi.org/10.1038/nn.2467.
+36. Rutledge, E.A., Halbert, C.L., and Russell, D.W. (1998). Infectious clones and vectors
+derived from adeno-associated virus (AAV) serotypes other than AAV type 2.
+J. Virol. 72, 309–319. https://doi.org/10.1128/JVI.72.1.309-319.1998.
+37. Chiorini, J.A., Kim, F., Yang, L., and Kotin, R.M. (1999). Cloning and characterization
+of adeno-associated virus type 5. J. Virol. 73, 1309–1319. https://doi.org/10.1128/JVI.
+73.2.1309-1319.1999.
+38. Chiorini, J.A., Yang, L., Liu, Y., Safer, B., and Kotin, R.M. (1997). Cloning of adeno-
+associated virus type 4 (AAV4) and generation of recombinant AAV4 particles.
+J. Virol. 71, 6823–6833. https://doi.org/10.1128/JVI.71.9.6823-6833.1997.
+39. Gao, G., Alvira, M.R., Somanathan, S., Lu, Y., Vandenberghe, L.H., Rux, J.J., Calcedo,
+R., Sanmiguel, J., Abbas, Z., and Wilson, J.M. (2003). Adeno-associated viruses un-
+dergo substantial evolution in primates during natural infections. Proc. Natl. Acad.
+Sci. USA 100, 6081–6086. https://doi.org/10.1073/pnas.0937739100.
+40. Gao, G.P., Alvira, M.R., Wang, L., Calcedo, R., Johnston, J., and Wilson, J.M. (2002).
+Novel adeno-associated viruses from rhesus monkeys as vectors for human gene ther-
+apy. Proc. Natl. Acad. Sci. USA 99, 11854 –11859. https://doi.org/10.1073/pnas.
+182412299.
+41. Davidoff, A.M., Ng, C.Y.C., Zhou, J., Spence, Y., and Nathwani, A.C. (2003). Sex
+signiﬁcantly in ﬂuences transduction of murine liver by recombinant adeno-associ-
+ated viral vectors through an androgen-dependent pathway. Blood 102, 480 –488.
+https://doi.org/10.1182/blood-2002-09-2889.
+42. Pañeda, A., Vanrell, L., Mauleon, I., Crettaz, J.S., Berraondo, P., Timmermans, E.J.,
+Beattie, S.G., Twisk, J., van Deventer, S., Prieto, J., et al. (2009). Effect of
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1297
+
+
+--- Page 17 ---
+
+adeno-associated virus serotype and genomic structure on liver transduction and bio-
+distribution in mice of both genders. Hum. Gene Ther. 20, 908–917. https://doi.org/
+10.1089/hum.2009.031.
+43. Shen, S., Troupes, A.N., Pulicherla, N., and Asokan, A. (2013). Multiple roles for sia-
+lylated glycans in determining the cardiopulmonary tropism of adeno-associated vi-
+rus 4. J. Virol. 87, 13206–13213. https://doi.org/10.1128/JVI.02109-13.
+44. Aschauer, D.F., Kreuz, S., and Rumpel, S. (2013). Analysis of transduction ef ﬁciency,
+tropism and axonal transport of AAV serotypes 1, 2, 5, 6, 8 and 9 in the mouse brain.
+PLoS One 8, e76310. https://doi.org/10.1371/journal.pone.0076310.
+45. Brown, D., Altermatt, M., Dobreva, T., Chen, S., Wang, A., Thomson, M., and
+Gradinaru, V. (2021). Deep Parallel Characterization of AAV Tropism and AAV-
+Mediated Transcriptional Changes via Single-Cell RNA Sequencing. Front.
+Immunol. 12, 730825. https://doi.org/10.3389/ﬁmmu.2021.730825.
+46. Zhao, J., Yue, Y., Patel, A., Wasala, L., Karp, J.F., Zhang, K., Duan, D., and Lai, Y.
+(2020). High-Resolution Histological Landscape of AAV DNA Distribution in
+Cellular Compartments and Tissues following Local and Systemic Injection. Mol.
+Ther. Methods Clin. Dev. 18, 856–868. https://doi.org/10.1016/j.omtm.2020.08.006.
+47. Piechnik, M., Amendum, P.C., Sawamoto, K., Stapleton, M., Khan, S., Fnu, N.,
+Álvarez, V., Pachon, A.M.H., Danos, O., Bruder, J.T., et al. (2022). Sex Difference
+Leads to Differential Gene Expression Patterns and Therapeutic Ef ﬁcacy in
+Mucopolysaccharidosis IVA Murine Model Receiving AAV8 Gene Therapy. Int. J.
+Mol. Sci. 23, 12693. https://doi.org/10.3390/ijms232012693.
+48. Schuettrumpf, J., Liu, J.H., Couto, L.B., Addya, K., Leonard, D.G.B., Zhen, Z.,
+Sommer, J., and Arruda, V.R. (2006). Inadvertent germline transmission of AAV2
+vector: ﬁndings in a rabbit model correlate with those in a human clinical trial.
+Mol. Ther. 13, 1064–1073. https://doi.org/10.1016/j.ymthe.2006.03.002.
+49. Favaro, P., Downey, H.D., Zhou, J.S., Wright, J.F., Hauck, B., Mingozzi, F., High, K.A.,
+and Arruda, V.R. (2009). Host and vector-dependent effects on the risk of germline
+transmission of AAV vectors. Mol. Ther. 17, 1022–1030. https://doi.org/10.1038/mt.
+2009.56.
+50. Fonck, C., Su, C., Arens, J., Koziol, E., Srimani, J., Henshaw, J., Van Tuyl, A., Chandra,
+S., Vettermann, C., and O ’Neill, C.A. (2023). Lack of germline transmission in male
+mice following a single intravenous administration of AAV5-hFVIII-SQ gene ther-
+apy. Gene Ther. 30, 581–586. https://doi.org/10.1038/s41434-022-00318-5.
+51. Ferla, R., Alliegro, M., Marteau, J.B., Dell ’Anno, M., Nusco, E., Pouillot, S.,
+Galimberti, S., Valsecchi, M.G., Zuliani, V., and Auricchio, A. (2017). Non-clinical
+Safety and Ef ﬁcacy of an AAV2/8 Vector Administered Intravenously for
+Treatment of Mucopolysaccharidosis Type VI. Mol. Ther. Methods Clin. Dev. 6,
+143–158. https://doi.org/10.1016/j.omtm.2017.07.004.
+52. Jakob, M., Mühle, C., Park, J., Weiss, S., Waddington, S., and Schneider, H. (2005). No
+evidence for germ-line transmission following prenatal and early postnatal AAV-
+mediated gene delivery. J. Gene Med. 7, 630–637. https://doi.org/10.1002/jgm.718.
+53. Couto, L., Parker, A., and Gordon, J.W. (2004). Direct exposure of mouse spermato-
+zoa to very high concentrations of a serotype-2 adeno-associated virus gene therapy
+vector fails to lead to germ cell transduction. Hum. Gene Ther. 15,2 8 7–291. https://
+doi.org/10.1089/104303404322886138.
+54. Johnson, M.C., Garland, A.L., Nicolson, S.C., Li, C., Samulski, R.J., Wang, B., and
+Tisch, R. (2013). beta-cell-speci ﬁc IL-2 therapy increases islet Foxp3+Treg and sup-
+presses type 1 diabetes in NOD mice. Diabetes 62, 3775 –3784. https://doi.org/10.
+2337/db13-0669.
+55. Gaddy, D.F., Riedel, M.J., Pejawar-Gaddy, S., Kieffer, T.J., and Robbins, P.D. (2010).
+In vivo expression of HGF/NK1 and GLP-1 From dsAAV vectors enhances pancre-
+atic ss-cell proliferation and improves pathology in the db/db mouse model of dia-
+betes. Diabetes 59, 3108–3116. https://doi.org/10.2337/db09-1886.
+56. Rehman, K.K., Trucco, M., Wang, Z., Xiao, X., and Robbins, P.D. (2008). AAV8-
+mediated gene transfer of interleukin-4 to endogenous beta-cells prevents the onset
+of diabetes in NOD mice. Mol. Ther. 16, 1409 –1416. https://doi.org/10.1038/mt.
+2008.116.
+57. Cheng, H., Wolfe, S.H., Valencia, V., Qian, K., Shen, L., Phillips, M.I., Chang, L.J., and
+Zhang, Y.C. (2007). Ef ﬁcient and persistent transduction of exocrine and endocrine
+pancreas by adeno-associated virus type 8. J. Biomed. Sci. 14, 585 –594. https://doi.
+org/10.1007/s11373-007-9159-1.
+58. Wang, Z., Zhu, T., Rehman, K.K., Bertera, S., Zhang, J., Chen, C., Papworth, G.,
+Watkins, S., Trucco, M., Robbins, P.D., et al. (2006). Widespread and stable pancre-
+atic gene transfer by adeno-associated virus vectors via different routes. Diabetes 55,
+875–884. https://doi.org/10.2337/diabetes.55.04.06.db05-0927.
+59. Xiao, X., Guo, P., Shiota, C., Zhang, T., Coudriet, G.M., Fischbach, S., Prasadan, K.,
+Fusco, J., Ramachandran, S., Witkowski, P., et al. (2018). Endogenous
+Reprogramming of Alpha Cells into Beta Cells, Induced by Viral Gene Therapy,
+Reverses Autoimmune Diabetes. Cell Stem Cell 22,7 8 –90. https://doi.org/10.1016/
+j.stem.2017.11.020.
+60. Goldstein, J.M., Tabebordbar, M., Zhu, K., Wang, L.D., Messemer, K.A., Peacker, B.,
+Ashraﬁ Kakhki, S., Gonzalez-Celeiro, M., Shwartz, Y., Cheng, J.K.W., et al. (2019). In
+Situ Modiﬁcation of Tissue Stem and Progenitor Cell Genomes. Cell Rep. 27, 1254–
+1264. https://doi.org/10.1016/j.celrep.2019.03.105.
+61. Asokan, A., Conway, J.C., Phillips, J.L., Li, C., Hegge, J., Sinnott, R., Yadav, S.,
+DiPrimio, N., Nam, H.J., Agbandje-McKenna, M., et al. (2010). Reengineering a re-
+ceptor footprint of adeno-associated virus enables selective and systemic gene trans-
+fer to muscle. Nat. Biotechnol. 28,7 9–82. https://doi.org/10.1038/nbt.1599.
+62. Grimm, D., Lee, J.S., Wang, L., Desai, T., Akache, B., Storm, T.A., and Kay, M.A.
+(2008). In vitro and in vivo
+gene therapy vector evolution via multispecies inter-
+breeding and retargeting of adeno-associated viruses. J. Virol. 82, 5887 –5911.
+https://doi.org/10.1128/JVI.00254-08.
+63. Pekrun, K., De Alencastro, G., Luo, Q.J., Liu, J., Kim, Y., Nygaard, S., Galivo, F.,
+Zhang, F., Song, R., Tiffany, M.R., et al. (2019). Using a barcoded AAV capsid library
+to select for clinically relevant gene therapy vectors. JCI Insight 4, e131610. https://
+doi.org/10.1172/jci.insight.131610.
+64. Deverman, B.E., Pravdo, P.L., Simpson, B.P., Kumar, S.R., Chan, K.Y., Banerjee, A.,
+Wu, W.L., Yang, B., Huber, N., Pasca, S.P., and Gradinaru, V. (2016). Cre-dependent
+selection yields AAV variants for widespread gene transfer to the adult brain. Nat.
+Biotechnol. 34, 204–209. https://doi.org/10.1038/nbt.3440.
+65. Nonnenmacher, M., Wang, W., Child, M.A., Ren, X.Q., Huang, C., Ren, A.Z., Tocci,
+J., Chen, Q., Bittner, K., Tyson, K., et al. (2021). Rapid evolution of blood-brain-bar-
+rier-penetrating AAV capsids by RNA-driven biopanning. Mol. Ther. Methods Clin.
+Dev. 20, 366–378. https://doi.org/10.1016/j.omtm.2020.12.006.
+66. Maheshri, N., Koerber, J.T., Kaspar, B.K., and Schaffer, D.V. (2006). Directed evolu-
+tion of adeno-associated virus yields enhanced gene delivery vectors. Nat. Biotechnol.
+24, 198–204. https://doi.org/10.1038/nbt1182.
+67. Perabo, L., Endell, J., King, S., Lux, K., Goldnau, D., Hallek, M., and Büning, H.
+(2006). Combinatorial engineering of a gene therapy vector: directed evolution of ad-
+eno-associated virus. J. Gene Med. 8, 155–162. https://doi.org/10.1002/jgm.849.
+68. Lisowski, L., Dane, A.P., Chu, K., Zhang, Y., Cunningham, S.C., Wilson, E.M.,
+Nygaard, S., Grompe, M., Alexander, I.E., and Kay, M.A. (2014). Selection and eval-
+uation of clinically relevant AAV variants in a xenograft liver model. Nature 506,
+382–386. https://doi.org/10.1038/nature12875.
+69. Paulk, N.K., Pekrun, K., Zhu, E., Nygaard, S., Li, B., Xu, J., Chu, K., Leborgne, C.,
+Dane, A.P., Haft, A., et al. (2018). Bioengineered AAV Capsids with Combined
+High Human Liver Transduction In Vivo and Unique Humoral Seroreactivity.
+Mol. Ther. 26, 289–303. https://doi.org/10.1016/j.ymthe.2017.09.021.
+70. Chan, K.Y., Jang, M.J., Yoo, B.B., Greenbaum, A., Ravi, N., Wu, W.L., Sánchez-
+Guardado, L., Lois, C., Mazmanian, S.K., Deverman, B.E., and Gradinaru, V.
+(2017). Engineered AAVs for ef ﬁcient noninvasive gene delivery to the central and
+peripheral nervous systems. Nat. Neurosci. 20, 1172 –1179. https://doi.org/10.1038/
+nn.4593.
+71. Weinmann, J., Weis, S., Sippel, J., Tulalamba, W., Remes, A., El Andari, J., Herrmann,
+A.K., Pham, Q.H., Borowski, C., Hille, S., et al. (2020). Identi ﬁcation of a myotropic
+AAV by massively parallel in vivo evaluation of barcoded capsid variants. Nat.
+Commun. 11, 5432. https://doi.org/10.1038/s41467-020-19230-w.
+72. Tabebordbar, M., Lagerborg, K.A., Stanton, A., King, E.M., Ye, S., Tellez, L.,
+Krunnfusz, A., Tavakoli, S., Widrick, J.J., Messemer, K.A., et al. (2021). Directed evo-
+lution of a family of AAV capsid variants enabling potent muscle-directed gene de-
+livery across species. Cell 184, 4919–4938. https://doi.org/10.1016/j.cell.2021.08.028.
+73. Zinn, E., Unzu, C., Schmit, P.F., Turunen, H.T., Zabaleta, N., Sanmiguel, J., Fieldsend,
+A., Bhatt, U., Diop, C., Merkel, E., et al. (2022). Ancestral library identi
+ﬁes conserved
+Molecular Therapy
+1298 Molecular Therapy Vol. 33 No 3 March 2025
+
+
+--- Page 18 ---
+
+reprogrammable liver motif on AAV capsid. Cell Rep. Med. 3, 100803. https://doi.
+org/10.1016/j.xcrm.2022.100803.
+74. Pulicherla, N., Shen, S., Yadav, S., Debbink, K., Govindasamy, L., Agbandje-
+McKenna, M., and Asokan, A. (2011). Engineering liver-detargeted AAV9 vectors
+for cardiac and musculoskeletal gene transfer. Mol. Ther. 19, 1070 –1078. https://
+doi.org/10.1038/mt.2011.22.
+75. He, T., Itano, M.S., Earley, L.F., Hall, N.E., Riddick, N., Samulski, R.J., and Li, C.
+(2019). The In ﬂuence of Murine Genetic Background in Adeno-Associated Virus
+Transduction of the Mouse Brain. Hum. Gene Ther. Clin. Dev. 30, 169 –181.
+https://doi.org/10.1089/humc.2019.030.
+76. Wu, H., Zhao, A., Bu, Y., Yang, W., He, L., Zhong, Y., Yao, D., Li, H., and Yin, W.
+(2024). Tropism of adeno-associated virus serotypes in mouse lungs via intratracheal
+instillation. Virol. J. 21, 302. https://doi.org/10.1186/s12985-024-02575-9.
+77. Barzi, M., Chen, T., Gonzalez, T.J., Pankowicz, F.P., Oh, S.H., Streff, H.L., Rosales, A.,
+Ma, Y., Collias, S., Wood ﬁeld, S.E., et al. (2024). A humanized mouse model for ad-
+eno-associated viral gene therapy. Nat. Commun. 15, 1955. https://doi.org/10.1038/
+s41467-024-46017-0.
+78. Zengel, J., Wang, Y.X., Seo, J.W., Ning, K., Hamilton, J.N., Wu, B., Raie, M.,
+Holbrook, C., Su, S., Clements, D.R., et al. (2023). Hardwiring tissue-speci ﬁc AAV
+transduction in mice through engineered receptor expression. Nat. Methods 20,
+1070–1081. https://doi.org/10.1038/s41592-023-01896-x.
+79. Bankhead, P., Loughrey, M.B., Fernández, J.A., Dombrowski, Y., McArt, D.G.,
+Dunne, P.D., McQuaid, S., Gray, R.T., Murray, L.J., Coleman, H.G., et al. (2017).
+QuPath: Open source software for digital pathology image analysis. Sci. Rep. 7,
+16878. https://doi.org/10.1038/s41598-017-17204-5.
+80. Benjamini, Y., and Hochberg, Y. (2018). Controlling the False Discovery Rate: A
+Practical and Powerful Approach to Multiple Testing. J. R. Stat. Soc. Ser. B
+(Methodological) 57, 289 –300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x.
+www.moleculartherapy.org
+Molecular Therapy Vol. 33 No 3 March 2025 1299
