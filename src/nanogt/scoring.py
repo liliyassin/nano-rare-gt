@@ -104,6 +104,10 @@ class ScoreBreakdown:
     #   Liver/muscle = easy (IV/IM); CNS = harder (intrathecal or high-dose IV); retina = injection
 
     notes: list[str] = field(default_factory=list)  # ← plain-English explanation of each score
+    review_flags: list[str] = field(default_factory=list)
+    # ← translational caveats that should be reviewed after ranking.
+    # These are deliberately separate from confidence: a program can be the
+    # best catalog precedent and still need manual clinical/scientific review.
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -678,6 +682,121 @@ def score_roa_feasibility(disease_tissues: list[str]) -> tuple[float, list[str]]
     return best_score, [f"Route of administration: {best_note}"]
 
 
+def _normalised_tissue_set(tissues: list[str]) -> set[str]:
+    """Normalize tissue labels for comparison."""
+    return {t.lower() for t in tissues if t}
+
+
+def _is_gene_replacement_friendly(disease: DiseaseInfo) -> bool:
+    inheritance = " ".join(disease.inheritance).lower()
+    return "recessive" in inheritance or "x-linked" in inheritance
+
+
+def build_review_flags(
+    disease: DiseaseInfo,
+    gene: GeneInfo,
+    vector_tropism: list[str],
+    vector_serotype: str,
+    tropism_score: float,
+    cross_correction_score: float,
+    therapeutic_window_score: float,
+    strategy_notes: list[str],
+) -> list[str]:
+    """Generate translational review flags that are not captured by rank alone."""
+    flags: list[str] = []
+    disease_tissues = _normalised_tissue_set(disease.affected_tissues)
+    vector_tissues = _normalised_tissue_set(vector_tropism)
+    uncovered = sorted(disease_tissues - vector_tissues)
+
+    if len(disease.gene_symbols) > 1:
+        flags.append(
+            "Multiple causal genes listed; score is gene-specific and should be repeated for each molecular subtype"
+        )
+
+    if len(disease_tissues) >= 3:
+        flags.append(
+            "Multi-system disease; define a primary therapeutic target tissue before selecting route/vector"
+        )
+    elif len(disease_tissues) == 2 and {"cns", "heart"} & disease_tissues:
+        flags.append(
+            "Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints"
+        )
+
+    if uncovered and disease_tissues:
+        flags.append(
+            "Vector does not naturally cover all annotated disease tissues: "
+            + ", ".join(uncovered)
+        )
+
+    if tropism_score <= 0.3:
+        flags.append(
+            "No direct tissue overlap; treat this as weak precedent unless route or modality is changed"
+        )
+    elif tropism_score < 1.5:
+        flags.append(
+            "Only partial tissue match; verify target-cell transduction and delivery route manually"
+        )
+
+    if cross_correction_score <= 0.2 and len(disease_tissues) > 1:
+        flags.append(
+            "Cell-autonomous protein across multiple tissues; high transduction coverage may be required"
+        )
+
+    if therapeutic_window_score <= 0.8:
+        flags.append(
+            "Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility"
+        )
+    elif therapeutic_window_score < 1.5:
+        flags.append(
+            "Therapeutic window is not wide; natural-history timing and irreversible damage should be reviewed"
+        )
+
+    if gene.cds_length_bp and gene.cds_length_bp > 4700:
+        flags.append(
+            "Native CDS exceeds standard single-AAV capacity; consider engineered, dual-vector, non-AAV, or editing strategy"
+        )
+
+    if strategy_notes:
+        flags.append(
+            "Engineered mini/micro-transgene strategy scored; not equivalent to full-length native gene replacement"
+        )
+
+    if not _is_gene_replacement_friendly(disease):
+        flags.append(
+            "Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology"
+        )
+
+    combined_mechanism_text = (
+        " ".join(disease.inheritance)
+        + " "
+        + " ".join(disease.hpo_terms)
+        + " "
+        + " ".join(gene.keywords)
+        + " "
+        + " ".join(gene.subcellular_location)
+    ).lower()
+    if "mitochondri" in combined_mechanism_text:
+        flags.append(
+            "Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import"
+        )
+    if "dominant" in combined_mechanism_text:
+        flags.append(
+            "Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition"
+        )
+
+    if gene.cds_length_bp is None or not gene.subcellular_location:
+        flags.append(
+            "Gene annotation incomplete; packaging, protein class, and localization scores need manual confirmation"
+        )
+
+    if vector_serotype.upper().startswith("AAV"):
+        flags.append(
+            "AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone"
+        )
+
+    return flags
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # MAIN SCORING FUNCTION: combines all 12 dimensions for one program
 # ══════════════════════════════════════════════════════════════════════════════
@@ -723,6 +842,16 @@ def score_program(
             promoter_availability=0.0,
             roa_feasibility=0.0,
             notes=notes,
+            review_flags=build_review_flags(
+                disease=disease,
+                gene=gene,
+                vector_tropism=[],
+                vector_serotype=program["vector"],
+                tropism_score=0.0,
+                cross_correction_score=0.0,
+                therapeutic_window_score=0.0,
+                strategy_notes=strategy_notes,
+            ),
         )
 
     # ── Step 2: Tropism ───────────────────────────────────────────────────
@@ -793,6 +922,16 @@ def score_program(
     composite = round((raw_sum / _RAW_MAX) * 10.0, 2)
 
     confidence = "high" if composite >= 7.5 else "medium" if composite >= 5.0 else "low"
+    review_flags = build_review_flags(
+        disease=disease,
+        gene=gene,
+        vector_tropism=v_tropism,
+        vector_serotype=program["vector"],
+        tropism_score=trp,
+        cross_correction_score=cc,
+        therapeutic_window_score=tw,
+        strategy_notes=strategy_notes,
+    )
 
     return ScoreBreakdown(
         program_name=program["name"],
@@ -815,6 +954,7 @@ def score_program(
         promoter_availability=pa,
         roa_feasibility=roa,
         notes=notes,
+        review_flags=review_flags,
     )
 
 

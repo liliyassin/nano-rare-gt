@@ -9,10 +9,12 @@
 #   save_report()     → writes that string to a .md file in the output/ folder
 
 from __future__ import annotations
-from dataclasses import dataclass
+import json
+from dataclasses import dataclass, field
 from typing import Optional
 import pathlib
 
+from .catalog import GT_PROGRAMS, VECTORS
 from .disease import DiseaseInfo
 from .gene import GeneInfo
 from .scoring import ScoreBreakdown
@@ -25,11 +27,129 @@ class MatchResult:
     gene: GeneInfo                    # ← its causal gene
     scores: list[ScoreBreakdown]      # ← full ranked list of all GT programs (from scoring.py)
     top_n: int = 5                    # ← how many top matches to include in the report (default 5)
+    primary_tissue: str | None = None
+    # ← optional user-declared target tissue for multi-system diseases.
+    source_tissues: list[str] = field(default_factory=list)
+    # ← original disease tissue list when scoring was narrowed to primary_tissue.
 
 
 def _confidence_emoji(c: str) -> str:
     # ← converts confidence string to a coloured circle emoji for visual clarity
     return {"high": "🟢", "medium": "🟡", "low": "🔴", "fail": "⛔"}.get(c, "⬜")
+
+
+def _portfolio_interpretation(top: list[ScoreBreakdown]) -> list[str]:
+    """Summarise what the ranked list means clinically."""
+    if not top:
+        return [
+            "No packagable precedent was found in the current catalog.",
+            "Treat this disease as out-of-scope for single-vector precedent matching until an alternative modality or engineered construct is defined.",
+        ]
+
+    best = top[0]
+    if best.confidence == "high":
+        lines = [
+            "At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.",
+        ]
+    elif best.confidence == "medium":
+        lines = [
+            "No high-confidence vector precedent was found; the best result is medium-confidence and should be treated as manual-review territory.",
+        ]
+    else:
+        lines = [
+            "Only low-confidence precedents were found; this is weak support for clinical translation with the current catalog and assumptions.",
+        ]
+
+    flags: list[str] = []
+    for score in top:
+        for flag in score.review_flags:
+            if flag not in flags:
+                flags.append(flag)
+    if flags:
+        lines.append("Main review flags: " + "; ".join(flags[:3]) + ".")
+
+    return lines
+
+
+def _mentions_tissue(text: str, tissue: str) -> bool:
+    target = text.lower()
+    tissue_l = tissue.lower()
+    if tissue_l == "cns":
+        return any(word in target for word in ("cns", "brain", "spinal", "motor neuron", "neuron"))
+    return tissue_l in target
+
+
+def _catalog_bias_notes(disease: DiseaseInfo) -> list[str]:
+    """Describe catalog coverage limits so scores are interpreted as catalog-relative."""
+    disease_tissues = [t for t in disease.affected_tissues if t]
+    direct_programs = [
+        p for p in GT_PROGRAMS
+        if any(_mentions_tissue(p.get("tissue_target", ""), tissue) for tissue in disease_tissues)
+    ]
+    covering_vectors = []
+    for vector in VECTORS:
+        tropism = vector.get("tissue_tropism", [])
+        if isinstance(tropism, str):
+            tropism = json.loads(tropism)
+        if {t.lower() for t in tropism} & {t.lower() for t in disease_tissues}:
+            covering_vectors.append(vector["serotype"])
+
+    notes = [
+        f"Catalog-relative ranking: current catalog contains {len(GT_PROGRAMS)} precedent programs and {len(VECTORS)} vectors, so absence of a strong match is not proof that no therapy is possible.",
+        "Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.",
+    ]
+    if disease_tissues and not direct_programs:
+        notes.append(
+            "No catalog program directly targets the annotated disease tissue(s); ranking is extrapolating from indirect precedents."
+        )
+    elif disease_tissues and len(direct_programs) <= 2:
+        notes.append(
+            f"Only {len(direct_programs)} catalog program(s) directly target the annotated disease tissue(s); tissue evidence is sparse."
+        )
+    if disease_tissues and not covering_vectors:
+        notes.append(
+            "No catalog vector naturally covers the annotated disease tissue(s); consider non-catalog vectors or alternative modalities."
+        )
+    elif disease_tissues and len(covering_vectors) <= 2:
+        notes.append(
+            "Few catalog vectors cover the annotated disease tissue(s): " + ", ".join(covering_vectors) + "."
+        )
+
+    return notes
+
+
+def _endpoint_feasibility_notes(disease: DiseaseInfo) -> list[str]:
+    """Flag whether a plausible clinical endpoint package is obvious from tissue/HPO data."""
+    tissues = {t.lower() for t in disease.affected_tissues}
+    hpo = " ".join(disease.hpo_terms).lower()
+    notes: list[str] = []
+
+    if "retina" in tissues:
+        notes.append(
+            "Endpoint readiness: retinal diseases often have measurable endpoints such as OCT, ERG, visual acuity, visual fields, or mobility testing, but genotype-specific progression still needs confirmation."
+        )
+    if "liver" in tissues:
+        notes.append(
+            "Endpoint readiness: liver/metabolic targets may have biochemical biomarkers, but biomarker correction must be linked to clinical benefit."
+        )
+    if "cns" in tissues or "neuro" in hpo or "intellectual disability" in hpo:
+        notes.append(
+            "Endpoint risk: CNS/neurodevelopmental outcomes may require natural-history data, age-stratified endpoints, and long follow-up because short-term clinical change can be hard to interpret."
+        )
+    if "muscle" in tissues or "heart" in tissues:
+        notes.append(
+            "Endpoint risk: muscle/cardiac diseases may need functional, respiratory, imaging, or cardiac endpoints that progress slowly and vary by age/stage."
+        )
+    if len(tissues) > 1:
+        notes.append(
+            "Endpoint risk: multi-system disease may need a hierarchy of primary and secondary endpoints; one tissue response may not equal whole-disease benefit."
+        )
+    if not notes:
+        notes.append(
+            "Endpoint readiness unclear from available annotations; identify biomarkers, natural-history measures, and patient-relevant outcomes before trial prioritisation."
+        )
+
+    return notes
 
 
 def generate_report(result: MatchResult) -> str:
@@ -38,6 +158,7 @@ def generate_report(result: MatchResult) -> str:
     g = result.gene
     top = [s for s in result.scores if s.confidence != "fail"][:result.top_n]
     # ← filter out hard fails (gene too big for vector), keep only top N
+    source_tissues = result.source_tissues or d.affected_tissues
 
     # ── Header ────────────────────────────────────────────────────────────
     lines = [
@@ -47,7 +168,35 @@ def generate_report(result: MatchResult) -> str:
         f"**Primary gene:** {g.symbol}  ",
         f"**Gene CDS:** {g.cds_length_bp or 'unknown'} bp  ",
         f"**Inheritance:** {', '.join(d.inheritance) if d.inheritance else 'unknown'}  ",
-        f"**Target tissues:** {', '.join(d.affected_tissues) if d.affected_tissues else 'unknown'}  ",
+        f"**Target tissues scored:** {', '.join(d.affected_tissues) if d.affected_tissues else 'unknown'}  ",
+    ]
+    if result.primary_tissue:
+        lines.append(
+            f"**Primary tissue assumption:** {result.primary_tissue} selected from original tissue list ({', '.join(source_tissues) or 'unknown'}).  "
+        )
+    if len(d.gene_symbols) > 1:
+        lines.append(
+            f"**Gene selection note:** this disease has multiple listed genes ({', '.join(d.gene_symbols)}); "
+            f"this report scores {g.symbol} only.  "
+        )
+    lines += [
+        f"",
+        f"---",
+        f"",
+        f"## Interpretation",
+        f"",
+    ]
+    for line in _portfolio_interpretation(top):
+        lines.append(f"- {line}")
+    lines += [
+        "",
+        "### Study-Level Limitations",
+        "",
+    ]
+    for line in _catalog_bias_notes(d) + _endpoint_feasibility_notes(d):
+        lines.append(f"- {line}")
+
+    lines += [
         f"",
         f"---",
         f"",
@@ -98,6 +247,14 @@ def generate_report(result: MatchResult) -> str:
         ]
         for note in s.notes:
             lines.append(f"- {note}")  # ← each note explains one dimension's score in plain English
+        if s.review_flags:
+            lines += [
+                "",
+                "### Manual Review Flags",
+                "",
+            ]
+            for flag in s.review_flags:
+                lines.append(f"- {flag}")
         lines.append("")
 
     # ── Packaging failures log (at the bottom) ────────────────────────────
@@ -126,7 +283,9 @@ def save_report(result: MatchResult, output_dir: pathlib.Path) -> pathlib.Path:
 
     slug = result.disease.orphanet_id.replace("ORPHA:", "ORPHA")
     # ← turns "ORPHA:324" into "ORPHA324" for use in the filename
-    path = output_dir / f"match_{slug}_{result.disease.name.lower().replace(' ', '_')[:30]}.md"
+    gene_suffix = f"_{result.gene.symbol.lower()}" if len(result.disease.gene_symbols) > 1 else ""
+    tissue_suffix = f"_{result.primary_tissue.lower()}" if result.primary_tissue else ""
+    path = output_dir / f"match_{slug}_{result.disease.name.lower().replace(' ', '_')[:30]}{gene_suffix}{tissue_suffix}.md"
     # ← filename format: match_ORPHA324_fabry_disease.md (name truncated to 30 chars)
 
     path.write_text(generate_report(result))  # ← generate the markdown text and write to file

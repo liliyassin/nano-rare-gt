@@ -250,6 +250,26 @@ def _fallback_gene(symbol: str) -> GeneInfo:
             "CNGB3", "Q9NQW8", "Cyclic nucleotide-gated cation channel beta-3",
             2427, 809, False, ["Photoreceptor outer segment membrane"], ["phototransduction"], ["Membrane", "Ion channel"], [],
         ),
+        "CNGA3": GeneInfo(
+            "CNGA3", "Q16281", "Cyclic nucleotide-gated cation channel alpha-3",
+            2085, 694, False, ["Photoreceptor outer segment membrane"], ["phototransduction"], ["Membrane", "Ion channel"], [],
+        ),
+        "GNAT2": GeneInfo(
+            "GNAT2", "P19087", "Guanine nucleotide-binding protein G(t) subunit alpha-2",
+            1065, 354, False, ["Photoreceptor outer segment", "Cytoplasm"], ["phototransduction"], ["G-protein", "Photoreceptor"], [],
+        ),
+        "PDE6C": GeneInfo(
+            "PDE6C", "P51160", "Cone cGMP-specific 3',5'-cyclic phosphodiesterase subunit alpha'",
+            2577, 858, False, ["Photoreceptor outer segment", "Cytoplasm"], ["phototransduction"], ["Hydrolase", "Photoreceptor"], [],
+        ),
+        "PDE6H": GeneInfo(
+            "PDE6H", "Q13956", "Retinal cone rhodopsin-sensitive cGMP 3',5'-cyclic phosphodiesterase subunit gamma",
+            252, 83, False, ["Photoreceptor outer segment", "Cytoplasm"], ["phototransduction"], ["Photoreceptor"], [],
+        ),
+        "ATF6": GeneInfo(
+            "ATF6", "P18850", "Cyclic AMP-dependent transcription factor ATF-6 alpha",
+            2013, 670, False, ["Endoplasmic reticulum membrane", "Nucleus"], ["unfolded protein response"], ["Transcription", "Membrane"], [],
+        ),
         "RS1": GeneInfo(
             "RS1", "O15537", "Retinoschisin",
             672, 224, True, ["Secreted", "Extracellular matrix"], ["retina development"], ["Secreted"], ["Discoidin"],

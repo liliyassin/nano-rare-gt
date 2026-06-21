@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -172,6 +173,22 @@ class TestDatabaseAndScoring:
             score.confidence == "fail" and "11055bp" in " ".join(score.notes)
             for score in scores
         )
+        assert any("Native CDS exceeds standard single-AAV capacity" in flag for flag in srp9001.review_flags)
+        assert any("Engineered mini/micro-transgene strategy" in flag for flag in srp9001.review_flags)
+
+    def test_achromatopsia_flags_gene_specific_subtype_scoring(
+        self,
+        conn: sqlite3.Connection,
+    ) -> None:
+        disease = fetch_disease("ORPHA:49382")
+        assert disease is not None
+        assert {"CNGB3", "CNGA3", "GNAT2", "PDE6C", "PDE6H", "ATF6"} <= set(disease.gene_symbols)
+
+        gene = fetch_gene("CNGB3")
+        scores = rank_programs(disease, gene, conn)
+        top = next(score for score in scores if score.confidence != "fail")
+
+        assert any("Multiple causal genes listed" in flag for flag in top.review_flags)
 
 
 class TestReportsAndCLI:
@@ -190,11 +207,51 @@ class TestReportsAndCLI:
         assert "Kohlschutter-Tonz" in rendered
         assert "ROGDI" in rendered
         assert "861 bp" in rendered or "864 bp" in rendered
+        assert "## Interpretation" in rendered
+        assert "Study-Level Limitations" in rendered
+        assert "Catalog-relative ranking" in rendered
+        assert "Endpoint" in rendered
         assert "Top 3 GT Precedent Matches" in rendered
+
+    def test_report_warns_when_scoring_one_gene_in_multigene_disease(self, tmp_path: Path) -> None:
+        conn = setup(tmp_path / "nanogt.db")
+        disease = fetch_disease("ORPHA:49382")
+        assert disease is not None
+        gene = fetch_gene("CNGB3")
+        scores = rank_programs(disease, gene, conn)
+        result = MatchResult(disease=disease, gene=gene, scores=scores, top_n=3)
+
+        rendered = generate_report(result)
+
+        assert "Gene selection note" in rendered
+        assert "this report scores CNGB3 only" in rendered
+        assert "Manual Review Flags" in rendered
 
         output_path = save_report(result, tmp_path / "reports")
         assert output_path.exists()
+        assert output_path.name.endswith("_cngb3.md")
         assert output_path.read_text() == rendered
+
+    def test_report_records_primary_tissue_assumption(self, tmp_path: Path) -> None:
+        conn = setup(tmp_path / "nanogt.db")
+        disease = fetch_disease("ORPHA:324")
+        assert disease is not None
+        narrowed = replace(disease, affected_tissues=["heart"])
+        gene = fetch_gene("GLA")
+        scores = rank_programs(narrowed, gene, conn)
+        result = MatchResult(
+            disease=narrowed,
+            gene=gene,
+            scores=scores,
+            top_n=3,
+            primary_tissue="heart",
+            source_tissues=disease.affected_tissues,
+        )
+
+        rendered = generate_report(result)
+
+        assert "Primary tissue assumption" in rendered
+        assert "heart selected from original tissue list" in rendered
 
     def test_cli_init_and_match_generate_report(self, tmp_path: Path) -> None:
         runner = CliRunner()
@@ -222,3 +279,49 @@ class TestReportsAndCLI:
         report_text = reports[0].read_text()
         assert "NanoGT Match Report" in report_text
         assert "ROGDI" in report_text
+
+    def test_cli_match_all_genes_generates_subtype_reports(self, tmp_path: Path) -> None:
+        runner = CliRunner()
+        db_path = tmp_path / "cli.db"
+        output_dir = tmp_path / "subtypes"
+
+        init_result = runner.invoke(
+            app,
+            ["init", "--db-path", str(db_path)],
+            env={"NANOGT_DB": str(db_path)},
+        )
+        assert init_result.exit_code == 0, init_result.output
+
+        match_result = runner.invoke(
+            app,
+            ["match", "ORPHA:49382", "--all-genes", "--top", "1", "-o", str(output_dir)],
+            env={"NANOGT_DB": str(db_path)},
+        )
+
+        assert match_result.exit_code == 0, match_result.output
+        assert "Subtype reports saved" in match_result.output
+        assert (output_dir / "match_ORPHA49382_achromatopsia_cngb3.md").exists()
+        assert (output_dir / "match_ORPHA49382_achromatopsia_cnga3.md").exists()
+
+    def test_cli_match_primary_tissue_override_is_reported(self, tmp_path: Path) -> None:
+        runner = CliRunner()
+        db_path = tmp_path / "cli.db"
+        output_dir = tmp_path / "primary"
+
+        init_result = runner.invoke(
+            app,
+            ["init", "--db-path", str(db_path)],
+            env={"NANOGT_DB": str(db_path)},
+        )
+        assert init_result.exit_code == 0, init_result.output
+
+        match_result = runner.invoke(
+            app,
+            ["match", "ORPHA:324", "--primary-tissue", "heart", "-o", str(output_dir), "--top", "1"],
+            env={"NANOGT_DB": str(db_path)},
+        )
+
+        assert match_result.exit_code == 0, match_result.output
+        reports = list(output_dir.glob("match_ORPHA324_*_heart.md"))
+        assert len(reports) == 1
+        assert "Primary tissue assumption" in reports[0].read_text()

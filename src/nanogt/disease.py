@@ -285,7 +285,7 @@ def _build_fallbacks() -> None:
             omim_ids=['262300'],
             prevalence='1-9/100000',
             inheritance=['Autosomal recessive'],
-            gene_symbols=['CNGB3'],
+            gene_symbols=['CNGB3', 'CNGA3', 'GNAT2', 'PDE6C', 'PDE6H', 'ATF6'],
             hpo_terms=['Photophobia', 'Nystagmus', 'Reduced visual acuity', 'Cone dysfunction', 'Retinal photoreceptor dysfunction'],
             affected_tissues=['retina'],
         ),
