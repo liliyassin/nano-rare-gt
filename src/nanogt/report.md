@@ -538,6 +538,7 @@ It shows every scoring dimension from `scoring.py`.
 | Tissue tropism | 2.0 | Does the vector/predecessor target the disease tissue? |
 | Protein class | 2.0 | Is the query protein similar in location/type to the precedent protein? |
 | Pathway similarity | 2.0 | Is the disease biology/pathway similar? |
+| Modality compatibility | 2.0 | Does source-linked disease mechanism support gene addition? |
 | Inheritance compatibility | 1.0 | Is the inheritance pattern suitable for gene replacement in a similar way? |
 | Approval precedent | 1.0 | Is the program approved or clinically advanced? |
 | Immunogenicity | 2.0 | Are many patients likely to have antibodies against this vector? |
@@ -547,12 +548,12 @@ It shows every scoring dimension from `scoring.py`.
 | Promoter availability | 1.0 | Are validated tissue-specific promoters available? |
 | Route of administration | 1.0 | Is there a practical delivery route to the target tissue? |
 
-Total raw maximum is 18.0.
+Total raw maximum is 20.0.
 
 The report labels the final score as:
 
 ```text
-TOTAL (normalised) = Raw sum / 18 × 10
+TOTAL (normalised) = Raw sum / 20 × 10
 ```
 
 This matches `scoring.py`.
@@ -924,7 +925,7 @@ Add a metadata block near the top:
 Generated: 2026-06-03
 NanoGT version: ...
 Catalog version: ...
-Scoring model: 12-dimension v1
+Scoring model: 13-dimension v2
 ```
 
 ---

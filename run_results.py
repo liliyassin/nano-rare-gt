@@ -19,6 +19,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent / "src"))
 from nanogt.db import setup
 from nanogt.disease import fetch_disease
 from nanogt.gene import GeneInfo, fetch_gene
+from nanogt.mechanism import lookup_mechanism
 from nanogt.report import MatchResult, save_report
 from nanogt.scoring import rank_programs
 
@@ -41,6 +42,7 @@ def main() -> None:
     print(f"  {n_vectors} vectors, {n_programs} GT programs loaded.\n")
 
     cohort = load_cohort()
+    clean_generated_reports(OUTPUT)
     results: list[MatchResult] = []
     cohort_kind_by_id = {
         row["orphanet_id"].replace("ORPHA:", ""): row["cohort_role"] for row in cohort
@@ -80,6 +82,14 @@ def main() -> None:
     print("Open output/SUMMARY.md for the cross-disease overview.")
 
 
+def clean_generated_reports(output_dir: pathlib.Path) -> None:
+    """Remove stale generated match reports before writing a fresh cohort run."""
+    if not output_dir.exists():
+        return
+    for path in output_dir.glob("match_*.md"):
+        path.unlink()
+
+
 def write_summary(
     results: list[MatchResult],
     output_dir: pathlib.Path,
@@ -88,21 +98,24 @@ def write_summary(
     lines = [
         "# NanoGT Results: 30-Disease GT Precedent Matching Cohort",
         "",
-        "**Algorithm:** 12-dimension heuristic scoring: packaging fit, tissue tropism, protein class, pathway similarity, inheritance compatibility, approval precedent, vector immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, and route-of-administration feasibility. Raw max = 18; composite is normalised to /10.",
+        "**Algorithm:** 13-dimension heuristic scoring: packaging fit, tissue tropism, protein class, pathway similarity, mechanism/modality compatibility, inheritance compatibility, approval precedent, vector immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, and route-of-administration feasibility. Raw max = 20; composite is normalised to /10.",
         "",
         "**Interpretation:** The framework ranks which existing clinical gene-therapy program is the closest development precedent for the query disease. It does not claim the top precedent is directly reusable without disease-specific validation, vector engineering, toxicology, and regulatory review.",
         "",
         "## Summary Table",
         "",
-        "| Cohort role | Disease | ORPHA | Gene | CDS (bp) | #1 Precedent | Vector | Score | Confidence |",
-        "|-------------|---------|-------|------|----------|--------------|--------|-------|------------|",
+        "| Cohort role | Disease | ORPHA | Gene | Mechanism | Gene-addition fit | CDS (bp) | #1 Precedent | Vector | Score | Confidence |",
+        "|-------------|---------|-------|------|-----------|-------------------|----------|--------------|--------|-------|------------|",
     ]
     for r in results:
         valid = [s for s in r.scores if s.confidence != "fail"]
         m1 = valid[0] if valid else None
         kind = cohort_kind_by_id.get(r.disease.orphanet_id.replace("ORPHA:", ""), "discovery")
+        mechanism = lookup_mechanism(r.disease.orphanet_id, r.gene.symbol)
         lines.append(
             f"| {kind} | {r.disease.name} | {r.disease.orphanet_id} | {r.gene.symbol} "
+            f"| {mechanism.mechanism_category} "
+            f"| {mechanism.gene_addition_compatibility} "
             f"| {r.gene.cds_length_bp or '?'} "
             f"| {m1.program_name if m1 else '-'} "
             f"| {m1.vector if m1 else '-'} "
@@ -128,9 +141,17 @@ def append_disease_section(lines: list[str], r: MatchResult) -> None:
     lines.append(f"### {r.disease.name} ({r.disease.orphanet_id})")
     lines.append(
         f"**Gene:** {r.gene.symbol} | "
+        f"**Mechanism:** {lookup_mechanism(r.disease.orphanet_id, r.gene.symbol).mechanism_category} | "
         f"**CDS:** {r.gene.cds_length_bp or '?'} bp | "
         f"**Inheritance:** {', '.join(r.disease.inheritance) or 'unknown'} | "
         f"**Tissues:** {', '.join(r.disease.affected_tissues) or 'unknown'}"
+    )
+    lines.append("")
+    mechanism = lookup_mechanism(r.disease.orphanet_id, r.gene.symbol)
+    lines.append(
+        f"**Mechanism evidence:** {mechanism.evidence_summary} "
+        f"Source: {mechanism.evidence_citation}"
+        + (f" ({mechanism.evidence_url})" if mechanism.evidence_url else "")
     )
     lines.append("")
     valid = [s for s in r.scores if s.confidence != "fail"][:5]

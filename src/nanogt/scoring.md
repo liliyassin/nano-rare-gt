@@ -147,13 +147,13 @@ scoring.py does not create the catalog data. It consumes the catalog data.
 Total raw maximum:
 
 ```text
-2 + 2 + 2 + 1 + 2 + 1 + 2 + 2 + 1 + 1 + 1 + 1 = 18
+2 + 2 + 2 + 2 + 1 + 2 + 1 + 2 + 2 + 1 + 1 + 1 + 1 = 20
 ```
 
 The raw score is normalised to 10:
 
 ```text
-composite = raw_sum / 18 × 10
+composite = raw_sum / 20 × 10
 ```
 
 ---
@@ -163,7 +163,7 @@ composite = raw_sum / 18 × 10
 The file is organised in a clear order:
 
 ```text
-Lines 1-20      Docstring: explains the 12-dimensional scoring engine
+Lines 1-20      Docstring: explains the 13-dimensional scoring engine
 Lines 22-43     Plain-English comments and max score totals
 Lines 45-52     Imports
 Line 54         _RAW_MAX constant
@@ -171,16 +171,17 @@ Lines 57-106    ScoreBreakdown dataclass
 Lines 112-137   Dimension 1: score_packaging()
 Lines 143-181   Dimension 2: score_tropism()
 Lines 188-216   Dimension 3: score_protein_class()
-Lines 222-248   Dimension 4: score_inheritance()
-Lines 254-313   Dimension 5: pathway groups, _infer_pathway(), score_pathway()
-Lines 319-332   Dimension 6: approval scores and score_approval()
-Lines 348-380   Dimension 7: seroprevalence table and score_immunogenicity()
-Lines 394-445   Dimension 8: score_therapeutic_window()
-Lines 463-491   Dimension 9: score_cross_correction()
-Lines 510-536   Dimension 10: immune privilege table and score_immune_privilege()
-Lines 552-578   Dimension 11: promoter table and score_promoter_availability()
-Lines 595-621   Dimension 12: route table and score_roa_feasibility()
-Lines 627-755   score_program(): combines all 12 scores for one program
+Lines 222-248   Dimension 5: score_inheritance()
+Lines 254-313   Dimension 6: pathway groups, _infer_pathway(), score_pathway()
+Mechanism module Dimension 4: source-linked mechanism/modality compatibility
+Lines 319-332   Dimension 7: approval scores and score_approval()
+Lines 348-380   Dimension 8: seroprevalence table and score_immunogenicity()
+Lines 394-445   Dimension 9: score_therapeutic_window()
+Lines 463-491   Dimension 10: score_cross_correction()
+Lines 510-536   Dimension 11: immune privilege table and score_immune_privilege()
+Lines 552-578   Dimension 12: promoter table and score_promoter_availability()
+Lines 595-621   Dimension 13: route table and score_roa_feasibility()
+Lines 627-755   score_program(): combines all 13 scores for one program
 Lines 761-783   rank_programs(): scores and ranks all programs in the database
 ```
 
@@ -191,7 +192,7 @@ score_program()
 rank_programs()
 ```
 
-The 12 dimension functions are the building blocks used by `score_program()`.
+The 13 dimension functions are the building blocks used by `score_program()`.
 
 ---
 
@@ -202,7 +203,7 @@ The 12 dimension functions are the building blocks used by `score_program()`.
 The docstring says this is a:
 
 ```text
-12-dimension scoring engine
+13-dimension scoring engine
 ```
 
 It states the basic purpose:
@@ -287,10 +288,10 @@ Small cleanup note:
 ## Line 54: `_RAW_MAX`
 
 ```python
-_RAW_MAX = 18.0
+_RAW_MAX = 20.0
 ```
 
-This is the maximum possible raw score across all 12 dimensions.
+This is the maximum possible raw score across all 13 dimensions.
 
 It is used here:
 
@@ -2130,7 +2131,7 @@ Use these without looking at the code.
 1. What is the main purpose of `scoring.py`?
 2. What object does one program comparison return?
 3. What does `ScoreBreakdown` store?
-4. What is `_RAW_MAX`, and why is it 18.0?
+4. What is `_RAW_MAX`, and why is it 20.0?
 5. How is the composite score calculated?
 6. What confidence label is assigned to a score of 8.0?
 7. What confidence label is assigned to a score of 6.0?
@@ -2142,31 +2143,32 @@ Use these without looking at the code.
 13. Why does `score_tropism()` specially handle CNS wording?
 14. What does protein class scoring measure?
 15. Why are secreted and lysosomal proteins important?
-16. What does inheritance scoring measure?
-17. Why are AR and XL diseases often compatible with gene replacement?
-18. What does pathway scoring compare?
-19. How does `_infer_pathway()` infer a pathway?
-20. What does approval weight represent?
-21. Why might a withdrawn program still get some credit?
-22. What does immunogenicity scoring use as input?
-23. Why does lower seroprevalence get a higher score?
-24. What does therapeutic window measure?
-25. Why do neonatal/rapidly fatal diseases score lower for therapeutic window?
-26. What is cross-correction?
-27. Which proteins usually have high cross-correction potential?
-28. What is immune privilege?
-29. Which tissues score highly for immune privilege?
-30. Why does promoter availability matter?
-31. Why does route of administration matter?
-32. Which functions choose the best-scoring tissue when multiple tissues are listed?
-33. What does `score_program()` do?
-34. What does `rank_programs()` do?
-35. How does `rank_programs()` sort tied scores?
-36. What happens if a vector is missing from the database?
-37. Which scoring assumptions could overestimate feasibility?
-38. Which dimensions are based mainly on the query disease/gene rather than the program?
-39. What citations or evidence metadata are missing from the current model?
-40. How would you make `scoring.py` more research-grade?
+16. What does mechanism/modality compatibility measure?
+17. What does inheritance scoring measure?
+18. Why are AR and XL diseases often compatible with gene replacement?
+19. What does pathway scoring compare?
+20. How does `_infer_pathway()` infer a pathway?
+21. What does approval weight represent?
+22. Why might a withdrawn program still get some credit?
+23. What does immunogenicity scoring use as input?
+24. Why does lower seroprevalence get a higher score?
+25. What does therapeutic window measure?
+26. Why do neonatal/rapidly fatal diseases score lower for therapeutic window?
+27. What is cross-correction?
+28. Which proteins usually have high cross-correction potential?
+29. What is immune privilege?
+30. Which tissues score highly for immune privilege?
+31. Why does promoter availability matter?
+32. Why does route of administration matter?
+33. Which functions choose the best-scoring tissue when multiple tissues are listed?
+34. What does `score_program()` do?
+35. What does `rank_programs()` do?
+36. How does `rank_programs()` sort tied scores?
+37. What happens if a vector is missing from the database?
+38. Which scoring assumptions could overestimate feasibility?
+39. Which dimensions are based mainly on the query disease/gene rather than the program?
+40. What citations or evidence metadata are missing from the current model?
+41. How would you make `scoring.py` more research-grade?
 
 ---
 
@@ -2174,6 +2176,6 @@ Use these without looking at the code.
 
 Close the code and try to say this out loud:
 
-> `scoring.py` is NanoGT's rule-based scoring engine. It compares a query disease and gene with each gene therapy program in the database. For each program, it first checks whether the gene fits into the vector, then scores tissue tropism, protein class, inheritance, pathway, approval status, immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, and route feasibility. It adds those raw scores to a maximum of 18, normalises the result to 10, assigns high/medium/low confidence, and returns a `ScoreBreakdown`. `rank_programs()` repeats this for all programs and sorts them from best to worst.
+> `scoring.py` is NanoGT's rule-based scoring engine. It compares a query disease and gene with each gene therapy program in the database. For each program, it first checks whether the gene fits into the vector, then scores tissue tropism, protein class, mechanism/modality compatibility, inheritance, pathway, approval status, immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, and route feasibility. It adds those raw scores to a maximum of 20, normalises the result to 10, assigns high/medium/low confidence, and returns a `ScoreBreakdown`. `rank_programs()` repeats this for all programs and sorts them from best to worst.
 
 If you can say that from memory, you understand the backbone of this file.

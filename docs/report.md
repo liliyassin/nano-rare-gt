@@ -138,7 +138,7 @@ Estimated 4–6 years from corrected target validation to IND. Year 1: potency a
 
 ## 8. Framework Scoring Breakdown
 
-The following scores evaluate ROGDI against the 12 dimensions of the nano-rare GT matching framework:
+The following scores evaluate ROGDI against the current 13 dimensions of the nano-rare GT matching framework:
 
 | Dimension | Score (0–1) | Weight | Weighted Score | Notes |
 |-----------|-------------|--------|----------------|-------|

@@ -8,7 +8,7 @@
 
 **Required message:** Show all 30 diseases ordered by composite score. Colour-code high confidence, medium confidence, and packaging-gate failure. Label DMD separately as a native-gene packaging failure rather than a low-scoring compatible disease.
 
-**Suggested caption:** "Composite NanoGT scores across the 30-disease proof-of-concept cohort. Twenty-nine diseases had at least one compatible single-vector precedent; Duchenne muscular dystrophy failed the native-gene packaging gate because full-length DMD exceeds standard AAV capacity. Scores represent relative precedent strength, not predicted clinical efficacy."
+**Suggested caption:** "Composite NanoGT scores across the 30-disease proof-of-concept cohort. All diseases had at least one ranked current-catalog precedent, while Duchenne muscular dystrophy remained an engineered-cargo stress test because full-length DMD exceeds standard AAV capacity and only the micro-dystrophin precedent is scoreable. Scores represent relative precedent strength, not predicted clinical efficacy."
 
 ---
 

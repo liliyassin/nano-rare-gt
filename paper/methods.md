@@ -32,9 +32,9 @@ Eight delivery vectors were catalogued: AAV1, AAV2, AAV5, AAV8, AAV9, AAVrh10, A
 
 ---
 
-## 4. Twelve-Dimension Scoring Engine
+## 4. Thirteen-Dimension Scoring Engine
 
-For each query disease and causal gene pair, every program in the surrogate database was scored across twelve independent dimensions. Raw scores were summed and normalised to a composite score out of ten, as described in Section 5. Each dimension and its scoring logic is described below.
+For each query disease and causal gene pair, every program in the surrogate database was scored across thirteen independent dimensions. Raw scores were summed and normalised to a composite score out of ten, as described in Section 5. Each dimension and its scoring logic is described below.
 
 The scoring scheme was not trained against clinical outcome data. Instead, thresholds were selected using a transparent evidence-informed heuristic approach. Where quantitative constraints were available, such as approximate vector cargo capacity and published AAV seroprevalence estimates, these were used directly. Where no validated quantitative weighting scheme exists, such as assigning relative importance to pathway similarity, promoter availability, or route feasibility, rule-based bins were chosen to preserve interpretability and allow sensitivity analysis. Scores should therefore be interpreted as relative precedent-strength estimates rather than probabilities of clinical efficacy. A separate scoring evidence audit table was maintained to distinguish directly literature-supported parameters from heuristic score bins and to record local text anchors from the reviewed PDFs.
 
@@ -50,39 +50,43 @@ The set of disease-affected tissues was compared against the vector's tissue tro
 
 The protein class of the query gene was inferred from UniProt subcellular localisation and keyword annotations, then compared to the protein class of the precedent program. A score of 2.0 was assigned for an exact class match between two lysosomal or two secreted proteins. A score of 1.5 was assigned for a match between two intracellular or two membrane proteins. A score of 1.0 was assigned where the query gene had some secreted or extracellular component. A score of 0.5 was assigned for a class mismatch.
 
-### 4.4 Inheritance Compatibility (max 1.0)
+### 4.4 Mechanism and Modality Compatibility (max 2.0)
+
+The molecular mechanism of the query disease was treated as a distinct evidence layer rather than inferred automatically from inheritance. A curated mechanism table (`data/disease_mechanisms.csv`) records, for each disease/gene pair in the 30-disease cohort, the mechanism category, a source-linked evidence summary, the preferred therapeutic modality class, and whether ordinary gene addition is compatible, conditional, uncertain, or incompatible. Compatible loss-of-function diseases received 2.0. Conditional cases, such as intracellular cell-autonomous proteins, oversized genes requiring engineered constructs, mitochondrial enzymes, or multi-system metabolic diseases, received 1.5. Uncertain cases received 1.0. Incompatible mechanisms would receive 0.0. Missing evidence is treated as uncertain and flagged for manual review; inheritance alone is not treated as proof of gene-addition suitability.
+
+### 4.5 Inheritance Compatibility (max 1.0)
 
 The inheritance pattern of the query disease was compared to the inheritance pattern of the precedent program. An exact match between autosomal recessive (AR) or X-linked (XL) patterns received 1.0. A shared loss-of-function pattern received 0.7. A mismatch — for example, a dominant or mitochondrial disease against a recessive precedent — received 0.3. This dimension captures the distinction between loss-of-function diseases (amenable to gene replacement) and gain-of-function or dominant negative diseases (which would require silencing or editing strategies not represented in the current database).
 
-### 4.5 Biological Pathway Similarity (max 2.0)
+### 4.6 Biological Pathway Similarity (max 2.0)
 
 The biological pathway of the query disease was inferred from gene keywords, GO terms, subcellular localisation, and HPO terms. Pathways considered included lysosomal storage, coagulation, motor neuron, myopathy, retinal visual cycle, retinal phototransduction, mitochondrial complex, amino acid metabolism, urea cycle, and lipid metabolism. A score of 2.0 was assigned for an exact pathway match. A score of 1.5 was assigned for a related pathway, defined by pre-specified groupings of mechanistically adjacent pathways (for example, amino acid metabolism and urea cycle). A score of 0.5 was assigned for a clearly different pathway. Where the pathway could not be inferred, a neutral score of 1.0 was assigned.
 
-### 4.6 Regulatory Approval Weight (max 1.0)
+### 4.7 Regulatory Approval Weight (max 1.0)
 
 The regulatory stage of the precedent program was used to weight the strength of its precedent value. Scores were assigned as follows: approved = 1.0; withdrawn (previously approved) = 0.7; Phase 3 = 0.8; Phase 2/3 = 0.7; Phase 2 = 0.6; Phase 1/2 = 0.5; Phase 1 = 0.4. This dimension was interpreted as a proxy for accumulated development evidence, including manufacturing, toxicology, clinical design, endpoint, and regulator-interaction experience, not as a guarantee of efficacy.
 
-### 4.7 Vector Immunogenicity (max 2.0)
+### 4.8 Vector Immunogenicity (max 2.0)
 
 Pre-existing neutralising antibodies (NAbs) against AAV capsids in the general population are a well-established barrier to treatment eligibility, as patients with NAb titres above defined thresholds are typically excluded from many AAV clinical trials. Population seroprevalence estimates for each vector serotype were sourced from published studies and reviews of AAV humoral immunity [22–25] and used to score immunogenicity risk. Scores were assigned based on approximate seroprevalence: <10% = 2.0; 10–19% = 1.5; 20–39% = 1.0; ≥40% = 0.5. Lentiviral vectors were assigned minimum seroprevalence (~2%) as they are immunologically distinct from AAV serotypes. This dimension captured only vector-level pre-existing humoral immunity; it did not explicitly model complement activation, dose-related toxicity, anti-transgene immunity, T-cell responses, immunosuppression protocols, or redosing feasibility.
 
-### 4.8 Therapeutic Window (max 2.0)
+### 4.9 Therapeutic Window (max 2.0)
 
 The therapeutic window dimension assessed whether gene therapy could feasibly be administered before irreversible cellular damage occurs. This was inferred from HPO terms and disease name using keyword analysis. Diseases with adult or slowly progressive onset received 2.0. Progressive childhood-onset diseases with neurodegeneration received 1.5. Diseases with early childhood onset where newborn screening integration would substantially improve outcomes received 1.2. Neonatal-onset diseases requiring delivery within weeks of birth received 0.8. Congenital or rapidly fatal early-onset diseases requiring in utero or immediate neonatal delivery received 0.5. This dimension does not penalise the match per se but flags where clinical trial design is substantially more complex.
 
-### 4.9 Cross-Correction Potential (max 1.0)
+### 4.10 Cross-Correction Potential (max 1.0)
 
 Cross-correction describes the ability of a transduced cell to secrete the therapeutic protein and thereby correct adjacent untransduced cells. This mechanism amplifies the effective reach of gene delivery without requiring every target cell to receive the vector individually, enabling lower doses and broader tissue coverage. Secreted proteins and secreted lysosomal enzymes (taken up by neighbouring cells via the mannose-6-phosphate receptor pathway) received 1.0. Non-secreted lysosomal enzymes with partial cross-correction capacity received 0.8. Intracellular and membrane-bound proteins, for which no cross-correction is possible, received 0.2.
 
-### 4.10 Immune Privilege of Target Tissue (max 1.0)
+### 4.11 Immune Privilege of Target Tissue (max 1.0)
 
 Certain tissues are immunologically privileged: they are partially sequestered from systemic immune surveillance by physical barriers or local immunosuppressive signals. High immune privilege is associated with reduced risk of cytotoxic T-lymphocyte-mediated clearance of transduced cells and more durable long-term transgene expression. Scores were assigned by tissue: retina = 1.0 (blood-retinal barrier, FasL expression, local TGF-β2); CNS = 0.9 (blood-brain barrier); liver = 0.8 (tolerogenic microenvironment: Kupffer cells, IL-10, PD-L1); muscle and heart = 0.6; kidney = 0.5; haematopoietic tissue = 0.3.
 
-### 4.11 Promoter Availability (max 1.0)
+### 4.12 Promoter Availability (max 1.0)
 
 The availability of validated, tissue-specific promoters was scored based on the disease's primary target tissue. Validated promoters are essential for restricting transgene expression to the intended cell type and for ensuring therapeutic expression levels. Liver and retinal targets received 1.0, reflecting the availability of multiple clinically validated promoters used in approved programs (ApoE/hAAT, TBG, and transthyretin for liver; VMD2, GRK1, and CRX for retina). CNS and muscle targets received 0.8 (Synapsin-1 and CaMKII for CNS; MHCK7 and CK8 for muscle). Haematopoietic targets received 0.7. Cardiac targets received 0.6. Renal targets received 0.4, reflecting the near-absence of validated kidney-specific promoters in clinical programs.
 
-### 4.12 Route of Administration Feasibility (max 1.0)
+### 4.13 Route of Administration Feasibility (max 1.0)
 
 The feasibility of delivering the vector to the target tissue via an established clinical route was scored based on the disease's affected tissues. Hepatic delivery via intravenous infusion received 1.0, reflecting its use in all approved hepatic gene therapy programs. Muscle delivery via intravenous or intramuscular injection received 0.9. Haematopoietic delivery via ex vivo haematopoietic stem cell modification and reinfusion received 0.9. Retinal delivery via subretinal or intravitreal injection received 0.8, reflecting the established surgical approach used in Luxturna and GS010. CNS delivery via intrathecal or intracerebroventricular injection received 0.7, reflecting higher procedural risk. Cardiac delivery received 0.6. Renal delivery received 0.4, reflecting the absence of an established kidney-specific delivery route in approved programs.
 
@@ -90,9 +94,9 @@ The feasibility of delivering the vector to the target tissue via an established
 
 ## 5. Score Normalisation and Confidence Classification
 
-Raw scores across all twelve dimensions were summed to produce a raw composite with a theoretical maximum of 18.0. This was normalised to a score out of ten using the formula:
+Raw scores across all thirteen dimensions were summed to produce a raw composite with a theoretical maximum of 20.0. This was normalised to a score out of ten using the formula:
 
-**Composite score = (raw sum / 18.0) × 10**
+**Composite score = (raw sum / 20.0) × 10**
 
 Programs were classified into confidence tiers based on the normalised composite score: high confidence (≥7.5), medium confidence (5.0–7.49), and low confidence (<5.0). Programs that failed the packaging gate (dimension 4.1) received a composite score of 0.0 and a classification of "fail", indicating physical incompatibility between the query gene and the candidate vector.
 
@@ -100,7 +104,7 @@ Programs were classified into confidence tiers based on the normalised composite
 
 ## 6. Cohort Design
 
-The current dissertation analysis used a 30-disease proof-of-concept cohort stored in `data/disease_cohort_30.csv`. The cohort was intentionally structured to test more than one success mode: positive controls with approved precedents, benchmark diseases with known gene-therapy precedent, an oversized native-cargo stress test, a mitochondrial-delivery stress test, and a broader pilot cohort of monogenic diseases spanning liver, CNS, retina, muscle, heart, and haematopoietic involvement. Each row records the Orphanet identifier, disease name, causal gene, inheritance pattern, affected tissues, prevalence class, OMIM cross-reference, cohort role, source URL, and fact-check status.
+The current dissertation analysis used a 30-disease proof-of-concept cohort stored in `data/disease_cohort_30.csv`, with source-linked mechanism evidence stored separately in `data/disease_mechanisms.csv`. The cohort was intentionally structured to test more than one success mode: positive controls with approved precedents, benchmark diseases with known gene-therapy precedent, an oversized native-cargo stress test, a mitochondrial-delivery stress test, and a broader pilot cohort of monogenic diseases spanning liver, CNS, retina, muscle, heart, and haematopoietic involvement. Each cohort row records the Orphanet identifier, disease name, causal gene, inheritance pattern, affected tissues, prevalence class, OMIM cross-reference, cohort role, source URL, and fact-check status. Each mechanism row records the disease/gene mechanism category, gene-addition compatibility, preferred modality class, evidence summary, evidence URL, citation label, and evidence verification status.
 
 The cohort should be interpreted as a reproducible dissertation test set rather than a statistically representative sample of all rare diseases. Its purpose is to demonstrate whether the scoring framework produces interpretable precedent rankings and useful failure modes across diverse disease classes.
 
@@ -108,4 +112,4 @@ The cohort should be interpreted as a reproducible dissertation test set rather 
 
 ## 7. Output and Report Generation
 
-Results were sorted in descending order of composite score for each disease query. A structured Markdown report was generated containing: a ranked summary table of top matches with composite score and confidence tier; a per-match breakdown table showing the score for each of the twelve dimensions; plain-language rationale notes for each dimension; and a log of packaging-excluded programs. Reports were saved to a standardised output directory using filenames incorporating the Orphanet ID and disease name. A cross-disease summary report was generated to allow comparison of top matches and score distributions across all queried diseases.
+Results were sorted in descending order of composite score for each disease query. A structured Markdown report was generated containing: source-linked disease mechanism evidence; a ranked summary table of top matches with composite score and confidence tier; a per-match breakdown table showing the score for each of the thirteen dimensions; plain-language rationale notes for each dimension; manual review flags; and a log of packaging-excluded programs. Reports were saved to a standardised output directory using filenames incorporating the Orphanet ID and disease name. A cross-disease summary report was generated to allow comparison of top matches, mechanism categories, gene-addition compatibility labels, and score distributions across all queried diseases.

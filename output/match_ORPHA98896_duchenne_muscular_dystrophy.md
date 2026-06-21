@@ -4,7 +4,31 @@
 **Primary gene:** DMD  
 **Gene CDS:** 11055 bp  
 **Inheritance:** X-linked recessive  
-**Target tissues:** muscle, heart  
+**Target tissues scored:** muscle, heart  
+
+---
+
+## Interpretation
+
+- At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.
+- Main review flags: Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required; Native CDS exceeds standard single-AAV capacity; consider engineered, dual-vector, non-AAV, or editing strategy.
+
+### Disease Mechanism Evidence
+
+**Molecular mechanism:** loss of function oversized  
+**Mechanistic detail:** Dystrophin loss with native DMD too large for single AAV  
+**Gene-addition compatibility:** conditional  
+**Preferred modality class:** engineered microgene or dual vector  
+**Evidence level/status:** direct / source_linked_needs_review  
+**Evidence summary:** DMD supports replacement logic but requires micro-dystrophin or other engineered strategies because full-length DMD exceeds AAV capacity  
+**Evidence source:** [Chamberlain et al. 2023 microdystrophin review](https://pubmed.ncbi.nlm.nih.gov/36990339/)  
+
+### Study-Level Limitations
+
+- Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
+- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Endpoint risk: muscle/cardiac diseases may need functional, respiratory, imaging, or cardiac endpoints that progress slowly and vary by age/stage.
+- Endpoint risk: multi-system disease may need a hierarchy of primary and secondary endpoints; one tissue response may not equal whole-disease benefit.
 
 ---
 
@@ -31,6 +55,7 @@
 | Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
 | Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
 | Pathway similarity | 2.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
 | Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
 | Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
 | Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
@@ -39,7 +64,7 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.50** | **10.0** | Raw sum / 18 × 10 |
+| **TOTAL (normalised)** | **7.50** | **10.0** | Raw sum / 20 × 10 |
 
 ### Rationale
 
@@ -49,6 +74,10 @@
 - Both membrane proteins
 - Inheritance match (X-linked recessive <-> XL)
 - Pathway match: myopathy
+- Disease mechanism: loss of function oversized — Dystrophin loss with native DMD too large for single AAV
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: DMD supports replacement logic but requires micro-dystrophin or other engineered strategies because full-length DMD exceeds AAV capacity
+- Mechanism source: Chamberlain et al. 2023 microdystrophin review (https://pubmed.ncbi.nlm.nih.gov/36990339/)
 - Approval status: approved
 - Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
 - Moderate therapeutic window — progressive disease with childhood onset; early intervention strongly recommended; newborn screening integration beneficial
@@ -56,6 +85,15 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+
+### Manual Review Flags
+
+- Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
+- Cell-autonomous protein across multiple tissues; high transduction coverage may be required
+- Native CDS exceeds standard single-AAV capacity; consider engineered, dual-vector, non-AAV, or editing strategy
+- Engineered mini/micro-transgene strategy scored; not equivalent to full-length native gene replacement
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ---
 

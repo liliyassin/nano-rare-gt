@@ -10,48 +10,48 @@ The NanoGT framework was applied to a 30-disease monogenic rare-disease cohort a
 - 1 mitochondrial-delivery stress test.
 - 24 pilot discovery or extension diseases.
 
-Each query disease was scored against the curated 21-program surrogate catalogue. The algorithm uses twelve dimensions: packaging fit, tissue tropism, protein class, pathway similarity, inheritance compatibility, regulatory approval stage, vector immunogenicity, therapeutic window, cross-correction potential, immune privilege, promoter availability, and route-of-administration feasibility. Raw scores have a maximum of 18 and are normalised to a score out of 10.
+Each query disease was scored against the curated 21-program surrogate catalogue. The algorithm uses thirteen dimensions: packaging fit, tissue tropism, protein class, pathway similarity, mechanism/modality compatibility, inheritance compatibility, regulatory approval stage, vector immunogenicity, therapeutic window, cross-correction potential, immune privilege, promoter availability, and route-of-administration feasibility. Raw scores have a maximum of 20 and are normalised to a score out of 10.
 
 ## 2. Cross-Disease Score Distribution
 
-The framework produced at least one compatible single-vector precedent for 29 of 30 diseases. The exception was Duchenne muscular dystrophy, where the native DMD coding sequence exceeded the single-vector AAV cargo limit and therefore failed the packaging gate. This is an expected and useful stress-test result rather than an execution failure: current DMD gene therapy development relies on micro-dystrophin or other non-native cargo strategies, which are outside the v0.1 matching model.
+The framework produced at least one ranked precedent for all 30 diseases in the current catalog. Duchenne muscular dystrophy remains an expected stress-test case: full-length native DMD fails the ordinary single-AAV packaging gate, but the catalogue now contains SRP-9001 as an engineered micro-dystrophin precedent. The framework therefore separates ordinary full-length gene replacement failure from engineered micro/mini-transgene strategy scoring.
 
-Among the 29 compatible diseases, 23 were classified as high confidence and 6 as medium confidence. Composite scores ranged from 6.8/10 to 9.9/10. The mean score was 8.20/10 and the median was 8.1/10. These values should be interpreted as relative precedent strength, not predicted clinical efficacy.
+Among the 30 diseases, 27 top matches were classified as high confidence and 3 as medium confidence. Composite scores ranged from 6.8/10 to 9.9/10. These values should be interpreted as relative precedent strength, not predicted clinical efficacy.
 
 ### Table 1. Thirty-disease NanoGT cohort results
 
-| Cohort role | Disease | ORPHA | Gene | CDS (bp) | Top precedent | Vector | Score | Confidence |
-|---|---|---:|---|---:|---|---|---:|---|
-| positive_control | Hemophilia B | ORPHA:306 | F9 | 1383 | Hemgenix | AAV5 | 9.9/10 | high |
-| benchmark_with_known_gt_precedent | Leber congenital amaurosis | ORPHA:65 | RPE65 | 1599 | CPCB-RPE1 | AAV8 | 7.2/10 | medium |
-| benchmark_with_known_gt_precedent | Severe combined immunodeficiency due to adenosine deaminase deficiency | ORPHA:277 | ADA | 1092 | Strimvelis | LV | 7.8/10 | high |
-| positive_control | Spinal Muscular Atrophy | ORPHA:70 | SMN1 | 891 | OAV101-IT | AAV9 | 8.1/10 | high |
-| oversized_cargo_stress_test | Duchenne muscular dystrophy | ORPHA:98896 | DMD | 11055 | - | - | - | no compatible single-vector precedent |
-| mitochondrial_stress_test | Leber hereditary optic neuropathy | ORPHA:104 | MT-ND4 | 1377 | CPCB-RPE1 | AAV8 | 6.9/10 | medium |
-| pilot_cohort | Achromatopsia | ORPHA:49382 | CNGB3 | 2427 | CPCB-RPE1 | AAV8 | 7.1/10 | medium |
-| pilot_cohort | Alpha-mannosidosis | ORPHA:61 | MAN2B1 | 3033 | Libmeldy | LV | 8.6/10 | high |
-| pilot_cohort | Choroideremia | ORPHA:180 | CHM | 1962 | Luxturna | AAV2 | 7.6/10 | high |
-| pilot_cohort | Crigler-Najjar syndrome type I | ORPHA:1060 | UGT1A1 | 1596 | Hemgenix | AAV5 | 6.8/10 | medium |
-| pilot_cohort | Fabry disease | ORPHA:324 | GLA | 1290 | Libmeldy | LV | 8.7/10 | high |
-| pilot_cohort | Gaucher disease | ORPHA:355 | GBA | 1491 | Libmeldy | LV | 9.1/10 | high |
-| pilot_cohort | Glycogen storage disease type Ia | ORPHA:79258 | G6PC | 1071 | SRP-9001 | AAV9 | 7.4/10 | medium |
-| pilot_cohort | Kohlschutter-Tonz syndrome | ORPHA:1946 | ROGDI | 861 | OAV101-IT | AAV9 | 7.6/10 | high |
-| pilot_cohort | Krabbe disease | ORPHA:487 | GALC | 2055 | Libmeldy | LV | 9.1/10 | high |
-| pilot_cohort | Maple syrup urine disease | ORPHA:511 | BCKDHA | 1335 | BMN 307 | AAV5 | 8.2/10 | high |
-| pilot_cohort | Metachromatic leukodystrophy | ORPHA:512 | ARSA | 1521 | Libmeldy | LV | 9.1/10 | high |
-| pilot_cohort | Mucolipidosis type IV | ORPHA:578 | MCOLN1 | 1740 | Libmeldy | LV | 9.2/10 | high |
-| pilot_cohort | Mucopolysaccharidosis type I | ORPHA:579 | IDUA | 1962 | Libmeldy | LV | 9.4/10 | high |
-| pilot_cohort | Mucopolysaccharidosis type II | ORPHA:580 | IDS | 1650 | Libmeldy | LV | 9.2/10 | high |
-| pilot_cohort | Mucopolysaccharidosis type IIIA (Sanfilippo A) | ORPHA:79269 | SGSH | 1674 | Libmeldy | LV | 9.1/10 | high |
-| pilot_cohort | Ornithine transcarbamylase deficiency | ORPHA:664 | OTC | 1065 | BMN 307 | AAV5 | 8.0/10 | high |
-| pilot_cohort | Phenylketonuria | ORPHA:716 | PAH | 1353 | BMN 307 | AAV5 | 7.6/10 | high |
-| pilot_cohort | Pompe disease | ORPHA:365 | GAA | 2856 | Libmeldy | LV | 8.4/10 | high |
-| pilot_cohort | Salla disease | ORPHA:309 | SLC17A5 | 1485 | Libmeldy | LV | 9.0/10 | high |
-| pilot_cohort | Vitamin B12-unresponsive methylmalonic acidemia | ORPHA:27 | MUT | 2250 | BMN 307 | AAV5 | 7.9/10 | high |
-| pilot_cohort | Wiskott-Aldrich syndrome | ORPHA:906 | WAS | 1506 | Strimvelis | LV | 7.7/10 | high |
-| pilot_cohort | X-linked adrenoleukodystrophy | ORPHA:43 | ABCD1 | 2235 | Skysona | LV | 8.4/10 | high |
-| pilot_cohort | X-linked myotubular myopathy | ORPHA:596 | MTM1 | 1878 | AT132 | AAV8 | 7.3/10 | medium |
-| pilot_cohort | X-linked retinoschisis | ORPHA:792 | RS1 | 672 | Luxturna | AAV2 | 7.5/10 | high |
+| Cohort role | Disease | ORPHA | Gene | Mechanism | Gene-addition fit | CDS (bp) | Top precedent | Vector | Score | Confidence |
+|---|---|---:|---|---|---|---:|---|---|---:|---|
+| positive_control | Hemophilia B | ORPHA:306 | F9 | loss_of_function | compatible | 1383 | Hemgenix | AAV5 | 9.9/10 | high |
+| benchmark_with_known_gt_precedent | Leber congenital amaurosis | ORPHA:65 | RPE65 | loss_of_function | compatible | 1599 | CPCB-RPE1 | AAV8 | 7.5/10 | high |
+| benchmark_with_known_gt_precedent | Severe combined immunodeficiency due to adenosine deaminase deficiency | ORPHA:277 | ADA | loss_of_function | compatible | 1092 | Strimvelis | LV | 8.1/10 | high |
+| positive_control | Spinal Muscular Atrophy | ORPHA:70 | SMN1 | loss_of_function | compatible | 891 | OAV101-IT | AAV9 | 8.2/10 | high |
+| oversized_cargo_stress_test | Duchenne muscular dystrophy | ORPHA:98896 | DMD | loss_of_function_oversized | conditional | 11055 | SRP-9001 | AAV9 | 7.5/10 | high |
+| mitochondrial_stress_test | Leber hereditary optic neuropathy | ORPHA:104 | MT-ND4 | mitochondrial_loss_of_function | uncertain | 1377 | CPCB-RPE1 | AAV8 | 6.8/10 | medium |
+| pilot_cohort | Achromatopsia | ORPHA:49382 | CNGB3 | loss_of_function | compatible | 2427 | CPCB-RPE1 | AAV8 | 7.3/10 | medium |
+| pilot_cohort | Alpha-mannosidosis | ORPHA:61 | MAN2B1 | loss_of_function | compatible | 3033 | Libmeldy | LV | 8.7/10 | high |
+| pilot_cohort | Choroideremia | ORPHA:180 | CHM | loss_of_function | compatible | 1962 | Luxturna | AAV2 | 7.8/10 | high |
+| pilot_cohort | Crigler-Najjar syndrome type I | ORPHA:1060 | UGT1A1 | loss_of_function | compatible | 1596 | Hemgenix | AAV5 | 7.1/10 | medium |
+| pilot_cohort | Fabry disease | ORPHA:324 | GLA | loss_of_function | compatible | 1290 | Libmeldy | LV | 8.8/10 | high |
+| pilot_cohort | Gaucher disease | ORPHA:355 | GBA | loss_of_function | conditional | 1491 | Libmeldy | LV | 8.9/10 | high |
+| pilot_cohort | Glycogen storage disease type Ia | ORPHA:79258 | G6PC | loss_of_function | compatible | 1071 | SRP-9001 | AAV9 | 7.7/10 | high |
+| pilot_cohort | Kohlschutter-Tonz syndrome | ORPHA:1946 | ROGDI | loss_of_function | conditional | 861 | OAV101-IT | AAV9 | 7.5/10 | high |
+| pilot_cohort | Krabbe disease | ORPHA:487 | GALC | loss_of_function | conditional | 2055 | Libmeldy | LV | 8.9/10 | high |
+| pilot_cohort | Maple syrup urine disease | ORPHA:511 | BCKDHA | loss_of_function | conditional | 1335 | BMN 307 | AAV5 | 8.1/10 | high |
+| pilot_cohort | Metachromatic leukodystrophy | ORPHA:512 | ARSA | loss_of_function | compatible | 1521 | Libmeldy | LV | 9.2/10 | high |
+| pilot_cohort | Mucolipidosis type IV | ORPHA:578 | MCOLN1 | loss_of_function | conditional | 1740 | Libmeldy | LV | 9.1/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type I | ORPHA:579 | IDUA | loss_of_function | compatible | 1962 | Libmeldy | LV | 9.4/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type II | ORPHA:580 | IDS | loss_of_function | compatible | 1650 | Libmeldy | LV | 9.3/10 | high |
+| pilot_cohort | Mucopolysaccharidosis type IIIA (Sanfilippo A) | ORPHA:79269 | SGSH | loss_of_function | compatible | 1674 | Libmeldy | LV | 9.2/10 | high |
+| pilot_cohort | Ornithine transcarbamylase deficiency | ORPHA:664 | OTC | loss_of_function | compatible | 1065 | BMN 307 | AAV5 | 8.2/10 | high |
+| pilot_cohort | Phenylketonuria | ORPHA:716 | PAH | loss_of_function | compatible | 1353 | BMN 307 | AAV5 | 7.8/10 | high |
+| pilot_cohort | Pompe disease | ORPHA:365 | GAA | loss_of_function | conditional | 2856 | Libmeldy | LV | 8.3/10 | high |
+| pilot_cohort | Salla disease | ORPHA:309 | SLC17A5 | loss_of_function | conditional | 1485 | Libmeldy | LV | 8.8/10 | high |
+| pilot_cohort | Vitamin B12-unresponsive methylmalonic acidemia | ORPHA:27 | MUT | loss_of_function | conditional | 2250 | BMN 307 | AAV5 | 7.8/10 | high |
+| pilot_cohort | Wiskott-Aldrich syndrome | ORPHA:906 | WAS | loss_of_function | compatible | 1506 | Strimvelis | LV | 7.9/10 | high |
+| pilot_cohort | X-linked adrenoleukodystrophy | ORPHA:43 | ABCD1 | loss_of_function | conditional | 2235 | Skysona | LV | 8.3/10 | high |
+| pilot_cohort | X-linked myotubular myopathy | ORPHA:596 | MTM1 | loss_of_function | compatible | 1878 | AT132 | AAV8 | 7.5/10 | high |
+| pilot_cohort | X-linked retinoschisis | ORPHA:792 | RS1 | loss_of_function | compatible | 672 | Luxturna | AAV2 | 7.8/10 | high |
 
 ## 3. Top-Precedent Clusters
 
@@ -77,22 +77,19 @@ Retinal diseases clustered around Luxturna and CPCB-RPE1. Choroideremia and X-li
 
 The strongest positive control was haemophilia B: Hemgenix ranked first with a 9.9/10 score. Spinal muscular atrophy also returned an AAV9/Zolgensma/OAV101-style precedent at high confidence. ADA-SCID ranked with Strimvelis, correctly recovering an ex vivo haematopoietic precedent. These results support the internal validity of the scoring system at a proof-of-concept level.
 
-Leber congenital amaurosis did not rank Luxturna first in the current run; CPCB-RPE1 ranked first at 7.2/10, with Luxturna second in the generated summary. This is not a trivial detail to hide. It indicates that the current scoring formula may over-weight vector/tissue/programme-stage similarity relative to exact disease identity for some retinal cases. In the dissertation, this should be discussed as a calibration issue and a motivation for either exact-target bonus scoring or a clearer validation metric.
+Leber congenital amaurosis did not rank Luxturna first in the current run; CPCB-RPE1 ranked first at 7.5/10, with Luxturna second in the generated disease report. This is not a trivial detail to hide. It indicates that the current scoring formula may over-weight vector/tissue/programme-stage similarity relative to exact disease identity for some retinal cases. In the dissertation, this should be discussed as a calibration issue and a motivation for either exact-target bonus scoring or a clearer validation metric.
 
 ## 4. Medium-Confidence and Stress-Test Results
 
-Medium-confidence diseases were:
+Medium-confidence top matches were:
 
-- Leber congenital amaurosis (RPE65): CPCB-RPE1 / AAV8 at 7.2/10
-- Leber hereditary optic neuropathy (MT-ND4): CPCB-RPE1 / AAV8 at 6.9/10
-- Achromatopsia (CNGB3): CPCB-RPE1 / AAV8 at 7.1/10
-- Crigler-Najjar syndrome type I (UGT1A1): Hemgenix / AAV5 at 6.8/10
-- Glycogen storage disease type Ia (G6PC): SRP-9001 / AAV9 at 7.4/10
-- X-linked myotubular myopathy (MTM1): AT132 / AAV8 at 7.3/10
+- Leber hereditary optic neuropathy (MT-ND4): CPCB-RPE1 / AAV8 at 6.8/10
+- Achromatopsia (CNGB3): CPCB-RPE1 / AAV8 at 7.3/10
+- Crigler-Najjar syndrome type I (UGT1A1): Hemgenix / AAV5 at 7.1/10
 
-These cases are useful because they show where the framework becomes uncertain. They include retinal diseases where several plausible precedents compete; liver diseases where pathway and protein-class similarity are imperfect; and myopathy/mitochondrial cases where delivery and mechanism are less well represented by the current catalogue.
+These cases are useful because they show where the framework becomes uncertain. They include retinal diseases where several plausible precedents compete, a mitochondrial disease where ordinary nuclear gene addition is mechanistically uncertain, and a liver disease where pathway and protein-class similarity are imperfect.
 
-Duchenne muscular dystrophy failed the single-vector packaging gate. The correct interpretation is that NanoGT v0.1 cannot model micro-dystrophin engineering, dual-AAV delivery, exon skipping, or editing-based strategies. This is a limitation of current framework scope, not evidence that DMD is unsuitable for gene therapy.
+Duchenne muscular dystrophy illustrates the distinction between native-gene replacement and engineered-cargo precedent. Full-length DMD fails ordinary single-AAV packaging, but SRP-9001 can be scored as a micro-dystrophin strategy. The correct interpretation is not that DMD is unsuitable for gene therapy, but that DMD requires engineered microgene, dual-vector, exon-skipping, or editing-based logic rather than ordinary full-length gene addition.
 
 ## 5. Summary of Findings
 

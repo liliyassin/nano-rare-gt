@@ -21,6 +21,7 @@ from rich import print as rprint  # coloured print (replaces normal print)
 from .db import setup, get_db_path  # database setup functions
 from .disease import fetch_disease  # fetches disease info from Orphanet
 from .gene import fetch_gene, GeneInfo  # fetches gene info from UniProt
+from .mechanism import lookup_mechanism
 from .scoring import rank_programs  # THE ALGORITHM (scoring.py)
 from .report import (
     MatchResult,
@@ -203,6 +204,13 @@ def match(
                 target_gene_sym
             )  # calls UniProt API (or uses fallback)
 
+    mechanism = lookup_mechanism(disease_info.orphanet_id, gene_info.symbol)
+    console.print(
+        "  Mechanism: "
+        f"{mechanism.short_label} "
+        f"({mechanism.evidence_status}; {mechanism.evidence_citation})"
+    )
+
     # ── Step 3: Run the scoring algorithm ────────────────────────────────
     with console.status("Scoring GT programs..."):
         scores = rank_programs(scoring_disease, gene_info, conn)
@@ -315,15 +323,17 @@ def _write_summary(
         "",
         f"Ran on {len(results)} diseases.",
         "",
-        "| Disease | Orphanet ID | Gene | Top Match | Score | Confidence |",
-        "|---------|------------|------|-----------|-------|-----------|",
+        "| Disease | Orphanet ID | Gene | Mechanism | Gene-addition fit | Top Match | Score | Confidence |",
+        "|---------|------------|------|-----------|-------------------|-----------|-------|-----------|",
     ]
     for r in results:
         top_match = next((s for s in r.scores if s.confidence != "fail"), None)
         # next(...) = get first non-fail result (i.e. the top match)
         if top_match:
+            mechanism = lookup_mechanism(r.disease.orphanet_id, r.gene.symbol)
             lines.append(
                 f"| {r.disease.name} | {r.disease.orphanet_id} | {r.gene.symbol} "
+                f"| {mechanism.mechanism_category} | {mechanism.gene_addition_compatibility} "
                 f"| {top_match.program_name} | {top_match.composite_score:.1f}/10 "
                 f"| {top_match.confidence} |"
             )
@@ -331,6 +341,12 @@ def _write_summary(
 
     for r in results:
         lines.append(f"## {r.disease.name}")
+        mechanism = lookup_mechanism(r.disease.orphanet_id, r.gene.symbol)
+        lines.append(
+            f"Mechanism: {mechanism.short_label}. Evidence: "
+            f"{mechanism.evidence_citation}"
+            + (f" ({mechanism.evidence_url})" if mechanism.evidence_url else "")
+        )
         top_matches = [s for s in r.scores if s.confidence != "fail"][:top]
         for i, s in enumerate(top_matches, 1):
             lines.append(

@@ -86,6 +86,7 @@ class ScoreBreakdown(BaseModel):
     protein_class: float = Field(0.0)          # ← secreted/lysosomal/membrane/intracellular similarity
     inheritance: float = Field(0.0)            # ← AR/XL/gene-replacement compatibility
     pathway_similarity: float = Field(0.0)     # ← same or related biological pathway
+    modality_compatibility: float = Field(0.0) # ← mechanism-level fit for gene addition
     approval_weight: float = Field(0.0)        # ← approved/late-stage programs score higher
     immunogenicity: float = Field(0.0)         # ← population-level vector seroprevalence risk
     therapeutic_window: float = Field(0.0)     # ← intervention before irreversible damage

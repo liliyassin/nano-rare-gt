@@ -1,5 +1,5 @@
 """
-12-dimension scoring engine.
+13-dimension scoring engine.
 
 For a given (disease, gene, target tissues) tuple, scores each GT program
 in the catalog as a potential precedent/surrogate.
@@ -10,19 +10,20 @@ Dimensions:
   3.  protein_class         — same lysosomal/secreted/membrane/intracellular class
   4.  inheritance           — AR/XL/AD compatibility
   5.  pathway_similarity    — same biological pathway
-  6.  approval_weight       — approved programs score higher
-  7.  immunogenicity        — pre-existing neutralising antibody seroprevalence for vector
-  8.  therapeutic_window    — can intervention occur before irreversible damage?
-  9.  cross_correction      — can transduced cells rescue untransduced neighbours?
-  10. immune_privilege      — immunological privilege of the target tissue
-  11. promoter_availability — validated tissue-specific promoters exist for target
-  12. roa_feasibility       — accessible, established delivery route to target tissue
+  6.  modality_compatibility — disease mechanism supports gene-addition precedent
+  7.  approval_weight       — approved programs score higher
+  8.  immunogenicity        — pre-existing neutralising antibody seroprevalence for vector
+  9.  therapeutic_window    — can intervention occur before irreversible damage?
+  10. cross_correction      — can transduced cells rescue untransduced neighbours?
+  11. immune_privilege      — immunological privilege of the target tissue
+  12. promoter_availability — validated tissue-specific promoters exist for target
+  13. roa_feasibility       — accessible, established delivery route to target tissue
 """
 
 # ── What this file is ──────────────────────────────────────────────────────
 # THE ALGORITHM. This is the intellectual core of the dissertation.
 # It takes one disease + one gene and scores every GT program in the catalog
-# across 12 dimensions. Raw scores are normalized to a composite out of 10.
+# across 13 dimensions. Raw scores are normalized to a composite out of 10.
 # Highest composite = best precedent match.
 #
 # Max raw scores per dimension:
@@ -30,6 +31,7 @@ Dimensions:
 #   tropism_match         → max 2.0
 #   protein_class         → max 2.0
 #   pathway_similarity    → max 2.0
+#   modality_compatibility → max 2.0
 #   inheritance_match     → max 1.0
 #   approval_weight       → max 1.0
 #   immunogenicity        → max 2.0
@@ -39,8 +41,8 @@ Dimensions:
 #   promoter_availability → max 1.0
 #   roa_feasibility       → max 1.0
 #   ─────────────────────────────
-#   RAW TOTAL MAX         = 18.0
-#   NORMALIZED (× 10/18)  = 10.0
+#   RAW TOTAL MAX         = 20.0
+#   NORMALIZED (× 10/20)  = 10.0
 
 from __future__ import annotations
 import json
@@ -50,8 +52,9 @@ import sqlite3
 
 from .disease import DiseaseInfo
 from .gene import GeneInfo
+from .mechanism import lookup_mechanism, score_gene_addition_compatibility
 
-_RAW_MAX = 18.0  # ← total of all dimension maxima; used for normalization
+_RAW_MAX = 20.0  # ← total of all dimension maxima; used for normalization
 
 
 @dataclass
@@ -71,6 +74,7 @@ class ScoreBreakdown:
     protein_class_match: float # ← 0–2: same type of protein (lysosomal/secreted/membrane)?
     inheritance_match: float   # ← 0–1: same inheritance pattern (AR/XL)?
     pathway_similarity: float  # ← 0–2: same biological pathway?
+    modality_compatibility: float  # ← 0–2: does disease mechanism support gene addition?
     approval_weight: float     # ← 0–1: how far along in trials/approval?
 
     # ── 6 new dimensions ──────────────────────────────────────────────────
@@ -766,6 +770,21 @@ def build_review_flags(
             "Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology"
         )
 
+    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
+    compatibility = mechanism.gene_addition_compatibility.lower()
+    if mechanism.evidence_status == "missing":
+        flags.append(
+            "No curated disease-mechanism evidence; do not infer gene-addition suitability from inheritance alone"
+        )
+    elif compatibility == "conditional":
+        flags.append(
+            "Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable"
+        )
+    elif compatibility in {"uncertain", "incompatible"}:
+        flags.append(
+            "Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities"
+        )
+
     combined_mechanism_text = (
         " ".join(disease.inheritance)
         + " "
@@ -798,7 +817,7 @@ def build_review_flags(
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MAIN SCORING FUNCTION: combines all 12 dimensions for one program
+# MAIN SCORING FUNCTION: combines all 13 dimensions for one program
 # ══════════════════════════════════════════════════════════════════════════════
 def score_program(
     disease: DiseaseInfo,   # ← the query disease
@@ -834,6 +853,7 @@ def score_program(
             protein_class_match=0.0,
             inheritance_match=0.0,
             pathway_similarity=0.0,
+            modality_compatibility=0.0,
             approval_weight=0.0,
             immunogenicity=0.0,
             therapeutic_window=0.0,
@@ -879,46 +899,53 @@ def score_program(
     pth, pth_notes = score_pathway(disease, gene, program["pathway"])
     notes.extend(pth_notes)
 
-    # ── Step 6: Approval ──────────────────────────────────────────────────
+    # ── Step 6: Modality compatibility ────────────────────────────────────
+    # ← uses source-linked disease mechanism evidence instead of assuming
+    # ← inheritance always equals loss-of-function gene-addition suitability.
+    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
+    mod, mod_notes = score_gene_addition_compatibility(mechanism)
+    notes.extend(mod_notes)
+
+    # ── Step 7: Approval ──────────────────────────────────────────────────
     apv, apv_notes = score_approval(program["approval_status"])
     notes.extend(apv_notes)
 
-    # ── Step 7: Immunogenicity ────────────────────────────────────────────
+    # ── Step 8: Immunogenicity ────────────────────────────────────────────
     # ← uses the vector serotype to look up published seroprevalence rates
     imm, imm_notes = score_immunogenicity(program["vector"])
     notes.extend(imm_notes)
 
-    # ── Step 8: Therapeutic window ────────────────────────────────────────
+    # ── Step 9: Therapeutic window ────────────────────────────────────────
     # ← uses the disease's HPO terms to infer how wide the treatment window is
     # ← same score for all precedent programs (it's a property of the query disease)
     tw, tw_notes = score_therapeutic_window(disease)
     notes.extend(tw_notes)
 
-    # ── Step 9: Cross-correction ──────────────────────────────────────────
+    # ── Step 10: Cross-correction ─────────────────────────────────────────
     # ← uses the gene's protein localisation to determine cross-correction capacity
     # ← same for all precedent programs (it's a property of the query gene)
     cc, cc_notes = score_cross_correction(gene)
     notes.extend(cc_notes)
 
-    # ── Step 10: Immune privilege ─────────────────────────────────────────
+    # ── Step 11: Immune privilege ─────────────────────────────────────────
     # ← uses the disease's target tissues to score immunological privilege
     ip, ip_notes = score_immune_privilege(disease.affected_tissues)
     notes.extend(ip_notes)
 
-    # ── Step 11: Promoter availability ────────────────────────────────────
+    # ── Step 12: Promoter availability ────────────────────────────────────
     # ← scores whether validated tissue-specific promoters exist for target tissues
     pa, pa_notes = score_promoter_availability(disease.affected_tissues)
     notes.extend(pa_notes)
 
-    # ── Step 12: Route of administration feasibility ──────────────────────
+    # ── Step 13: Route of administration feasibility ──────────────────────
     # ← scores how accessible the target tissue is via established delivery routes
     roa, roa_notes = score_roa_feasibility(disease.affected_tissues)
     notes.extend(roa_notes)
 
     # ── Final composite score ─────────────────────────────────────────────
-    # Raw sum across all 12 dimensions (max = 18.0)
+    # Raw sum across all 13 dimensions (max = 20.0)
     # Normalized to out of 10 for consistent interpretation.
-    raw_sum = pkg + trp + prc + pth + inh + apv + imm + tw + cc + ip + pa + roa
+    raw_sum = pkg + trp + prc + pth + mod + inh + apv + imm + tw + cc + ip + pa + roa
     composite = round((raw_sum / _RAW_MAX) * 10.0, 2)
 
     confidence = "high" if composite >= 7.5 else "medium" if composite >= 5.0 else "low"
@@ -946,6 +973,7 @@ def score_program(
         protein_class_match=prc,
         inheritance_match=inh,
         pathway_similarity=pth,
+        modality_compatibility=mod,
         approval_weight=apv,
         immunogenicity=imm,
         therapeutic_window=tw,

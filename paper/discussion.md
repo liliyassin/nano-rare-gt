@@ -2,7 +2,7 @@
 
 ## 1. Principal Findings
 
-This dissertation developed and tested NanoGT, a computational framework for matching monogenic rare diseases to existing gene-therapy precedents. The current implementation was applied to a 30-disease cohort and produced interpretable rankings for 29 diseases. One disease, Duchenne muscular dystrophy, failed the single-vector packaging gate because the native DMD coding sequence substantially exceeds standard AAV capacity. This failure is expected and biologically informative: DMD requires micro-dystrophin, dual-vector, editing, or other alternative strategies outside the current v0.1 model.
+This dissertation developed and tested NanoGT, a computational framework for matching monogenic rare diseases to existing gene-therapy precedents. The current implementation was applied to a 30-disease cohort and produced interpretable rankings for all 30 diseases. Duchenne muscular dystrophy remains biologically informative: the native DMD coding sequence fails the ordinary single-vector packaging gate, while SRP-9001 is surfaced only as an engineered micro-dystrophin precedent. This distinction prevents microgene strategies from being mistaken for ordinary full-length gene replacement.
 
 The central finding is that the framework does not return random high scores. Instead, it organises diseases into recognisable precedent clusters: lentiviral haematopoietic stem-cell therapy for lysosomal/leukodystrophy-like disorders, liver-directed AAV programmes for metabolic diseases, and retinal AAV programmes for inherited retinal disorders. These clusters are plausible given the underlying biology, vector delivery history, and regulatory precedent landscape.
 
@@ -18,7 +18,7 @@ The dominance of Libmeldy as a precedent for lysosomal and leukodystrophy-like d
 
 At the same time, the Libmeldy cluster demonstrates why the tool must remain interpretive rather than automatic. Some lysosomal labels refer to secreted enzymes with cross-correction potential; others refer to lysosomal membrane channels or transporters that require cell-autonomous correction. Treating those as equivalent would overstate the translational readiness of several matches. The dissertation should use this cluster as both a success and a limitation: the framework identifies the right neighbourhood, but expert biological interpretation is needed before moving from neighbourhood to development plan.
 
-The hepatic metabolic cluster around BMN 307 is similarly useful but not definitive. Liver-directed AAV is a plausible precedent class for several metabolic diseases, but each disease differs in newborn-screening availability, subcellular localisation, disease reversibility, toxic metabolite kinetics, and whether liver correction alone is sufficient. The retinal cluster is clinically plausible because the eye has established delivery routes and immune privilege, but exact target cell type and disease mechanism remain critical.
+The hepatic metabolic cluster around BMN 307 is similarly useful but not definitive. Liver-directed AAV is a plausible precedent class for several metabolic diseases, but each disease differs in newborn-screening availability, subcellular localisation, disease reversibility, toxic metabolite kinetics, and whether liver correction alone is sufficient. The retinal cluster is clinically plausible because the eye has established delivery routes and immune privilege, but exact target cell type and disease mechanism remain critical. For this reason, the current implementation now includes a source-linked mechanism/modality layer rather than relying on inheritance alone as a proxy for loss of function.
 
 ## 4. Limitations
 
@@ -30,6 +30,8 @@ The current surrogate catalogue contains 21 gene-therapy programmes. This gives 
 
 The 30-disease CSV is useful for reproducibility, but every row is still marked as requiring fact-checking. Before final submission, the disease name, ORPHA identifier, causal gene, inheritance, tissues, prevalence class, and OMIM cross-reference must be checked against Orphanet, OMIM, UniProt, and at least one disease-specific review or primary paper. This is now a dissertation-critical work item, not a cosmetic clean-up task.
 
+The same applies to the mechanism evidence table. `data/disease_mechanisms.csv` prevents the framework from pretending that inheritance equals molecular mechanism, but each source link and compatibility label should be treated as an auditable claim. Where the mechanism is poorly understood or the evidence is indirect, the correct label is unknown, uncertain, or conditional rather than a forced loss-of-function assignment.
+
 ### 4.3 Heuristic pathway and therapeutic-window inference
 
 Pathway similarity and therapeutic window are currently inferred by keyword-style heuristics. This is acceptable for a proof-of-concept dissertation if stated honestly, but it is not equivalent to curated pathway modelling or formal natural-history extraction. Future work should integrate Reactome/KEGG/GO identifiers and structured natural-history fields from Orphanet or OMIM.
@@ -40,7 +42,7 @@ The current cross-correction score is too coarse. It does not fully separate sec
 
 ### 4.5 Scope restriction to gene addition
 
-NanoGT v0.1 is fundamentally a gene-addition precedent matcher. It is not designed for dominant-negative disease, toxic gain-of-function disease, repeat-expansion disease, RNA knockdown, antisense therapy, base editing, prime editing, dual-AAV reconstruction, micro-gene engineering, or mitochondrial replacement strategies. DMD and LHON illustrate this boundary.
+NanoGT v0.1 is fundamentally a gene-addition precedent matcher with limited engineered-cargo handling. It is not designed for dominant-negative disease, toxic gain-of-function disease, repeat-expansion disease, RNA knockdown, antisense therapy, base editing, prime editing, dual-AAV reconstruction, or mitochondrial replacement strategies. DMD and LHON illustrate this boundary: DMD requires explicit microgene/engineering logic, while LHON depends on specialised mitochondrial or allotopic-expression assumptions rather than ordinary nuclear gene addition.
 
 ### 4.6 Score calibration
 

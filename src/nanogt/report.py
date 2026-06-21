@@ -17,6 +17,7 @@ import pathlib
 from .catalog import GT_PROGRAMS, VECTORS
 from .disease import DiseaseInfo
 from .gene import GeneInfo
+from .mechanism import MechanismEvidence, lookup_mechanism
 from .scoring import ScoreBreakdown
 
 
@@ -152,6 +153,24 @@ def _endpoint_feasibility_notes(disease: DiseaseInfo) -> list[str]:
     return notes
 
 
+def _mechanism_lines(mechanism: MechanismEvidence) -> list[str]:
+    """Render source-linked disease mechanism evidence."""
+    source = (
+        f"[{mechanism.evidence_citation}]({mechanism.evidence_url})"
+        if mechanism.evidence_url
+        else mechanism.evidence_citation
+    )
+    return [
+        f"**Molecular mechanism:** {mechanism.mechanism_category.replace('_', ' ')}  ",
+        f"**Mechanistic detail:** {mechanism.mechanism_detail}  ",
+        f"**Gene-addition compatibility:** {mechanism.gene_addition_compatibility}  ",
+        f"**Preferred modality class:** {mechanism.preferred_modality.replace('_', ' ')}  ",
+        f"**Evidence level/status:** {mechanism.evidence_level} / {mechanism.evidence_status}  ",
+        f"**Evidence summary:** {mechanism.evidence_summary}  ",
+        f"**Evidence source:** {source}  ",
+    ]
+
+
 def generate_report(result: MatchResult) -> str:
     # ← builds the full markdown report as a text string
     d = result.disease
@@ -159,6 +178,7 @@ def generate_report(result: MatchResult) -> str:
     top = [s for s in result.scores if s.confidence != "fail"][:result.top_n]
     # ← filter out hard fails (gene too big for vector), keep only top N
     source_tissues = result.source_tissues or d.affected_tissues
+    mechanism = lookup_mechanism(d.orphanet_id, g.symbol)
 
     # ── Header ────────────────────────────────────────────────────────────
     lines = [
@@ -188,6 +208,12 @@ def generate_report(result: MatchResult) -> str:
     ]
     for line in _portfolio_interpretation(top):
         lines.append(f"- {line}")
+    lines += [
+        "",
+        "### Disease Mechanism Evidence",
+        "",
+    ]
+    lines.extend(_mechanism_lines(mechanism))
     lines += [
         "",
         "### Study-Level Limitations",
@@ -232,6 +258,7 @@ def generate_report(result: MatchResult) -> str:
             f"| Tissue tropism | {s.tropism_match:.2f} | 2.0 | Vector naturally reaches disease target tissue |",
             f"| Protein class | {s.protein_class_match:.2f} | 2.0 | Same secreted/lysosomal/membrane/intracellular class |",
             f"| Pathway similarity | {s.pathway_similarity:.2f} | 2.0 | Same or related biological pathway |",
+            f"| Modality compatibility | {s.modality_compatibility:.2f} | 2.0 | Disease mechanism supports gene-addition precedent |",
             f"| Inheritance compatibility | {s.inheritance_match:.2f} | 1.0 | AR/XL loss-of-function pattern match |",
             f"| Approval precedent | {s.approval_weight:.2f} | 1.0 | Regulatory approval / trial stage |",
             f"| Immunogenicity | {s.immunogenicity:.2f} | 2.0 | Pre-existing NAb seroprevalence for this vector |",
@@ -240,7 +267,7 @@ def generate_report(result: MatchResult) -> str:
             f"| Immune privilege | {s.immune_privilege:.2f} | 1.0 | Immunological protection of target tissue |",
             f"| Promoter availability | {s.promoter_availability:.2f} | 1.0 | Validated tissue-specific promoters exist |",
             f"| Route of administration | {s.roa_feasibility:.2f} | 1.0 | Established delivery route to target tissue |",
-            f"| **TOTAL (normalised)** | **{s.composite_score:.2f}** | **10.0** | Raw sum / 18 × 10 |",
+            f"| **TOTAL (normalised)** | **{s.composite_score:.2f}** | **10.0** | Raw sum / 20 × 10 |",
             f"",
             f"### Rationale",
             f"",

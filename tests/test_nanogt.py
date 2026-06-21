@@ -17,6 +17,7 @@ from nanogt.cli import app
 from nanogt.db import setup
 from nanogt.disease import DiseaseInfo, fetch_disease
 from nanogt.gene import fetch_gene
+from nanogt.mechanism import lookup_mechanism, score_gene_addition_compatibility
 from nanogt.models import Disease, Gene, ScoreBreakdown as ModelScoreBreakdown
 from nanogt.report import MatchResult, generate_report, save_report
 from nanogt.scoring import rank_programs, score_packaging
@@ -112,6 +113,31 @@ class TestROGDIFixture:
         assert gene.cds_length_bp in {861, 864}
         assert gene.aa_length == 287
         assert gene.is_secreted is False
+
+
+class TestMechanismEvidence:
+    """Validate source-linked mechanism evidence is explicit and conservative."""
+
+    def test_rogdi_mechanism_is_source_linked_loss_of_function(self) -> None:
+        mechanism = lookup_mechanism("ORPHA:1946", "ROGDI")
+        score, notes = score_gene_addition_compatibility(mechanism)
+
+        assert mechanism.mechanism_category == "loss_of_function"
+        assert mechanism.gene_addition_compatibility == "conditional"
+        assert "22482807" in mechanism.evidence_url
+        assert score == 1.5
+        assert any("Disease mechanism" in note for note in notes)
+        assert any("Mechanism source" in note for note in notes)
+
+    def test_unknown_mechanism_does_not_assume_lof_from_inheritance(self) -> None:
+        mechanism = lookup_mechanism("ORPHA:999999", "FAKE1")
+        score, notes = score_gene_addition_compatibility(mechanism)
+
+        assert mechanism.mechanism_category == "unknown"
+        assert mechanism.gene_addition_compatibility == "uncertain"
+        assert mechanism.evidence_status == "missing"
+        assert score == 1.0
+        assert any("Do not infer mechanism from inheritance alone" in note for note in notes)
 
 
 class TestDatabaseAndScoring:

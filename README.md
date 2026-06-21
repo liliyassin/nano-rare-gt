@@ -9,12 +9,13 @@ Current focus: a 30-disease proof-of-concept cohort for the dissertation report.
 The current run has:
 
 - 30 diseases in `data/disease_cohort_30.csv`.
+- Source-linked disease mechanism evidence in `data/disease_mechanisms.csv`.
 - 21 curated surrogate gene-therapy programmes in `src/nanogt/catalog.py`.
-- 12 scoring dimensions.
-- 29 diseases with at least one compatible single-vector precedent.
-- 23 high-confidence compatible matches.
-- 6 medium-confidence compatible matches.
-- 1 expected packaging hard-gate failure: Duchenne muscular dystrophy / full-length DMD.
+- 13 scoring dimensions.
+- 30 diseases with at least one ranked precedent in the current catalog.
+- 27 high-confidence compatible matches.
+- 3 medium-confidence compatible matches.
+- Full-length DMD still triggers packaging failures against ordinary AAV programs, while the engineered micro-dystrophin precedent is scored separately.
 
 Primary outputs:
 
@@ -32,16 +33,17 @@ For each disease-program pair, NanoGT scores:
 2. Tissue tropism.
 3. Protein class.
 4. Biological pathway similarity.
-5. Inheritance compatibility.
-6. Regulatory approval/stage precedent.
-7. Vector immunogenicity.
-8. Therapeutic window.
-9. Cross-correction potential.
-10. Immune privilege.
-11. Promoter availability.
-12. Route-of-administration feasibility.
+5. Molecular mechanism / modality compatibility.
+6. Inheritance compatibility.
+7. Regulatory approval/stage precedent.
+8. Vector immunogenicity.
+9. Therapeutic window.
+10. Cross-correction potential.
+11. Immune privilege.
+12. Promoter availability.
+13. Route-of-administration feasibility.
 
-Raw scores are summed to a maximum of 18 and normalised to a 10-point composite score.
+Raw scores are summed to a maximum of 20 and normalised to a 10-point composite score. The mechanism/modality layer uses source-linked evidence and returns `unknown`/`uncertain` rather than assuming inheritance alone proves loss of function.
 
 ## What NanoGT does not claim
 
@@ -123,7 +125,7 @@ reports/             generated protocol-style reports
 
 Do not expand the scope before submission. The critical work is now:
 
-1. Fact-check every disease row in `data/disease_cohort_30.csv`.
+1. Fact-check every disease row in `data/disease_cohort_30.csv` and `data/disease_mechanisms.csv`.
 2. Verify and read the key references that support the final claims.
 3. Improve figures and tables for the dissertation.
 4. Tighten Methods, Results, and Discussion around the actual 30-disease output.
