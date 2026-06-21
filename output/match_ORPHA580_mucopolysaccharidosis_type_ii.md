@@ -38,10 +38,10 @@
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
 | 1 | Libmeldy | LV | 9.3/10 | 🟢 High | approved |
-| 2 | ST-920 | AAV2/6 | 8.9/10 | 🟢 High | phase1/2 |
-| 3 | RGX-121 | AAV9 | 8.8/10 | 🟢 High | phase3 |
-| 4 | Hemgenix | AAV5 | 8.7/10 | 🟢 High | approved |
-| 5 | Roctavian | AAV5 | 8.7/10 | 🟢 High | approved |
+| 2 | ST-920 | AAV2/6 | 9.0/10 | 🟢 High | phase1/2 |
+| 3 | RGX-121 | AAV9 | 8.9/10 | 🟢 High | phase3 |
+| 4 | Hemgenix | AAV5 | 8.8/10 | 🟢 High | approved |
+| 5 | Roctavian | AAV5 | 8.8/10 | 🟢 High | approved |
 
 ---
 
@@ -69,13 +69,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **9.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **9.33** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1650bp / cargo 8000bp (21% utilized)
 - Precedent target match: cns
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: leukodystrophy
 - Disease mechanism: loss of function — Iduronate-2-sulfatase lysosomal enzyme deficiency
@@ -89,6 +90,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — IDS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -100,7 +102,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** AAV2/6  
 **Tissue target:** liver  
-**Composite score:** 8.9 / 10  
+**Composite score:** 9.0 / 10  
 
 ### Score Breakdown
 
@@ -119,13 +121,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.95** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **9.00** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1650bp / cargo 4700bp (35% utilized)
 - Vector tropism plus precedent target match: liver
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (X-linked recessive <-> XL)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Iduronate-2-sulfatase lysosomal enzyme deficiency
@@ -139,6 +142,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — IDS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -151,7 +155,7 @@
 **Precedent disease:** Mucopolysaccharidosis type II  
 **Vector:** AAV9  
 **Tissue target:** CNS/liver  
-**Composite score:** 8.8 / 10  
+**Composite score:** 8.9 / 10  
 
 ### Score Breakdown
 
@@ -170,13 +174,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.85** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.90** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1650bp / cargo 4700bp (35% utilized)
 - Vector tropism plus precedent target match: cns, liver
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (X-linked recessive <-> XL)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Iduronate-2-sulfatase lysosomal enzyme deficiency
@@ -190,6 +195,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — IDS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -201,7 +207,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 8.7 / 10  
+**Composite score:** 8.8 / 10  
 
 ### Score Breakdown
 
@@ -220,7 +226,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.70** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.76** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -240,6 +247,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — IDS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -251,7 +259,7 @@
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 8.7 / 10  
+**Composite score:** 8.8 / 10  
 
 ### Score Breakdown
 
@@ -270,7 +278,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.70** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.76** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -290,6 +299,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — IDS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

@@ -151,7 +151,7 @@ def _fetch_from_orphanet(orpha_num: str) -> Optional[DiseaseInfo]:
 # incomplete, or does not expose HPO/tissue fields needed by the scoring engine.
 # The CLI still accepts any Orphanet ID: unknown diseases are attempted through
 # the live API, and the `--gene` override can be used when Orphanet does not
-# resolve a causal gene. These 30 diseases are the poster/reproducibility cohort.
+# resolve a causal gene. These fallback entries cover the 40-disease dissertation cohort.
 # ══════════════════════════════════════════════════════════════════════════════
 _FALLBACK: dict[str, DiseaseInfo] = {}
 
@@ -458,6 +458,135 @@ def _build_fallbacks() -> None:
             gene_symbols=['ABCD1'],
             hpo_terms=['Leukodystrophy', 'Adrenal insufficiency', 'Progressive neurodegeneration', 'White matter abnormality', 'Peroxisomal disorder'],
             affected_tissues=['CNS'],
+        ),
+        # ── Non-LOF stress-test diseases (added to validate non-LOF scoring) ──
+        '138': DiseaseInfo(
+            orphanet_id="ORPHA:138",
+            name='CHARGE syndrome',
+            omim_ids=['214800'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['CHD7'],
+            hpo_terms=['Coloboma', 'Heart defect', 'Choanal atresia', 'Growth retardation', 'Ear anomaly', 'Developmental delay'],
+            affected_tissues=['CNS', 'heart', 'eye'],
+        ),
+        '636': DiseaseInfo(
+            orphanet_id="ORPHA:636",
+            name='Neurofibromatosis type 1',
+            omim_ids=['162200'],
+            prevalence='1-5/1000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['NF1'],
+            hpo_terms=['Cafe-au-lait spots', 'Neurofibromas', 'Lisch nodules', 'Learning disability', 'Tumour suppressor loss'],
+            affected_tissues=['CNS', 'skin', 'peripheral nerve'],
+        ),
+        '95': DiseaseInfo(
+            orphanet_id="ORPHA:95",
+            name='Friedreich ataxia',
+            omim_ids=['229300'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['FXN'],
+            hpo_terms=['Progressive ataxia', 'Cardiomyopathy', 'Diabetes mellitus', 'Scoliosis', 'GAA repeat expansion', 'Frataxin deficiency'],
+            affected_tissues=['CNS', 'heart'],
+        ),
+        '805': DiseaseInfo(
+            orphanet_id="ORPHA:805",
+            name='Tuberous sclerosis complex',
+            omim_ids=['613254'],
+            prevalence='1-5/10000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['TSC2'],
+            hpo_terms=['Cortical tubers', 'Epilepsy', 'Renal angiomyolipoma', 'Facial angiofibromas', 'mTOR pathway activation'],
+            affected_tissues=['CNS', 'kidney', 'skin'],
+        ),
+
+        # ── Non-LOF replacement diseases (diverse conditional mechanisms) ──────
+        '778': DiseaseInfo(
+            orphanet_id="ORPHA:778",
+            name='Rett syndrome',
+            omim_ids=['312750'],
+            prevalence='1-5/10000',
+            inheritance=['X-linked dominant'],
+            gene_symbols=['MECP2'],
+            hpo_terms=['Intellectual disability', 'Seizures', 'Stereotypic hand movements',
+                       'Neurodegeneration', 'Loss of speech', 'Autistic behaviour', 'Breathing irregularity'],
+            affected_tissues=['CNS'],
+            # Mechanism: X-linked haploinsufficiency of MECP2; gene addition conditional
+            # because MECP2 duplication causes a distinct disease — dosage must be tightly controlled
+            # Evidence: Amir RE et al. 1999 Nat Genet PMID 10508514;
+            #           Van Esch H et al. 2005 Am J Hum Genet PMID 16080119
+        ),
+        '1306': DiseaseInfo(
+            orphanet_id="ORPHA:1306",
+            name='Dravet syndrome',
+            omim_ids=['607208'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['SCN1A'],
+            hpo_terms=['Febrile seizures', 'Refractory epilepsy', 'Intellectual disability',
+                       'Neurodegeneration', 'Ataxia', 'Early-onset seizures'],
+            affected_tissues=['CNS'],
+            # Mechanism: haploinsufficiency of Nav1.1 sodium channel preferentially in
+            # inhibitory interneurons; gene addition conditional — cell-type-specific expression required
+            # Evidence: Claes L et al. 2003 Hum Mutat PMID 12754708;
+            #           Colasante G et al. 2020 Mol Ther PMID 31607539
+        ),
+        '908': DiseaseInfo(
+            orphanet_id="ORPHA:908",
+            name='Fragile X syndrome',
+            omim_ids=['300624'],
+            prevalence='1-5/10000',
+            inheritance=['X-linked dominant'],
+            gene_symbols=['FMR1'],
+            hpo_terms=['Intellectual disability', 'Macroorchidism', 'Autistic behaviour',
+                       'Hyperactivity', 'Seizures', 'Anxiety', 'Abnormal synaptic plasticity'],
+            affected_tissues=['CNS'],
+            # Mechanism: CGG repeat expansion in FMR1 5-UTR silences the locus by methylation;
+            # the FMR1 protein coding sequence itself is normal — cDNA addition bypasses silencing
+            # Evidence: Liu XS et al. 2018 Cell PMID 29456084
+        ),
+        '72': DiseaseInfo(
+            orphanet_id="ORPHA:72",
+            name='Angelman syndrome',
+            omim_ids=['105830'],
+            prevalence='1-5/10000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['UBE3A'],
+            hpo_terms=['Intellectual disability', 'Seizures', 'Ataxia', 'Happy demeanour',
+                       'Absent speech', 'Neurodegeneration', 'Abnormal EEG pattern'],
+            affected_tissues=['CNS'],
+            # Mechanism: maternal UBE3A deleted/mutated; paternal allele silenced by
+            # UBE3A-ATS antisense transcript in neurons; adding a transgene restores expression
+            # Evidence: Mabb AM et al. 2011 Trends Neurosci PMID 21592595
+        ),
+        '163934': DiseaseInfo(
+            orphanet_id="ORPHA:163934",
+            name='CDKL5 deficiency disorder',
+            omim_ids=['300672'],
+            prevalence='<1/1000000',
+            inheritance=['X-linked dominant'],
+            gene_symbols=['CDKL5'],
+            hpo_terms=['Early-onset seizures', 'Intellectual disability', 'Neurodegeneration',
+                       'Absent speech', 'Stereotypic hand movements', 'Hypotonia'],
+            affected_tissues=['CNS'],
+            # Mechanism: X-linked haploinsufficiency of CDKL5 kinase disrupts neuronal
+            # synaptic signalling; AAV9-CDKL5 gene therapy in active clinical development
+            # Evidence: Van Bergen NJ et al. 2022 Biochem Soc Trans PMID 35997111
+        ),
+        '247770': DiseaseInfo(
+            orphanet_id="ORPHA:247770",
+            name='GATA2 deficiency',
+            omim_ids=['137295'],
+            prevalence='<1/1000000',
+            inheritance=['Autosomal dominant'],
+            gene_symbols=['GATA2'],
+            hpo_terms=['Immunodeficiency', 'Bone marrow failure', 'Recurrent infections',
+                       'Lymphedema', 'Thrombocytopenia', 'Hematopoietic disorder', 'Myelodysplasia'],
+            affected_tissues=['hematopoietic'],
+            # Mechanism: autosomal dominant haploinsufficiency of GATA2 transcription factor
+            # depleting HSC and lymphatic progenitors; ex vivo HSC gene addition the appropriate route
+            # Evidence: Spinner MA et al. 2014 Blood PMID 24227816
         ),
     }
 

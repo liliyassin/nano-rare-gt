@@ -37,11 +37,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | BMN 307 | AAV5 | 7.8/10 | 🟢 High | phase2 |
-| 2 | OAV101-IT | AAV9 | 7.5/10 | 🟢 High | approved |
-| 3 | Zolgensma | AAV9 | 7.5/10 | 🟢 High | approved |
-| 4 | Hemgenix | AAV5 | 7.4/10 | 🟡 Medium | approved |
-| 5 | Roctavian | AAV5 | 7.4/10 | 🟡 Medium | approved |
+| 1 | BMN 307 | AAV5 | 8.0/10 | 🟢 High | phase2 |
+| 2 | OAV101-IT | AAV9 | 7.7/10 | 🟢 High | approved |
+| 3 | Zolgensma | AAV9 | 7.7/10 | 🟢 High | approved |
+| 4 | Hemgenix | AAV5 | 7.5/10 | 🟢 High | approved |
+| 5 | Roctavian | AAV5 | 7.5/10 | 🟢 High | approved |
 
 ---
 
@@ -50,7 +50,7 @@
 **Precedent disease:** Phenylketonuria  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.8 / 10  
+**Composite score:** 8.0 / 10  
 
 ### Score Breakdown
 
@@ -69,7 +69,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.85** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.95** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -89,6 +90,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — PAH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -102,7 +104,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/spinal cord  
-**Composite score:** 7.5 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -121,7 +123,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.55** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.67** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -141,6 +144,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — PAH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -154,7 +158,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/motor neuron  
-**Composite score:** 7.5 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -173,7 +177,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.55** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.67** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -193,6 +198,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — PAH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -206,7 +212,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.4 / 10  
+**Composite score:** 7.5 / 10  
 
 ### Score Breakdown
 
@@ -225,7 +231,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.40** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -245,6 +252,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — PAH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -258,7 +266,7 @@
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.4 / 10  
+**Composite score:** 7.5 / 10  
 
 ### Score Breakdown
 
@@ -277,7 +285,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.40** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -297,6 +306,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — PAH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

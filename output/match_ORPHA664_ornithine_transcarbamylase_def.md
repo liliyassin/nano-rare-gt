@@ -11,7 +11,7 @@
 ## Interpretation
 
 - At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.
-- Main review flags: Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required; Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility.
+- Main review flags: MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.; Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required.
 
 ### Disease Mechanism Evidence
 
@@ -37,11 +37,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | BMN 307 | AAV5 | 8.2/10 | 🟢 High | phase2 |
-| 2 | DTX301 | AAV8 | 7.8/10 | 🟢 High | phase2 |
-| 3 | Hemgenix | AAV5 | 7.3/10 | 🟡 Medium | approved |
-| 4 | Roctavian | AAV5 | 7.3/10 | 🟡 Medium | approved |
-| 5 | OAV101-IT | AAV9 | 7.2/10 | 🟡 Medium | approved |
+| 1 | BMN 307 | AAV5 | 8.1/10 | 🟢 High | phase2 |
+| 2 | DTX301 | AAV8 | 7.7/10 | 🟢 High | phase2 |
+| 3 | Hemgenix | AAV5 | 7.2/10 | 🟡 Medium | approved |
+| 4 | Roctavian | AAV5 | 7.2/10 | 🟡 Medium | approved |
+| 5 | OAV101-IT | AAV9 | 7.0/10 | 🟡 Medium | approved |
 
 ---
 
@@ -50,7 +50,7 @@
 **Precedent disease:** Phenylketonuria  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 8.2 / 10  
+**Composite score:** 8.1 / 10  
 
 ### Score Breakdown
 
@@ -69,7 +69,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.20** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.05** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -89,13 +90,14 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — OTC is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #2: DTX301
@@ -103,7 +105,7 @@
 **Precedent disease:** Ornithine transcarbamylase deficiency  
 **Vector:** AAV8  
 **Tissue target:** liver  
-**Composite score:** 7.8 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -122,7 +124,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.85** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -142,14 +145,15 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — OTC is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #3: Hemgenix
@@ -157,7 +161,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.3 / 10  
+**Composite score:** 7.2 / 10  
 
 ### Score Breakdown
 
@@ -176,7 +180,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.19** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -196,13 +201,14 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — OTC is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #4: Roctavian
@@ -210,7 +216,7 @@
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.3 / 10  
+**Composite score:** 7.2 / 10  
 
 ### Score Breakdown
 
@@ -229,7 +235,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.19** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -249,13 +256,14 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — OTC is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #5: OAV101-IT
@@ -263,7 +271,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/spinal cord  
-**Composite score:** 7.2 / 10  
+**Composite score:** 7.0 / 10  
 
 ### Score Breakdown
 
@@ -282,7 +290,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.15** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.05** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -302,11 +311,12 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — OTC is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (OTC): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone

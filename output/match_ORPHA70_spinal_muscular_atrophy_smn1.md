@@ -38,11 +38,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | OAV101-IT | AAV9 | 8.2/10 | 🟢 High | approved |
-| 2 | Zolgensma | AAV9 | 8.2/10 | 🟢 High | approved |
-| 3 | AT132 | AAV8 | 8.0/10 | 🟢 High | phase3 |
-| 4 | SRP-9001 | AAV9 | 7.6/10 | 🟢 High | approved |
-| 5 | BMN 307 | AAV5 | 7.3/10 | 🟡 Medium | phase2 |
+| 1 | OAV101-IT | AAV9 | 8.3/10 | 🟢 High | approved |
+| 2 | Zolgensma | AAV9 | 8.3/10 | 🟢 High | approved |
+| 3 | AT132 | AAV8 | 8.1/10 | 🟢 High | phase3 |
+| 4 | SRP-9001 | AAV9 | 7.7/10 | 🟢 High | approved |
+| 5 | BMN 307 | AAV5 | 7.4/10 | 🟡 Medium | phase2 |
 
 ---
 
@@ -51,7 +51,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/spinal cord  
-**Composite score:** 8.2 / 10  
+**Composite score:** 8.3 / 10  
 
 ### Score Breakdown
 
@@ -70,7 +70,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.25** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.33** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -90,6 +91,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — SMN1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -104,7 +106,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/motor neuron  
-**Composite score:** 8.2 / 10  
+**Composite score:** 8.3 / 10  
 
 ### Score Breakdown
 
@@ -123,7 +125,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.25** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.33** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -143,6 +146,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — SMN1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -157,7 +161,7 @@
 **Precedent disease:** X-linked myotubular myopathy  
 **Vector:** AAV8  
 **Tissue target:** muscle  
-**Composite score:** 8.0 / 10  
+**Composite score:** 8.1 / 10  
 
 ### Score Breakdown
 
@@ -176,7 +180,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.00** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.10** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -196,6 +201,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — SMN1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -211,7 +217,7 @@
 **Precedent disease:** Duchenne muscular dystrophy  
 **Vector:** AAV9  
 **Tissue target:** muscle  
-**Composite score:** 7.6 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -230,7 +236,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.60** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -250,6 +257,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — SMN1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -264,7 +272,7 @@
 **Precedent disease:** Phenylketonuria  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.3 / 10  
+**Composite score:** 7.4 / 10  
 
 ### Score Breakdown
 
@@ -283,7 +291,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.43** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -303,6 +312,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — SMN1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

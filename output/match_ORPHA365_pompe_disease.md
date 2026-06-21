@@ -36,11 +36,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | Libmeldy | LV | 8.3/10 | 🟢 High | approved |
-| 2 | ABO-101 | AAV9 | 7.9/10 | 🟢 High | phase1/2 |
-| 3 | AVR-RD-01 | LV | 7.9/10 | 🟢 High | phase1/2 |
-| 4 | RGX-121 | AAV9 | 7.9/10 | 🟢 High | phase3 |
-| 5 | ST-920 | AAV2/6 | 7.8/10 | 🟢 High | phase1/2 |
+| 1 | Libmeldy | LV | 8.4/10 | 🟢 High | approved |
+| 2 | ABO-101 | AAV9 | 8.0/10 | 🟢 High | phase1/2 |
+| 3 | AVR-RD-01 | LV | 8.0/10 | 🟢 High | phase1/2 |
+| 4 | RGX-121 | AAV9 | 8.0/10 | 🟢 High | phase3 |
+| 5 | ST-920 | AAV2/6 | 7.9/10 | 🟢 High | phase1/2 |
 
 ---
 
@@ -49,7 +49,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 8.3 / 10  
+**Composite score:** 8.4 / 10  
 
 ### Score Breakdown
 
@@ -68,13 +68,14 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.38** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 2856bp / cargo 8000bp (36% utilized)
 - No tissue overlap (disease: ['muscle', 'heart'], vector: ['hematopoietic'])
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (Autosomal recessive <-> AR)
 - Pathway match: leukodystrophy
 - Disease mechanism: loss of function — Acid alpha-glucosidase lysosomal enzyme deficiency
@@ -88,6 +89,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — GAA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -101,7 +103,7 @@
 **Precedent disease:** Mucopolysaccharidosis type IIIB  
 **Vector:** AAV9  
 **Tissue target:** CNS  
-**Composite score:** 7.9 / 10  
+**Composite score:** 8.0 / 10  
 
 ### Score Breakdown
 
@@ -120,13 +122,14 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.00** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 2856bp / cargo 4700bp (61% utilized)
 - Vector tropism overlap: heart, muscle
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (Autosomal recessive <-> AR)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Acid alpha-glucosidase lysosomal enzyme deficiency
@@ -140,6 +143,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — GAA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -152,7 +156,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** LV  
 **Tissue target:** hematopoietic  
-**Composite score:** 7.9 / 10  
+**Composite score:** 8.0 / 10  
 
 ### Score Breakdown
 
@@ -171,13 +175,14 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.00** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 2856bp / cargo 8000bp (36% utilized)
 - No tissue overlap (disease: ['muscle', 'heart'], vector: ['hematopoietic'])
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Acid alpha-glucosidase lysosomal enzyme deficiency
@@ -191,6 +196,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — GAA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -204,7 +210,7 @@
 **Precedent disease:** Mucopolysaccharidosis type II  
 **Vector:** AAV9  
 **Tissue target:** CNS/liver  
-**Composite score:** 7.9 / 10  
+**Composite score:** 8.0 / 10  
 
 ### Score Breakdown
 
@@ -223,13 +229,14 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.00** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 2856bp / cargo 4700bp (61% utilized)
 - Vector tropism overlap: heart, muscle
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Acid alpha-glucosidase lysosomal enzyme deficiency
@@ -243,6 +250,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — GAA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -255,7 +263,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** AAV2/6  
 **Tissue target:** liver  
-**Composite score:** 7.8 / 10  
+**Composite score:** 7.9 / 10  
 
 ### Score Breakdown
 
@@ -274,13 +282,14 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.75** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.86** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 2856bp / cargo 4700bp (61% utilized)
 - Vector tropism overlaps muscle, but precedent target is liver
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Acid alpha-glucosidase lysosomal enzyme deficiency
@@ -294,6 +303,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — GAA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

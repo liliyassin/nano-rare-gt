@@ -11,7 +11,7 @@
 ## Interpretation
 
 - At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.
-- Main review flags: Multi-system disease; define a primary therapeutic target tissue before selecting route/vector; Vector does not naturally cover all annotated disease tissues: cns, heart, kidney, liver; Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility.
+- Main review flags: DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.; Multi-system disease; define a primary therapeutic target tissue before selecting route/vector; Vector does not naturally cover all annotated disease tissues: cns, heart, kidney, liver.
 
 ### Disease Mechanism Evidence
 
@@ -38,11 +38,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | Libmeldy | LV | 8.8/10 | 🟢 High | approved |
-| 2 | ST-920 | AAV2/6 | 8.7/10 | 🟢 High | phase1/2 |
-| 3 | RGX-121 | AAV9 | 8.6/10 | 🟢 High | phase3 |
-| 4 | Hemgenix | AAV5 | 8.4/10 | 🟢 High | approved |
-| 5 | Roctavian | AAV5 | 8.4/10 | 🟢 High | approved |
+| 1 | Libmeldy | LV | 8.9/10 | 🟢 High | approved |
+| 2 | ST-920 | AAV2/6 | 8.8/10 | 🟢 High | phase1/2 |
+| 3 | RGX-121 | AAV9 | 8.7/10 | 🟢 High | phase3 |
+| 4 | Hemgenix | AAV5 | 8.5/10 | 🟢 High | approved |
+| 5 | Roctavian | AAV5 | 8.5/10 | 🟢 High | approved |
 
 ---
 
@@ -51,7 +51,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 8.8 / 10  
+**Composite score:** 8.9 / 10  
 
 ### Score Breakdown
 
@@ -70,13 +70,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.86** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1290bp / cargo 8000bp (16% utilized)
 - Precedent target match: cns
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: leukodystrophy
 - Disease mechanism: loss of function — Alpha-galactosidase A lysosomal enzyme deficiency
@@ -90,9 +91,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — GLA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
+- DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.
 - Multi-system disease; define a primary therapeutic target tissue before selecting route/vector
 - Vector does not naturally cover all annotated disease tissues: cns, heart, kidney, liver
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -103,7 +106,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** AAV2/6  
 **Tissue target:** liver  
-**Composite score:** 8.7 / 10  
+**Composite score:** 8.8 / 10  
 
 ### Score Breakdown
 
@@ -122,13 +125,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.70** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.76** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1290bp / cargo 4700bp (27% utilized)
 - Vector tropism plus precedent target match: liver
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (X-linked dominant <-> XL)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Alpha-galactosidase A lysosomal enzyme deficiency
@@ -142,9 +146,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — GLA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
+- DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.
 - Multi-system disease; define a primary therapeutic target tissue before selecting route/vector
 - Vector does not naturally cover all annotated disease tissues: cns, heart, kidney
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -156,7 +162,7 @@
 **Precedent disease:** Mucopolysaccharidosis type II  
 **Vector:** AAV9  
 **Tissue target:** CNS/liver  
-**Composite score:** 8.6 / 10  
+**Composite score:** 8.7 / 10  
 
 ### Score Breakdown
 
@@ -175,13 +181,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.60** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.67** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1290bp / cargo 4700bp (27% utilized)
 - Vector tropism plus precedent target match: cns, liver
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (X-linked dominant <-> XL)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Alpha-galactosidase A lysosomal enzyme deficiency
@@ -195,9 +202,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — GLA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
+- DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.
 - Multi-system disease; define a primary therapeutic target tissue before selecting route/vector
 - Vector does not naturally cover all annotated disease tissues: kidney
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -209,7 +218,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 8.4 / 10  
+**Composite score:** 8.5 / 10  
 
 ### Score Breakdown
 
@@ -228,7 +237,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.45** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -248,9 +258,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — GLA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
+- DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.
 - Multi-system disease; define a primary therapeutic target tissue before selecting route/vector
 - Vector does not naturally cover all annotated disease tissues: heart, kidney
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -262,7 +274,7 @@
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 8.4 / 10  
+**Composite score:** 8.5 / 10  
 
 ### Score Breakdown
 
@@ -281,7 +293,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.45** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -301,9 +314,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: COMPATIBLE — GLA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
+- DISEASE HETEROGENEITY: Fabry disease has classic and late-onset phenotypes with different tissue involvement. CNS/cardiac delivery requirements vary by phenotype.
 - Multi-system disease; define a primary therapeutic target tissue before selecting route/vector
 - Vector does not naturally cover all annotated disease tissues: heart, kidney
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility

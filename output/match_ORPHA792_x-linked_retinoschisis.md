@@ -36,11 +36,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | Luxturna | AAV2 | 7.8/10 | 🟢 High | approved |
-| 2 | CPCB-RPE1 | AAV8 | 7.6/10 | 🟢 High | phase2/3 |
-| 3 | Hemgenix | AAV5 | 7.5/10 | 🟢 High | approved |
-| 4 | Roctavian | AAV5 | 7.5/10 | 🟢 High | approved |
-| 5 | Libmeldy | LV | 7.4/10 | 🟡 Medium | approved |
+| 1 | Luxturna | AAV2 | 7.9/10 | 🟢 High | approved |
+| 2 | CPCB-RPE1 | AAV8 | 7.7/10 | 🟢 High | phase2/3 |
+| 3 | Hemgenix | AAV5 | 7.7/10 | 🟢 High | approved |
+| 4 | Roctavian | AAV5 | 7.7/10 | 🟢 High | approved |
+| 5 | Libmeldy | LV | 7.5/10 | 🟢 High | approved |
 
 ---
 
@@ -49,7 +49,7 @@
 **Precedent disease:** Leber congenital amaurosis type 2  
 **Vector:** AAV2  
 **Tissue target:** retina/RPE  
-**Composite score:** 7.8 / 10  
+**Composite score:** 7.9 / 10  
 
 ### Score Breakdown
 
@@ -68,7 +68,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.75** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.86** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -88,6 +89,7 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: COMPATIBLE — RS1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -99,7 +101,7 @@
 **Precedent disease:** Achromatopsia  
 **Vector:** AAV8  
 **Tissue target:** retina/photoreceptor  
-**Composite score:** 7.6 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -118,7 +120,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.60** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -138,6 +141,7 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: COMPATIBLE — RS1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -150,7 +154,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.5 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -169,7 +173,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.55** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.67** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -189,6 +194,7 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: COMPATIBLE — RS1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -202,7 +208,7 @@
 **Precedent disease:** Hemophilia A  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.5 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -221,7 +227,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.55** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.67** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -241,6 +248,7 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: COMPATIBLE — RS1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -254,7 +262,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 7.4 / 10  
+**Composite score:** 7.5 / 10  
 
 ### Score Breakdown
 
@@ -273,7 +281,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.40** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -293,6 +302,7 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: COMPATIBLE — RS1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

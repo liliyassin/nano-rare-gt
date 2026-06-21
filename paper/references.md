@@ -142,7 +142,7 @@
 
 ## Disease and Dataset Source Audit
 
-The 30-disease cohort is stored in `data/disease_cohort_30.csv`. Before final submission, each disease row must be checked against Orphanet and OMIM and then supported by at least one disease-specific review or primary paper where that disease is discussed in the Results/Discussion text. Do not cite a disease-specific claim unless the corresponding paper has actually been read and annotated.
+The 40-disease cohort is stored in `data/disease_cohort_40.csv`. Before final submission, each disease row must be checked against Orphanet and OMIM and then supported by at least one disease-specific review or primary paper where that disease is discussed in the Results/Discussion text. Do not cite a disease-specific claim unless the corresponding paper has actually been read and annotated.
 
 Priority disease-source checks for the dissertation:
 

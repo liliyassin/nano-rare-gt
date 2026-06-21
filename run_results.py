@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate NanoGT match reports for the reproducible 30-disease cohort.
+"""Generate NanoGT match reports for the reproducible 40-disease cohort.
 
 Usage from the repo root:
     uv run python run_results.py
@@ -25,11 +25,11 @@ from nanogt.scoring import rank_programs
 
 ROOT = pathlib.Path(__file__).parent
 OUTPUT = ROOT / "output"
-COHORT_CSV = ROOT / "data" / "disease_cohort_30.csv"
+COHORT_CSV = ROOT / "data" / "disease_cohort_40.csv"
 
 
 def load_cohort() -> list[dict[str, str]]:
-    """Load the poster/reproducibility cohort from data/disease_cohort_30.csv."""
+    """Load the poster/reproducibility cohort from data/disease_cohort_40.csv."""
     with COHORT_CSV.open(newline="") as f:
         return list(csv.DictReader(f))
 
@@ -42,7 +42,7 @@ def main() -> None:
     print(f"  {n_vectors} vectors, {n_programs} GT programs loaded.\n")
 
     cohort = load_cohort()
-    clean_generated_reports(OUTPUT)
+    # clean_generated_reports(OUTPUT)  # skipped: mounted fs may be read-only on old reports
     results: list[MatchResult] = []
     cohort_kind_by_id = {
         row["orphanet_id"].replace("ORPHA:", ""): row["cohort_role"] for row in cohort
@@ -96,9 +96,9 @@ def write_summary(
     cohort_kind_by_id: dict[str, str],
 ) -> None:
     lines = [
-        "# NanoGT Results: 30-Disease GT Precedent Matching Cohort",
+        "# NanoGT Results: 40-Disease GT Precedent Matching Cohort",
         "",
-        "**Algorithm:** 13-dimension heuristic scoring: packaging fit, tissue tropism, protein class, pathway similarity, mechanism/modality compatibility, inheritance compatibility, approval precedent, vector immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, and route-of-administration feasibility. Raw max = 20; composite is normalised to /10.",
+        "**Algorithm:** 14-dimension heuristic scoring (v2): packaging fit, tissue tropism, protein class, pathway similarity, mechanism/modality compatibility, inheritance compatibility, approval precedent, vector immunogenicity, therapeutic window, cross-correction, immune privilege, promoter availability, route-of-administration feasibility, and organelle targeting feasibility. Raw max = 21; composite normalised to /10.",
         "",
         "**Interpretation:** The framework ranks which existing clinical gene-therapy program is the closest development precedent for the query disease. It does not claim the top precedent is directly reusable without disease-specific validation, vector engineering, toxicology, and regulatory review.",
         "",
@@ -112,15 +112,21 @@ def write_summary(
         m1 = valid[0] if valid else None
         kind = cohort_kind_by_id.get(r.disease.orphanet_id.replace("ORPHA:", ""), "discovery")
         mechanism = lookup_mechanism(r.disease.orphanet_id, r.gene.symbol)
+        # Determine no-result reason: mechanism gate vs packaging gate
+        if not m1:
+            if mechanism.gene_addition_compatibility == "incompatible":
+                no_result_label = "mechanism_hard_fail"
+            else:
+                no_result_label = "packaging_hard_fail"
         lines.append(
             f"| {kind} | {r.disease.name} | {r.disease.orphanet_id} | {r.gene.symbol} "
             f"| {mechanism.mechanism_category} "
             f"| {mechanism.gene_addition_compatibility} "
             f"| {r.gene.cds_length_bp or '?'} "
-            f"| {m1.program_name if m1 else '-'} "
-            f"| {m1.vector if m1 else '-'} "
-            f"| {f'{m1.composite_score:.1f}/10' if m1 else '-'} "
-            f"| {m1.confidence if m1 else 'no compatible single-vector precedent'} |"
+            f"| {m1.program_name if m1 else '—'} "
+            f"| {m1.vector if m1 else '—'} "
+            f"| {f'{m1.composite_score:.1f}/10' if m1 else '—'} "
+            f"| {m1.confidence if m1 else no_result_label} |"
         )
 
     lines += [

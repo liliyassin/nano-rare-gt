@@ -11,16 +11,16 @@
 ## Interpretation
 
 - At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.
-- Main review flags: Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required; Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility.
+- Main review flags: MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.; Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required.
 
 ### Disease Mechanism Evidence
 
 **Molecular mechanism:** loss of function  
-**Mechanistic detail:** Methylmalonyl-CoA mutase mitochondrial enzyme deficiency  
+**Mechanistic detail:** Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS  
 **Gene-addition compatibility:** conditional  
-**Preferred modality class:** liver gene addition or mitochondrial enzyme rescue  
+**Preferred modality class:** liver aav with mts validation  
 **Evidence level/status:** direct / source_linked_needs_review  
-**Evidence summary:** MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation  
+**Evidence summary:** MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.  
 **Evidence source:** [OMIM MUT gene entry](https://omim.org/entry/609058)  
 
 ### Study-Level Limitations
@@ -37,11 +37,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | BMN 307 | AAV5 | 7.8/10 | 🟢 High | phase2 |
-| 2 | DTX301 | AAV8 | 7.2/10 | 🟡 Medium | phase2 |
-| 3 | Libmeldy | LV | 6.8/10 | 🟡 Medium | approved |
-| 4 | OAV101-IT | AAV9 | 6.8/10 | 🟡 Medium | approved |
-| 5 | Zolgensma | AAV9 | 6.8/10 | 🟡 Medium | approved |
+| 1 | BMN 307 | AAV5 | 7.7/10 | 🟢 High | phase2 |
+| 2 | DTX301 | AAV8 | 7.1/10 | 🟡 Medium | phase2 |
+| 3 | Libmeldy | LV | 6.7/10 | 🟡 Medium | approved |
+| 4 | OAV101-IT | AAV9 | 6.7/10 | 🟡 Medium | approved |
+| 5 | Zolgensma | AAV9 | 6.7/10 | 🟡 Medium | approved |
 
 ---
 
@@ -50,7 +50,7 @@
 **Precedent disease:** Phenylketonuria  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.8 / 10  
+**Composite score:** 7.7 / 10  
 
 ### Score Breakdown
 
@@ -69,7 +69,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.85** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -78,9 +79,9 @@
 - Both intracellular proteins
 - Inheritance match (Autosomal recessive <-> AR)
 - Pathway match: amino_acid_metabolism
-- Disease mechanism: loss of function — Methylmalonyl-CoA mutase mitochondrial enzyme deficiency
+- Disease mechanism: loss of function — Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS
 - Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
-- Mechanism evidence: MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation
+- Mechanism evidence: MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.
 - Mechanism source: OMIM MUT gene entry (https://omim.org/entry/609058)
 - Approval status: phase2
 - Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
@@ -89,14 +90,15 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #2: DTX301
@@ -104,7 +106,7 @@
 **Precedent disease:** Ornithine transcarbamylase deficiency  
 **Vector:** AAV8  
 **Tissue target:** liver  
-**Composite score:** 7.2 / 10  
+**Composite score:** 7.1 / 10  
 
 ### Score Breakdown
 
@@ -123,7 +125,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.20** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.10** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -132,9 +135,9 @@
 - Both intracellular proteins
 - LOF inheritance — compatible for gene replacement
 - Pathway match: urea_cycle
-- Disease mechanism: loss of function — Methylmalonyl-CoA mutase mitochondrial enzyme deficiency
+- Disease mechanism: loss of function — Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS
 - Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
-- Mechanism evidence: MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation
+- Mechanism evidence: MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.
 - Mechanism source: OMIM MUT gene entry (https://omim.org/entry/609058)
 - Approval status: phase2
 - Vector immunogenicity (AAV8): high (~30%) — substantial patient exclusion expected; immunodepletion protocols may be needed
@@ -143,15 +146,16 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #3: Libmeldy
@@ -159,7 +163,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 6.8 / 10  
+**Composite score:** 6.7 / 10  
 
 ### Score Breakdown
 
@@ -178,7 +182,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -187,9 +192,9 @@
 - Protein class mismatch
 - Inheritance match (Autosomal recessive <-> AR)
 - Different pathway (amino_acid_metabolism vs leukodystrophy)
-- Disease mechanism: loss of function — Methylmalonyl-CoA mutase mitochondrial enzyme deficiency
+- Disease mechanism: loss of function — Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS
 - Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
-- Mechanism evidence: MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation
+- Mechanism evidence: MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.
 - Mechanism source: OMIM MUT gene entry (https://omim.org/entry/609058)
 - Approval status: approved
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
@@ -198,22 +203,23 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns, liver
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 
 ## Match #4: OAV101-IT
 
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/spinal cord  
-**Composite score:** 6.8 / 10  
+**Composite score:** 6.7 / 10  
 
 ### Score Breakdown
 
@@ -232,7 +238,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -241,9 +248,9 @@
 - Both intracellular proteins
 - Inheritance match (Autosomal recessive <-> AR)
 - Different pathway (amino_acid_metabolism vs motor_neuron)
-- Disease mechanism: loss of function — Methylmalonyl-CoA mutase mitochondrial enzyme deficiency
+- Disease mechanism: loss of function — Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS
 - Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
-- Mechanism evidence: MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation
+- Mechanism evidence: MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.
 - Mechanism source: OMIM MUT gene entry (https://omim.org/entry/609058)
 - Approval status: approved
 - Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
@@ -252,14 +259,15 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #5: Zolgensma
@@ -267,7 +275,7 @@
 **Precedent disease:** Spinal Muscular Atrophy  
 **Vector:** AAV9  
 **Tissue target:** CNS/motor neuron  
-**Composite score:** 6.8 / 10  
+**Composite score:** 6.7 / 10  
 
 ### Score Breakdown
 
@@ -286,7 +294,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 1.00 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.50 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -295,9 +304,9 @@
 - Both intracellular proteins
 - Inheritance match (Autosomal recessive <-> AR)
 - Different pathway (amino_acid_metabolism vs motor_neuron)
-- Disease mechanism: loss of function — Methylmalonyl-CoA mutase mitochondrial enzyme deficiency
+- Disease mechanism: loss of function — Methylmalonyl-CoA mutase — nuclear-encoded mitochondrial MATRIX enzyme requiring post-translational import via intact N-terminal MTS
 - Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
-- Mechanism evidence: MUT deficiency supports replacement logic but mitochondrial enzyme import and multi-system metabolic disease require validation
+- Mechanism evidence: MUT is a nuclear-encoded mitochondrial matrix enzyme. Nuclear AAV delivery is theoretically feasible but the N-terminal mitochondrial targeting sequence (MTS) must be intact in the therapeutic construct for correct post-translational import into the matrix. MTS functionality and import efficiency must be validated experimentally before vector precedent scores can be applied. Liver-directed AAV programs in development (e.g. NCT03721861) confirm the approach is viable but disease-specific construct validation is required.
 - Mechanism source: OMIM MUT gene entry (https://omim.org/entry/609058)
 - Approval status: approved
 - Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
@@ -306,12 +315,13 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
+- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone

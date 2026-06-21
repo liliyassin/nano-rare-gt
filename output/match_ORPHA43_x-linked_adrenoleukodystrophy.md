@@ -35,8 +35,8 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | Skysona | LV | 8.3/10 | 🟢 High | approved |
-| 2 | Libmeldy | LV | 7.7/10 | 🟢 High | approved |
+| 1 | Skysona | LV | 8.2/10 | 🟢 High | approved |
+| 2 | Libmeldy | LV | 7.6/10 | 🟢 High | approved |
 | 3 | RGX-121 | AAV9 | 7.2/10 | 🟡 Medium | phase3 |
 | 4 | AVR-RD-01 | LV | 7.0/10 | 🟡 Medium | phase1/2 |
 | 5 | ABO-101 | AAV9 | 6.9/10 | 🟡 Medium | phase1/2 |
@@ -48,7 +48,7 @@
 **Precedent disease:** Cerebral adrenoleukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 8.3 / 10  
+**Composite score:** 8.2 / 10  
 
 ### Score Breakdown
 
@@ -67,7 +67,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.30** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.70 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.24** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -87,6 +88,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: VERIFY — ABCD1 is a peroxisomal protein. Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) must be preserved in the construct for correct organelle import.
 
 ### Manual Review Flags
 
@@ -98,7 +100,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 7.7 / 10  
+**Composite score:** 7.6 / 10  
 
 ### Score Breakdown
 
@@ -117,7 +119,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.65** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.70 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.62** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -137,6 +140,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: VERIFY — ABCD1 is a peroxisomal protein. Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) must be preserved in the construct for correct organelle import.
 
 ### Manual Review Flags
 
@@ -167,7 +171,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.20** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.70 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.19** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -187,6 +192,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: VERIFY — ABCD1 is a peroxisomal protein. Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) must be preserved in the construct for correct organelle import.
 
 ### Manual Review Flags
 
@@ -217,7 +223,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.95** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.70 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.95** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -237,6 +244,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: VERIFY — ABCD1 is a peroxisomal protein. Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) must be preserved in the construct for correct organelle import.
 
 ### Manual Review Flags
 
@@ -268,7 +276,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.70 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.90** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -288,6 +297,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: VERIFY — ABCD1 is a peroxisomal protein. Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) must be preserved in the construct for correct organelle import.
 
 ### Manual Review Flags
 

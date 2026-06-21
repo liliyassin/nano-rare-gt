@@ -36,11 +36,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | Strimvelis | LV | 7.9/10 | 🟢 High | approved |
-| 2 | Skysona | LV | 6.8/10 | 🟡 Medium | approved |
-| 3 | Libmeldy | LV | 6.7/10 | 🟡 Medium | approved |
-| 4 | AVR-RD-01 | LV | 6.5/10 | 🟡 Medium | phase1/2 |
-| 5 | BMN 307 | AAV5 | 5.8/10 | 🟡 Medium | phase2 |
+| 1 | Strimvelis | LV | 8.0/10 | 🟢 High | approved |
+| 2 | Skysona | LV | 7.0/10 | 🟡 Medium | approved |
+| 3 | Libmeldy | LV | 6.8/10 | 🟡 Medium | approved |
+| 4 | AVR-RD-01 | LV | 6.7/10 | 🟡 Medium | phase1/2 |
+| 5 | BMN 307 | AAV5 | 6.0/10 | 🟡 Medium | phase2 |
 
 ---
 
@@ -49,7 +49,7 @@
 **Precedent disease:** ADA-SCID  
 **Vector:** LV  
 **Tissue target:** hematopoietic  
-**Composite score:** 7.9 / 10  
+**Composite score:** 8.0 / 10  
 
 ### Score Breakdown
 
@@ -68,7 +68,8 @@
 | Immune privilege | 0.30 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.70 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.00** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -88,6 +89,7 @@
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
 - Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
+- ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -98,7 +100,7 @@
 **Precedent disease:** Cerebral adrenoleukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 6.8 / 10  
+**Composite score:** 7.0 / 10  
 
 ### Score Breakdown
 
@@ -117,7 +119,8 @@
 | Immune privilege | 0.30 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.70 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.95** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -137,6 +140,7 @@
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
 - Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
+- ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -147,7 +151,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 6.7 / 10  
+**Composite score:** 6.8 / 10  
 
 ### Score Breakdown
 
@@ -166,7 +170,8 @@
 | Immune privilege | 0.30 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.70 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.65** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.81** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -186,6 +191,7 @@
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
 - Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
+- ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -196,7 +202,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** LV  
 **Tissue target:** hematopoietic  
-**Composite score:** 6.5 / 10  
+**Composite score:** 6.7 / 10  
 
 ### Score Breakdown
 
@@ -215,7 +221,8 @@
 | Immune privilege | 0.30 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.70 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.55** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -235,6 +242,7 @@
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
 - Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
+- ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -245,7 +253,7 @@
 **Precedent disease:** Phenylketonuria  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 5.8 / 10  
+**Composite score:** 6.0 / 10  
 
 ### Score Breakdown
 
@@ -264,7 +272,8 @@
 | Immune privilege | 0.30 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.70 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **5.85** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.05** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -284,6 +293,7 @@
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
 - Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
+- ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

@@ -1,14 +1,14 @@
 # Figure Captions and Notes
 
-## Figure 1: Thirty-Disease Score Distribution
+## Figure 1: Forty-Disease Score Distribution
 
 **Type:** Bar chart or lollipop plot.
 
 **Data source:** `output/SUMMARY.md`.
 
-**Required message:** Show all 30 diseases ordered by composite score. Colour-code high confidence, medium confidence, and packaging-gate failure. Label DMD separately as a native-gene packaging failure rather than a low-scoring compatible disease.
+**Required message:** Show all 40 diseases ordered by composite score. Colour-code high confidence, medium confidence, and packaging-gate failure. Label DMD separately as a native-gene packaging failure rather than a low-scoring compatible disease. NF1 is the only packaging hard-fail (CDS exceeds all vectors).
 
-**Suggested caption:** "Composite NanoGT scores across the 30-disease proof-of-concept cohort. All diseases had at least one ranked current-catalog precedent, while Duchenne muscular dystrophy remained an engineered-cargo stress test because full-length DMD exceeds standard AAV capacity and only the micro-dystrophin precedent is scoreable. Scores represent relative precedent strength, not predicted clinical efficacy."
+**Suggested caption:** "Composite NanoGT scores across the 40-disease proof-of-concept cohort. Thirty-nine diseases received scored precedents; NF1 received a packaging hard-fail because its 8,451 bp CDS exceeds the capacity of every vector in the catalogue. Duchenne muscular dystrophy remained an engineered-cargo stress test because full-length DMD exceeds standard AAV capacity and only the micro-dystrophin precedent is scoreable. Scores represent relative precedent strength, not predicted clinical efficacy."
 
 ---
 
@@ -18,9 +18,9 @@
 
 **Data source:** `output/SUMMARY.md` top precedent and vector columns.
 
-**Required message:** Diseases cluster around a small number of precedent programmes, especially Libmeldy/LV, BMN 307/AAV5, retinal AAV programmes, and AAV9 CNS/muscle precedents.
+**Required message:** Diseases cluster around a small number of precedent programmes, especially Libmeldy/LV (9 diseases), Skysona/LV (3 diseases including ML-IV and Salla), BMN 307/AAV5, retinal AAV programmes, and AAV9 CNS/muscle precedents. Mechanism hard-fail diseases appear as a separate arm.
 
-**Suggested caption:** "Disease-to-precedent clustering in the 30-disease cohort. Libmeldy/lentiviral HSC therapy dominates lysosomal and leukodystrophy-like diseases, BMN 307 supports several liver metabolic disorders, and retinal diseases cluster around Luxturna/CPCB-RPE1-style AAV precedents."
+**Suggested caption:** "Disease-to-precedent clustering in the 40-disease cohort. Libmeldy/lentiviral HSC therapy is the top precedent for 9 lysosomal and leukodystrophy diseases; Skysona covers three diseases with lysosomal membrane or transporter biology; BMN 307 supports several liver metabolic disorders; and retinal diseases cluster around Luxturna/CPCB-RPE1-style AAV precedents."
 
 ---
 
@@ -42,7 +42,7 @@
 
 ### Supplementary Table 1: Cohort Metadata
 
-Use `data/disease_cohort_30.csv`. Include disease name, ORPHA ID, gene, inheritance, tissues, prevalence, OMIM ID, cohort role, source URL, and fact-check status.
+Use `data/disease_cohort_40.csv`. Include disease name, ORPHA ID, gene, inheritance, tissues, prevalence, OMIM ID, cohort role, source URL, and fact-check status.
 
 ### Supplementary Table 2: Complete Scoring Results
 

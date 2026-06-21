@@ -2,7 +2,7 @@
 
 ## 1. Principal Findings
 
-This dissertation developed and tested NanoGT, a computational framework for matching monogenic rare diseases to existing gene-therapy precedents. The current implementation was applied to a 30-disease cohort and produced interpretable rankings for all 30 diseases. Duchenne muscular dystrophy remains biologically informative: the native DMD coding sequence fails the ordinary single-vector packaging gate, while SRP-9001 is surfaced only as an engineered micro-dystrophin precedent. This distinction prevents microgene strategies from being mistaken for ordinary full-length gene replacement.
+This dissertation developed and tested NanoGT, a computational framework for matching monogenic rare diseases to existing gene-therapy precedents. The current implementation was applied to a 40-disease cohort and produced interpretable scored results for 39 diseases. The one exception, Neurofibromatosis type 1, received a packaging hard-fail because NF1 (8,451 bp) exceeds the capacity of every vector in the catalogue — a biologically informative result in its own right. Duchenne muscular dystrophy remains biologically informative: the native DMD coding sequence fails the ordinary single-vector packaging gate, while SRP-9001 is surfaced only as an engineered micro-dystrophin precedent. This distinction prevents microgene strategies from being mistaken for ordinary full-length gene replacement.
 
 The central finding is that the framework does not return random high scores. Instead, it organises diseases into recognisable precedent clusters: lentiviral haematopoietic stem-cell therapy for lysosomal/leukodystrophy-like disorders, liver-directed AAV programmes for metabolic diseases, and retinal AAV programmes for inherited retinal disorders. These clusters are plausible given the underlying biology, vector delivery history, and regulatory precedent landscape.
 
@@ -14,7 +14,7 @@ However, validation is not perfect. Leber congenital amaurosis did not return Lu
 
 ## 3. Biological and Translational Interpretation
 
-The dominance of Libmeldy as a precedent for lysosomal and leukodystrophy-like disorders is one of the most coherent outputs of the 30-disease run. Ex vivo lentiviral haematopoietic stem-cell therapy is a strong development precedent for diseases where corrected cells can engraft, migrate, or provide cross-correcting enzyme. This supports the idea that NanoGT can surface regulatory and delivery precedents that may not be obvious from disease name alone.
+The dominance of Libmeldy as a precedent for lysosomal and leukodystrophy-like disorders is one of the most coherent outputs of the 40-disease run. Ex vivo lentiviral haematopoietic stem-cell therapy is a strong development precedent for diseases where corrected cells can engraft, migrate, or provide cross-correcting enzyme. This supports the idea that NanoGT can surface regulatory and delivery precedents that may not be obvious from disease name alone.
 
 At the same time, the Libmeldy cluster demonstrates why the tool must remain interpretive rather than automatic. Some lysosomal labels refer to secreted enzymes with cross-correction potential; others refer to lysosomal membrane channels or transporters that require cell-autonomous correction. Treating those as equivalent would overstate the translational readiness of several matches. The dissertation should use this cluster as both a success and a limitation: the framework identifies the right neighbourhood, but expert biological interpretation is needed before moving from neighbourhood to development plan.
 
@@ -28,7 +28,7 @@ The current surrogate catalogue contains 21 gene-therapy programmes. This gives 
 
 ### 4.2 Manual disease facts and source verification
 
-The 30-disease CSV is useful for reproducibility, but every row is still marked as requiring fact-checking. Before final submission, the disease name, ORPHA identifier, causal gene, inheritance, tissues, prevalence class, and OMIM cross-reference must be checked against Orphanet, OMIM, UniProt, and at least one disease-specific review or primary paper. This is now a dissertation-critical work item, not a cosmetic clean-up task.
+The 40-disease CSV is useful for reproducibility, but every row is still marked as requiring fact-checking. Before final submission, the disease name, ORPHA identifier, causal gene, inheritance, tissues, prevalence class, and OMIM cross-reference must be checked against Orphanet, OMIM, UniProt, and at least one disease-specific review or primary paper. This is now a dissertation-critical work item, not a cosmetic clean-up task.
 
 The same applies to the mechanism evidence table. `data/disease_mechanisms.csv` prevents the framework from pretending that inheritance equals molecular mechanism, but each source link and compatibility label should be treated as an auditable claim. Where the mechanism is poorly understood or the evidence is indirect, the correct label is unknown, uncertain, or conditional rather than a forced loss-of-function assignment.
 
@@ -53,9 +53,9 @@ Composite scores are heuristic relative scores, not calibrated probabilities of 
 The strongest dissertation framing is not "NanoGT solves rare-disease gene therapy selection." The defensible framing is:
 
 - NanoGT is a reproducible proof-of-concept framework for precedent mapping.
-- It integrates biological, vector, clinical, and regulatory dimensions in one scoring system.
-- It can recover several known precedents and generate interpretable disease clusters across a 30-disease cohort.
-- It explicitly exposes failure modes where current gene-addition precedent is weak or infeasible.
+- It integrates biological, vector, clinical, and regulatory dimensions in one scoring system across fourteen dimensions.
+- It can recover several known precedents and generate interpretable disease clusters across a 40-disease cohort.
+- It explicitly exposes failure modes: oversized cargo, mitochondrial allotopic requirements, and NF1's packaging hard-fail; and it produces interpretable conditional-confidence results for the non-LOF arm.
 
 This is enough for a strong dissertation if the report is honest, well-referenced, and clear about limitations.
 

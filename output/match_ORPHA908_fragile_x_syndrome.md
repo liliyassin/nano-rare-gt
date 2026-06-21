@@ -1,0 +1,315 @@
+# NanoGT Match Report: Fragile X syndrome
+
+**Disease:** Fragile X syndrome (ORPHA:908)  
+**Primary gene:** FMR1  
+**Gene CDS:** 1899 bp  
+**Inheritance:** X-linked dominant  
+**Target tissues scored:** CNS  
+
+---
+
+## Interpretation
+
+- No high-confidence vector precedent was found; the best result is medium-confidence and should be treated as manual-review territory.
+- Main review flags: Vector does not naturally cover all annotated disease tissues: cns; Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility; Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable.
+
+### Disease Mechanism Evidence
+
+**Molecular mechanism:** repeat expansion silencing  
+**Mechanistic detail:** CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed  
+**Gene-addition compatibility:** conditional  
+**Preferred modality class:** aav cns fmr1 cdna addition  
+**Evidence level/status:** direct / source_checked  
+**Evidence summary:** Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia  
+**Evidence source:** [Liu XS et al. 2018 Cell PMID 29456084](https://pubmed.ncbi.nlm.nih.gov/29456084/)  
+
+### Study-Level Limitations
+
+- Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
+- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Endpoint risk: CNS/neurodevelopmental outcomes may require natural-history data, age-stratified endpoints, and long follow-up because short-term clinical change can be hard to interpret.
+
+---
+
+## Top 5 GT Precedent Matches
+
+| Rank | Program | Vector | Score | Confidence | Approval |
+|------|---------|--------|-------|-----------|----------|
+| 1 | Skysona | LV | 7.0/10 | 🟡 Medium | approved |
+| 2 | Libmeldy | LV | 6.8/10 | 🟡 Medium | approved |
+| 3 | OAV101-IT | AAV9 | 6.8/10 | 🟡 Medium | approved |
+| 4 | Zolgensma | AAV9 | 6.8/10 | 🟡 Medium | approved |
+| 5 | Strimvelis | LV | 6.7/10 | 🟡 Medium | approved |
+
+---
+
+## Match #1: Skysona
+
+**Precedent disease:** Cerebral adrenoleukodystrophy  
+**Vector:** LV  
+**Tissue target:** hematopoietic/CNS  
+**Composite score:** 7.0 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 1.50 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
+| Inheritance compatibility | 1.00 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.95** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
+
+### Rationale
+
+- Gene CDS 1899bp / cargo 8000bp (24% utilized)
+- Precedent target match: cns
+- Protein class mismatch
+- Inheritance match (X-linked dominant <-> XL)
+- Unknown pathway — neutral score
+- Disease mechanism: repeat expansion silencing — CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia
+- Mechanism source: Liu XS et al. 2018 Cell PMID 29456084 (https://pubmed.ncbi.nlm.nih.gov/29456084/)
+- Approval status: approved
+- Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
+- Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — FMR1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+
+### Manual Review Flags
+
+- Vector does not naturally cover all annotated disease tissues: cns
+- Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition
+
+## Match #2: Libmeldy
+
+**Precedent disease:** Metachromatic leukodystrophy  
+**Vector:** LV  
+**Tissue target:** hematopoietic/CNS  
+**Composite score:** 6.8 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 1.50 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 0.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.81** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
+
+### Rationale
+
+- Gene CDS 1899bp / cargo 8000bp (24% utilized)
+- Precedent target match: cns
+- Protein class mismatch
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Disease mechanism: repeat expansion silencing — CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia
+- Mechanism source: Liu XS et al. 2018 Cell PMID 29456084 (https://pubmed.ncbi.nlm.nih.gov/29456084/)
+- Approval status: approved
+- Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
+- Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — FMR1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+
+### Manual Review Flags
+
+- Vector does not naturally cover all annotated disease tissues: cns
+- Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition
+
+## Match #3: OAV101-IT
+
+**Precedent disease:** Spinal Muscular Atrophy  
+**Vector:** AAV9  
+**Tissue target:** CNS/spinal cord  
+**Composite score:** 6.8 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 1.50 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.81** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
+
+### Rationale
+
+- Gene CDS 1899bp / cargo 4700bp (40% utilized)
+- Vector tropism plus precedent target match: cns
+- Both intracellular proteins
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Disease mechanism: repeat expansion silencing — CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia
+- Mechanism source: Liu XS et al. 2018 Cell PMID 29456084 (https://pubmed.ncbi.nlm.nih.gov/29456084/)
+- Approval status: approved
+- Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
+- Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — FMR1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+
+### Manual Review Flags
+
+- Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition
+- AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
+
+## Match #4: Zolgensma
+
+**Precedent disease:** Spinal Muscular Atrophy  
+**Vector:** AAV9  
+**Tissue target:** CNS/motor neuron  
+**Composite score:** 6.8 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 1.50 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 2.00 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 1.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.81** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
+
+### Rationale
+
+- Gene CDS 1899bp / cargo 4700bp (40% utilized)
+- Vector tropism plus precedent target match: cns
+- Both intracellular proteins
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Disease mechanism: repeat expansion silencing — CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia
+- Mechanism source: Liu XS et al. 2018 Cell PMID 29456084 (https://pubmed.ncbi.nlm.nih.gov/29456084/)
+- Approval status: approved
+- Vector immunogenicity (AAV9): high (~22%) — substantial patient exclusion expected; immunodepletion protocols may be needed
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
+- Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — FMR1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+
+### Manual Review Flags
+
+- Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition
+- AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
+
+## Match #5: Strimvelis
+
+**Precedent disease:** ADA-SCID  
+**Vector:** LV  
+**Tissue target:** hematopoietic  
+**Composite score:** 6.7 / 10  
+
+### Score Breakdown
+
+| Dimension | Score | Max | What it measures |
+|-----------|-------|-----|-----------------|
+| Packaging fit | 2.00 | 2.0 | Gene CDS size vs vector cargo capacity |
+| Tissue tropism | 0.30 | 2.0 | Vector naturally reaches disease target tissue |
+| Protein class | 1.50 | 2.0 | Same secreted/lysosomal/membrane/intracellular class |
+| Pathway similarity | 1.00 | 2.0 | Same or related biological pathway |
+| Modality compatibility | 1.50 | 2.0 | Disease mechanism supports gene-addition precedent |
+| Inheritance compatibility | 0.70 | 1.0 | AR/XL loss-of-function pattern match |
+| Approval precedent | 1.00 | 1.0 | Regulatory approval / trial stage |
+| Immunogenicity | 2.00 | 2.0 | Pre-existing NAb seroprevalence for this vector |
+| Therapeutic window | 0.50 | 2.0 | Can GT be given before irreversible damage? |
+| Cross-correction | 0.20 | 1.0 | Can transduced cells rescue untransduced neighbours? |
+| Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
+| Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
+| Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.71** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
+
+### Rationale
+
+- Gene CDS 1899bp / cargo 8000bp (24% utilized)
+- No tissue overlap (disease: ['CNS'], vector: ['hematopoietic'])
+- Both intracellular proteins
+- LOF inheritance — compatible for gene replacement
+- Unknown pathway — neutral score
+- Disease mechanism: repeat expansion silencing — CGG trinucleotide repeat expansion (>200 repeats) in the FMR1 5-prime UTR triggers de novo CpG methylation and transcriptional silencing; the FMR1 protein coding sequence is structurally normal when expressed
+- Gene-addition modality compatibility: conditionally supports gene addition; review disease-specific constraints
+- Mechanism evidence: Liu XS et al. (2018 Cell PMID 29456084) demonstrated methylation-dependent silencing of the FMR1 locus by the CGG repeat; FMR1 cDNA addition (lacking the expanded repeat-containing UTR) bypasses the silenced endogenous allele and is not subject to re-silencing — same logic as FXN in Friedreich ataxia
+- Mechanism source: Liu XS et al. 2018 Cell PMID 29456084 (https://pubmed.ncbi.nlm.nih.gov/29456084/)
+- Approval status: approved
+- Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
+- Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
+- Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
+- Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
+- Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
+- Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — FMR1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+
+### Manual Review Flags
+
+- Vector does not naturally cover all annotated disease tissues: cns
+- No direct tissue overlap; treat this as weak precedent unless route or modality is changed
+- Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
+- Mechanism evidence is conditionally compatible with gene addition; review the listed disease-specific constraints before treating vector precedent as transferable
+- Dominant inheritance flagged; assess whether silencing, editing, or allele-specific strategy is needed instead of simple addition

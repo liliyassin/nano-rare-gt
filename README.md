@@ -4,23 +4,23 @@ NanoGT is a dissertation-stage Python framework for matching monogenic rare dise
 
 ## Current dissertation status
 
-Current focus: a 30-disease proof-of-concept cohort for the dissertation report.
+Current focus: a 40-disease proof-of-concept cohort for the dissertation report.
 
 The current run has:
 
-- 30 diseases in `data/disease_cohort_30.csv`.
+- 40 diseases in the cohort (stored in `data/disease_cohort_40.csv`).
 - Source-linked disease mechanism evidence in `data/disease_mechanisms.csv`.
 - 21 curated surrogate gene-therapy programmes in `src/nanogt/catalog.py`.
-- 13 scoring dimensions.
-- 30 diseases with at least one ranked precedent in the current catalog.
-- 27 high-confidence compatible matches.
-- 3 medium-confidence compatible matches.
+- 14 scoring dimensions (v2 algorithm).
+- 39 diseases with at least one ranked precedent; NF1 receives a packaging hard-fail (8,451 bp CDS exceeds all vectors).
+- 32 high-confidence matches.
+- 7 medium-confidence matches.
 - Full-length DMD still triggers packaging failures against ordinary AAV programs, while the engineered micro-dystrophin precedent is scored separately.
 
 Primary outputs:
 
 - `output/SUMMARY.md` — cross-disease result table.
-- `output/RESULTS_INTERPRETATION.md` — dissertation-safe interpretation of the 30-disease results.
+- `output/RESULTS_INTERPRETATION.md` — dissertation-safe interpretation of the 40-disease results.
 - `output/match_*.md` — individual disease reports.
 - `paper/` — dissertation draft sections.
 - `DISSERTATION_TODO.md` — current task list and deadlines.
@@ -42,8 +42,9 @@ For each disease-program pair, NanoGT scores:
 11. Immune privilege.
 12. Promoter availability.
 13. Route-of-administration feasibility.
+14. Organelle targeting feasibility (v2).
 
-Raw scores are summed to a maximum of 20 and normalised to a 10-point composite score. The mechanism/modality layer uses source-linked evidence and returns `unknown`/`uncertain` rather than assuming inheritance alone proves loss of function.
+Raw scores are summed to a maximum of 21 and normalised to a 10-point composite score. The mechanism/modality layer uses source-linked evidence and returns `unknown`/`uncertain` rather than assuming inheritance alone proves loss of function.
 
 ## What NanoGT does not claim
 
@@ -51,7 +52,7 @@ NanoGT is not a clinical recommendation engine. A top-ranked precedent does not 
 
 The current dissertation-safe claim is:
 
-> NanoGT is a reproducible proof-of-concept framework for computational gene-therapy precedent mapping. In a 30-disease cohort, it generated interpretable disease-precedent clusters, recovered several expected clinical precedents, and flagged obvious scope failures such as full-length DMD packaging incompatibility.
+> NanoGT is a reproducible proof-of-concept framework for computational gene-therapy precedent mapping. In a 40-disease cohort spanning LOF, haploinsufficiency, repeat-expansion, and imprinting mechanisms, it generated interpretable disease-precedent clusters, recovered several expected clinical precedents, and correctly flagged scope failures such as DMD native-gene packaging incompatibility and NF1's oversized CDS.
 
 ## Installation for local development
 
@@ -80,7 +81,7 @@ uv run nanogt match ORPHA:1946 --top 5 -o output
 
 This writes an individual Markdown report into `output/`.
 
-## Run the reproducible 30-disease cohort
+## Run the reproducible 40-disease cohort
 
 ```bash
 uv run python run_results.py
@@ -114,7 +115,7 @@ Current pygount summary is saved in `docs/CODEBASE_INSPECTION.md`.
 ```text
 src/nanogt/          Python package: CLI, disease lookup, gene lookup, scoring, reports, static catalogue
 tests/               pytest tests
-data/                30-disease cohort CSV and fixtures
+data/                40-disease cohort CSV and fixtures
 output/              generated match reports and summary interpretation
 paper/               dissertation draft sections and figure notes
 docs/                architecture notes, codebase inspection, background notes
@@ -125,10 +126,10 @@ reports/             generated protocol-style reports
 
 Do not expand the scope before submission. The critical work is now:
 
-1. Fact-check every disease row in `data/disease_cohort_30.csv` and `data/disease_mechanisms.csv`.
+1. Fact-check every disease row in `data/disease_cohort_40.csv` and `data/disease_mechanisms.csv`.
 2. Verify and read the key references that support the final claims.
 3. Improve figures and tables for the dissertation.
-4. Tighten Methods, Results, and Discussion around the actual 30-disease output.
+4. Tighten Methods, Results, and Discussion around the actual 40-disease output.
 5. State limitations honestly and explicitly.
 6. Send the supervisor a concise update with the current framing and ask what evidence they most want strengthened.
 

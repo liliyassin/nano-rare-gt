@@ -241,7 +241,7 @@ def _fallback_gene(symbol: str) -> GeneInfo:
             # ← Salla disease; lysosomal transporter for sialic acid
         ),
 
-        # ── Extended 30-disease poster cohort genes ─────────────────────────
+        # ── Extended cohort genes (40-disease dissertation cohort) ──────────
         "MT-ND4": GeneInfo(
             "MT-ND4", "P03905", "NADH dehydrogenase subunit 4",
             1377, 459, False, ["Mitochondrial inner membrane"], ["mitochondrial complex I"], ["Mitochondrion", "Membrane"], [],
@@ -325,6 +325,77 @@ def _fallback_gene(symbol: str) -> GeneInfo:
         "ABCD1": GeneInfo(
             "ABCD1", "P33897", "ATP-binding cassette sub-family D member 1",
             2235, 745, False, ["Peroxisome membrane"], ["very-long-chain fatty acid transport"], ["Membrane", "Transport"], [],
+        ),
+        # ── Non-LOF stress-test genes ─────────────────────────────────────────
+        "CHD7": GeneInfo(
+            "CHD7", "Q9P2D1", "Chromodomain-helicase-DNA-binding protein 7",
+            # ← very large chromatin remodeller; haploinsufficiency; complex dosage sensitivity
+            7950, 2997, False, ["Nucleus"], ["chromatin remodelling", "embryonic development"], ["Nucleus", "Helicase", "Disease mutation"], ["Chromo", "Helicase", "BRK"],
+        ),
+        "NF1": GeneInfo(
+            "NF1", "P21359", "Neurofibromin",
+            # ← tumour suppressor; haploinsufficiency plus somatic second-hit
+            8451, 2818, False, ["Cytoplasm", "Nucleus"], ["RAS-GAP activity", "tumour suppressor", "mTOR regulation"], ["Disease mutation"], ["RasGAP"],
+        ),
+        "FXN": GeneInfo(
+            "FXN", "Q16595", "Frataxin",
+            # ← small mitochondrial iron chaperone; silenced by GAA repeat expansion;
+            #   adding a transgene can restore levels (conditional compatibility)
+            633, 210, False, ["Mitochondrial matrix"], ["iron-sulfur cluster assembly", "GAA repeat silencing"], ["Mitochondrion", "Disease mutation"], [],
+        ),
+        "TSC2": GeneInfo(
+            "TSC2", "P49815", "Tuberin",
+            # ← tumour suppressor; haploinsufficiency; mTORC1 pathway regulator
+            5694, 1898, False, ["Cytoplasm", "Nucleus"], ["mTOR signalling", "GTPase activation", "tumour suppressor"], ["Disease mutation"], ["GAP"],
+        ),
+
+        # ── Conditional non-LOF replacement genes ────────────────────────────
+        "MECP2": GeneInfo(
+            "MECP2", "P51608", "Methyl-CpG-binding protein 2",
+            # ← small nuclear protein; X-linked; 1461bp fits all AAVs comfortably
+            # ← haploinsufficiency causes Rett; duplication also pathogenic (dosage-sensitive)
+            1461, 486, False, ["Nucleus", "Chromatin"], ["chromatin remodelling", "gene silencing"],
+            ["Nucleus", "Disease mutation"], [],
+        ),
+        "SCN1A": GeneInfo(
+            "SCN1A", "P35498", "Sodium channel protein type 1 subunit alpha",
+            # ← very large voltage-gated sodium channel (6027bp); exceeds AAV capacity
+            # ← fits LV (8000bp); only LV-based programs can deliver
+            # ← haploinsufficiency in inhibitory interneurons causes Dravet syndrome
+            6027, 2009, False, ["Cell membrane"], ["sodium channel", "inhibitory interneuron", "action potential"],
+            ["Membrane", "Ion channel", "Disease mutation"], ["Voltage-gated sodium channel"],
+        ),
+        "FMR1": GeneInfo(
+            "FMR1", "Q06787", "Fragile X mental retardation protein 1",
+            # ← RNA-binding protein; 1899bp fits AAV; expressed in neurons
+            # ← CGG repeat expansion silences the locus; protein sequence is normal when expressed
+            1899, 632, False, ["Nucleus", "Cytoplasm", "Dendrites"],
+            ["mRNA transport", "synaptic plasticity", "CGG repeat silencing"],
+            ["RNA-binding", "Disease mutation"], ["KH", "Agenet"],
+        ),
+        "UBE3A": GeneInfo(
+            "UBE3A", "Q05086", "Ubiquitin-protein ligase E3A",
+            # ← E3 ubiquitin ligase; 2598bp fits AAV; maternal allele lost in Angelman
+            # ← paternal allele silenced by antisense RNA in neurons
+            2598, 865, False, ["Nucleus", "Cytoplasm", "Synapse"],
+            ["ubiquitin-proteasome", "synaptic protein degradation", "imprinting"],
+            ["Ubiquitin ligase", "Disease mutation"], ["HECT"],
+        ),
+        "CDKL5": GeneInfo(
+            "CDKL5", "O76039", "Cyclin-dependent kinase-like 5",
+            # ← serine/threonine kinase; 3093bp fits AAV; X-linked
+            # ← haploinsufficiency disrupts neuronal cytoskeletal and synaptic signalling
+            3093, 1030, False, ["Nucleus", "Cytoplasm", "Dendrites"],
+            ["neuronal kinase", "synaptic signalling", "MECP2 phosphorylation"],
+            ["Kinase", "Disease mutation"], ["Protein kinase"],
+        ),
+        "GATA2": GeneInfo(
+            "GATA2", "P23769", "Endothelial transcription factor GATA-2",
+            # ← zinc-finger transcription factor; 1443bp fits all AAVs
+            # ← haploinsufficiency depletes HSC and lymphatic endothelial progenitors
+            1443, 480, False, ["Nucleus"],
+            ["hematopoiesis", "HSC maintenance", "lymphatic development"],
+            ["Transcription factor", "Zinc-finger", "Disease mutation"], ["GATA zinc finger"],
         ),
     }
     return FALLBACKS.get(

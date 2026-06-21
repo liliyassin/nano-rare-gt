@@ -1,5 +1,5 @@
 """
-13-dimension scoring engine.
+14-dimension scoring engine.
 
 For a given (disease, gene, target tissues) tuple, scores each GT program
 in the catalog as a potential precedent/surrogate.
@@ -18,12 +18,35 @@ Dimensions:
   11. immune_privilege      — immunological privilege of the target tissue
   12. promoter_availability — validated tissue-specific promoters exist for target
   13. roa_feasibility       — accessible, established delivery route to target tissue
+  14. organelle_targeting   — can standard nuclear AAV delivery produce protein at
+                              the correct subcellular compartment? (NEW — v2)
+
+CHANGELOG v2:
+  - Dimension 3 (protein_class): now distinguishes lysosomal MEMBRANE proteins
+    (channels/transporters, e.g. MCOLN1, SLC17A5) from lysosomal ENZYMES.
+    Cross-correction via the M6P receptor pathway requires a SOLUBLE, secretable
+    enzyme; it is physically impossible for a membrane-anchored channel or
+    transporter. Previously these proteins received an inflated protein-class
+    score (2.0) and cross-correction score (0.8) matching lysosomal enzyme
+    programs. They now receive 1.0 and 0.0 respectively.
+  - Dimension 10 (cross_correction): lysosomal membrane proteins now correctly
+    return 0.0 (no cross-correction possible) instead of 0.8.
+  - Dimension 14 (organelle_targeting) ADDED: penalises diseases where standard
+    nuclear AAV delivery cannot produce a functional protein at the correct
+    subcellular location. Scores: cytoplasmic/nuclear/secreted → 1.0; peroxisomal
+    → 0.7; mitochondrial matrix (nuclear-encoded) → 0.5; mitochondrial DNA gene
+    (MT-*) → 0.0 (allotopic expression required, a fundamentally different
+    strategy not represented in this catalog).
+  - RAW_MAX updated from 20.0 → 21.0 to accommodate the new dimension.
+  - build_review_flags(): added specific flags for lysosomal membrane proteins,
+    mitochondrial matrix enzymes, mtDNA genes, unresolved disease biology,
+    multi-subunit enzyme complexes, and neuronopathic disease subtypes.
 """
 
 # ── What this file is ──────────────────────────────────────────────────────
 # THE ALGORITHM. This is the intellectual core of the dissertation.
 # It takes one disease + one gene and scores every GT program in the catalog
-# across 13 dimensions. Raw scores are normalized to a composite out of 10.
+# across 14 dimensions. Raw scores are normalized to a composite out of 10.
 # Highest composite = best precedent match.
 #
 # Max raw scores per dimension:
@@ -40,9 +63,10 @@ Dimensions:
 #   immune_privilege      → max 1.0
 #   promoter_availability → max 1.0
 #   roa_feasibility       → max 1.0
+#   organelle_targeting   → max 1.0   ← NEW in v2
 #   ─────────────────────────────
-#   RAW TOTAL MAX         = 20.0
-#   NORMALIZED (× 10/20)  = 10.0
+#   RAW TOTAL MAX         = 21.0      ← updated from 20.0
+#   NORMALIZED (× 10/21)  = 10.0
 
 from __future__ import annotations
 import json
@@ -54,7 +78,7 @@ from .disease import DiseaseInfo
 from .gene import GeneInfo
 from .mechanism import lookup_mechanism, score_gene_addition_compatibility
 
-_RAW_MAX = 20.0  # ← total of all dimension maxima; used for normalization
+_RAW_MAX = 21.0  # ← total of all dimension maxima; updated to 21.0 in v2 (added organelle_targeting dim)
 
 
 @dataclass
@@ -106,6 +130,29 @@ class ScoreBreakdown:
     roa_feasibility: float = 0.0
     # ← 0–1: is there an accessible, established route to deliver to the target tissue?
     #   Liver/muscle = easy (IV/IM); CNS = harder (intrathecal or high-dose IV); retina = injection
+
+    organelle_targeting: float = 0.0
+    # ← 0–1: can standard nuclear AAV delivery produce a functional protein at the
+    #   correct subcellular compartment?  (NEW dimension, v2)
+    #
+    #   AAV delivers a transgene to the NUCLEUS. The gene is transcribed normally and
+    #   the protein is translated by cytoplasmic ribosomes. This works directly for
+    #   cytoplasmic, nuclear, secreted, and lysosomal proteins.
+    #
+    #   It requires additional validated steps for:
+    #     0.7 — Peroxisomal proteins: PTS1/PTS2 targeting signal must be preserved
+    #     0.5 — Mitochondrial matrix/inner-membrane proteins (nuclear-encoded):
+    #            the N-terminal mitochondrial targeting sequence (MTS) must be preserved
+    #            and functional in the delivered construct for post-translational import
+    #     0.0 — Mitochondrial DNA-encoded genes (MT-*): these are transcribed by
+    #            mitochondrial ribosomes using a non-standard genetic code;
+    #            nuclear AAV delivery CANNOT produce these proteins without allotopic
+    #            expression (a fundamentally different, disease-specific approach not
+    #            represented in this catalog; GS010/Lumevoq for LHON is one example)
+    #
+    #   Rationale: Without this dimension, diseases like LHON (MT-ND4) and MMA (MUT)
+    #   received scores built on false analogies to nuclear gene addition programs.
+    #   This dimension makes the incompatibility explicit and numerically visible.
 
     notes: list[str] = field(default_factory=list)  # ← plain-English explanation of each score
     review_flags: list[str] = field(default_factory=list)
@@ -235,36 +282,98 @@ def score_tropism(
 # ══════════════════════════════════════════════════════════════════════════════
 # DIMENSION 3: PROTEIN CLASS (max 2.0)
 # ══════════════════════════════════════════════════════════════════════════════
+def _classify_gene_protein(gene_info: GeneInfo) -> tuple[bool, bool, bool, bool]:
+    """Return (is_secreted, is_lysosomal_enzyme, is_lysosomal_membrane, is_membrane) for a gene.
+
+    The critical distinction added in v2 is between:
+      - lysosomal ENZYMES  (e.g. ARSA, IDUA, GBA): soluble, secretable, can cross-correct
+                            via the mannose-6-phosphate (M6P) receptor uptake pathway
+      - lysosomal MEMBRANE proteins (e.g. MCOLN1/mucolipin-1, SLC17A5/sialin): anchored
+                            in the lysosomal membrane; cannot be secreted; cannot cross-correct;
+                            every target cell must individually receive the vector
+
+    Before v2, both classes were treated as "lysosomal" and received the same 2.0 protein-
+    class score when matched against lysosomal-enzyme precedent programs (Libmeldy, etc.).
+    This inflated scores for MCOLN1 (ML-IV, 9.1/10) and SLC17A5 (Salla disease, 8.8/10)
+    because the cross-correction mechanism of those precedents does not apply.
+    """
+    kws = [k.lower() for k in (gene_info.keywords or [])]
+    locs = [l.lower() for l in (gene_info.subcellular_location or [])]
+
+    is_secreted = gene_info.is_secreted or any(
+        "secret" in l or "extracell" in l for l in locs
+    )
+    is_lysosomal = any("lysosom" in l for l in locs) or "lysosome" in kws
+
+    # A lysosomal protein is a MEMBRANE protein if it sits in the lysosomal membrane
+    # (transmembrane anchor) OR if it is a channel/transporter/pump.
+    # These cannot be secreted and therefore cannot be taken up by neighbouring cells.
+    is_lysosomal_membrane = is_lysosomal and (
+        any("membran" in l for l in locs)          # explicit membrane location
+        or any(
+            term in k
+            for k in kws
+            for term in ("channel", "transport", "pump", "antiport", "symport", "ion")
+        )
+        or any(
+            term in l
+            for l in locs
+            for term in ("membrane",)
+        )
+    )
+    is_lysosomal_enzyme = is_lysosomal and not is_lysosomal_membrane
+
+    # General membrane flag (non-lysosomal)
+    is_membrane = (
+        any("membran" in l or "sarcolemma" in l for l in locs)
+        or any("membran" in k for k in kws)
+    )
+
+    return is_secreted, is_lysosomal_enzyme, is_lysosomal_membrane, is_membrane
+
+
 def score_protein_class(
     gene_info: GeneInfo,     # ← the query disease's gene
     program_class: str,      # ← protein class of the precedent program, e.g. "lysosomal", "secreted"
 ) -> tuple[float, list[str]]:
     # ← Protein class matters because the delivery mechanism works differently:
     #   - Secreted proteins: one cell makes the protein, neighbours benefit too ("cross-correction")
-    #   - Lysosomal proteins: similar cross-correction principle (cells share via endocytosis)
+    #   - Lysosomal ENZYMES: similar cross-correction via M6P receptor uptake pathway
+    #   - Lysosomal MEMBRANE proteins: cell-autonomous — CANNOT cross-correct (v2 fix)
     #   - Membrane/intracellular: each cell needs its own copy → harder to treat
 
-    kws = [k.lower() for k in gene_info.keywords]            # ← UniProt keywords in lowercase
-    locs = [l.lower() for l in gene_info.subcellular_location]  # ← where in the cell the protein lives
-
-    is_secreted_gene = gene_info.is_secreted or any("secret" in l for l in locs)   # ← released outside the cell
-    is_lysosomal_gene = any("lysosom" in l for l in locs) or "lysosome" in kws     # ← lives in the lysosome
-    is_membrane_gene = (
-        any("membran" in l or "sarcolemma" in l for l in locs)
-        or any("membran" in k for k in kws)
-    )                           # ← sits in a cell membrane
-
+    is_secreted, is_lysosomal_enzyme, is_lysosomal_membrane, is_membrane = (
+        _classify_gene_protein(gene_info)
+    )
     pc = program_class.lower()
 
-    if "lysosomal" in pc and is_lysosomal_gene:
-        return 2.0, ["Both lysosomal proteins — cross-correction likely"]
-    if "secreted" in pc and is_secreted_gene:
+    # ── Lysosomal matches (most common in this catalog) ───────────────────
+    if "lysosomal" in pc and is_lysosomal_enzyme:
+        # Both are soluble lysosomal proteins → cross-correction via M6P pathway is viable
+        return 2.0, ["Both lysosomal enzymes — cross-correction via M6P receptor pathway likely"]
+
+    if "lysosomal" in pc and is_lysosomal_membrane:
+        # BUG FIX (v2): lysosomal membrane protein matched against a lysosomal-enzyme
+        # precedent (e.g. MCOLN1 vs Libmeldy or SLC17A5 vs Libmeldy).
+        # The pathway is shared (lysosome) but the MECHANISM is incompatible:
+        # Libmeldy/Skysona work because ARSA/ABCD1 enzymes are secreted by HSC-derived
+        # microglia and taken up by neurons. A membrane channel or transporter cannot
+        # be secreted; it must be delivered to every individual cell.
+        return 1.0, [
+            "Lysosomal pathway shared, but disease gene encodes a lysosomal MEMBRANE "
+            "protein (channel/transporter), NOT a soluble enzyme. The HSC-mediated "
+            "cross-correction mechanism of the matched precedent is not applicable. "
+            "Direct per-cell vector delivery to every target neuron is required."
+        ]
+
+    # ── Other protein classes ──────────────────────────────────────────────
+    if "secreted" in pc and is_secreted:
         return 2.0, ["Both secreted proteins — systemic delivery viable"]
-    if "intracellular" in pc and not is_secreted_gene and not is_lysosomal_gene and not is_membrane_gene:
+    if "intracellular" in pc and not is_secreted and not is_lysosomal_enzyme and not is_lysosomal_membrane and not is_membrane:
         return 1.5, ["Both intracellular proteins"]
-    if "membrane" in pc and is_membrane_gene:
+    if "membrane" in pc and is_membrane:
         return 1.5, ["Both membrane proteins"]
-    if is_secreted_gene or is_lysosomal_gene:
+    if is_secreted or is_lysosomal_enzyme:
         return 1.0, ["Partial match: extracellular/secreted component present"]
     return 0.5, ["Protein class mismatch"]
 
@@ -526,14 +635,28 @@ def score_therapeutic_window(disease: DiseaseInfo) -> tuple[float, list[str]]:
 #   Membrane-bound     → anchored; no cross-correction
 #
 def score_cross_correction(gene: GeneInfo) -> tuple[float, list[str]]:
-    """Score the cross-correction potential of the query gene's protein."""
-    locs = [l.lower() for l in gene.subcellular_location]
-    kws = [k.lower() for k in gene.keywords]
+    """Score the cross-correction potential of the query gene's protein.
 
-    is_secreted = gene.is_secreted or any("secret" in l or "extracell" in l for l in locs)
-    is_lysosomal = any("lysosom" in l for l in locs) or "lysosome" in kws
+    v2 fix: lysosomal membrane proteins (channels/transporters) now correctly
+    receive 0.0 instead of 0.8.
 
-    if is_secreted and is_lysosomal:
+    Cross-correction requires that the therapeutic protein can LEAVE the producing
+    cell and be TAKEN UP by neighbouring cells. This applies to:
+      - Secreted proteins (diffuse through extracellular space / bloodstream)
+      - Soluble lysosomal enzymes (secreted via M6P-tagged vesicles, recaptured
+        by M6P receptors on neighbouring lysosomes)
+
+    It does NOT apply to:
+      - Lysosomal MEMBRANE channels/transporters (anchored in the membrane;
+        cannot be exocytosed as soluble cargo; e.g. MCOLN1, SLC17A5)
+      - Intracellular proteins (stay inside the producing cell)
+      - Membrane-bound structural proteins (e.g. dystrophin)
+    """
+    is_secreted, is_lysosomal_enzyme, is_lysosomal_membrane, _ = (
+        _classify_gene_protein(gene)
+    )
+
+    if is_secreted and is_lysosomal_enzyme:
         return 1.0, [
             "Secreted lysosomal enzyme — maximum cross-correction via M6P receptor pathway; "
             "high therapeutic efficiency; substantially lower required transduction rate"
@@ -543,7 +666,19 @@ def score_cross_correction(gene: GeneInfo) -> tuple[float, list[str]]:
             "Secreted protein — systemic cross-correction via bloodstream; "
             "all cells can benefit from a minority of transduced cells"
         ]
-    elif is_lysosomal:
+    elif is_lysosomal_membrane:
+        # BUG FIX (v2): previously returned 0.8 as "lysosomal enzyme (non-secreted)".
+        # Lysosomal membrane proteins (channels, transporters) are ANCHORED in the
+        # lysosomal membrane and cannot be secreted or taken up by neighbouring cells.
+        # Each target cell must individually be transduced — no bystander rescue.
+        return 0.0, [
+            "Lysosomal MEMBRANE protein (channel/transporter) — no cross-correction possible. "
+            "The protein is anchored in the lysosomal membrane and cannot be released as "
+            "soluble cargo. Every target cell must individually receive the vector. "
+            "HSC-based lentiviral programs (Libmeldy) depend on secreted enzyme cross-"
+            "correction and are not applicable as direct strategies for this protein class."
+        ]
+    elif is_lysosomal_enzyme:
         return 0.8, [
             "Lysosomal enzyme (non-secreted) — moderate cross-correction via M6P pathway; "
             "neighbouring cells can benefit but uptake efficiency is lower than fully secreted"
@@ -686,13 +821,147 @@ def score_roa_feasibility(disease_tissues: list[str]) -> tuple[float, list[str]]
     return best_score, [f"Route of administration: {best_note}"]
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# DIMENSION 14: ORGANELLE TARGETING FEASIBILITY (max 1.0)  ← NEW in v2
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Standard AAV gene therapy delivers the transgene to the NUCLEUS, where it is
+# transcribed by the cell's RNA polymerase and translated by cytoplasmic ribosomes.
+# The resulting protein is functional without further targeting for most disease genes.
+#
+# However, some proteins must reach specific organelles AFTER translation:
+#   Mitochondrial matrix proteins (nuclear-encoded): the mature protein is produced
+#     in the cytoplasm and imported post-translationally into the mitochondria via an
+#     N-terminal mitochondrial targeting sequence (MTS). Standard AAV is theoretically
+#     feasible, but the MTS in the therapeutic construct must be intact and functional.
+#     Example: MUT (methylmalonyl-CoA mutase) in methylmalonic acidemia (ORPHA:27).
+#
+#   Mitochondrial DNA-encoded proteins (MT-* genes): these genes reside in the
+#     mitochondrial genome, use a non-standard genetic code, and are translated by
+#     mitochondrial ribosomes inside the organelle. Nuclear AAV cannot produce these
+#     proteins. The only nuclear gene-therapy approach requires "allotopic expression":
+#     the gene is recoded for cytoplasmic translation, given an artificial MTS, and
+#     the import/assembly is re-engineered. This is a disease-specific, specialist
+#     strategy NOT represented in this precedent catalog.
+#     Example: MT-ND4 in Leber hereditary optic neuropathy (ORPHA:104).
+#     Real-world precedent: GS010/Lumevoq uses this allotopic approach (Phase 3 completed;
+#     EMA MAA voluntarily withdrawn April 2023 after primary endpoint not met vs sham).
+#
+#   Peroxisomal proteins: targeted via PTS1/PTS2 signal; AAV is feasible but the
+#     peroxisomal targeting signal must be preserved in the construct.
+#     Example: ABCD1 (X-linked adrenoleukodystrophy, ORPHA:43).
+#
+# WHY THIS MATTERS FOR SCORING:
+#   Without this dimension, LHON (MT-ND4) received a composite score of 6.8/10 based
+#   on comparisons to nuclear gene-addition programs — a category error.
+#   MMA (MUT) received 7.8/10 without any flag that the mitochondrial import step is
+#   an unvalidated prerequisite. This dimension makes these gaps numerically explicit.
+#
+def score_organelle_targeting(
+    gene: GeneInfo,
+    disease: DiseaseInfo,
+) -> tuple[float, list[str]]:
+    """Score whether standard nuclear AAV delivery can produce a functional protein
+    at the correct subcellular compartment for the query disease gene.
+    """
+    symbol = (gene.symbol or "").upper()
+    locs = [l.lower() for l in (gene.subcellular_location or [])]
+    kws = [k.lower() for k in (gene.keywords or [])]
+
+    # ── 1. Mitochondrial DNA-encoded genes (MT-*) ────────────────────────────
+    # These are the most severe case: the gene lives in mtDNA, not the nucleus.
+    # Standard nuclear AAV delivery is fundamentally inapplicable without allotopic
+    # expression engineering.
+    #
+    # Detection: gene symbol starts with "MT-" (HGNC convention for mitochondrial genes)
+    # OR the disease has mitochondrial inheritance (maternally inherited).
+    is_mtdna_gene = symbol.startswith("MT-") and len(symbol) > 3
+    has_mito_inheritance = any(
+        "mitochondri" in i.lower() for i in (disease.inheritance or [])
+    )
+
+    if is_mtdna_gene or has_mito_inheritance:
+        return 0.0, [
+            f"ORGANELLE TARGETING: INCOMPATIBLE — {symbol} is a mitochondrial DNA-encoded "
+            "gene. Standard nuclear AAV delivery cannot produce a functional protein at the "
+            "mitochondrial target site. Treatment requires allotopic expression: cytoplasmic "
+            "recoding of the gene using the standard genetic code plus an artificial "
+            "mitochondrial targeting sequence (MTS). This strategy is disease-specific and "
+            "fundamentally different from the nuclear gene-addition programs in this catalog. "
+            "All precedent scores for this disease should be treated as cross-paradigm "
+            "comparisons only, not direct development templates. "
+            "(Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)"
+        ]
+
+    # ── 2. Nuclear-encoded mitochondrial matrix/inner-membrane proteins ──────
+    # The gene is in the nucleus (AAV can deliver it), but after cytoplasmic translation
+    # the protein must be imported into mitochondria via an N-terminal MTS.
+    # AAV gene therapy is theoretically viable, but MTS integrity is not verified
+    # by any other dimension in this framework.
+    is_mito_matrix = any(
+        "mitochondri" in l and ("matrix" in l or "inner membrane" in l) for l in locs
+    )
+    is_mito_protein = (
+        any("mitochondri" in l for l in locs)
+        or "mitochondrion" in kws
+        or any("mitochondri" in k for k in kws)
+    )
+
+    if is_mito_matrix:
+        return 0.5, [
+            f"ORGANELLE TARGETING: CONDITIONAL — {symbol} is a nuclear-encoded "
+            "mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible "
+            "(the gene is in the nuclear genome) but the N-terminal mitochondrial targeting "
+            "sequence (MTS) must be preserved intact in the therapeutic construct for correct "
+            "post-translational import into the mitochondrial matrix. MTS functionality is not "
+            "validated by any other dimension in this framework. Confirm import efficiency "
+            "with disease-specific in vitro/in vivo data before treating vector precedent "
+            "scores as directly transferable."
+        ]
+
+    if is_mito_protein:
+        # Mitochondrial but not explicitly matrix — could be outer membrane, IMS, etc.
+        # Lower penalty than matrix; flagged but not heavily penalised.
+        return 0.6, [
+            f"ORGANELLE TARGETING: VERIFY — {symbol} has mitochondrial localisation. "
+            "Nuclear AAV delivery is feasible for nuclear-encoded mitochondrial proteins, "
+            "but confirm that targeting signals in the construct are intact and that the "
+            "protein reaches the correct mitochondrial sub-compartment."
+        ]
+
+    # ── 3. Peroxisomal proteins ──────────────────────────────────────────────
+    # Targeted via PTS1 (C-terminal SKL tripeptide) or PTS2 (N-terminal signal).
+    # AAV delivery is feasible; the targeting signal must be preserved.
+    # Examples: ABCD1 (X-ALD), PEX genes.
+    is_peroxisomal = (
+        any("peroxisom" in l for l in locs)
+        or "peroxisome" in kws
+        or any("peroxisom" in k for k in kws)
+    )
+    if is_peroxisomal:
+        return 0.7, [
+            f"ORGANELLE TARGETING: VERIFY — {symbol} is a peroxisomal protein. "
+            "Nuclear AAV delivery is feasible; the peroxisomal targeting signal (PTS1/PTS2) "
+            "must be preserved in the construct for correct organelle import."
+        ]
+
+    # ── 4. Standard localisation ─────────────────────────────────────────────
+    # Cytoplasmic, nuclear, secreted, lysosomal, ER membrane, plasma membrane:
+    # nuclear AAV delivery directly produces functional protein at the correct location.
+    return 1.0, [
+        f"ORGANELLE TARGETING: COMPATIBLE — {symbol} standard subcellular localisation; "
+        "nuclear AAV delivery directly produces functional protein at the correct "
+        "cellular compartment with no additional organelle-import steps required."
+    ]
+
+
 def _normalised_tissue_set(tissues: list[str]) -> set[str]:
     """Normalize tissue labels for comparison."""
     return {t.lower() for t in tissues if t}
 
 
 def _is_gene_replacement_friendly(disease: DiseaseInfo) -> bool:
-    inheritance = " ".join(disease.inheritance).lower()
+    inheritance = " ".join(disease.inheritance or []).lower()
     return "recessive" in inheritance or "x-linked" in inheritance
 
 
@@ -705,14 +974,140 @@ def build_review_flags(
     cross_correction_score: float,
     therapeutic_window_score: float,
     strategy_notes: list[str],
+    organelle_targeting_score: float = 1.0,  # ← new parameter (v2); default 1.0 = no issue
 ) -> list[str]:
-    """Generate translational review flags that are not captured by rank alone."""
+    """Generate translational review flags that are not captured by rank alone.
+
+    v2 additions:
+      - Lysosomal membrane protein flag (MCOLN1, SLC17A5 class)
+      - Mitochondrial DNA gene flag (MT-* class; allotopic expression required)
+      - Mitochondrial matrix enzyme flag (MUT, BCKDHA, OTC class; MTS validation needed)
+      - Unresolved disease biology flag (ROGDI class)
+      - Multi-subunit enzyme complex flag (BCKDHA/MSUD class)
+      - Neuronopathic subtype ambiguity flag (GBA/Gaucher class)
+      - Defensive None-guards on all list accesses to prevent crashes on unknown diseases
+    """
     flags: list[str] = []
-    disease_tissues = _normalised_tissue_set(disease.affected_tissues)
-    vector_tissues = _normalised_tissue_set(vector_tropism)
+    disease_tissues = _normalised_tissue_set(disease.affected_tissues or [])
+    vector_tissues = _normalised_tissue_set(vector_tropism or [])
     uncovered = sorted(disease_tissues - vector_tissues)
 
-    if len(disease.gene_symbols) > 1:
+    # ── Protein biology flags (NEW in v2) ────────────────────────────────────
+    locs_l = [l.lower() for l in (gene.subcellular_location or [])]
+    kws_l = [k.lower() for k in (gene.keywords or [])]
+    symbol = (gene.symbol or "").upper()
+
+    # Flag A: Lysosomal membrane proteins
+    # These are physically incapable of cross-correction via M6P receptor uptake.
+    # Scores from HSC/LV programs (Libmeldy, Skysona) are platform comparisons only.
+    gene_is_lysosomal = any("lysosom" in l for l in locs_l) or "lysosome" in kws_l
+    gene_is_lysosomal_membrane = gene_is_lysosomal and (
+        any("membran" in l for l in locs_l)
+        or any(
+            term in k
+            for k in kws_l
+            for term in ("channel", "transport", "pump", "antiport", "symport", "ion")
+        )
+    )
+    if gene_is_lysosomal_membrane:
+        flags.append(
+            f"LYSOSOMAL MEMBRANE PROTEIN ({symbol}): the disease gene encodes a lysosomal "
+            "membrane channel or transporter, NOT a soluble secretable enzyme. "
+            "The HSC-lentiviral cross-correction strategy of precedent programs such as "
+            "Libmeldy (ARSA) and Skysona (ABCD1) relies on enzyme secretion from "
+            "microglia and M6P receptor-mediated uptake by neurons — a mechanism that is "
+            "physically impossible for a membrane-anchored protein. "
+            "Direct in vivo AAV delivery to individual target neurons is required. "
+            "Precedent scores from HSC/LV programs compare delivery platform only, "
+            "not therapeutic mechanism."
+        )
+
+    # Flag B: Mitochondrial DNA-encoded genes (MT-*)
+    is_mtdna_gene = symbol.startswith("MT-") and len(symbol) > 3
+    has_mito_inheritance = any(
+        "mitochondri" in i.lower() for i in (disease.inheritance or [])
+    )
+    if is_mtdna_gene or has_mito_inheritance:
+        flags.append(
+            f"MITOCHONDRIAL DNA GENE ({symbol}): this gene is encoded in the mitochondrial "
+            "genome, translated by mitochondrial ribosomes using a non-standard genetic code. "
+            "Standard nuclear AAV gene addition CANNOT produce this protein. "
+            "Treatment requires allotopic expression: the gene must be recoded for "
+            "cytoplasmic translation and given an artificial MTS — a strategy "
+            "fundamentally different from every program in this catalog. "
+            "All precedent scores are cross-paradigm comparisons. "
+            "See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent."
+        )
+
+    # Flag C: Nuclear-encoded mitochondrial matrix enzymes (MTS validation required)
+    is_mito_matrix = any(
+        "mitochondri" in l and ("matrix" in l or "inner membrane" in l) for l in locs_l
+    )
+    if is_mito_matrix and not is_mtdna_gene and not has_mito_inheritance:
+        flags.append(
+            f"MITOCHONDRIAL MATRIX ENZYME ({symbol}): nuclear-encoded but the protein must "
+            "be imported into the mitochondrial matrix post-translation via its N-terminal "
+            "mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically "
+            "feasible, but the therapeutic construct must preserve the intact MTS. "
+            "MTS functionality is not captured by any other scoring dimension — this is an "
+            "additional disease-specific development step requiring experimental validation."
+        )
+
+    # Flag D: Multi-subunit enzyme complexes
+    # Gene addition of one subunit of a multi-gene complex may be insufficient alone.
+    gene_name_lower = (gene.protein_name or "").lower()
+    is_multisubunit = (
+        any(
+            term in kws_l or term in gene_name_lower
+            for term in ("subunit alpha", "subunit beta", "e1 alpha", "e1 beta", "subunit a")
+        )
+        or (any("subunit" in k for k in kws_l) and any("complex" in k for k in kws_l))
+    )
+    if is_multisubunit:
+        flags.append(
+            f"MULTI-SUBUNIT ENZYME ({symbol}): the disease gene encodes one subunit of a "
+            "multi-polypeptide enzyme complex. Scoring addresses this subunit only. "
+            "Confirm whether restoring this single subunit reconstitutes full enzymatic "
+            "activity, or whether co-delivery of other complex subunits is required."
+        )
+
+    # Flag E: Unresolved disease biology
+    # Detect when the mechanism evidence states that gene function is not fully characterised.
+    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
+    mech_detail_lower = (mechanism.mechanism_detail or "").lower()
+    if any(
+        phrase in mech_detail_lower
+        for phrase in ("not fully resolved", "not well understood", "poorly characterised",
+                       "biology is not fully", "not been established")
+    ):
+        flags.append(
+            f"UNRESOLVED DISEASE BIOLOGY ({symbol}): the molecular function of the gene "
+            "product is not fully characterised in the literature. Scoring assumes a "
+            "standard LOF mechanism compatible with gene addition, but this assumption "
+            "has not been experimentally validated. Do not use this score as evidence of "
+            "gene therapy tractability without independent confirmation of gene function, "
+            "target cell type, and expected therapeutic benefit."
+        )
+
+    # Flag F: Neuronopathic vs non-neuronopathic disease subtypes
+    disease_name_lower = (disease.name or "").lower()
+    neuronopathic_cases = [
+        ("gaucher", "Gaucher disease has non-neuronopathic (type 1) and neuronopathic "
+         "(types 2/3) subtypes requiring fundamentally different GT strategies. "
+         "Specify subtype before applying these scores."),
+        ("niemann-pick", "Niemann-Pick disease encompasses mechanistically distinct subtypes "
+         "(types A/B: SMPD1; type C: NPC1/NPC2). Confirm gene and subtype before use."),
+        ("fabry", "Fabry disease has classic and late-onset phenotypes with different "
+         "tissue involvement. CNS/cardiac delivery requirements vary by phenotype."),
+    ]
+    for keyword, message in neuronopathic_cases:
+        if keyword in disease_name_lower:
+            flags.append(f"DISEASE HETEROGENEITY: {message}")
+            break
+
+    # ── Existing flags (updated for v2 robustness) ───────────────────────────
+
+    if len(disease.gene_symbols or []) > 1:
         flags.append(
             "Multiple causal genes listed; score is gene-specific and should be repeated for each molecular subtype"
         )
@@ -770,7 +1165,6 @@ def build_review_flags(
             "Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology"
         )
 
-    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
     compatibility = mechanism.gene_addition_compatibility.lower()
     if mechanism.evidence_status == "missing":
         flags.append(
@@ -785,18 +1179,19 @@ def build_review_flags(
             "Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities"
         )
 
-    combined_mechanism_text = (
-        " ".join(disease.inheritance)
-        + " "
-        + " ".join(disease.hpo_terms)
-        + " "
-        + " ".join(gene.keywords)
-        + " "
-        + " ".join(gene.subcellular_location)
-    ).lower()
-    if "mitochondri" in combined_mechanism_text:
+    # Combined text for catch-all pattern checks — use safe joins
+    combined_mechanism_text = " ".join([
+        " ".join(disease.inheritance or []),
+        " ".join(disease.hpo_terms or []),
+        " ".join(gene.keywords or []),
+        " ".join(gene.subcellular_location or []),
+    ]).lower()
+
+    # Only add generic mitochondrial flag if NOT already covered by specific flags B or C above
+    if "mitochondri" in combined_mechanism_text and not is_mtdna_gene and not is_mito_matrix and not has_mito_inheritance:
         flags.append(
-            "Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import"
+            "Mitochondrial biology flagged; confirm whether gene is nuclear-encoded "
+            "(feasible for AAV) or mtDNA-encoded (requires allotopic expression)"
         )
     if "dominant" in combined_mechanism_text:
         flags.append(
@@ -808,7 +1203,7 @@ def build_review_flags(
             "Gene annotation incomplete; packaging, protein class, and localization scores need manual confirmation"
         )
 
-    if vector_serotype.upper().startswith("AAV"):
+    if (vector_serotype or "").upper().startswith("AAV"):
         flags.append(
             "AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone"
         )
@@ -817,7 +1212,7 @@ def build_review_flags(
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MAIN SCORING FUNCTION: combines all 13 dimensions for one program
+# MAIN SCORING FUNCTION: combines all 14 dimensions for one program
 # ══════════════════════════════════════════════════════════════════════════════
 def score_program(
     disease: DiseaseInfo,   # ← the query disease
@@ -840,6 +1235,9 @@ def score_program(
 
     if pkg == 0.0:
         # ← Gene doesn't fit → immediate fail, skip all other scoring
+        # Organelle targeting still scored on hard-fail so the flag appears in the report
+        ot_fail, ot_fail_notes = score_organelle_targeting(gene, disease)
+        notes.extend(ot_fail_notes)
         return ScoreBreakdown(
             program_name=program["name"],
             program_disease=program["disease"],
@@ -861,6 +1259,7 @@ def score_program(
             immune_privilege=0.0,
             promoter_availability=0.0,
             roa_feasibility=0.0,
+            organelle_targeting=ot_fail,
             notes=notes,
             review_flags=build_review_flags(
                 disease=disease,
@@ -871,6 +1270,7 @@ def score_program(
                 cross_correction_score=0.0,
                 therapeutic_window_score=0.0,
                 strategy_notes=strategy_notes,
+                organelle_targeting_score=ot_fail,
             ),
         )
 
@@ -905,6 +1305,53 @@ def score_program(
     mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
     mod, mod_notes = score_gene_addition_compatibility(mechanism)
     notes.extend(mod_notes)
+
+    if mechanism.gene_addition_compatibility.lower() == "incompatible":
+        # ← Mechanism hard gate: gain-of-function, dominant-negative, RNA toxic GOF,
+        #   and gene duplication/overexpression diseases are fundamentally incompatible
+        #   with gene addition. Adding more gene copies would not help and may worsen
+        #   disease. Exclude from ranking entirely, same as the packaging hard-fail.
+        notes.append(
+            f"Mechanism hard-fail: {mechanism.mechanism_category} — "
+            f"{mechanism.mechanism_detail}"
+        )
+        ot_mfail, ot_mfail_notes = score_organelle_targeting(gene, disease)
+        notes.extend(ot_mfail_notes)
+        return ScoreBreakdown(
+            program_name=program["name"],
+            program_disease=program["disease"],
+            vector=program["vector"],
+            tissue_target=program["tissue_target"],
+            approval_status=program["approval_status"],
+            composite_score=0.0,
+            confidence="fail",
+            packaging_fit=pkg,
+            tropism_match=0.0,
+            protein_class_match=0.0,
+            inheritance_match=0.0,
+            pathway_similarity=0.0,
+            modality_compatibility=0.0,
+            approval_weight=0.0,
+            immunogenicity=0.0,
+            therapeutic_window=0.0,
+            cross_correction=0.0,
+            immune_privilege=0.0,
+            promoter_availability=0.0,
+            roa_feasibility=0.0,
+            organelle_targeting=ot_mfail,
+            notes=notes,
+            review_flags=build_review_flags(
+                disease=disease,
+                gene=gene,
+                vector_tropism=[],
+                vector_serotype=program["vector"],
+                tropism_score=0.0,
+                cross_correction_score=0.0,
+                therapeutic_window_score=0.0,
+                strategy_notes=strategy_notes,
+                organelle_targeting_score=ot_mfail,
+            ),
+        )
 
     # ── Step 7: Approval ──────────────────────────────────────────────────
     apv, apv_notes = score_approval(program["approval_status"])
@@ -942,10 +1389,20 @@ def score_program(
     roa, roa_notes = score_roa_feasibility(disease.affected_tissues)
     notes.extend(roa_notes)
 
+    # ── Step 14: Organelle targeting feasibility (NEW in v2) ──────────────
+    # ← scores whether standard nuclear AAV delivery can produce a functional
+    # ← protein at the correct subcellular compartment.
+    # ← This is the same for all precedent programs — it is a property of the
+    # ← query disease gene, not of the precedent (so it is computed once here,
+    # ← not per-program). It will lower composite scores for MT-* genes (0.0),
+    # ← mitochondrial matrix enzymes (0.5), and peroxisomal proteins (0.7).
+    ot, ot_notes = score_organelle_targeting(gene, disease)
+    notes.extend(ot_notes)
+
     # ── Final composite score ─────────────────────────────────────────────
-    # Raw sum across all 13 dimensions (max = 20.0)
+    # Raw sum across all 14 dimensions (max = 21.0 from v2 onwards).
     # Normalized to out of 10 for consistent interpretation.
-    raw_sum = pkg + trp + prc + pth + mod + inh + apv + imm + tw + cc + ip + pa + roa
+    raw_sum = pkg + trp + prc + pth + mod + inh + apv + imm + tw + cc + ip + pa + roa + ot
     composite = round((raw_sum / _RAW_MAX) * 10.0, 2)
 
     confidence = "high" if composite >= 7.5 else "medium" if composite >= 5.0 else "low"
@@ -958,6 +1415,7 @@ def score_program(
         cross_correction_score=cc,
         therapeutic_window_score=tw,
         strategy_notes=strategy_notes,
+        organelle_targeting_score=ot,
     )
 
     return ScoreBreakdown(
@@ -981,6 +1439,7 @@ def score_program(
         immune_privilege=ip,
         promoter_availability=pa,
         roa_feasibility=roa,
+        organelle_targeting=ot,
         notes=notes,
         review_flags=review_flags,
     )

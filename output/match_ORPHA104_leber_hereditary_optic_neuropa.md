@@ -11,7 +11,7 @@
 ## Interpretation
 
 - No high-confidence vector precedent was found; the best result is medium-confidence and should be treated as manual-review territory.
-- Main review flags: Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Vector does not naturally cover all annotated disease tissues: cns, retina; Cell-autonomous protein across multiple tissues; high transduction coverage may be required.
+- Main review flags: MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.; Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Vector does not naturally cover all annotated disease tissues: cns, retina.
 
 ### Disease Mechanism Evidence
 
@@ -37,11 +37,11 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | CPCB-RPE1 | AAV8 | 6.8/10 | 🟡 Medium | phase2/3 |
-| 2 | Skysona | LV | 6.7/10 | 🟡 Medium | approved |
-| 3 | Luxturna | AAV2 | 6.4/10 | 🟡 Medium | approved |
-| 4 | Libmeldy | LV | 6.2/10 | 🟡 Medium | approved |
-| 5 | Hemgenix | AAV5 | 5.9/10 | 🟡 Medium | approved |
+| 1 | CPCB-RPE1 | AAV8 | 6.4/10 | 🟡 Medium | phase2/3 |
+| 2 | Skysona | LV | 6.3/10 | 🟡 Medium | approved |
+| 3 | Luxturna | AAV2 | 6.1/10 | 🟡 Medium | approved |
+| 4 | Libmeldy | LV | 5.9/10 | 🟡 Medium | approved |
+| 5 | Hemgenix | AAV5 | 5.6/10 | 🟡 Medium | approved |
 
 ---
 
@@ -50,7 +50,7 @@
 **Precedent disease:** Achromatopsia  
 **Vector:** AAV8  
 **Tissue target:** retina/photoreceptor  
-**Composite score:** 6.8 / 10  
+**Composite score:** 6.4 / 10  
 
 ### Score Breakdown
 
@@ -69,7 +69,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.75** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.43** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -89,16 +90,17 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: INCOMPATIBLE — MT-ND4 is a mitochondrial DNA-encoded gene. Standard nuclear AAV delivery cannot produce a functional protein at the mitochondrial target site. Treatment requires allotopic expression: cytoplasmic recoding of the gene using the standard genetic code plus an artificial mitochondrial targeting sequence (MTS). This strategy is disease-specific and fundamentally different from the nuclear gene-addition programs in this catalog. All precedent scores for this disease should be treated as cross-paradigm comparisons only, not direct development templates. (Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns, retina
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology
 - Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #2: Skysona
@@ -106,7 +108,7 @@
 **Precedent disease:** Cerebral adrenoleukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 6.7 / 10  
+**Composite score:** 6.3 / 10  
 
 ### Score Breakdown
 
@@ -125,7 +127,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.65** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.33** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -145,23 +148,24 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: INCOMPATIBLE — MT-ND4 is a mitochondrial DNA-encoded gene. Standard nuclear AAV delivery cannot produce a functional protein at the mitochondrial target site. Treatment requires allotopic expression: cytoplasmic recoding of the gene using the standard genetic code plus an artificial mitochondrial targeting sequence (MTS). This strategy is disease-specific and fundamentally different from the nuclear gene-addition programs in this catalog. All precedent scores for this disease should be treated as cross-paradigm comparisons only, not direct development templates. (Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns, retina
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology
 - Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 
 ## Match #3: Luxturna
 
 **Precedent disease:** Leber congenital amaurosis type 2  
 **Vector:** AAV2  
 **Tissue target:** retina/RPE  
-**Composite score:** 6.4 / 10  
+**Composite score:** 6.1 / 10  
 
 ### Score Breakdown
 
@@ -180,7 +184,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.40** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **6.10** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -200,15 +205,16 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: INCOMPATIBLE — MT-ND4 is a mitochondrial DNA-encoded gene. Standard nuclear AAV delivery cannot produce a functional protein at the mitochondrial target site. Treatment requires allotopic expression: cytoplasmic recoding of the gene using the standard genetic code plus an artificial mitochondrial targeting sequence (MTS). This strategy is disease-specific and fundamentally different from the nuclear gene-addition programs in this catalog. All precedent scores for this disease should be treated as cross-paradigm comparisons only, not direct development templates. (Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology
 - Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone
 
 ## Match #4: Libmeldy
@@ -216,7 +222,7 @@
 **Precedent disease:** Metachromatic leukodystrophy  
 **Vector:** LV  
 **Tissue target:** hematopoietic/CNS  
-**Composite score:** 6.2 / 10  
+**Composite score:** 5.9 / 10  
 
 ### Score Breakdown
 
@@ -235,7 +241,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **6.15** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **5.86** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -255,23 +262,24 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: INCOMPATIBLE — MT-ND4 is a mitochondrial DNA-encoded gene. Standard nuclear AAV delivery cannot produce a functional protein at the mitochondrial target site. Treatment requires allotopic expression: cytoplasmic recoding of the gene using the standard genetic code plus an artificial mitochondrial targeting sequence (MTS). This strategy is disease-specific and fundamentally different from the nuclear gene-addition programs in this catalog. All precedent scores for this disease should be treated as cross-paradigm comparisons only, not direct development templates. (Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns, retina
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology
 - Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 
 ## Match #5: Hemgenix
 
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 5.9 / 10  
+**Composite score:** 5.6 / 10  
 
 ### Score Breakdown
 
@@ -290,7 +298,8 @@
 | Immune privilege | 1.00 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 1.00 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.80 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **5.90** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 0.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **5.62** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -310,9 +319,11 @@
 - Immune privilege: highest immune privilege — blood-retinal barrier + FasL + TGF-β2; minimal T-cell clearance risk
 - Promoter availability: VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1
 - Route of administration: Subretinal/intravitreal injection — specialist ophthalmic procedure; established in Luxturna and GS010
+- ORGANELLE TARGETING: INCOMPATIBLE — MT-ND4 is a mitochondrial DNA-encoded gene. Standard nuclear AAV delivery cannot produce a functional protein at the mitochondrial target site. Treatment requires allotopic expression: cytoplasmic recoding of the gene using the standard genetic code plus an artificial mitochondrial targeting sequence (MTS). This strategy is disease-specific and fundamentally different from the nuclear gene-addition programs in this catalog. All precedent scores for this disease should be treated as cross-paradigm comparisons only, not direct development templates. (Real-world precedent: GS010/Lumevoq for MT-ND4/LHON; Phase 3 completed, EMA MAA withdrawn April 2023.)
 
 ### Manual Review Flags
 
+- MITOCHONDRIAL DNA GENE (MT-ND4): this gene is encoded in the mitochondrial genome, translated by mitochondrial ribosomes using a non-standard genetic code. Standard nuclear AAV gene addition CANNOT produce this protein. Treatment requires allotopic expression: the gene must be recoded for cytoplasmic translation and given an artificial MTS — a strategy fundamentally different from every program in this catalog. All precedent scores are cross-paradigm comparisons. See: GS010/Lumevoq (Gensight Biologics) as a real-world allotopic precedent.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: retina
 - Only partial tissue match; verify target-cell transduction and delivery route manually
@@ -320,5 +331,4 @@
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
 - Inheritance/mechanism may not be simple loss-of-function replacement; check dominant-negative, gain-of-function, or mitochondrial biology
 - Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities
-- Mitochondrial biology flagged; standard nuclear AAV gene addition may not reproduce native organelle expression/import
 - AAV tropism is species- and route-dependent; confirm human target-cell biodistribution rather than relying on animal tropism alone

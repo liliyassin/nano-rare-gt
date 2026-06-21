@@ -36,7 +36,7 @@
 
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
-| 1 | SRP-9001 | AAV9 | 7.5/10 | 🟢 High | approved |
+| 1 | SRP-9001 | AAV9 | 7.6/10 | 🟢 High | approved |
 
 ---
 
@@ -45,7 +45,7 @@
 **Precedent disease:** Duchenne muscular dystrophy  
 **Vector:** AAV9  
 **Tissue target:** muscle  
-**Composite score:** 7.5 / 10  
+**Composite score:** 7.6 / 10  
 
 ### Score Breakdown
 
@@ -64,7 +64,8 @@
 | Immune privilege | 0.60 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.90 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.50** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.62** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -85,6 +86,7 @@
 - Immune privilege: moderate immune surveillance — standard immunosuppression protocols typically sufficient
 - Promoter availability: MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs
 - Route of administration: IV systemic or intramuscular injection — well established; used in SMA, DMD, Glybera
+- ORGANELLE TARGETING: COMPATIBLE — DMD standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

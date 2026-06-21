@@ -7,7 +7,7 @@ Primary goal: submit a credible dissertation report in about one month. The post
 ## Critical path
 
 1. Lock the project claim.
-2. Verify the 30-disease dataset.
+2. Verify the 40-disease dataset.
 3. Make the Results/Discussion match the actual outputs.
 4. Read and cite the references that support the claims.
 5. Produce clean figures and tables.
@@ -18,13 +18,13 @@ Primary goal: submit a credible dissertation report in about one month. The post
 
 | Task | Estimate | Deadline | Done when |
 |---|---:|---|---|
-| Read `output/SUMMARY.md` and `output/RESULTS_INTERPRETATION.md` start to finish | 45 min | Fri 12 Jun | You can explain the 30-disease result without opening the file |
-| Fact-check 10 highest-impact diseases in `data/disease_cohort_30.csv` | 3 h | Fri 12 Jun | ORPHA, gene, inheritance, tissues, OMIM, source URL checked |
+| Read `output/SUMMARY.md` and `output/RESULTS_INTERPRETATION.md` start to finish | 45 min | Fri 12 Jun | You can explain the 40-disease result without opening the file |
+| Fact-check 10 highest-impact diseases in `data/disease_cohort_40.csv` | 3 h | Fri 12 Jun | ORPHA, gene, inheritance, tissues, OMIM, source URL checked |
 | Fact-check remaining 20 diseases at quick-pass level | 4 h | Sat 13 Jun | Every row has been checked or marked with a problem note |
 | Read and annotate 6 core papers already in `paper/references.md` | 5 h | Sat 13 Jun | You have notes for Dunbar/High/Naldini + Luxturna/Zolgensma/Hemgenix or closest equivalents |
 | Replace any unsupported claims in paper sections | 2 h | Sat 13 Jun | No obvious claim says more than the code/output supports |
 | Draft supervisor update email | 30 min | Sat 13 Jun | Email says: current result, limitation, next work, specific asks |
-| Create/refresh Figure 1 score distribution from the 30-disease table | 2 h | Sun 14 Jun | Figure uses all 30 diseases, not an earlier pilot set |
+| Create/refresh Figure 1 score distribution from the 40-disease table | 2 h | Sun 14 Jun | Figure uses all 40 diseases, not an earlier pilot set |
 | Create Figure 2 precedent-cluster visual | 2 h | Sun 14 Jun | Shows Libmeldy/LV, BMN307/AAV5, retinal cluster, DMD failure |
 | Final Sunday review | 1 h | Sun 14 Jun evening | You know what is weak before the supervisor does |
 
@@ -34,7 +34,7 @@ Primary goal: submit a credible dissertation report in about one month. The post
 |---|---:|---|---|
 | Send supervisor update | 30 min | Mon 15 Jun morning | Email sent with links/attachments if needed |
 | Methods: verify every data source and scoring dimension | 5 h | Tue 16 Jun | Methods describes the actual implementation, not aspirational modules |
-| Results: finish 30-disease narrative and tables | 5 h | Wed 17 Jun | Table, stats, clusters, stress tests included |
+| Results: finish 40-disease narrative and tables | 5 h | Wed 17 Jun | Table, stats, clusters, stress tests included |
 | Discussion: write limitations honestly | 4 h | Thu 18 Jun | Limitations include catalogue, heuristic scoring, fact-checking, modality scope |
 | References: replace placeholders and mark what you have actually read | 5 h | Fri 19 Jun | No placeholder references; key claims have citations |
 | Poster practice / extraction from dissertation | 3 h | Fri 19 Jun | Poster tells the same story as the dissertation, but shorter |
@@ -74,7 +74,7 @@ Primary goal: submit a credible dissertation report in about one month. The post
 ## Do not spend time on unless supervisor explicitly asks
 
 - Building a web dashboard.
-- Expanding from 30 diseases to hundreds.
+- Expanding from 40 diseases to hundreds.
 - Adding new therapeutic modalities.
 - Perfecting mypy/ruff beyond what blocks confidence.
 - Refactoring the whole codebase.
@@ -83,17 +83,19 @@ Primary goal: submit a credible dissertation report in about one month. The post
 
 ## Supervisor update skeleton
 
-Subject: NanoGT dissertation update — 30-disease proof-of-concept results
+Subject: NanoGT dissertation update — 40-disease proof-of-concept results (14-dimension v2 algorithm)
 
 Hi [Supervisor],
 
-I have refocused the project around the dissertation report rather than the poster. The current NanoGT implementation now runs on a 30-disease monogenic rare-disease cohort and produces a cross-disease summary plus individual reports. The safest framing is as a proof-of-concept precedent-mapping framework, not a clinical recommendation tool.
+I have refocused the project around the dissertation report rather than the poster. The current NanoGT implementation now runs on a 40-disease monogenic rare-disease cohort and produces a cross-disease summary plus individual reports. The safest framing is as a proof-of-concept precedent-mapping framework, not a clinical recommendation tool.
 
 Current headline results:
-- 30 diseases analysed.
-- 29 have at least one compatible single-vector precedent.
-- DMD correctly fails the native-gene AAV packaging gate.
-- The results cluster into interpretable precedent groups: Libmeldy/LV for lysosomal/leukodystrophy-like disease, BMN 307/AAV5 for liver metabolic disease, and retinal AAV precedents.
+- 40 diseases analysed across 14 scoring dimensions (v2 algorithm, raw max = 21).
+- 39 receive scored precedents; NF1 receives a packaging hard-fail (8,451 bp, exceeds all vectors).
+- 32 high-confidence, 7 medium-confidence matches.
+- Non-LOF arm (10 diseases): haploinsufficiency, repeat-expansion, imprinting — all produce real ranked results with appropriate medium-confidence scores except GATA2 (7.6, high) and FA (7.9, high).
+- DMD correctly fails the native-gene AAV packaging gate; scored via micro-dystrophin precedent.
+- The results cluster into interpretable precedent groups: Libmeldy/LV for 9 lysosomal diseases, BMN 307/AAV5 for liver metabolic disease, Skysona/LV for leukodystrophies and lysosomal membrane proteins, retinal AAV precedents.
 - The main limitations are catalogue coverage, heuristic pathway/window inference, fact-checking of disease metadata, and lack of calibrated clinical validation.
 
 My next priorities are: disease fact-checking, reference verification, final figures/tables, and tightening the Methods/Results/Discussion around the actual output.

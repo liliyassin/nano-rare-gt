@@ -36,10 +36,10 @@
 | Rank | Program | Vector | Score | Confidence | Approval |
 |------|---------|--------|-------|-----------|----------|
 | 1 | Libmeldy | LV | 9.2/10 | 🟢 High | approved |
-| 2 | ABO-101 | AAV9 | 8.4/10 | 🟢 High | phase1/2 |
-| 3 | RGX-121 | AAV9 | 8.4/10 | 🟢 High | phase3 |
-| 4 | AVR-RD-01 | LV | 8.2/10 | 🟢 High | phase1/2 |
-| 5 | Hemgenix | AAV5 | 7.8/10 | 🟢 High | approved |
+| 2 | ABO-101 | AAV9 | 8.5/10 | 🟢 High | phase1/2 |
+| 3 | RGX-121 | AAV9 | 8.5/10 | 🟢 High | phase3 |
+| 4 | AVR-RD-01 | LV | 8.3/10 | 🟢 High | phase1/2 |
+| 5 | Hemgenix | AAV5 | 7.9/10 | 🟢 High | approved |
 
 ---
 
@@ -67,13 +67,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **9.20** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **9.24** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1674bp / cargo 8000bp (21% utilized)
 - Precedent target match: cns
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (Autosomal recessive <-> AR)
 - Pathway match: leukodystrophy
 - Disease mechanism: loss of function — Heparan N-sulfatase lysosomal enzyme deficiency
@@ -87,6 +88,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — SGSH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -97,7 +99,7 @@
 **Precedent disease:** Mucopolysaccharidosis type IIIB  
 **Vector:** AAV9  
 **Tissue target:** CNS  
-**Composite score:** 8.4 / 10  
+**Composite score:** 8.5 / 10  
 
 ### Score Breakdown
 
@@ -116,13 +118,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.45** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1674bp / cargo 4700bp (36% utilized)
 - Vector tropism plus precedent target match: cns
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - Inheritance match (Autosomal recessive <-> AR)
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Heparan N-sulfatase lysosomal enzyme deficiency
@@ -136,6 +139,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — SGSH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -146,7 +150,7 @@
 **Precedent disease:** Mucopolysaccharidosis type II  
 **Vector:** AAV9  
 **Tissue target:** CNS/liver  
-**Composite score:** 8.4 / 10  
+**Composite score:** 8.5 / 10  
 
 ### Score Breakdown
 
@@ -165,13 +169,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.45** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.52** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1674bp / cargo 4700bp (36% utilized)
 - Vector tropism plus precedent target match: cns
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Heparan N-sulfatase lysosomal enzyme deficiency
@@ -185,6 +190,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — SGSH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -195,7 +201,7 @@
 **Precedent disease:** Fabry disease  
 **Vector:** LV  
 **Tissue target:** hematopoietic  
-**Composite score:** 8.2 / 10  
+**Composite score:** 8.3 / 10  
 
 ### Score Breakdown
 
@@ -214,13 +220,14 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **8.20** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **8.29** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
 - Gene CDS 1674bp / cargo 8000bp (21% utilized)
 - No tissue overlap (disease: ['CNS'], vector: ['hematopoietic'])
-- Both lysosomal proteins — cross-correction likely
+- Both lysosomal enzymes — cross-correction via M6P receptor pathway likely
 - LOF inheritance — compatible for gene replacement
 - Pathway match: lysosomal_storage
 - Disease mechanism: loss of function — Heparan N-sulfatase lysosomal enzyme deficiency
@@ -234,6 +241,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — SGSH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -245,7 +253,7 @@
 **Precedent disease:** Hemophilia B  
 **Vector:** AAV5  
 **Tissue target:** liver  
-**Composite score:** 7.8 / 10  
+**Composite score:** 7.9 / 10  
 
 ### Score Breakdown
 
@@ -264,7 +272,8 @@
 | Immune privilege | 0.90 | 1.0 | Immunological protection of target tissue |
 | Promoter availability | 0.80 | 1.0 | Validated tissue-specific promoters exist |
 | Route of administration | 0.70 | 1.0 | Established delivery route to target tissue |
-| **TOTAL (normalised)** | **7.80** | **10.0** | Raw sum / 20 × 10 |
+| Organelle targeting | 1.00 | 1.0 | Nuclear AAV delivery reaches correct subcellular compartment |
+| **TOTAL (normalised)** | **7.90** | **10.0** | Raw sum / 21 × 10 (v2: 14 dimensions) |
 
 ### Rationale
 
@@ -284,6 +293,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies
 - Route of administration: Intrathecal or ICV delivery — more invasive than IV; established in OAV101-IT and RGX-121 but higher procedural risk
+- ORGANELLE TARGETING: COMPATIBLE — SGSH standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 

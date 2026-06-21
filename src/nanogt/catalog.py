@@ -256,14 +256,14 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "GS010",  # ← lenadogene nolparvovec; approved EU 2021 (LHON)
+        "name": "GS010",  # ← lenadogene nolparvovec; Phase 3 completed; EMA MAA withdrawn April 2023 (no efficacy significance vs sham); early-access programmes active in France/Israel
         "disease": "Leber hereditary optic neuropathy",
         "gene_symbol": "ND4",  # ← mitochondrial gene; unusual — normally impossible to deliver
         "vector": "AAV2",
         "tissue_target": "retina/RGC",  # ← retinal ganglion cells
         "cds_bp": 1378,
-        "approval_status": "approved",
-        "approval_year": 2021,
+        "approval_status": "phase3",
+        "approval_year": None,
         "mechanism": "gene_replacement",
         "protein_class": "intracellular",
         "inheritance": "mitochondrial",  # ← only inheritance type that isn't AR or XL
@@ -271,14 +271,14 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "OAV101-IT",  # ← intrathecal version of Zolgensma (same gene, different route)
+        "name": "OAV101-IT",  # ← onasemnogene abeparvovec-brve (Itvisma); intrathecal version of Zolgensma; FDA approved Nov 2025
         "disease": "Spinal Muscular Atrophy",
         "gene_symbol": "SMN1",
         "vector": "AAV9",
         "tissue_target": "CNS/spinal cord",  # ← injected into spinal fluid (intrathecal) rather than IV
         "cds_bp": 891,
         "approval_status": "approved",
-        "approval_year": 2020,
+        "approval_year": 2025,
         "mechanism": "gene_replacement",
         "protein_class": "intracellular",
         "inheritance": "AR",

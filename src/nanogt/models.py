@@ -76,7 +76,7 @@ class Vector(BaseModel):
 
 class ScoreBreakdown(BaseModel):
     """Per-dimension match scores (0.0–1.0)."""
-    # ← Stores the score for each of the 12 scoring dimensions used by scoring.py.
+    # ← Stores the score for each of the 14 scoring dimensions used by scoring.py.
     # These names mirror the conceptual model; report.py/scoring.py use slightly
     # more presentation-friendly labels for the same dimensions.
 
