@@ -754,7 +754,7 @@ _PROMOTER_DATA: dict[str, tuple[float, str]] = {
     "retina":        (1.0, "VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1"),
     "cns":           (0.8, "Synapsin-1 (pan-neuronal), CaMKII (excitatory neurons), GFAP (astrocytes) — validated but cell-type specificity varies"),
     "muscle":        (0.8, "MHCK7, CK8, Desmin — validated in Elevidys (DMD) and SMA programs"),
-    "hematopoietic": (0.7, "EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)"),
+    "hematopoietic": (0.7, "EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms"),
     "heart":         (0.6, "CMV/CAG ubiquitous promoters most common; cardiac troponin T (cTnT) available but limited clinical use"),
     "kidney":        (0.4, "Very few validated kidney-specific promoters in clinical use; AQP2 and NPHS2 in research only"),
 }

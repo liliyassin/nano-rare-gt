@@ -103,8 +103,8 @@ VECTORS = [
         "freely_available": 0,
     },
     {
-        "serotype": "LV",  # ← Lentiviral vector (NOT an AAV); larger cargo (8000bp); integrates into genome
-        "cargo_limit_bp": 8000,  # ← can carry much larger genes than AAV
+        "serotype": "LV",  # ← Integrating ex vivo HSC vector class; most entries are lentiviral, Strimvelis is gammaretroviral
+        "cargo_limit_bp": 8000,  # ← can carry much larger genes than AAV; used as a coarse HSC-vector capacity bucket
         "tissue_tropism": [
             "hematopoietic",
         ],  # ← mainly used for blood stem cells (ex vivo); tissue benefit comes from cell engraftment/cross-correction, not direct in vivo tropism
@@ -112,7 +112,7 @@ VECTORS = [
         "retinal_tropic": 0,
         "hepatic_tropic": 0,
         "muscle_tropic": 0,
-        "clinical_precedents": 20,  # ← most clinical experience of all vectors (ADA-SCID, beta-thal, etc.)
+        "clinical_precedents": 20,  # ← most clinical experience of all vector classes (ADA-SCID, beta-thal, etc.)
         "freely_available": 1,
     },
 ]
@@ -406,7 +406,7 @@ GT_PROGRAMS = [
         "notes": None,
     },
     {
-        "name": "Strimvelis",  # ← ex vivo HSC gene therapy for ADA-SCID; treated as LV-class ex vivo precedent in v0.1
+        "name": "Strimvelis",  # ← ex vivo autologous CD34+ gammaretroviral ADA gene therapy; grouped in the LV/integrating-HSC bucket for v0.1 scoring
         "disease": "ADA-SCID",
         "gene_symbol": "ADA",
         "vector": "LV",
@@ -418,7 +418,7 @@ GT_PROGRAMS = [
         "protein_class": "intracellular",
         "inheritance": "AR",
         "pathway": "immune_hematopoietic",
-        "notes": "Ex vivo autologous HSC precedent; original product uses gammaretroviral vector, grouped with integrating HSC vectors for v0.1 scoring.",
+        "notes": "Ex vivo autologous CD34+ ADA gene-addition precedent; original product uses a gammaretroviral vector, grouped with integrating HSC vectors for v0.1 scoring.",
     },
     {
         "name": "Libmeldy",  # ← atidarsagene autotemcel; approved ex vivo LV for MLD

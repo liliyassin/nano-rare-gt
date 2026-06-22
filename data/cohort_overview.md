@@ -94,11 +94,11 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Primary tissues** | hematopoietic |
 | **Prevalence** | 1-9/1000000 |
 | **OMIM** | [102700](https://omim.org/entry/102700) |
-| **Cohort notes** | approved ex vivo/lentiviral HSC precedent; positive control |
+| **Cohort notes** | approved ex vivo autologous CD34+ gammaretroviral ADA precedent; grouped with integrating HSC-vector precedents in NanoGT |
 | **Mechanism** | loss_of_function — ADA enzyme deficiency causing toxic purine metabolite accumulation |
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | ex_vivo_hsc_gene_addition |
-| **Mechanism evidence** | ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent |
+| **Mechanism evidence** | ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector) |
 | **Evidence source** | [OMIM ADA-SCID 102700](https://omim.org/entry/102700) |
 | **Evidence status** | source_linked_needs_review |
 

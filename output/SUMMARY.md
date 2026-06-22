@@ -76,7 +76,7 @@
 ### Severe combined immunodeficiency due to adenosine deaminase deficiency (ORPHA:277)
 **Gene:** ADA | **Mechanism:** loss_of_function | **CDS:** 1092 bp | **Inheritance:** Autosomal recessive | **Tissues:** hematopoietic
 
-**Mechanism evidence:** ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent Source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
+**Mechanism evidence:** ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector) Source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 
 1. **Strimvelis** (LV) — 8.1/10 [high]
 2. **Libmeldy** (LV) — 7.0/10 [medium]

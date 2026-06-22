@@ -87,7 +87,7 @@
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -138,7 +138,7 @@
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -189,7 +189,7 @@
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -240,7 +240,7 @@
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -291,7 +291,7 @@
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — WAS standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 

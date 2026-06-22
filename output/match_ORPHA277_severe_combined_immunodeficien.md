@@ -20,13 +20,13 @@
 **Gene-addition compatibility:** compatible  
 **Preferred modality class:** ex vivo hsc gene addition  
 **Evidence level/status:** direct / source_linked_needs_review  
-**Evidence summary:** ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent  
+**Evidence summary:** ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)  
 **Evidence source:** [OMIM ADA-SCID 102700](https://omim.org/entry/102700)  
 
 ### Study-Level Limitations
 
 - Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
-- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Modality coverage is limited mainly to AAV and integrating ex vivo HSC vector precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
 - Few catalog vectors cover the annotated disease tissue(s): LV.
 - Endpoint readiness unclear from available annotations; identify biomarkers, natural-history measures, and patient-relevant outcomes before trial prioritisation.
 
@@ -47,7 +47,7 @@
 ## Match #1: Strimvelis
 
 **Precedent disease:** ADA-SCID  
-**Vector:** LV  
+**Vector:** LV scoring bucket (Strimvelis is an ex vivo gammaretroviral ADA product)  
 **Tissue target:** hematopoietic  
 **Composite score:** 8.1 / 10  
 
@@ -80,14 +80,14 @@
 - Pathway match: immune_hematopoietic
 - Disease mechanism: loss of function — ADA enzyme deficiency causing toxic purine metabolite accumulation
 - Gene-addition modality compatibility: supports gene addition
-- Mechanism evidence: ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent
+- Mechanism evidence: ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)
 - Mechanism source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 - Approval status: approved
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — ADA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -131,14 +131,14 @@
 - Different pathway (immune_hematopoietic vs leukodystrophy)
 - Disease mechanism: loss of function — ADA enzyme deficiency causing toxic purine metabolite accumulation
 - Gene-addition modality compatibility: supports gene addition
-- Mechanism evidence: ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent
+- Mechanism evidence: ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)
 - Mechanism source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 - Approval status: approved
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — ADA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -182,14 +182,14 @@
 - Different pathway (immune_hematopoietic vs peroxisomal)
 - Disease mechanism: loss of function — ADA enzyme deficiency causing toxic purine metabolite accumulation
 - Gene-addition modality compatibility: supports gene addition
-- Mechanism evidence: ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent
+- Mechanism evidence: ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)
 - Mechanism source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 - Approval status: approved
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — ADA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -233,14 +233,14 @@
 - Different pathway (immune_hematopoietic vs lysosomal_storage)
 - Disease mechanism: loss of function — ADA enzyme deficiency causing toxic purine metabolite accumulation
 - Gene-addition modality compatibility: supports gene addition
-- Mechanism evidence: ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent
+- Mechanism evidence: ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)
 - Mechanism source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 - Approval status: phase1/2
 - Vector immunogenicity (LV): low (~2%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — ADA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
@@ -284,14 +284,14 @@
 - Different pathway (immune_hematopoietic vs amino_acid_metabolism)
 - Disease mechanism: loss of function — ADA enzyme deficiency causing toxic purine metabolite accumulation
 - Gene-addition modality compatibility: supports gene addition
-- Mechanism evidence: ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent
+- Mechanism evidence: ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector)
 - Mechanism source: OMIM ADA-SCID 102700 (https://omim.org/entry/102700)
 - Approval status: phase2
 - Vector immunogenicity (AAV5): low (~9%) — most patients eligible; minimal screening burden
 - Very narrow therapeutic window — congenital or rapidly fatal early onset; in utero or immediate neonatal GT required; substantially increases trial complexity
 - Intracellular or membrane-bound protein — no cross-correction possible; each target cell must individually receive the vector; requires high transduction efficiency and therefore a higher or more targeted dose
 - Immune privilege: low privilege — immune cells reside here; robust conditioning and monitoring required
-- Promoter availability: EFS, PGK, SFFV — validated in lentiviral ex vivo programs (ADA-SCID, beta-thalassaemia)
+- Promoter availability: EFS, PGK, SFFV — validated across integrating ex vivo HSC programs; ADA-SCID includes the gammaretroviral Strimvelis precedent, while beta-thalassaemia uses lentiviral HSC platforms
 - Route of administration: Ex vivo HSC delivery — technically complex but highly precise; gold standard for blood disorders
 - ORGANELLE TARGETING: COMPATIBLE — ADA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 

@@ -87,7 +87,7 @@ The results are summarised below:
 |---------|------|----------------|---------------|-------|
 | Hemophilia B | F9 | Hemgenix (AAV5) | **1** | 9.9/10 |
 | Spinal muscular atrophy | SMN1 | OAV101-IT (AAV9) | **1** | 8.3/10 |
-| ADA-SCID | ADA | Strimvelis (LV) | **1** | 8.1/10 |
+| ADA-SCID | ADA | Strimvelis (gammaretroviral ex vivo HSC; grouped in LV bucket) | **1** | 8.1/10 |
 | Metachromatic leukodystrophy | ARSA | Libmeldy (LV) | **1** | 9.2/10 |
 | X-linked myotubular myopathy | MTM1 | AT132 (AAV8) | **1** | 7.7/10 |
 | Phenylketonuria | PAH | BMN 307 (AAV5) | **1** | 8.0/10 |
@@ -147,7 +147,7 @@ Duchenne muscular dystrophy illustrates the distinction between native-gene repl
 
 The non-LOF arm of the scored cohort contains 6 diseases spanning haploinsufficiency, repeat-expansion silencing, and two-hit haploinsufficiency mechanisms. Unlike purely incompatible diseases (gain-of-function, dominant-negative), all were selected because gene addition is a biologically rational strategy — they are genuine candidates for gene therapy, not diseases where adding a copy makes things worse. The key dissertation question is whether the scoring framework produces interpretable, biologically appropriate results for mechanisms that differ from classical loss-of-function.
 
-The scored haploinsufficiency diseases include Rett syndrome, CHARGE syndrome, Neurofibromatosis type 1, and Tuberous sclerosis complex. Rett syndrome (MECP2, 1,461 bp) returned a score of 7.4/10 medium confidence with Skysona (LV) as top precedent. This is interpretable: MECP2 haploinsufficiency is a CNS disease where lentiviral and AAV platforms are both under active clinical investigation, and Skysona (lentiviral HSC-directed CNS correction) is the most relevant CNS lentiviral precedent in the catalogue. Wiskott-Aldrich syndrome (WAS, 1,506 bp) scored 8.0/10 high confidence with Strimvelis (LV) as top precedent — the most mechanistically coherent result for the ex vivo HSC arm: WAS haploinsufficiency causes haematopoietic failure and the ex vivo HSC gene-addition logic of Strimvelis maps directly to WAS biology (WAS gene therapy has itself reached late-stage trials using analogous ex vivo lentiviral HSC approaches).
+The scored haploinsufficiency diseases include Rett syndrome, CHARGE syndrome, Neurofibromatosis type 1, and Tuberous sclerosis complex. Rett syndrome (MECP2, 1,461 bp) returned a score of 7.4/10 medium confidence with Skysona (LV) as top precedent. This is interpretable: MECP2 haploinsufficiency is a CNS disease where lentiviral and AAV platforms are both under active clinical investigation, and Skysona (lentiviral HSC-directed CNS correction) is the most relevant CNS lentiviral precedent in the catalogue. Wiskott-Aldrich syndrome (WAS, 1,506 bp) scored 8.0/10 high confidence with Strimvelis as top precedent — the most mechanistically coherent result for the ex vivo HSC arm: WAS haploinsufficiency causes haematopoietic failure and the ex vivo HSC gene-addition logic of Strimvelis maps directly to WAS biology. Strimvelis itself is a gammaretroviral ADA-SCID product, so its relevance here is the ex vivo autologous HSC gene-addition precedent, not a claim that Strimvelis is lentiviral.
 
 The two large haploinsufficiency/two-hit diseases — CHARGE syndrome (CHD7, 7,950 bp) and Tuberous sclerosis complex (TSC1, 3,495 bp) — scored 5.9 and 6.1 (medium), correctly reflecting that large CDS size in CHD7 and the two-hit somatic complexity of TSC reduce precedent transferability relative to simpler LOF cases.
 
@@ -160,7 +160,7 @@ The two repeat-expansion diseases behaved differently and this contrast is instr
 The 46-disease scored analysis supports four dissertation-level claims:
 
 1. NanoGT can recover obvious clinical precedents for positive controls and benchmark diseases.
-2. Cross-disease clustering produces biologically plausible precedent groups, especially for lentiviral/HSC lysosomal disease, liver metabolic AAV programmes, and retinal AAV programmes.
+2. Cross-disease clustering produces biologically plausible precedent groups, especially for integrating ex vivo HSC-vector lysosomal and immune disease, liver metabolic AAV programmes, and retinal AAV programmes.
 3. The framework usefully exposes hard limitations: oversized native cargo (DMD, NF1 packaging failures), mitochondrial allotopic-expression requirements (LHON), and the distinction between secreted lysosomal enzymes and lysosomal membrane proteins.
 4. The non-LOF arm produces interpretable, biologically coherent results for conditional mechanisms (haploinsufficiency, repeat-expansion silencing, genomic imprinting), demonstrating that the framework extends meaningfully beyond classical LOF.
 

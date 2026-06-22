@@ -97,7 +97,7 @@ def _catalog_bias_notes(disease: DiseaseInfo) -> list[str]:
 
     notes = [
         f"Catalog-relative ranking: current catalog contains {len(GT_PROGRAMS)} precedent programs and {len(VECTORS)} vectors, so absence of a strong match is not proof that no therapy is possible.",
-        "Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.",
+        "Modality coverage is limited mainly to AAV and integrating ex vivo HSC vector precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.",
     ]
     if disease_tissues and not direct_programs:
         notes.append(
