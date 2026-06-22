@@ -23,7 +23,7 @@ from nanogt.mechanism import lookup_mechanism
 from nanogt.report import MatchResult, save_report
 from nanogt.scoring import rank_programs
 
-ROOT = pathlib.Path(__file__).parent
+ROOT = pathlib.Path(__file__).parent.parent
 OUTPUT = ROOT / "output"
 COHORT_CSV = ROOT / "data" / "disease_cohort_46.csv"
 

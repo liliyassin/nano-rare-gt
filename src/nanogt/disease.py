@@ -169,7 +169,7 @@ def _build_fallbacks() -> None:
             hpo_terms=['Muscle weakness', 'Spinal cord degeneration', 'Motor neuron loss', 'Infantile onset'],
             affected_tissues=['CNS', 'muscle'],
         ),
-        '306': DiseaseInfo(
+        '98879': DiseaseInfo(
             orphanet_id="ORPHA:98879",
             name='Hemophilia B',
             omim_ids=['306900'],
@@ -199,7 +199,7 @@ def _build_fallbacks() -> None:
             hpo_terms=['Intellectual disability', 'Neurodegeneration', 'Brain atrophy', 'Lysosomal storage', 'Behavioural problems'],
             affected_tissues=['CNS'],
         ),
-        '1060': DiseaseInfo(
+        '79234': DiseaseInfo(
             orphanet_id="ORPHA:79234",
             name='Crigler-Najjar syndrome type I',
             omim_ids=['218800'],

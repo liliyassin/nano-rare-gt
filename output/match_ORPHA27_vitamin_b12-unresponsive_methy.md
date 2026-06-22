@@ -1,7 +1,7 @@
 # NanoGT Match Report: Vitamin B12-unresponsive methylmalonic acidemia
 
 **Disease:** Vitamin B12-unresponsive methylmalonic acidemia (ORPHA:27)  
-**Primary gene:** MUT  
+**Primary gene:** MMUT  
 **Gene CDS:** 2250 bp  
 **Inheritance:** Autosomal recessive  
 **Target tissues scored:** liver, CNS  
@@ -11,7 +11,7 @@
 ## Interpretation
 
 - At least one high-confidence precedent was found, but this is still a precedent match rather than a clinical-trial recommendation.
-- Main review flags: MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.; Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required.
+- Main review flags: MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.; Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints; Cell-autonomous protein across multiple tissues; high transduction coverage may be required.
 
 ### Disease Mechanism Evidence
 
@@ -26,7 +26,7 @@
 ### Study-Level Limitations
 
 - Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
-- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Modality coverage is limited mainly to AAV and integrating ex vivo HSC vector precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
 - Endpoint readiness: liver/metabolic targets may have biochemical biomarkers, but biomarker correction must be linked to clinical benefit.
 - Endpoint risk: CNS/neurodevelopmental outcomes may require natural-history data, age-stratified endpoints, and long follow-up because short-term clinical change can be hard to interpret.
 - Endpoint risk: multi-system disease may need a hierarchy of primary and secondary endpoints; one tissue response may not equal whole-disease benefit.
@@ -90,11 +90,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
+- ORGANELLE TARGETING: CONDITIONAL — MMUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
-- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
+- MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -146,11 +146,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
+- ORGANELLE TARGETING: CONDITIONAL — MMUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
-- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
+- MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
@@ -203,11 +203,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
+- ORGANELLE TARGETING: CONDITIONAL — MMUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
-- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
+- MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Vector does not naturally cover all annotated disease tissues: cns, liver
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
@@ -259,11 +259,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
+- ORGANELLE TARGETING: CONDITIONAL — MMUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
-- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
+- MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility
@@ -315,11 +315,11 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: CONDITIONAL — MUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
+- ORGANELLE TARGETING: CONDITIONAL — MMUT is a nuclear-encoded mitochondrial matrix protein. Nuclear AAV delivery is theoretically feasible (the gene is in the nuclear genome) but the N-terminal mitochondrial targeting sequence (MTS) must be preserved intact in the therapeutic construct for correct post-translational import into the mitochondrial matrix. MTS functionality is not validated by any other dimension in this framework. Confirm import efficiency with disease-specific in vitro/in vivo data before treating vector precedent scores as directly transferable.
 
 ### Manual Review Flags
 
-- MITOCHONDRIAL MATRIX ENZYME (MUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
+- MITOCHONDRIAL MATRIX ENZYME (MMUT): nuclear-encoded but the protein must be imported into the mitochondrial matrix post-translation via its N-terminal mitochondrial targeting sequence (MTS). Nuclear AAV delivery is theoretically feasible, but the therapeutic construct must preserve the intact MTS. MTS functionality is not captured by any other scoring dimension — this is an additional disease-specific development step requiring experimental validation.
 - Dual critical target tissues; confirm whether one route can plausibly address both clinical endpoints
 - Cell-autonomous protein across multiple tissues; high transduction coverage may be required
 - Narrow therapeutic window; evaluate newborn screening, presymptomatic diagnosis, or very early dosing feasibility

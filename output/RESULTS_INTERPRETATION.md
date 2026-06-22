@@ -2,41 +2,41 @@
 
 ## What the current results actually show
 
-NanoGT has now been run on 46 diseases. The current output supports a dissertation-level proof-of-concept claim: a fourteen-dimension heuristic framework can map monogenic rare diseases onto existing gene-therapy precedents in a way that produces interpretable biological clusters and exposes obvious failure modes. The fourteenth dimension is an explicit organelle-targeting feasibility check, added in v2 to capture mitochondrial and other non-nuclear delivery constraints.
+NanoGT has now been run on 46 diseases. It has fourteen-dimension heuristic framework which can map monogenic rare diseases onto existing gene-therapy precedents in a way that produces interpretable biological clusters and exposes obvious failure modes. The fourteenth dimension is an explicit organelle-targeting feasibility check, added in v2 to capture mitochondrial and other non-nuclear delivery constraints.
 
 It does not support a clinical-grade claim that the top-ranked programme is directly reusable, safe, or ready for translation. Every top match still requires disease-specific literature review, target biology validation, vector engineering, toxicology, manufacturing review, and regulatory assessment.
 
 ## Quantitative summary
 
-- Diseases analysed: 40.
-- Ranked with at least one current-catalog precedent: 39.
-- Packaging hard-fail (CDS exceeds all vectors): 1 (NF1, 8,451 bp).
-- High-confidence top matches: 29 of 33 diseases with a precedent.
-- Medium-confidence top matches: 10 of 33 diseases with a precedent.
+- Diseases analysed: 46.
+- Ranked with at least one current-catalog precedent: ??.
+- Packaging hard-fail (CDS exceeds all vectors): ??.
+- High-confidence top matches: ?? of ?? diseases with a precedent.
+- Medium-confidence top matches: ?? of ?? diseases with a precedent.
 - Score range among top matches: 5.9/10 to 9.9/10.
 
 ## Top precedent programmes
 
-- Libmeldy: 11 top-ranked diseases
-- Skysona: 7 top-ranked diseases
-- BMN 307: 4 top-ranked diseases
-- OAV101-IT: 4 top-ranked diseases
-- CPCB-RPE1: 3 top-ranked diseases
-- Strimvelis: 3 top-ranked diseases
-- Hemgenix: 2 top-ranked diseases
-- Luxturna: 2 top-ranked diseases
-- SRP-9001: 2 top-ranked diseases
-- AT132: 1 top-ranked disease
+- Libmeldy: ? top-ranked diseases
+- Skysona: ? top-ranked diseases
+- BMN 307: ? top-ranked diseases
+- OAV101-IT: ? top-ranked diseases
+- CPCB-RPE1: ? top-ranked diseases
+- Strimvelis: ? top-ranked diseases
+- Hemgenix: ? top-ranked diseases
+- Luxturna: ? top-ranked diseases
+- SRP-9001: ? top-ranked diseases
+- AT132: ? top-ranked disease
 
 ## Vector classes represented in top matches
 
-- LV: 21 top-ranked diseases
-- AAV5: 6 top-ranked diseases
-- AAV9: 6 top-ranked diseases
-- AAV8: 4 top-ranked diseases
-- AAV2: 2 top-ranked diseases
+- LV: ? top-ranked diseases
+- AAV5: ? top-ranked diseases
+- AAV9: ? top-ranked diseases
+- AAV8: ? top-ranked diseases
+- AAV2: ? top-ranked diseases
 
-The top-match distribution is heavily concentrated in integrating ex vivo HSC-vector programmes (Libmeldy, Skysona, and Strimvelis together account for 21 of 39 matched diseases; Strimvelis is gammaretroviral, while Libmeldy and Skysona are lentiviral). This is a finding and a limitation. It indicates that the current surrogate catalogue has strong coverage for lysosomal/leukodystrophy-like, CNS neuronal, haematopoietic, hepatic metabolic, and retinal disease spaces, but much weaker coverage for kidney, cardiac, peripheral nerve, mitochondrial, dominant-negative, and large-gene biology.
+The top-match distribution is heavily concentrated in integrating ex vivo HSC-vector programmes (Libmeldy, Skysona, and Strimvelis together account for ?? of ?? matched diseases; Strimvelis is gammaretroviral, while Libmeldy and Skysona are lentiviral). This is a finding and a limitation. It indicates that the current surrogate catalogue has strong coverage for lysosomal/leukodystrophy-like, CNS neuronal, haematopoietic, hepatic metabolic, and retinal disease spaces, but much weaker coverage for kidney, cardiac, peripheral nerve, mitochondrial, dominant-negative, and large-gene biology.
 
 ## Interpretation by cluster
 

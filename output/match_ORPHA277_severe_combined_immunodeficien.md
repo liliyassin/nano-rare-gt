@@ -47,7 +47,7 @@
 ## Match #1: Strimvelis
 
 **Precedent disease:** ADA-SCID  
-**Vector:** LV scoring bucket (Strimvelis is an ex vivo gammaretroviral ADA product)  
+**Vector:** LV  
 **Tissue target:** hematopoietic  
 **Composite score:** 8.1 / 10  
 

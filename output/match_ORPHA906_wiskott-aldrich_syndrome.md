@@ -26,7 +26,7 @@
 ### Study-Level Limitations
 
 - Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
-- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Modality coverage is limited mainly to AAV and integrating ex vivo HSC vector precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
 - Few catalog vectors cover the annotated disease tissue(s): LV.
 - Endpoint readiness unclear from available annotations; identify biomarkers, natural-history measures, and patient-relevant outcomes before trial prioritisation.
 

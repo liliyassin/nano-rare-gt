@@ -38,8 +38,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | gene_addition_or_factor_expression |
 | **Mechanism evidence** | BioMarin Roctavian (valoctocogene roxaparvovec) approved for Hemophilia A; AAV5 liver-directed F8 expression precedent |
-| **Evidence source** | [OMIM Hemophilia A 306700](https://omim.org/entry/306700) |
-| **Evidence status** | needs_user_fact_check |
+| **Evidence source** | [FDA Approval 2023](https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapy-adults-severe-hemophilia) |
+| **Evidence status** | x |
 
 ### Hemophilia B
 
@@ -57,8 +57,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | gene_addition_or_factor_expression |
 | **Mechanism evidence** | Deficiency of coagulation factor IX is the therapeutic deficit; liver-directed F9 expression is an approved gene-addition precedent |
-| **Evidence source** | [OMIM Hemophilia B 306900](https://omim.org/entry/306900) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [FDA Approval](https://www.fda.gov/vaccines-blood-biologics/vaccines/hemgenix) |
+| **Evidence status** | x |
 
 ### Spinal Muscular Atrophy
 
@@ -76,8 +76,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | gene_addition |
 | **Mechanism evidence** | FDA Zolgensma indication is SMA with biallelic SMN1 mutations; product supplies functional SMN transgene |
-| **Evidence source** | [FDA Zolgensma product page](https://www.fda.gov/vaccines-blood-biologics/zolgensma) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [FDA Zolgensma product page](https://www.fda.gov/vaccines-blood-biologics/zolgensma); [Announcement page](https://www.fda.gov/news-events/press-announcements/fda-approves-innovative-gene-therapy-treat-pediatric-patients-spinal-muscular-atrophy-rare-disease); [*my SMA match ranks OAV101-IT first and Zolgensma second -> Nov 2025, FDA approved Itvisma / onasemnogene abeparvovec-brve, an intrathecal formulation for SMA patients aged 2 years and older with confirmed SMN1 mutation. That is the cleanest regulatory source for the OAV101-IT precedent](https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/itvisma) |
+| **Evidence status** | x |
 
 ---
 
@@ -94,13 +94,13 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Primary tissues** | hematopoietic |
 | **Prevalence** | 1-9/1000000 |
 | **OMIM** | [102700](https://omim.org/entry/102700) |
-| **Cohort notes** | approved ex vivo autologous CD34+ gammaretroviral ADA precedent; grouped with integrating HSC-vector precedents in NanoGT |
+| **Cohort notes** | approved ex vivo/lentiviral HSC precedent; positive control |
 | **Mechanism** | loss_of_function — ADA enzyme deficiency causing toxic purine metabolite accumulation |
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | ex_vivo_hsc_gene_addition |
-| **Mechanism evidence** | ADA-SCID is a deficiency disorder with an approved ex vivo autologous CD34+ ADA gene-addition precedent (Strimvelis; gammaretroviral vector) |
-| **Evidence source** | [OMIM ADA-SCID 102700](https://omim.org/entry/102700) |
-| **Evidence status** | source_linked_needs_review |
+| **Mechanism evidence** | ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent |
+| **Evidence source** | [EMA](https://www.ema.europa.eu/en/medicines/human/EPAR/strimvelis) |
+| **Evidence status** | x |
 
 ---
 
@@ -122,8 +122,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | conditional |
 | **Preferred modality** | engineered_microgene_or_dual_vector |
 | **Mechanism evidence** | DMD supports replacement logic but requires micro-dystrophin or other engineered strategies because full-length DMD exceeds AAV capacity |
-| **Evidence source** | [Chamberlain et al. 2023 microdystrophin review](https://pubmed.ncbi.nlm.nih.gov/36990339/) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [Chamberlain et al. 2023 Microdystrophin Expression as a Surrogate Endpoint for DMD Clinical Trials](https://pmc.ncbi.nlm.nih.gov/articles/PMC10210223/); [FDA Approval](https://www.fda.gov/news-events/press-announcements/fda-expands-approval-gene-therapy-patients-duchenne-muscular-dystrophy) |
+| **Evidence status** | x |
 
 ---
 
@@ -145,8 +145,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | uncertain |
 | **Preferred modality** | specialized_allotopic_expression_or_mitochondrial_strategy |
 | **Mechanism evidence** | Mitochondrial DNA disease is not ordinary nuclear gene addition; allotopic AAV approaches are specialized and disease-specific |
-| **Evidence source** | [OMIM MT-ND4 gene entry](https://omim.org/entry/516003) |
-| **Evidence status** | needs_manual_review |
+| **Evidence source** | [5-year Phase 3 RCT follow-up of RESCUE/REVERSE. Sustained bilateral BCVA improvement (+4 lines), good safety profile. The pivotal long-term efficacy paper supporting approval.](https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2828184) |
+| **Evidence status** | x |
 
 ---
 
@@ -168,8 +168,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | retinal_gene_addition |
 | **Mechanism evidence** | Biallelic CNGB3 loss is compatible with photoreceptor-directed gene addition if target cells remain viable |
-| **Evidence source** | [OMIM CNGB3 gene entry](https://omim.org/entry/605080) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [Phenotyping and genotyping inherited retinal diseases](https://www.sciencedirect.com/science/article/pii/S1350946224000090?via%3Dihub) |
+| **Evidence status** | x |
 
 ### Alpha-mannosidosis
 
@@ -187,8 +187,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | gene_addition_or_cross_correction |
 | **Mechanism evidence** | Lysosomal enzyme deficiency supports gene addition and possible cross-correction logic |
-| **Evidence source** | [OMIM MAN2B1 gene entry](https://omim.org/entry/609458) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [Efficacy and safety of Velmanase alfa in the treatment of patients with alpha-mannosidosis](https://onlinelibrary.wiley.com/doi/10.1007/s10545-018-0185-0) |
+| **Evidence status** | x |
 
 ### Biotinidase deficiency
 
@@ -206,8 +206,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | liver_gene_addition |
 | **Mechanism evidence** | BTD LOF is a metabolic enzyme deficiency compatible with liver-directed gene addition |
-| **Evidence source** | [OMIM BTD 253260](https://omim.org/entry/253260) |
-| **Evidence status** | needs_user_fact_check |
+| **Evidence source** | [Evaluating reproductive carrier screening using biotinidase deficiency as a model](https://www.gimjournal.org/article/S1098-3600(24)00279-X/fulltext) |
+| **Evidence status** | x |
 
 ### Canavan disease
 
@@ -225,8 +225,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | cns_gene_addition |
 | **Mechanism evidence** | ASPA LOF supports CNS-directed gene addition; clinical AAV trials ongoing |
-| **Evidence source** | [OMIM ASPA 271900](https://omim.org/entry/271900) |
-| **Evidence status** | needs_user_fact_check |
+| **Evidence source** | [Oligodendrocyte-targeted adeno-associated virus gene therapy for Canavan disease in children: a phase 1/2 trial](https://www.nature.com/articles/s41591-025-03919-w) |
+| **Evidence status** | x |
 
 ### Choroideremia
 
@@ -244,8 +244,8 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | retinal_gene_addition |
 | **Mechanism evidence** | CHM loss of function is a retinal gene-addition target if viable retina remains |
-| **Evidence source** | [OMIM CHM gene entry](https://omim.org/entry/300390) |
-| **Evidence status** | source_linked_needs_review |
+| **Evidence source** | [Subretinal timrepigene emparvovec in adult men with choroideremia: a randomized phase 3 trial](https://omim.org/entry/300390) |
+| **Evidence status** | x |
 
 ### Chronic neurovisceral acid sphingomyelinase deficiency (Niemann-Pick A/B)
 
@@ -339,7 +339,7 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | conditional |
 | **Preferred modality** | gene_addition_or_cross_correction |
 | **Mechanism evidence** | GBA deficiency supports replacement logic but neuronopathic disease and tissue access can limit simple systemic correction |
-| **Evidence source** | [OMIM GBA gene entry](https://omim.org/entry/606463) |
+| **Evidence source** | [OMIM GBA gene entry](https://pmc.ncbi.nlm.nih.gov/articles/PMC10579095/) |
 | **Evidence status** | source_linked_needs_review |
 
 ### Glycogen storage disease type Ia

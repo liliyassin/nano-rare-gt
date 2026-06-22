@@ -26,7 +26,7 @@
 ### Study-Level Limitations
 
 - Catalog-relative ranking: current catalog contains 21 precedent programs and 8 vectors, so absence of a strong match is not proof that no therapy is possible.
-- Modality coverage is limited mainly to AAV and lentiviral precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
+- Modality coverage is limited mainly to AAV and integrating ex vivo HSC vector precedents; dual-AAV, LNP/mRNA, genome editing, ASO, and transplant-enabling strategies are not fully represented.
 - Endpoint readiness: liver/metabolic targets may have biochemical biomarkers, but biomarker correction must be linked to clinical benefit.
 - Endpoint risk: CNS/neurodevelopmental outcomes may require natural-history data, age-stratified endpoints, and long follow-up because short-term clinical change can be hard to interpret.
 - Endpoint risk: multi-system disease may need a hierarchy of primary and secondary endpoints; one tissue response may not equal whole-disease benefit.
@@ -90,7 +90,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: COMPATIBLE — GBA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+- ORGANELLE TARGETING: COMPATIBLE — GBA1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -145,7 +145,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: COMPATIBLE — GBA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+- ORGANELLE TARGETING: COMPATIBLE — GBA1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -200,7 +200,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: COMPATIBLE — GBA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+- ORGANELLE TARGETING: COMPATIBLE — GBA1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -256,7 +256,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: COMPATIBLE — GBA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+- ORGANELLE TARGETING: COMPATIBLE — GBA1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
@@ -312,7 +312,7 @@
 - Immune privilege: high privilege — blood-brain barrier severely limits T-cell access; durable expression expected
 - Promoter availability: ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301
 - Route of administration: IV systemic — established, minimally invasive; used in all hepatic GT programs
-- ORGANELLE TARGETING: COMPATIBLE — GBA standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
+- ORGANELLE TARGETING: COMPATIBLE — GBA1 standard subcellular localisation; nuclear AAV delivery directly produces functional protein at the correct cellular compartment with no additional organelle-import steps required.
 
 ### Manual Review Flags
 
