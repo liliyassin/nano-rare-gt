@@ -1,7 +1,7 @@
 # NanoGT Match Report: Gaucher disease
 
 **Disease:** Gaucher disease (ORPHA:355)  
-**Primary gene:** GBA  
+**Primary gene:** GBA1  
 **Gene CDS:** 1491 bp  
 **Inheritance:** Autosomal recessive  
 **Target tissues scored:** hematopoietic, liver, CNS  

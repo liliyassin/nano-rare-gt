@@ -397,6 +397,131 @@ def _fallback_gene(symbol: str) -> GeneInfo:
             ["hematopoiesis", "HSC maintenance", "lymphatic development"],
             ["Transcription factor", "Zinc-finger", "Disease mutation"], ["GATA zinc finger"],
         ),
+
+        # ── 46-disease cohort new additions ──────────────────────────────────
+        # UniProt CDS = (protein_length_aa × 3) + 3 (stop codon)
+        "CFTR": GeneInfo(
+            "CFTR", "P13569", "Cystic fibrosis transmembrane conductance regulator",
+            # ← ABC-family Cl⁻ channel; 4443bp fills ~95% of AAV5 capacity → very tight packaging
+            # ← transmembrane channel; not secreted; apical surface of epithelial cells
+            # ← UniProt P13569: 1480 aa → CDS 4443 bp
+            4443, 1480, False, ["Cell membrane", "Apical membrane"],
+            ["chloride channel", "epithelial ion transport", "CFTR pathway"],
+            ["Ion channel", "Membrane", "Disease mutation"], ["ABC transporter"],
+        ),
+        "ASPA": GeneInfo(
+            "ASPA", "P45381", "Aspartoacylase",
+            # ← cytoplasmic enzyme in oligodendrocytes; hydrolyses N-acetyl-aspartate
+            # ← 942bp fits all AAVs easily; CNS target
+            # ← UniProt P45381: 313 aa → CDS 942 bp
+            942, 313, False, ["Cytoplasm"],
+            ["N-acetyl-aspartate catabolism", "myelin synthesis", "oligodendrocyte"],
+            ["Hydrolase", "Disease mutation"], [],
+        ),
+        "BTD": GeneInfo(
+            "BTD", "P43251", "Biotinidase",
+            # ← secreted glycoprotein; recycles biotin from biotinylated proteins in plasma
+            # ← 1632bp; ubiquitous expression; liver is the main source
+            # ← UniProt P43251: 543 aa → CDS 1632 bp
+            1632, 543, True, ["Secreted", "Extracellular"],
+            ["biotin recycling", "coenzyme metabolism"],
+            ["Hydrolase", "Disease mutation"], [],
+        ),
+        "HEXA": GeneInfo(
+            "HEXA", "P06865", "Beta-hexosaminidase subunit alpha",
+            # ← lysosomal enzyme; alpha subunit of hexosaminidase A (HEXA/HEXB heterodimer)
+            # ← secreted form exists; cross-correction plausible
+            # ← UniProt P06865: 529 aa → CDS 1590 bp
+            1590, 529, True, ["Lysosome", "Secreted"],
+            ["GM2 ganglioside catabolism", "glycolipid metabolism"],
+            ["Lysosome", "Hydrolase", "Disease mutation"], ["Glycosyl hydrolase"],
+        ),
+        "ATP7B": GeneInfo(
+            "ATP7B", "P35670", "Copper-transporting ATPase 2",
+            # ← P-type ATPase; trans-Golgi network in hepatocytes; excretes copper into bile
+            # ← 4398bp; large transmembrane pump; important to check packaging capacity
+            # ← UniProt P35670: 1465 aa → CDS 4398 bp
+            4398, 1465, False, ["Trans-Golgi network", "Membrane"],
+            ["copper transport", "bile secretion", "copper homeostasis"],
+            ["ATPase", "Membrane", "Metal-binding", "Disease mutation"], ["Cation transport ATPase"],
+        ),
+        "CTNS": GeneInfo(
+            "CTNS", "O60931", "Cystinosin",
+            # ← lysosomal membrane protein; cystine/H+ co-transporter (7-transmembrane)
+            # ← NOT a soluble enzyme; cannot be secreted; no cross-correction possible
+            # ← same class as MCOLN1 (ML-IV): membrane-anchored transporter
+            # ← UniProt O60931: 367 aa → CDS 1104 bp
+            1104, 367, False, ["Lysosome membrane", "Late endosome membrane"],
+            ["cystine transport", "lysosomal cystine export"],
+            ["Lysosome", "Transport", "Membrane", "Disease mutation"], ["Cystinosin"],
+        ),
+        "SMPD1": GeneInfo(
+            "SMPD1", "P17405", "Sphingomyelin phosphodiesterase 1",
+            # ← lysosomal enzyme with a secreted form; hydrolyses sphingomyelin → ceramide
+            # ← 1890bp fits AAV; liver/spleen are primary sites; CNS involvement in type A
+            # ← UniProt P17405: 629 aa → CDS 1890 bp
+            1890, 629, True, ["Lysosome", "Secreted"],
+            ["sphingomyelin catabolism", "sphingolipid metabolism"],
+            ["Lysosome", "Hydrolase", "Disease mutation"], [],
+        ),
+        "NPC1": GeneInfo(
+            "NPC1", "O15118", "NPC intracellular cholesterol transporter 1",
+            # ← large lysosomal membrane protein; 13-transmembrane cholesterol transporter
+            # ← 3837bp; transmembrane; NOT secreted; no cross-correction possible
+            # ← UniProt O15118: 1278 aa → CDS 3837 bp
+            3837, 1278, False, ["Lysosome membrane", "Late endosome membrane"],
+            ["cholesterol transport", "intracellular lipid trafficking"],
+            ["Lysosome", "Membrane", "Transport", "Disease mutation"], ["NPC1"],
+        ),
+        "PEX1": GeneInfo(
+            "PEX1", "O43933", "Peroxisome biogenesis factor 1",
+            # ← AAA-ATPase; cytoplasmic; peroxisome import receptor recycling
+            # ← 3852bp fits AAV; peroxisome target → peroxisomal import machinery required
+            # ← UniProt O43933: 1283 aa → CDS 3852 bp
+            3852, 1283, False, ["Cytoplasm", "Peroxisome membrane"],
+            ["peroxisome biogenesis", "peroxin import", "AAA ATPase"],
+            ["ATPase", "Peroxisome", "Disease mutation"], ["AAA ATPase"],
+        ),
+        "AGXT": GeneInfo(
+            "AGXT", "P21549", "Alanine-glyoxylate aminotransferase",
+            # ← peroxisomal enzyme; converts glyoxylate → glycine in hepatocytes
+            # ← 1179bp; small gene; but peroxisomal targeting signal must be preserved
+            # ← UniProt P21549: 392 aa → CDS 1179 bp
+            1179, 392, False, ["Peroxisome"],
+            ["glyoxylate metabolism", "oxalate prevention", "peroxisomal aminotransferase"],
+            ["Aminotransferase", "Peroxisome", "Disease mutation"], ["Aminotransferase"],
+        ),
+        "MYO7A": GeneInfo(
+            "MYO7A", "Q13402", "Unconventional myosin-VIIa",
+            # ← large actin-based motor protein; expressed in retinal pigment epithelium and hair cells
+            # ← 6648bp > AAV capacity (~4.7kb); dual-vector or LV delivery likely required
+            # ← UniProt Q13402: 2215 aa → CDS 6648 bp
+            6648, 2215, False, ["Cytoplasm", "Cytoskeleton", "Stereocilia"],
+            ["actin motor", "retinal pigment epithelium", "hair cell stereocilia"],
+            ["Motor protein", "Cytoskeleton", "Disease mutation"], ["Myosin head", "IQ motif", "FERM"],
+        ),
+        "TSC1": GeneInfo(
+            "TSC1", "Q92574", "Hamartin",
+            # ← tumour suppressor; haploinsufficiency; forms TSC1/TSC2 complex (GAP for Rheb)
+            # ← 3495bp fits most AAVs; mTORC1 pathway regulation
+            # ← UniProt Q92574: 1164 aa → CDS 3495 bp
+            3495, 1164, False, ["Cytoplasm", "Nucleus"],
+            ["mTOR signalling", "GTPase activation", "tumour suppressor", "Rheb-GAP"],
+            ["Disease mutation"], ["HEAT repeat"],
+        ),
+        # Approved HGNC aliases — same protein as GBA/G6PC/MUT static entries above
+        "GBA1": GeneInfo(
+            "GBA1", "P04062", "Glucosylceramidase beta 1",
+            1491, 497, True, ["Lysosome"], ["glycosphingolipid metabolism"], ["Lysosome"], [],
+        ),
+        "G6PC1": GeneInfo(
+            "G6PC1", "P35575", "Glucose-6-phosphatase catalytic subunit 1",
+            1071, 357, False, ["Endoplasmic reticulum membrane"], ["glucose homeostasis", "glycogen metabolism"], ["Membrane"], [],
+        ),
+        "MMUT": GeneInfo(
+            "MMUT", "P22033", "Methylmalonyl-CoA mutase",
+            2250, 750, False, ["Mitochondrial matrix"], ["amino acid catabolism"], ["Mitochondrion"], [],
+        ),
     }
     return FALLBACKS.get(
         symbol,

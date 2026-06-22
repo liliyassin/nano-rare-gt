@@ -4,26 +4,41 @@ NanoGT is a dissertation-stage Python framework for matching monogenic rare dise
 
 ## Current dissertation status
 
-Current focus: a 40-disease proof-of-concept cohort for the dissertation report.
+Current focus: a 46-disease proof-of-concept cohort for the dissertation report.
 
 The current run has:
 
-- 40 diseases in the cohort (stored in `data/disease_cohort_40.csv`).
-- Source-linked disease mechanism evidence in `data/disease_mechanisms.csv`.
+- 46 diseases in the cohort (stored in `data/disease_cohort_46.csv`).
+- Source-linked disease mechanism evidence in `data/disease_mechanisms_46.csv`.
 - 21 curated surrogate gene-therapy programmes in `src/nanogt/catalog.py`.
 - 14 scoring dimensions (v2 algorithm).
-- 39 diseases with at least one ranked precedent; NF1 receives a packaging hard-fail (8,451 bp CDS exceeds all vectors).
-- 32 high-confidence matches.
-- 7 medium-confidence matches.
+- 45 diseases with at least one ranked precedent; NF1 receives a packaging hard-fail (8,451 bp CDS exceeds all vectors).
+- 36 high-confidence matches.
+- 8 medium-confidence matches.
 - Full-length DMD still triggers packaging failures against ordinary AAV programs, while the engineered micro-dystrophin precedent is scored separately.
 
 Primary outputs:
 
 - `output/SUMMARY.md` — cross-disease result table.
-- `output/RESULTS_INTERPRETATION.md` — dissertation-safe interpretation of the 40-disease results.
+- `output/RESULTS_INTERPRETATION.md` — dissertation-safe interpretation of the cohort results.
 - `output/match_*.md` — individual disease reports.
 - `paper/` — dissertation draft sections.
-- `DISSERTATION_TODO.md` — current task list and deadlines.
+
+## Scripts — what each file does and when to run it
+
+| Script | What it does | When to run |
+|---|---|---|
+| `run_results.py` | Scores all 46 diseases and writes `output/match_*.md` + `output/SUMMARY.md` | If you change scoring logic or want to regenerate all results from scratch |
+| `score_new_diseases.py` | Scores a batch of new diseases and appends them to `SUMMARY.md` | If you add new diseases to `data/disease_cohort_46.csv` |
+| `generate_figures.py` | Generates `paper/figure1_scores.pdf`, `figure2_radar.pdf`, `figure3_stacked.pdf` | After any change to scores or disease names |
+| `regenerate_match_pdfs.py` | Converts all `output/match_*.md` files to PDFs in `output/pdfs/` | After updating match reports |
+| `generate_draft_pdf.py` | Compiles `paper/` markdown sections into a single dissertation draft PDF | When you want a full PDF of the dissertation |
+| `extract_pdfs.py` | Extracts text from PDFs in `Reading Literature/` into `.txt` files | If you add new PDFs and want searchable text versions |
+| `setup_and_run.sh` | One-command setup + run (installs dependencies, runs `run_results.py`) | First-time setup on a new machine |
+
+All scripts are run from the project root, e.g. `uv run python scripts/generate_figures.py`.
+
+---
 
 ## What NanoGT does
 
@@ -52,7 +67,7 @@ NanoGT is not a clinical recommendation engine. A top-ranked precedent does not 
 
 The current dissertation-safe claim is:
 
-> NanoGT is a reproducible proof-of-concept framework for computational gene-therapy precedent mapping. In a 40-disease cohort spanning LOF, haploinsufficiency, repeat-expansion, and imprinting mechanisms, it generated interpretable disease-precedent clusters, recovered several expected clinical precedents, and correctly flagged scope failures such as DMD native-gene packaging incompatibility and NF1's oversized CDS.
+> NanoGT is a reproducible proof-of-concept framework for computational gene-therapy precedent mapping. In a 46-disease cohort spanning LOF, haploinsufficiency, repeat-expansion, and imprinting mechanisms, it generated interpretable disease-precedent clusters, recovered several expected clinical precedents, and correctly flagged scope failures such as DMD native-gene packaging incompatibility and NF1's oversized CDS.
 
 ## Installation for local development
 
@@ -79,12 +94,14 @@ nanogt init
 uv run nanogt match ORPHA:1946 --top 5 -o output
 ```
 
+(The `nanogt` CLI is installed from `src/nanogt/` and doesn't need to be in `scripts/`.)
+
 This writes an individual Markdown report into `output/`.
 
-## Run the reproducible 40-disease cohort
+## Run the reproducible 46-disease cohort
 
 ```bash
-uv run python run_results.py
+uv run python scripts/run_results.py
 ```
 
 Then open:
@@ -108,32 +125,29 @@ uv run pygount --format=summary \
   .
 ```
 
-Current pygount summary is saved in `docs/CODEBASE_INSPECTION.md`.
+Current pygount summary is saved by re-running the command above.
 
 ## Repository map
 
 ```text
 src/nanogt/          Python package: CLI, disease lookup, gene lookup, scoring, reports, static catalogue
+scripts/             pipeline scripts (run from project root)
 tests/               pytest tests
-data/                40-disease cohort CSV and fixtures
+data/                46-disease cohort CSV and fixtures
 output/              generated match reports and summary interpretation
 paper/               dissertation draft sections and figure notes
-docs/                architecture notes, codebase inspection, background notes
-reports/             generated protocol-style reports
+docs/                architecture notes, scoring fix audit, disease deep-dives, reference PDF
+Reading Literature/  source papers (PDFs + extracted text)
 ```
 
 ## Immediate dissertation priorities
 
 Do not expand the scope before submission. The critical work is now:
 
-1. Fact-check every disease row in `data/disease_cohort_40.csv` and `data/disease_mechanisms.csv`.
+1. Tighten Methods, Results, and Discussion around the actual 46-disease output.
 2. Verify and read the key references that support the final claims.
-3. Improve figures and tables for the dissertation.
-4. Tighten Methods, Results, and Discussion around the actual 40-disease output.
-5. State limitations honestly and explicitly.
-6. Send the supervisor a concise update with the current framing and ask what evidence they most want strengthened.
-
-See `DISSERTATION_TODO.md` for the dated work plan.
+3. Finalise figures and supplementary tables.
+4. State limitations honestly and explicitly.
 
 ## Licence
 

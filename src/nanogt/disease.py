@@ -170,7 +170,7 @@ def _build_fallbacks() -> None:
             affected_tissues=['CNS', 'muscle'],
         ),
         '306': DiseaseInfo(
-            orphanet_id="ORPHA:306",
+            orphanet_id="ORPHA:98879",
             name='Hemophilia B',
             omim_ids=['306900'],
             prevalence='1-5/100000',
@@ -200,7 +200,7 @@ def _build_fallbacks() -> None:
             affected_tissues=['CNS'],
         ),
         '1060': DiseaseInfo(
-            orphanet_id="ORPHA:1060",
+            orphanet_id="ORPHA:79234",
             name='Crigler-Najjar syndrome type I',
             omim_ids=['218800'],
             prevalence='<1/1000000',
@@ -249,26 +249,8 @@ def _build_fallbacks() -> None:
             hpo_terms=['Maple syrup odor', 'Metabolic encephalopathy', 'Intellectual disability', 'Liver dysfunction', 'Neonatal metabolic crisis'],
             affected_tissues=['liver', 'CNS'],
         ),
-        '309': DiseaseInfo(
-            orphanet_id="ORPHA:309",
-            name='Salla disease',
-            omim_ids=['604369'],
-            prevalence='<1/1000000',
-            inheritance=['Autosomal recessive'],
-            gene_symbols=['SLC17A5'],
-            hpo_terms=['Intellectual disability', 'Cerebellar ataxia', 'Nystagmus', 'Hypotonia', 'White matter abnormality', 'Neurodegeneration'],
-            affected_tissues=['CNS'],
-        ),
-        '65': DiseaseInfo(
-            orphanet_id="ORPHA:65",
-            name='Leber congenital amaurosis',
-            omim_ids=['204000'],
-            prevalence='1-9/100000',
-            inheritance=['Autosomal recessive'],
-            gene_symbols=['RPE65'],
-            hpo_terms=['Congenital blindness', 'Retinal dystrophy', 'Nystagmus', 'Visual impairment'],
-            affected_tissues=['retina'],
-        ),
+        # ORPHA:309 (Salla disease) — removed from 46-disease cohort
+        # ORPHA:65 (Leber congenital amaurosis) — removed from 46-disease cohort
         '104': DiseaseInfo(
             orphanet_id="ORPHA:104",
             name='Leber hereditary optic neuropathy',
@@ -335,7 +317,7 @@ def _build_fallbacks() -> None:
             omim_ids=['232200'],
             prevalence='1-9/100000',
             inheritance=['Autosomal recessive'],
-            gene_symbols=['G6PC'],
+            gene_symbols=['G6PC1'],
             hpo_terms=['Hypoglycemia', 'Hepatomegaly', 'Lactic acidosis', 'Liver glycogen accumulation', 'Childhood onset'],
             affected_tissues=['liver', 'kidney'],
         ),
@@ -345,7 +327,7 @@ def _build_fallbacks() -> None:
             omim_ids=['251000'],
             prevalence='1-9/100000',
             inheritance=['Autosomal recessive'],
-            gene_symbols=['MUT'],
+            gene_symbols=['MMUT'],
             hpo_terms=['Methylmalonic acidemia', 'Metabolic acidosis', 'Hyperammonemia', 'Mitochondrial enzyme deficiency', 'Neonatal metabolic crisis'],
             affected_tissues=['liver', 'CNS'],
         ),
@@ -365,7 +347,7 @@ def _build_fallbacks() -> None:
             omim_ids=['230800'],
             prevalence='1-9/100000',
             inheritance=['Autosomal recessive'],
-            gene_symbols=['GBA'],
+            gene_symbols=['GBA1'],
             hpo_terms=['Hepatosplenomegaly', 'Bone pain', 'Cytopenia', 'Lysosomal storage', 'Macrophage storage'],
             affected_tissues=['hematopoietic', 'liver', 'CNS'],
         ),
@@ -517,21 +499,7 @@ def _build_fallbacks() -> None:
             # Evidence: Amir RE et al. 1999 Nat Genet PMID 10508514;
             #           Van Esch H et al. 2005 Am J Hum Genet PMID 16080119
         ),
-        '1306': DiseaseInfo(
-            orphanet_id="ORPHA:1306",
-            name='Dravet syndrome',
-            omim_ids=['607208'],
-            prevalence='1-9/100000',
-            inheritance=['Autosomal dominant'],
-            gene_symbols=['SCN1A'],
-            hpo_terms=['Febrile seizures', 'Refractory epilepsy', 'Intellectual disability',
-                       'Neurodegeneration', 'Ataxia', 'Early-onset seizures'],
-            affected_tissues=['CNS'],
-            # Mechanism: haploinsufficiency of Nav1.1 sodium channel preferentially in
-            # inhibitory interneurons; gene addition conditional — cell-type-specific expression required
-            # Evidence: Claes L et al. 2003 Hum Mutat PMID 12754708;
-            #           Colasante G et al. 2020 Mol Ther PMID 31607539
-        ),
+        # ORPHA:1306 (Dravet syndrome) — removed from 46-disease cohort
         '908': DiseaseInfo(
             orphanet_id="ORPHA:908",
             name='Fragile X syndrome',
@@ -546,47 +514,130 @@ def _build_fallbacks() -> None:
             # the FMR1 protein coding sequence itself is normal — cDNA addition bypasses silencing
             # Evidence: Liu XS et al. 2018 Cell PMID 29456084
         ),
-        '72': DiseaseInfo(
-            orphanet_id="ORPHA:72",
-            name='Angelman syndrome',
-            omim_ids=['105830'],
+        # ORPHA:72 (Angelman syndrome) — removed from 46-disease cohort
+        # ORPHA:163934 (CDKL5 deficiency disorder) — removed from 46-disease cohort
+        # ORPHA:247770 (GATA2 deficiency) — removed from 46-disease cohort
+
+        # ── 12 new diseases added to 46-disease cohort ────────────────────────
+        '98878': DiseaseInfo(
+            orphanet_id="ORPHA:98878",
+            name='Hemophilia A',
+            omim_ids=['306700'],
             prevalence='1-5/10000',
-            inheritance=['Autosomal dominant'],
-            gene_symbols=['UBE3A'],
-            hpo_terms=['Intellectual disability', 'Seizures', 'Ataxia', 'Happy demeanour',
-                       'Absent speech', 'Neurodegeneration', 'Abnormal EEG pattern'],
-            affected_tissues=['CNS'],
-            # Mechanism: maternal UBE3A deleted/mutated; paternal allele silenced by
-            # UBE3A-ATS antisense transcript in neurons; adding a transgene restores expression
-            # Evidence: Mabb AM et al. 2011 Trends Neurosci PMID 21592595
+            inheritance=['X-linked recessive'],
+            gene_symbols=['F8'],
+            hpo_terms=['Prolonged bleeding', 'Joint bleeding', 'Haemarthrosis', 'Factor VIII deficiency'],
+            affected_tissues=['liver'],
         ),
-        '163934': DiseaseInfo(
-            orphanet_id="ORPHA:163934",
-            name='CDKL5 deficiency disorder',
-            omim_ids=['300672'],
-            prevalence='<1/1000000',
-            inheritance=['X-linked dominant'],
-            gene_symbols=['CDKL5'],
-            hpo_terms=['Early-onset seizures', 'Intellectual disability', 'Neurodegeneration',
-                       'Absent speech', 'Stereotypic hand movements', 'Hypotonia'],
-            affected_tissues=['CNS'],
-            # Mechanism: X-linked haploinsufficiency of CDKL5 kinase disrupts neuronal
-            # synaptic signalling; AAV9-CDKL5 gene therapy in active clinical development
-            # Evidence: Van Bergen NJ et al. 2022 Biochem Soc Trans PMID 35997111
+        '586': DiseaseInfo(
+            orphanet_id="ORPHA:586",
+            name='Cystic fibrosis',
+            omim_ids=['219700'],
+            prevalence='1-5/10000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['CFTR'],
+            hpo_terms=['Chronic lung disease', 'Exocrine pancreatic insufficiency', 'Recurrent pulmonary infections', 'Elevated sweat chloride'],
+            affected_tissues=['lung', 'pancreas', 'liver'],
         ),
-        '247770': DiseaseInfo(
-            orphanet_id="ORPHA:247770",
-            name='GATA2 deficiency',
-            omim_ids=['137295'],
+        '141': DiseaseInfo(
+            orphanet_id="ORPHA:141",
+            name='Canavan disease',
+            omim_ids=['271900'],
             prevalence='<1/1000000',
-            inheritance=['Autosomal dominant'],
-            gene_symbols=['GATA2'],
-            hpo_terms=['Immunodeficiency', 'Bone marrow failure', 'Recurrent infections',
-                       'Lymphedema', 'Thrombocytopenia', 'Hematopoietic disorder', 'Myelodysplasia'],
-            affected_tissues=['hematopoietic'],
-            # Mechanism: autosomal dominant haploinsufficiency of GATA2 transcription factor
-            # depleting HSC and lymphatic progenitors; ex vivo HSC gene addition the appropriate route
-            # Evidence: Spinner MA et al. 2014 Blood PMID 24227816
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['ASPA'],
+            hpo_terms=['Macrocephaly', 'Hypotonia', 'White matter degeneration', 'Intellectual disability', 'Spasticity'],
+            affected_tissues=['CNS'],
+        ),
+        '79241': DiseaseInfo(
+            orphanet_id="ORPHA:79241",
+            name='Biotinidase deficiency',
+            omim_ids=['253260'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['BTD'],
+            hpo_terms=['Seizures', 'Hypotonia', 'Alopecia', 'Skin rash', 'Hearing loss', 'Metabolic acidosis'],
+            affected_tissues=['CNS', 'multisystem'],
+        ),
+        '845': DiseaseInfo(
+            orphanet_id="ORPHA:845",
+            name='Tay-Sachs disease',
+            omim_ids=['272800'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['HEXA'],
+            hpo_terms=['Progressive neurodegeneration', 'Cherry red spot', 'Hyperekplexia', 'Seizures', 'Intellectual disability'],
+            affected_tissues=['CNS'],
+        ),
+        '905': DiseaseInfo(
+            orphanet_id="ORPHA:905",
+            name='Wilson disease',
+            omim_ids=['277900'],
+            prevalence='1-5/10000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['ATP7B'],
+            hpo_terms=['Hepatic dysfunction', 'Neurological symptoms', 'Kayser-Fleischer rings', 'Copper accumulation'],
+            affected_tissues=['liver', 'CNS'],
+        ),
+        '213': DiseaseInfo(
+            orphanet_id="ORPHA:213",
+            name='Nephropathic cystinosis',
+            omim_ids=['219800'],
+            prevalence='<1/1000000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['CTNS'],
+            hpo_terms=['Renal Fanconi syndrome', 'Photophobia', 'Cystine crystal accumulation', 'Growth retardation', 'Renal failure'],
+            affected_tissues=['kidney', 'multisystem'],
+        ),
+        '618891': DiseaseInfo(
+            orphanet_id="ORPHA:618891",
+            name='Chronic neurovisceral acid sphingomyelinase deficiency',
+            omim_ids=['607616'],
+            prevalence='<1/1000000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['SMPD1'],
+            hpo_terms=['Hepatosplenomegaly', 'Interstitial lung disease', 'Neurodegeneration', 'Sphingomyelin accumulation'],
+            affected_tissues=['liver', 'spleen', 'lung', 'CNS'],
+        ),
+        '646': DiseaseInfo(
+            orphanet_id="ORPHA:646",
+            name='Niemann-Pick disease type C',
+            omim_ids=['257220'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['NPC1'],
+            hpo_terms=['Progressive neurodegeneration', 'Vertical gaze palsy', 'Hepatosplenomegaly', 'Cholesterol trafficking defect', 'Ataxia'],
+            affected_tissues=['CNS', 'liver'],
+        ),
+        '912': DiseaseInfo(
+            orphanet_id="ORPHA:912",
+            name='Zellweger syndrome',
+            omim_ids=['214100'],
+            prevalence='<1/1000000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['PEX1'],
+            hpo_terms=['Neonatal hypotonia', 'Seizures', 'Abnormal facies', 'Hepatomegaly', 'Peroxisome biogenesis defect', 'Neuronal migration defect'],
+            affected_tissues=['CNS', 'liver', 'kidney'],
+        ),
+        '93598': DiseaseInfo(
+            orphanet_id="ORPHA:93598",
+            name='Primary hyperoxaluria type 1',
+            omim_ids=['259900'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['AGXT'],
+            hpo_terms=['Nephrolithiasis', 'Nephrocalcinosis', 'Renal failure', 'Oxalate crystal deposition', 'Systemic oxalosis'],
+            affected_tissues=['liver', 'kidney'],
+        ),
+        '886': DiseaseInfo(
+            orphanet_id="ORPHA:886",
+            name='Usher syndrome type 1B',
+            omim_ids=['276900'],
+            prevalence='1-9/100000',
+            inheritance=['Autosomal recessive'],
+            gene_symbols=['MYO7A'],
+            hpo_terms=['Congenital deafness', 'Retinitis pigmentosa', 'Vestibular dysfunction', 'Progressive visual loss'],
+            affected_tissues=['retina', 'cochlea'],
         ),
     }
 

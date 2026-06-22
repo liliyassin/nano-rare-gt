@@ -1,7 +1,7 @@
 # NanoGT Match Report: Tuberous sclerosis complex
 
 **Disease:** Tuberous sclerosis complex (ORPHA:805)  
-**Primary gene:** TSC2  
+**Primary gene:** TSC1  
 **Gene CDS:** 5694 bp  
 **Inheritance:** Autosomal dominant  
 **Target tissues scored:** CNS, kidney, skin  

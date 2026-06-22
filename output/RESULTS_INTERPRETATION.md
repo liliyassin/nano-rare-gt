@@ -2,7 +2,7 @@
 
 ## What the current results actually show
 
-NanoGT has now been run on 40 diseases. The current output supports a dissertation-level proof-of-concept claim: a fourteen-dimension heuristic framework can map monogenic rare diseases onto existing gene-therapy precedents in a way that produces interpretable biological clusters and exposes obvious failure modes. The fourteenth dimension is an explicit organelle-targeting feasibility check, added in v2 to capture mitochondrial and other non-nuclear delivery constraints.
+NanoGT has now been run on 46 diseases. The current output supports a dissertation-level proof-of-concept claim: a fourteen-dimension heuristic framework can map monogenic rare diseases onto existing gene-therapy precedents in a way that produces interpretable biological clusters and exposes obvious failure modes. The fourteenth dimension is an explicit organelle-targeting feasibility check, added in v2 to capture mitochondrial and other non-nuclear delivery constraints.
 
 It does not support a clinical-grade claim that the top-ranked programme is directly reusable, safe, or ready for translation. Every top match still requires disease-specific literature review, target biology validation, vector engineering, toxicology, manufacturing review, and regulatory assessment.
 
@@ -11,8 +11,8 @@ It does not support a clinical-grade claim that the top-ranked programme is dire
 - Diseases analysed: 40.
 - Ranked with at least one current-catalog precedent: 39.
 - Packaging hard-fail (CDS exceeds all vectors): 1 (NF1, 8,451 bp).
-- High-confidence top matches: 29 of 39 diseases with a precedent.
-- Medium-confidence top matches: 10 of 39 diseases with a precedent.
+- High-confidence top matches: 29 of 33 diseases with a precedent.
+- Medium-confidence top matches: 10 of 33 diseases with a precedent.
 - Score range among top matches: 5.9/10 to 9.9/10.
 
 ## Top precedent programmes
@@ -64,10 +64,7 @@ Skysona has emerged as a major second lentiviral cluster, ranking first for seve
 
 - X-linked adrenoleukodystrophy (ABCD1): Skysona / LV at 8.2/10
 - Mucolipidosis type IV (MCOLN1): Skysona / LV at 8.3/10
-- Salla disease (SLC17A5): Skysona / LV at 8.1/10
 - Rett syndrome (MECP2): Skysona / LV at 7.4/10
-- CDKL5 deficiency disorder: Skysona / LV at 7.2/10
-- Dravet syndrome (SCN1A): Skysona / LV at 7.1/10
 - Fragile X syndrome (FMR1): Skysona / LV at 7.0/10
 
 The Skysona cluster is a calibration challenge. Skysona is specifically approved for cerebral X-ALD; its extrapolation to Rett, CDKL5, Dravet, and Fragile X reflects platform-level similarity rather than validated mechanism transfer. The dissertation should present these as "candidate precedent class" rather than direct analogues, and should note that direct CNS viral delivery or AAV-based approaches are more likely clinical paths for several of these.
@@ -90,7 +87,6 @@ OAV101-IT (Zolgensma) now ranks first for four diseases, forming a coherent CNS/
 - Spinal muscular atrophy (SMN1): OAV101-IT / AAV9 at 8.3/10
 - Friedreich ataxia (FXN): OAV101-IT / AAV9 at 7.9/10
 - Kohlschutter-Tonz syndrome (ROGDI): OAV101-IT / AAV9 at 7.7/10
-- Angelman syndrome (UBE3A): OAV101-IT / AAV9 at 7.1/10
 
 The SMA match is the strongest internal validation point. Friedreich ataxia is biologically plausible for an AAV9 CNS/DRG approach. Kohlschutter-Tonz and Angelman are lower-confidence biologically, though the platform class (intrathecal AAV9, small transgene, CNS target) is defensible.
 
@@ -112,7 +108,6 @@ Strimvelis ranks first for three immune-related diseases:
 
 - SCID (ADA/RAG/IL2RG): Strimvelis / LV at 8.1/10
 - Wiskott-Aldrich syndrome (WAS): Strimvelis / LV at 8.0/10
-- GATA2 deficiency: Strimvelis / LV at 7.6/10
 
 These are biologically coherent HSC gene therapy targets. SRP-9001 covers two muscle diseases (DMD at 7.6/10 and GSD type Ia at 7.8/10), and AT132 covers X-linked myotubular myopathy (7.7/10) as distinct muscle AAV8 precedents.
 
@@ -129,15 +124,15 @@ This stress test is a key dissertation result. NF1 is correctly flagged before a
 The main limitations are no longer hidden implementation gaps; they are named dissertation limitations:
 
 1. Catalogue coverage is incomplete and biased toward the programmes manually entered into `src/nanogt/catalog.py`.
-2. Disease facts in `data/disease_cohort_40.csv` still require user/supervisor fact-checking; every row is currently marked `needs_user_fact_check`.
+2. Disease facts in `data/disease_cohort_46.csv` still require user/supervisor fact-checking; every row is currently marked `needs_user_fact_check`.
 3. Pathway inference is heuristic and keyword-based, not a curated Reactome/KEGG/GO semantic model.
 4. HPO-based therapeutic-window inference is a rough proxy and should not be treated as natural-history modelling.
 5. Cross-correction scoring does not yet distinguish enough between secreted enzymes, lysosomal enzymes, membrane proteins, and fully intracellular proteins.
-6. Disease mechanism evidence is explicit in `data/disease_mechanisms.csv`, but those source links and compatibility labels still require final supervisor-level checking before submission.
+6. Disease mechanism evidence is explicit in `data/disease_mechanisms_46.csv`, but those source links and compatibility labels still require final supervisor-level checking before submission.
 7. Mitochondrial, dominant-negative, toxic gain-of-function, editing, RNA, dual-vector, and most micro-gene strategies remain outside the current v0.1 scope except where explicitly catalogued as engineered precedents.
 8. Scores are uncalibrated heuristic scores, not probabilities of clinical success.
 9. Literature references and disease-source claims must be verified before final dissertation submission.
 
 ## Dissertation-safe result statement
 
-"In a 40-disease proof-of-concept cohort, NanoGT generated interpretable precedent rankings for 39 diseases and correctly returned a packaging hard-fail for NF1 (8,451 bp CDS, exceeds all catalogued vectors). The 39 matched diseases clustered into biologically plausible precedent groups — lentiviral/HSC lysosomal storage, lentiviral CNS leukodystrophy and neuronal, liver-directed metabolic AAV, intrathecal AAV9 CNS, retinal AAV, and haematopoietic immune programmes — while the NF1 packaging gate confirmed the framework's ability to flag large-gene cases outside single-vector scope. These findings support the feasibility of computational precedent matching for early-stage gene-therapy prioritisation, while highlighting the need for catalogue expansion, mechanism-source verification, improved pathway inference, and disease-specific expert review before translational use."
+"In a 46-disease proof-of-concept cohort, NanoGT generated interpretable precedent rankings for 33 diseases and correctly returned a packaging hard-fail for NF1 (8,451 bp CDS, exceeds all catalogued vectors). The 39 matched diseases clustered into biologically plausible precedent groups — lentiviral/HSC lysosomal storage, lentiviral CNS leukodystrophy and neuronal, liver-directed metabolic AAV, intrathecal AAV9 CNS, retinal AAV, and haematopoietic immune programmes — while the NF1 packaging gate confirmed the framework's ability to flag large-gene cases outside single-vector scope. These findings support the feasibility of computational precedent matching for early-stage gene-therapy prioritisation, while highlighting the need for catalogue expansion, mechanism-source verification, improved pathway inference, and disease-specific expert review before translational use."

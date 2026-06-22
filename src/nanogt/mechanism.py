@@ -14,7 +14,7 @@ from functools import lru_cache
 from pathlib import Path
 
 
-DATA_PATH = Path(__file__).resolve().parents[2] / "data" / "disease_mechanisms.csv"
+DATA_PATH = Path(__file__).resolve().parents[2] / "data" / "disease_mechanisms_46.csv"
 
 
 @dataclass(frozen=True)

@@ -1,7 +1,7 @@
 # NanoGT Match Report: Glycogen storage disease type Ia
 
 **Disease:** Glycogen storage disease type Ia (ORPHA:79258)  
-**Primary gene:** G6PC  
+**Primary gene:** G6PC1  
 **Gene CDS:** 1071 bp  
 **Inheritance:** Autosomal recessive  
 **Target tissues scored:** liver, kidney  
