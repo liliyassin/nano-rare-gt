@@ -4,6 +4,18 @@ The key distinction is deliberate: inheritance can suggest loss of function,
 but it is not proof. This module loads source-linked mechanism evidence and
 returns an explicit "unknown" record when a disease/gene pair has not been
 curated.
+
+SCOPE LIMITATION: curated records cover only the 46-disease dissertation cohort
+(data/disease_mechanisms_46.csv). Any disease/gene pair outside this cohort
+returns evidence_status="missing" and gene_addition_compatibility="uncertain",
+which causes dimension 6 (modality_compatibility) to score 1.0/2.0 rather than
+2.0/2.0. This is intentional: better to under-score an uncurated disease than to
+assume LOF compatibility without source-linked evidence.
+
+To extend coverage: add a row to disease_mechanisms_46.csv with the Orphanet ID,
+gene symbol, mechanism_category, mechanism_detail, gene_addition_compatibility
+(compatible / conditional / uncertain / incompatible), preferred_modality,
+evidence_level, evidence_summary, evidence_url, and evidence_citation.
 """
 
 from __future__ import annotations

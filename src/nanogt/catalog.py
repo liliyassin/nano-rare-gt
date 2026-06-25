@@ -1,16 +1,34 @@
-"""Static catalog data: vectors and GT programs."""
+"""Static catalog data: vectors and GT programs.
 
-# Dataset has two hand-curated lists:
-#   VECTORS     → 8 AAV/LV vectors with their properties
-# AAV1, AAV2, AAV5, AAV8, AAV9, AAVrh10, AAV2/6, LV
-# each vector has properties like tropism, cargo limit, clinical precedents, whether it's freely available, etc.
-#   GT_PROGRAMS → 18 real gene therapy programs used as precedents
-# e.g. Zolgensma for SMA, Hemgenix for haemophilia B, Luxturna for retinal disease, etc.
-# each program has properties like disease, gene, vector used, tissue target, approval status, mechanism, protein class, inheritance, pathway, etc.
-#
-# This is static data (hardcoded here) that gets loaded into the SQLite
-# database the first time you run `nanogt init`. Nothing here is fetched
-# from the internet — it was all researched and entered manually.
+SCOPE LIMITATION: this catalog intentionally covers only AAV-based and ex vivo
+lentiviral/integrating HSC gene-addition programs. Several large and rapidly
+growing modality classes are NOT represented:
+
+  - Dual-AAV strategies (e.g. intein-split DMD, oversized Usher 1B programs):
+      required for genes >4.7 kb. Scoring treats these as micro/mini constructs
+      only when the program name contains "micro"/"mini"/"truncated".
+  - LNP/mRNA gene therapy (e.g. Verve PCSK9, mRNA-based OTC programs):
+      in vivo mRNA delivery with no nuclear integration; different immunogenicity
+      and durability profile.
+  - Genome editing (CRISPR-Cas9, base editing, prime editing):
+      required for dominant-negative, dominant GOF, and heterozygous diseases
+      where simple gene addition is insufficient.
+  - Antisense oligonucleotides (ASOs): Spinraza (SMA), inotersen (hereditary TTR);
+      splice-modulation or silencing approach; not gene addition.
+  - RNAi programs: ALN-TTR02 (patisiran); RNA-level silencing; distinct mechanism.
+  - Cell + gene therapy combinations and transplant-enabling strategies.
+
+All composite scores produced by this tool should be interpreted as precedent
+similarity within the AAV/HSC gene-addition space only. A disease that scores low
+here may still have tractable GT approaches via modalities not in this catalog.
+
+Dataset contents:
+  VECTORS     → 8 vectors (AAV1, AAV2, AAV5, AAV8, AAV9, AAVrh10, AAV2/6, LV)
+  GT_PROGRAMS → 21 curated precedent programs (approved and clinical-stage)
+
+All data was manually curated from published clinical and regulatory sources.
+Nothing here is fetched from the internet.
+"""
 
 
 # ══════════════════════════════════════════════════════════════════════════════

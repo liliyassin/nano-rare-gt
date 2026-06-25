@@ -43,29 +43,50 @@ def _orpha_num(orpha_id: str) -> str:
 
 
 def _tissues_from_hpo(hpo_terms: list[str]) -> list[str]:
-    """Crude tissue mapping from HPO term names."""
-    # ← converts HPO symptom names into tissue labels used by the scoring engine
-    # Why crude? HPO terms are plain-text descriptions; we search for keywords within them.
-    # e.g. "Hepatomegaly" contains "hepat" → maps to "liver"
+    """Keyword-based tissue mapping from HPO term names.
 
+    LIMITATION: This mapping is intentionally simple — it searches for keyword
+    substrings in HPO term text. It will produce false positives for compound
+    terms where the keyword describes an indirect pathology rather than the primary
+    target tissue (e.g. "hepatic encephalopathy" matches both liver via "hepat" AND
+    CNS via "encephalopathy" — but in that case both are genuinely affected, so
+    the dual match is clinically appropriate). Ambiguous single-system terms that
+    borrow organ names from a secondary phenomenon should be corrected manually
+    using the --primary-tissue CLI flag.
+
+    Coverage expanded in v3 to include encephalopathy, cochlea, lung, and spleen
+    to support the extended 46-disease cohort.
+    """
+    # Maps tissue label → list of keyword substrings that indicate HPO term involvement.
+    # Keywords are matched case-insensitively against the lower-cased HPO term string.
     tissue_map = {
-        "liver": ["hepat", "liver", "cirrhosis", "jaundice"],
-        "CNS": ["brain", "cerebr", "spinal", "neurolog", "intellectual", "seizure",
-                "dementia", "ataxia", "cognitive", "neurodegen"],
-        "muscle": ["muscul", "myopathy", "dystrophi", "myotonia", "weakness"],
-        "retina": ["retina", "visual", "optic", "blindness", "macular"],
+        "liver": ["hepat", "liver", "cirrhosis", "jaundice", "bilirubin"],
+        "CNS": [
+            "brain", "cerebr", "spinal", "neurolog", "intellectual", "seizure",
+            "dementia", "ataxia", "cognitive", "neurodegen", "encephalopathy",
+            "white matter", "leukodystrophy", "pyramidal", "spasticity",
+        ],
+        "muscle": ["muscul", "myopathy", "dystrophi", "myotonia", "weakness", "myosin"],
+        "retina": ["retina", "visual", "optic", "blindness", "macular", "photoreceptor",
+                   "cone", "rod dysfunction", "retinoschisis", "chorioretinal"],
         "hematopoietic": [
             "anemia", "hematolog", "haematolog", "platelet", "leukocyte", "bone marrow",
             "immunodeficiency", "lymphopenia", "thrombocytopenia", "recurrent infections",
+            "cytopenia", "macrophage storage",
         ],
-        "heart": ["cardiac", "cardiomyopathy", "heart"],
-        "kidney": ["renal", "kidney", "nephro"],
+        "heart": ["cardiac", "cardiomyopathy", "heart", "ventricular"],
+        "kidney": ["renal", "kidney", "nephro", "nephrocalcinosis", "nephrolithiasis",
+                   "fanconi syndrome"],
+        "lung": ["pulmonary", "lung", "respiratory insufficiency", "interstitial lung"],
+        "cochlea": ["deafness", "hearing loss", "cochlear", "vestibular dysfunction",
+                    "auditory"],
+        "spleen": ["splenomegaly", "splenic"],
     }
-    found = set()  # ← set = no duplicates
+    found = set()
     for term in hpo_terms:
         tl = term.lower()
         for tissue, keywords in tissue_map.items():
-            if any(kw in tl for kw in keywords):  # ← if any keyword appears in the HPO term
+            if any(kw in tl for kw in keywords):
                 found.add(tissue)
     return list(found)
 

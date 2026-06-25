@@ -88,8 +88,18 @@ def _parse_uniprot(symbol: str, data: dict) -> GeneInfo:
     # ← extracts the relevant fields from the raw UniProt JSON response
     acc = data.get("primaryAccession", "")   # ← the UniProt ID, e.g. "P00740"
     seq = data.get("sequence", {})
-    aa_len = seq.get("length", 0)            # ← protein length in amino acids
-    cds_bp = aa_len * 3 if aa_len else None  # ← coding sequence = 3 base pairs per amino acid (codon)
+    aa_len = seq.get("length", 0)            # ← protein length in amino acids (canonical isoform)
+
+    # CDS length approximation: aa_length × 3 base pairs per codon.
+    # LIMITATION: this is a lower bound on the packaged construct size.
+    # It excludes: (1) the stop codon (+3 bp, minor), (2) 5' and 3' UTRs
+    # (~200-500 bp typically), and (3) the fact that the therapeutic construct
+    # uses the canonical UniProt isoform, which may not be the shortest
+    # therapeutically active isoform. For genes near the packaging limit
+    # (~4.5 kb), the true construct including promoter + ITRs + UTRs may
+    # exceed the vector cargo; verify with sequence-confirmed construct data.
+    # Source: Grieger & Samulski (2005) J Virol 79:9933 (AAV packaging constraints).
+    cds_bp = aa_len * 3 if aa_len else None
 
     # ── Subcellular location ───────────────────────────────────────────────
     sub_locs = []

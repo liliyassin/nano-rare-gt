@@ -1,5 +1,5 @@
 """
-14-dimension scoring engine.
+14-dimension scoring engine (v3: weighted dimensions).
 
 For a given (disease, gene, target tissues) tuple, scores each GT program
 in the catalog as a potential precedent/surrogate.
@@ -8,7 +8,7 @@ Dimensions:
   1.  packaging_fit         — gene CDS vs. vector cargo limit
   2.  tropism_match         — vector tissue tropism vs. disease target tissues
   3.  protein_class         — same lysosomal/secreted/membrane/intracellular class
-  4.  inheritance           — AR/XL/AD compatibility
+  4.  inheritance           — AR/XL/AD compatibility + dominant-negative detection
   5.  pathway_similarity    — same biological pathway
   6.  modality_compatibility — disease mechanism supports gene-addition precedent
   7.  approval_weight       — approved programs score higher
@@ -20,6 +20,70 @@ Dimensions:
   13. roa_feasibility       — accessible, established delivery route to target tissue
   14. organelle_targeting   — can standard nuclear AAV delivery produce protein at
                               the correct subcellular compartment? (NEW — v2)
+
+CHANGELOG v4 (match/tractability split):
+  - The single composite score has been REMOVED. It conflated two different
+    questions and let disease-intrinsic dimensions (which are identical for every
+    candidate program) inflate the headline number and the confidence tier without
+    affecting the ranking at all.
+  - Each (disease, program) pair now produces TWO scores:
+      match_score (0–10): how good a PRECEDENT this specific program is for this
+        disease. Built only from program-comparative dimensions — the ones that
+        actually differ between candidate programs. This is what ranking and the
+        confidence tier are based on.
+      tractability_score (0–10): how amenable the DISEASE is to gene therapy at
+        all, independent of which precedent is chosen. Built from disease-intrinsic
+        dimensions (therapeutic window, cross-correction, immune privilege,
+        promoter availability, route feasibility, organelle targeting). It is a
+        property of the disease/gene, so it is computed ONCE per disease and is the
+        same for every program — which is exactly why it must not be blended into
+        the ranking.
+  - Gate order reversed: the mechanism (modality) gate is now checked BEFORE the
+    packaging gate. An incompatible mechanism (gain-of-function, dominant-negative,
+    toxic gain-of-RNA, overexpression) means gene addition is the wrong modality
+    entirely — that cannot be rescued by changing the vector or shrinking the
+    construct, so it is the more fundamental exclusion. Checking it first also means
+    a disease like Huntington (HTT) is correctly excluded by mechanism rather than
+    being masked by an incidental packaging failure.
+  - score_packaging() now subtracts a realistic expression-cassette overhead
+    (promoter + ITRs + polyA + UTRs ≈ 1.5 kb) when grading fill, so genes whose CDS
+    technically fits the capsid but whose full cassette does not (e.g. native F8,
+    micro-dystrophin) are graded as "tight, engineered cassette required" instead of
+    a comfortable fit. The absolute hard-fail still fires only when the CDS alone
+    exceeds the capsid. Source: Wu Z, Yang H, Colosi P (2010) Mol Ther 18:80-86.
+  - Tissue-aggregated tractability dimensions (immune privilege, promoter
+    availability, route feasibility) now use the MEAN across all annotated tissues
+    instead of the most favourable one, so multi-system diseases are no longer
+    over-scored by cherry-picking the easiest tissue. Use --primary-tissue to score
+    a single declared target.
+  - score_therapeutic_window() now consults curated natural-history data
+    (natural_history.py) first and only falls back to the HPO keyword heuristic when
+    no curated record exists (with a review flag). The keyword heuristic was
+    clinically wrong for several diseases (e.g. it scored PKU — the textbook
+    wide-window disease — in the narrowest tier).
+  - _classify_gene_protein()/build_review_flags(): the bare substring "ion" (which
+    spuriously matched keywords like "Coagulation", "Transcription", "secretion")
+    has been replaced with whole-phrase matches ("ion channel", "ion transport").
+  - _PATHWAY_GROUPS is now built from an undirected edge list, guaranteeing symmetry
+    (if A is related to B then B is related to A) and removing unsupported cross-links.
+  - Dimension weights are exposed (MATCH_WEIGHTS / TRACTABILITY_WEIGHTS) and the
+    score can be recomputed from stored raw dimensions, so scripts/sensitivity_analysis.py
+    can perturb the weights and measure ranking stability.
+
+CHANGELOG v3 (weighted scoring):
+  - Added dimension weights (_WEIGHTS) with evidence citations to address the
+    v2 limitation that all dimensions contributed equally to the composite score.
+    Three dimensions are now weighted at 1.5× (packaging_fit, tropism_match,
+    modality_compatibility) because these represent go/no-go decision gates in
+    clinical GT programmes. Four logistic/administrative dimensions (cross_correction,
+    immune_privilege, promoter_availability, roa_feasibility) are weighted at 0.75×
+    because they represent solvable engineering problems, not fundamental barriers.
+    _WEIGHTED_RAW_MAX updated from 21.0 (unweighted) to 23.0 (weighted).
+    Evidence for weights: see _WEIGHTS docstring below.
+  - Dimension 4 (inheritance): now detects dominant-negative and haploinsufficiency
+    mechanisms and penalises them, with a flag directing review of silencing/editing
+    alternatives. Addresses the prior assumption that recessive = LOF = gene-addition
+    compatible without checking mechanism.
 
 CHANGELOG v2:
   - Dimension 3 (protein_class): now distinguishes lysosomal MEMBRANE proteins
@@ -45,40 +109,191 @@ CHANGELOG v2:
 
 # ── What this file is ──────────────────────────────────────────────────────
 # THE ALGORITHM. This is the intellectual core of the dissertation.
-# It takes one disease + one gene and scores every GT program in the catalog
-# across 14 dimensions. Raw scores are normalized to a composite out of 10.
-# Highest composite = best precedent match.
+# It takes one disease + one gene and produces, for every GT program in the
+# catalog, TWO normalized 0–10 scores (see CHANGELOG v4 above):
 #
-# Max raw scores per dimension:
-#   packaging_fit         → max 2.0
-#   tropism_match         → max 2.0
-#   protein_class         → max 2.0
-#   pathway_similarity    → max 2.0
-#   modality_compatibility → max 2.0
-#   inheritance_match     → max 1.0
-#   approval_weight       → max 1.0
-#   immunogenicity        → max 2.0
-#   therapeutic_window    → max 2.0
-#   cross_correction      → max 1.0
-#   immune_privilege      → max 1.0
-#   promoter_availability → max 1.0
-#   roa_feasibility       → max 1.0
-#   organelle_targeting   → max 1.0   ← NEW in v2
-#   ─────────────────────────────
-#   RAW TOTAL MAX         = 21.0      ← updated from 20.0
-#   NORMALIZED (× 10/21)  = 10.0
+#   match_score        — how good a PRECEDENT this program is for this disease.
+#                        Ranking and the confidence tier are based on this.
+#   tractability_score — how amenable the DISEASE is to gene therapy at all.
+#                        Same for every program; reported once per disease.
+#
+# ── MATCH dimensions (program-comparative — these differ between candidates) ──
+#   packaging_fit          → max 2.0  weight 1.5 → weighted max 3.0
+#   tropism_match          → max 2.0  weight 1.5 → weighted max 3.0
+#   modality_compatibility → max 2.0  weight 1.5 → weighted max 3.0   (hard-fail gate)
+#   protein_class          → max 2.0  weight 1.0 → weighted max 2.0
+#   pathway_similarity     → max 2.0  weight 1.0 → weighted max 2.0
+#   inheritance            → max 1.0  weight 1.0 → weighted max 1.0
+#   approval_weight        → max 1.0  weight 1.0 → weighted max 1.0
+#   immunogenicity         → max 2.0  weight 1.0 → weighted max 2.0
+#   ─────────────────────────────────────────────────────────────────
+#   MATCH_RAW_MAX          = 17.0   →  match_score = weighted_sum × 10/17
+#
+#   Conceptually match_score has two parts that both legitimately vary between
+#   candidate programs: BIOLOGICAL FIT (packaging, tropism, modality, protein
+#   class, pathway, inheritance) and PRECEDENT STRENGTH (approval stage, vector
+#   immunogenicity). Neither is disease-intrinsic, so neither causes the v3 flaw
+#   where a dimension was identical across all programs.
+#
+# ── TRACTABILITY dimensions (disease-intrinsic — identical across programs) ───
+#   therapeutic_window     → max 2.0  weight 1.0 → weighted max 2.0
+#   cross_correction       → max 1.0  weight 1.0 → weighted max 1.0
+#   immune_privilege       → max 1.0  weight 1.0 → weighted max 1.0
+#   promoter_availability  → max 1.0  weight 1.0 → weighted max 1.0
+#   roa_feasibility        → max 1.0  weight 1.0 → weighted max 1.0
+#   organelle_targeting    → max 1.0  weight 1.0 → weighted max 1.0
+#   ─────────────────────────────────────────────────────────────────
+#   TRACTABILITY_RAW_MAX   = 7.0    →  tractability_score = weighted_sum × 10/7
+#
+# Confidence tier (set on match_score; thresholds calibrated against the cohort
+# match_score distribution — see _confidence_for_match):
+#   ≥ 6.0  → high
+#   ≥ 4.0  → medium
+#   < 4.0  → low
+#   mechanism (modality) or packaging hard-fail → fail (program excluded)
+#
+# Tractability tier (set on tractability_score; advisory, never affects ranking):
+#   ≥ 6.5  → amenable
+#   ≥ 4.0  → conditional
+#   < 4.0  → challenging
 
 from __future__ import annotations
 import json
 from dataclasses import dataclass, field, replace
-from typing import Optional
 import sqlite3
 
 from .disease import DiseaseInfo
 from .gene import GeneInfo
 from .mechanism import lookup_mechanism, score_gene_addition_compatibility
+from .natural_history import lookup_natural_history
 
-_RAW_MAX = 21.0  # ← total of all dimension maxima; updated to 21.0 in v2 (added organelle_targeting dim)
+# ── Dimension weights (v3) ──────────────────────────────────────────────────
+#
+# Weighting rationale with primary evidence citations:
+#
+# weight=1.5 (critical go/no-go gates):
+#   packaging_fit: a gene that doesn't fit the vector cannot be delivered by that
+#     platform regardless of every other attribute. Even within the passing range,
+#     tight packaging (85-100% fill) correlates with reduced titre and increased
+#     truncation artefacts. Source: Srivastava A (2016) Hum Gene Ther 27:339-340;
+#     Grieger & Samulski (2005) J Virol 79:9933.
+#   tropism_match: the vector must reach the target cell in vivo; mismatch means
+#     no gene delivery regardless of payload. Source: Nathwani AC et al. (2011)
+#     NEJM 365:2357-2365 (hepatic AAV8 for Haemophilia B established tropism as
+#     the primary selection criterion over all other dimensions).
+#   modality_compatibility: gain-of-function, dominant-negative, and gain-of-toxic-
+#     RNA mechanisms are incompatible with simple gene addition. Adding more copies
+#     of the disease gene worsens the phenotype. Source: Keeler AM & Flotte TR
+#     (2019) Annu Rev Med 70:273-291; Mingozzi & High (2011) Blood 118:3739.
+#
+# weight=1.0 (important but not decisive alone):
+#   protein_class, pathway_similarity, therapeutic_window, immunogenicity:
+#     each alone is sufficient to substantially reduce clinical feasibility but
+#     not to eliminate a programme entirely (workarounds exist: immunodepletion,
+#     newborn screening, modality switch). Source: Mingozzi & High (2013) Nat Rev
+#     Genet 14:341-355 (immunogenicity); Delhove & Antoniou (2022) Drug Discov
+#     Today 27:103-117 (therapeutic window).
+#   inheritance, approval_weight, organelle_targeting: standard LOF assessment,
+#     regulatory precedent, and hard subcellular targeting constraints.
+#
+# weight=0.75 (solvable engineering/logistics problems):
+#   cross_correction, immune_privilege, promoter_availability, roa_feasibility:
+#     all of these can be addressed by vector engineering, immunosuppression, or
+#     alternative administration routes without fundamentally altering the
+#     programme strategy. They inform development complexity, not tractability.
+#     Source: Verdera HC et al. (2020) Mol Ther 28:1899-1920 (immune privilege);
+#     Martini PGV (2021) Hum Gene Ther 32:57-69 (tissue promoters); Foust KD
+#     et al. (2009) Nat Biotechnol 27:59-65 (route flexibility).
+#
+# MATCH_WEIGHTS — program-comparative dimensions. These are what differentiate
+# one candidate precedent from another, so they (and only they) drive the ranking.
+MATCH_WEIGHTS: dict[str, float] = {
+    # go/no-go gates — most predictive of programme failure in literature
+    "packaging_fit":          1.5,
+    "tropism_match":          1.5,
+    "modality_compatibility": 1.5,
+    # biological fit — substantial impact but workarounds exist
+    "protein_class":          1.0,
+    "pathway_similarity":     1.0,
+    "inheritance":            1.0,
+    # precedent strength — how validated/usable this specific precedent is
+    "approval_weight":        1.0,
+    "immunogenicity":         1.0,
+}
+
+# TRACTABILITY_WEIGHTS — disease-intrinsic dimensions. Identical for every program,
+# so they describe the disease's overall amenability to GT, NOT precedent quality.
+# They are reported alongside the ranking but never blended into it.
+TRACTABILITY_WEIGHTS: dict[str, float] = {
+    "therapeutic_window":    1.0,
+    "cross_correction":      1.0,
+    "immune_privilege":      1.0,
+    "promoter_availability": 1.0,
+    "roa_feasibility":       1.0,
+    "organelle_targeting":   1.0,
+}
+
+# Per-dimension raw maxima (used to normalise each weighted sum to 0–10).
+_DIM_MAX: dict[str, float] = {
+    "packaging_fit": 2.0, "tropism_match": 2.0, "modality_compatibility": 2.0,
+    "protein_class": 2.0, "pathway_similarity": 2.0, "inheritance": 1.0,
+    "approval_weight": 1.0, "immunogenicity": 2.0,
+    "therapeutic_window": 2.0, "cross_correction": 1.0, "immune_privilege": 1.0,
+    "promoter_availability": 1.0, "roa_feasibility": 1.0, "organelle_targeting": 1.0,
+}
+
+
+def _weighted_max(weights: dict[str, float]) -> float:
+    return sum(_DIM_MAX[d] * w for d, w in weights.items())
+
+
+# MATCH_RAW_MAX  = 3+3+3+2+2+1+1+2 = 17.0
+# TRACT_RAW_MAX  = 2+1+1+1+1+1      = 7.0
+MATCH_RAW_MAX = _weighted_max(MATCH_WEIGHTS)
+TRACTABILITY_RAW_MAX = _weighted_max(TRACTABILITY_WEIGHTS)
+
+
+def normalise_match(dims: dict[str, float], weights: dict[str, float] = MATCH_WEIGHTS) -> float:
+    """Normalise raw match dimensions to a 0–10 score under the given weights.
+
+    Exposed so scripts/sensitivity_analysis.py can recompute scores from the raw
+    dimensions stored on each ScoreBreakdown under perturbed weights, without
+    re-running the whole pipeline.
+    """
+    weighted_sum = sum(dims.get(d, 0.0) * w for d, w in weights.items())
+    return round((weighted_sum / _weighted_max(weights)) * 10.0, 2)
+
+
+def normalise_tractability(
+    dims: dict[str, float], weights: dict[str, float] = TRACTABILITY_WEIGHTS
+) -> float:
+    """Normalise raw tractability dimensions to a 0–10 score under the given weights."""
+    weighted_sum = sum(dims.get(d, 0.0) * w for d, w in weights.items())
+    return round((weighted_sum / _weighted_max(weights)) * 10.0, 2)
+
+
+# Confidence tier thresholds, calibrated against the cohort match_score
+# distribution (see scripts/sensitivity_analysis.py for the distribution).
+_MATCH_HIGH = 6.0
+_MATCH_MEDIUM = 4.0
+_TRACT_AMENABLE = 6.5
+_TRACT_CONDITIONAL = 4.0
+
+
+def _confidence_for_match(match_score: float) -> str:
+    if match_score >= _MATCH_HIGH:
+        return "high"
+    if match_score >= _MATCH_MEDIUM:
+        return "medium"
+    return "low"
+
+
+def _tractability_tier(tractability_score: float) -> str:
+    if tractability_score >= _TRACT_AMENABLE:
+        return "amenable"
+    if tractability_score >= _TRACT_CONDITIONAL:
+        return "conditional"
+    return "challenging"
 
 
 @dataclass
@@ -89,8 +304,10 @@ class ScoreBreakdown:
     vector: str                # ← vector used, e.g. "AAV9"
     tissue_target: str         # ← where the program delivers the gene, e.g. "CNS/motor neuron"
     approval_status: str       # ← "approved", "phase2", etc.
-    composite_score: float     # ← FINAL SCORE out of 10 (normalized from raw 18)
-    confidence: str            # ← "high" (≥7.5), "medium" (≥5.0), "low" (<5.0), "fail" (packaging impossible)
+    match_score: float         # ← PRECEDENT-MATCH SCORE out of 10 (program-comparative dims). Ranking + confidence use this.
+    confidence: str            # ← "high" (≥6.0), "medium" (≥4.0), "low" (<4.0), "fail" (hard gate) — set on match_score
+    tractability_score: float = 0.0   # ← DISEASE GT-amenability out of 10 (disease-intrinsic dims). Same for every program.
+    tractability_tier: str = "challenging"  # ← "amenable" (≥6.5), "conditional" (≥4.0), "challenging" (<4.0)
 
     # ── Original 6 dimensions ─────────────────────────────────────────────
     packaging_fit: float       # ← 0–2: does the gene fit in the vector?
@@ -164,32 +381,57 @@ class ScoreBreakdown:
 # ══════════════════════════════════════════════════════════════════════════════
 # DIMENSION 1: PACKAGING FIT (max 2.0)
 # ══════════════════════════════════════════════════════════════════════════════
+# Typical expression-cassette overhead added around the CDS in an AAV construct:
+#   2 × ITR (~145 bp each = ~290), a minimal-to-standard promoter (~250–1000),
+#   5'/3' UTRs + Kozak (~150), polyA signal (~150–250). ~1.5 kb is a conservative
+#   lower bound; strong tissue-specific promoters push it past 2.0 kb.
+# We grade packaging fill against (CDS + overhead), which is what actually has to
+# fit, while the absolute hard-fail still fires only when the CDS alone exceeds the
+# capsid (because the CDS itself cannot be split without re-engineering).
+# Source: Wu Z, Yang H, Colosi P (2010) Mol Ther 18:80-86.
+_CASSETTE_OVERHEAD_BP = 1500
+
+
 def score_packaging(
     disease_gene: GeneInfo,
     program_cds: int,      # ← size of the gene in the precedent program (base pairs)
     vector_cargo: int,     # ← maximum size the vector can carry (base pairs)
+    cassette_overhead_bp: int = _CASSETTE_OVERHEAD_BP,
 ) -> tuple[float, list[str]]:
     # ← Returns (score, [explanation notes])
 
     gene_cds = disease_gene.cds_length_bp or program_cds  # ← if we don't know the disease gene size, use the program's as a proxy
 
     if gene_cds > vector_cargo:
-        # ← HARD FAIL: gene literally cannot fit → score 0, entire program rejected
+        # ← HARD FAIL: the coding sequence ALONE exceeds the capsid → score 0.
+        # The CDS cannot be shortened without re-engineering, so no promoter trick
+        # rescues this; the program is rejected.
         return 0.0, [f"Gene CDS ({gene_cds}bp) exceeds vector cargo ({vector_cargo}bp) — hard fail"]
 
-    ratio = gene_cds / vector_cargo  # ← what fraction of the vector's capacity is used
+    # Grade on the full cassette (CDS + regulatory overhead), which is what is
+    # actually packaged, not the bare CDS.
+    cassette = gene_cds + cassette_overhead_bp
+    fill = cassette / vector_cargo
 
-    # ← Smaller = better: leaves more room, less risk of packaging problems
-    if ratio <= 0.3:
-        score = 2.0   # ← gene uses ≤30% of capacity → perfect fit
-    elif ratio <= 0.6:
-        score = 1.5   # ← 30–60% → good fit
-    elif ratio <= 0.85:
-        score = 1.0   # ← 60–85% → tight but workable
+    if fill <= 0.6:
+        score = 2.0   # ← comfortable: full cassette uses ≤60% of capacity
+        note = f"CDS {gene_cds}bp + ~{cassette_overhead_bp}bp cassette = {cassette}bp / cargo {vector_cargo}bp ({fill:.0%}) — comfortable fit"
+    elif fill <= 0.85:
+        score = 1.5   # ← good: 60–85%
+        note = f"CDS {gene_cds}bp + ~{cassette_overhead_bp}bp cassette = {cassette}bp / cargo {vector_cargo}bp ({fill:.0%}) — good fit"
+    elif fill <= 1.0:
+        score = 1.0   # ← tight but workable with a standard cassette
+        note = f"CDS {gene_cds}bp + ~{cassette_overhead_bp}bp cassette = {cassette}bp / cargo {vector_cargo}bp ({fill:.0%}) — tight; cassette near capsid limit"
     else:
-        score = 0.5   # ← 85–100% → dangerously close to limit
+        score = 0.5   # ← CDS fits the capsid but the full cassette does not
+        note = (
+            f"CDS {gene_cds}bp fits the capsid, but CDS + typical regulatory elements "
+            f"(~{cassette_overhead_bp}bp) = {cassette}bp exceeds nominal cargo {vector_cargo}bp "
+            f"({fill:.0%}). Requires a minimal-promoter/engineered cassette, dual-AAV, or a "
+            "higher-capacity vector (cf. B-domain-deleted F8, micro-dystrophin)."
+        )
 
-    return score, [f"Gene CDS {gene_cds}bp / cargo {vector_cargo}bp ({ratio:.0%} utilized)"]
+    return score, [note]
 
 
 def _packaging_gene_for_program(
@@ -308,13 +550,13 @@ def _classify_gene_protein(gene_info: GeneInfo) -> tuple[bool, bool, bool, bool]
     # A lysosomal protein is a MEMBRANE protein if it sits in the lysosomal membrane
     # (transmembrane anchor) OR if it is a channel/transporter/pump.
     # These cannot be secreted and therefore cannot be taken up by neighbouring cells.
+    # NOTE: terms must be whole-phrase, not the bare substring "ion" — "ion" matched
+    # unrelated keywords like "Coagulation", "Transcription", "secretion" (v4 fix).
+    _membrane_terms = ("channel", "transport", "pump", "antiport", "symport",
+                       "ion channel", "ion transport")
     is_lysosomal_membrane = is_lysosomal and (
         any("membran" in l for l in locs)          # explicit membrane location
-        or any(
-            term in k
-            for k in kws
-            for term in ("channel", "transport", "pump", "antiport", "symport", "ion")
-        )
+        or any(term in k for k in kws for term in _membrane_terms)
         or any(
             term in l
             for l in locs
@@ -381,9 +623,30 @@ def score_protein_class(
 # ══════════════════════════════════════════════════════════════════════════════
 # DIMENSION 4: INHERITANCE COMPATIBILITY (max 1.0)
 # ══════════════════════════════════════════════════════════════════════════════
+#
+# LIMITATION ADDRESSED (v3): v2 assumed recessive = LOF = gene-addition candidate.
+# This is true for classical loss-of-function (null) alleles but not for:
+#   - Haploinsufficiency (AR/AD): one functional copy insufficient; adding a second
+#     copy via a strong ubiquitous promoter may help but dose titration is needed.
+#     Source: Yin H et al. (2019) Nat Rev Genet 20:454-468.
+#   - Dominant-negative (AD/XL): mutant protein poisons the wild-type homodimer;
+#     gene addition adds more wild-type but the mutant remains. Need to suppress
+#     mutant allele simultaneously. Source: Keeler AM & Flotte TR (2019) Annu Rev
+#     Med 70:273-291.
+#   - Gain-of-function (AD): extra gene copies worsen the phenotype.
+#     Captured via modality_compatibility (mechanism.py), not this dimension.
+#
+# This function now detects keyword signals in gene keywords for dominant-negative
+# and haploinsufficiency and applies an explicit penalty with a review flag.
+# Note: it receives disease-level inheritance, not gene-level mechanism — the
+# mechanism dimension (dimension 6) handles the gene-level assessment. This
+# dimension penalises the structural incompatibility between inheritance mode and
+# gene-addition logic, independently of specific mechanism evidence.
+#
 def score_inheritance(
     disease_inheritance: list[str],  # ← e.g. ["Autosomal recessive"]
     program_inheritance: str,        # ← e.g. "AR", "XL"
+    gene_keywords: list[str] | None = None,  # ← UniProt keywords for dominant-neg detection
 ) -> tuple[float, list[str]]:
     # ← Why inheritance matters: AR and XL recessive diseases = loss-of-function (LOF)
     #   Gene replacement therapy is the natural fix for LOF diseases.
@@ -394,11 +657,37 @@ def score_inheritance(
 
     di_lower = [d.lower() for d in disease_inheritance]
     pi = program_inheritance.lower()
+    kws_l = [k.lower() for k in (gene_keywords or [])]
+
+    # Detect dominant-negative signal from gene keywords.
+    # "dominant-negative" and "dominant negative" appear in UniProt keywords for
+    # known dominant-negative proteins (e.g. TP53 mutants, certain GJB2 alleles).
+    is_dominant_negative = any(
+        "dominant-negative" in k or "dominant negative" in k for k in kws_l
+    )
+
+    # Haploinsufficiency: heterozygous loss sufficient for disease; adding a second
+    # copy via a constitutive promoter may be insufficient if the disease requires
+    # very tight stoichiometry (e.g. MECP2 duplication is pathogenic).
+    # Detected when disease is autosomal dominant + gene has dosage-sensitivity keywords.
+    is_dominant = any("dominant" in d and "recessive" not in d for d in di_lower)
+    is_haploinsufficient = is_dominant and any(
+        term in k
+        for k in kws_l
+        for term in ("haploinsufficiency", "dosage", "transcription factor", "chromodomain")
+    )
 
     ar_match = "autosomal recessive" in di_lower and "ar" in pi
     xl_match = any("x-linked" in d for d in di_lower) and "xl" in pi
 
     if ar_match or xl_match:
+        if is_dominant_negative:
+            # Rare case: X-linked recessive with a dominant-negative allele (e.g. some GJB2)
+            return 0.5, [
+                f"Inheritance mode matches ({disease_inheritance[0]} <-> {program_inheritance}) "
+                "but dominant-negative keyword detected — adding wild-type alone may not rescue; "
+                "allele-specific suppression or co-delivery of silencing may be needed"
+            ]
         return 1.0, [f"Inheritance match ({disease_inheritance[0]} <-> {program_inheritance})"]
 
     any_lof = any("recessive" in d for d in di_lower) or any("x-linked" in d for d in di_lower)
@@ -407,29 +696,62 @@ def score_inheritance(
     if any_lof and prog_lof:
         return 0.7, ["LOF inheritance — compatible for gene replacement"]
 
-    return 0.3, ["Inheritance mismatch (dominant/mitochondrial — higher complexity)"]
+    if is_dominant_negative:
+        return 0.2, [
+            "Dominant-negative mechanism: gene addition alone will not correct the phenotype "
+            "because the mutant protein inhibits the wild-type. Silencing, editing, or "
+            "allele-specific RNAi is required in addition to or instead of gene addition. "
+            "Source: Keeler & Flotte (2019) Annu Rev Med 70:273"
+        ]
+
+    if is_haploinsufficient:
+        return 0.4, [
+            "Haploinsufficiency with dosage-sensitive gene: adding a second copy may help "
+            "but constitutive strong promoters carry a risk of overexpression toxicity. "
+            "Requires careful promoter selection and dose titration. "
+            "Source: Yin et al. (2019) Nat Rev Genet 20:454"
+        ]
+
+    return 0.3, ["Inheritance mismatch (dominant/mitochondrial — higher complexity; consider silencing or editing strategy)"]
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # DIMENSION 5: PATHWAY SIMILARITY (max 2.0)
 # ══════════════════════════════════════════════════════════════════════════════
-_PATHWAY_GROUPS: dict[str, set[str]] = {
-    "lysosomal_storage": {"lysosomal_storage", "leukodystrophy", "glycogen_storage"},
-    "leukodystrophy": {"leukodystrophy", "lysosomal_storage", "peroxisomal"},
-    "peroxisomal": {"peroxisomal", "leukodystrophy", "lipid_metabolism"},
-    "coagulation": {"coagulation"},
-    "motor_neuron": {"motor_neuron", "myopathy"},
-    "myopathy": {"myopathy", "motor_neuron", "glycogen_storage"},
-    "retinal": {"retinal_visual_cycle", "retinal_phototransduction", "mitochondrial_complex"},
-    "retinal_visual_cycle": {"retinal_visual_cycle", "retinal_phototransduction"},
-    "retinal_phototransduction": {"retinal_phototransduction", "retinal_visual_cycle"},
-    "mitochondrial_complex": {"mitochondrial_complex", "retinal_visual_cycle", "amino_acid_metabolism"},
-    "amino_acid_metabolism": {"amino_acid_metabolism", "urea_cycle", "mitochondrial_complex"},
-    "urea_cycle": {"urea_cycle", "amino_acid_metabolism"},
-    "glycogen_storage": {"glycogen_storage", "myopathy", "lysosomal_storage"},
-    "immune_hematopoietic": {"immune_hematopoietic"},
-    "lipid_metabolism": {"lipid_metabolism", "peroxisomal"},
+# Pathway relatedness is defined as an UNDIRECTED edge list and the adjacency map
+# is built from it, so symmetry is guaranteed by construction (v4 fix — the old
+# hand-written dict was asymmetric and contained unsupported cross-links, e.g.
+# retinal_phototransduction ↔ mitochondrial_complex, which existed only to let LHON
+# match retinal programs; LHON is now handled by the organelle-targeting gate).
+_ALL_PATHWAYS: set[str] = {
+    "lysosomal_storage", "leukodystrophy", "peroxisomal", "lipid_metabolism",
+    "coagulation", "motor_neuron", "myopathy", "glycogen_storage",
+    "retinal_visual_cycle", "retinal_phototransduction", "mitochondrial_complex",
+    "amino_acid_metabolism", "urea_cycle", "immune_hematopoietic",
 }
+
+_PATHWAY_EDGES: set[frozenset[str]] = {
+    frozenset({"lysosomal_storage", "leukodystrophy"}),
+    frozenset({"lysosomal_storage", "glycogen_storage"}),
+    frozenset({"leukodystrophy", "peroxisomal"}),
+    frozenset({"peroxisomal", "lipid_metabolism"}),
+    frozenset({"motor_neuron", "myopathy"}),
+    frozenset({"myopathy", "glycogen_storage"}),
+    frozenset({"retinal_visual_cycle", "retinal_phototransduction"}),
+    frozenset({"amino_acid_metabolism", "urea_cycle"}),
+}
+
+
+def _build_pathway_groups() -> dict[str, set[str]]:
+    groups: dict[str, set[str]] = {p: {p} for p in _ALL_PATHWAYS}
+    for edge in _PATHWAY_EDGES:
+        a, b = tuple(edge)
+        groups.setdefault(a, {a}).add(b)
+        groups.setdefault(b, {b}).add(a)
+    return groups
+
+
+_PATHWAY_GROUPS: dict[str, set[str]] = _build_pathway_groups()
 
 
 def _infer_pathway(disease: DiseaseInfo, gene: GeneInfo) -> str:
@@ -488,11 +810,23 @@ def score_pathway(
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# DIMENSION 6: APPROVAL WEIGHT (max 1.0)
+# DIMENSION 6: APPROVAL WEIGHT (max 1.0)  — a measure of PRECEDENT STRENGTH
 # ══════════════════════════════════════════════════════════════════════════════
+# This scores how far a precedent has advanced, as a proxy for how validated the
+# approach is. It is a property of the precedent, not of disease fit — which is why
+# it sits in the "precedent strength" half of match_score, not the biological-fit
+# half (see MATCH_WEIGHTS docstring).
+#
+# NOTE on "withdrawn" (0.7, deliberately above phase2 = 0.6): the only withdrawn
+# program in this catalog is Glybera, which was fully EMA-approved in 2012 and
+# withdrawn in 2017 for COMMERCIAL reasons (price/demand), NOT for safety or lack of
+# efficacy. As a regulatory PRECEDENT — "regulators have accepted this modality for
+# this indication class" — a withdrawn-after-approval product is stronger evidence
+# than an in-progress Phase 2. A program withdrawn for safety/efficacy reasons would
+# warrant a much lower score and should be encoded separately if one is ever added.
 _APPROVAL_SCORES = {
     "approved": 1.0,
-    "withdrawn": 0.7,
+    "withdrawn": 0.7,   # commercial withdrawal after approval — see note above
     "phase3": 0.8,
     "phase2/3": 0.7,
     "phase2": 0.6,
@@ -518,15 +852,28 @@ def score_approval(status: str) -> tuple[float, list[str]]:
 # Sources: Boutin et al. (2010) J Infect Dis; Calcedo et al. (2011) Hum Gene Ther;
 #          Mingozzi & High (2013) Nat Rev Genet
 #
-# Values represent approximate population seroprevalence (fraction 0–1):
+# LIMITATION: these seroprevalence values are population averages from Western
+# adult cohorts circa 2010-2011. They do not account for:
+#   (a) Geographic/ancestry variation: AAV1/AAV6 seroprevalence is higher in
+#       sub-Saharan Africa and Southeast Asia (Calcedo et al. 2011).
+#   (b) Capsid engineering: synthetic/evolved capsids (e.g. AAV.LK03, AAVhu.37)
+#       may have substantially different NAb profiles than wild-type serotypes.
+#   (c) Paediatric dosing: neonates and infants have lower seroprevalence than
+#       adults (relevant for SMA, MPS, and other childhood-onset diseases).
+#   (d) Immunodepletion protocols: plasmapheresis, IVIg, and rapamycin regimens
+#       can expand eligibility in high-seroprevalence populations.
+# Treat these scores as a general relative ranking (LV < AAV5 < AAVrh10 < AAV2)
+# rather than absolute clinical eligibility thresholds.
+#
+# Values represent approximate Western adult population seroprevalence (fraction 0–1):
 _SEROPREVALENCE: dict[str, float] = {
-    "AAV1":    0.20,   # ← 15–30%; moderate
-    "AAV2":    0.55,   # ← 40–70%; HIGHEST — AAV2 is the oldest, most encountered naturally
-    "AAV5":    0.09,   # ← 3–15%; LOW — favourable immunogenicity profile
-    "AAV8":    0.30,   # ← 20–40%; moderate
+    "AAV1":    0.20,   # ← 15–30%; moderate — Boutin 2010
+    "AAV2":    0.55,   # ← 40–70%; HIGHEST — AAV2 is the oldest, most naturally encountered
+    "AAV5":    0.09,   # ← 3–15%; LOW — favourable immunogenicity profile — Boutin 2010
+    "AAV8":    0.30,   # ← 20–40%; moderate — Calcedo 2011
     "AAV9":    0.22,   # ← 15–30%; moderate; neonatal dosing in SMA trials mitigates this
     "AAVrh10": 0.10,   # ← 5–15%; low — primate-derived, less historical human exposure
-    "AAV2/6":  0.17,   # ← 10–25%; low-moderate hybrid
+    "AAV2/6":  0.17,   # ← 10–25%; low-moderate; cross-reactive with AAV6
     "LV":      0.02,   # ← <5%; lentiviral vectors are immunologically distinct from AAVs
 }
 
@@ -565,8 +912,50 @@ def score_immunogenicity(vector_serotype: str) -> tuple[float, list[str]]:
 #
 # Inferred from HPO symptom terms and disease name.
 #
+# LIMITATION: this score is derived from keyword matching against HPO text.
+# It does not use actual natural-history data (age of first symptom, rate of
+# progression, reversibility of individual tissue damage). Within a single disease,
+# phenotypic heterogeneity (e.g. SMA type 1 vs type 3, Gaucher type 1 vs 3) can
+# shift the window dramatically. The score should be reviewed against published
+# natural-history studies before use in clinical-development planning.
+# Reference: Delhove & Antoniou (2022) Drug Discov Today 27:103-117.
+#
+# Curated natural-history window_class → therapeutic-window score (max 2.0).
+_WINDOW_CLASS_SCORES: dict[str, float] = {
+    "wide": 2.0,         # adult/chronic onset or effectively managed; broad timing latitude
+    "moderate": 1.5,     # childhood onset, progressive but screenable
+    "narrow": 0.8,       # infantile/rapid onset; early dosing essential
+    "very_narrow": 0.5,  # neonatal/congenital or rapidly fatal; in utero/immediate delivery
+}
+
+
 def score_therapeutic_window(disease: DiseaseInfo) -> tuple[float, list[str]]:
-    """Score the disease's amenability to GT from a natural-history/timing perspective."""
+    """Score the disease's amenability to GT from a natural-history/timing perspective.
+
+    v4: consults curated natural-history data (natural_history.py) FIRST. Only if no
+    curated record exists does it fall back to the HPO-keyword heuristic, which is
+    known to be clinically wrong for some diseases (it scored PKU — the textbook
+    wide-window disease — in the narrowest tier because "intellectual disability"
+    tripped the irreversibility branch).
+    """
+    nh = lookup_natural_history(disease.orphanet_id)
+    if nh.is_curated:
+        score = _WINDOW_CLASS_SCORES.get(nh.window_class, 1.0)
+        source = nh.evidence_citation + (f" ({nh.evidence_url})" if nh.evidence_url else "")
+        return score, [
+            f"Therapeutic window [{nh.window_class}] = {score:.1f}/2.0 — "
+            f"{nh.onset_category} onset; {nh.window_detail}",
+            f"Natural-history source: {source} [{nh.evidence_status}]",
+        ]
+    score, notes = _score_therapeutic_window_heuristic(disease)
+    return score, [
+        "Therapeutic window scored by HPO-keyword heuristic — no curated "
+        "natural-history record; verify against published natural history before use:"
+    ] + notes
+
+
+def _score_therapeutic_window_heuristic(disease: DiseaseInfo) -> tuple[float, list[str]]:
+    """Legacy keyword-based window scoring; fallback only when no curated record."""
     combined = (" ".join(disease.hpo_terms) + " " + disease.name).lower()
 
     neonatal = any(t in combined for t in [
@@ -718,22 +1107,52 @@ _IMMUNE_PRIVILEGE_SCORES: dict[str, tuple[float, str]] = {
 }
 
 
-def score_immune_privilege(disease_tissues: list[str]) -> tuple[float, list[str]]:
-    """Score immune privilege based on the disease's primary target tissue(s)."""
+def _aggregate_tissue_mean(
+    disease_tissues: list[str],
+    table: dict[str, tuple[float, str]],
+    default_score: float,
+    default_note,           # callable: tissue -> note
+    label: str,
+) -> tuple[float, list[str]]:
+    """Mean tissue score across ALL annotated tissues (v4).
+
+    Previously these dimensions returned the single most favourable tissue's score,
+    which over-scored multi-system diseases by cherry-picking the easiest tissue
+    (e.g. a kidney+CNS disease inherited CNS's high score and the kidney — possibly
+    the real therapeutic target — was ignored). The mean reflects the average
+    delivery difficulty across affected tissues. To score a single declared target,
+    pass one tissue via the CLI --primary-tissue flag (mean of one == that tissue).
+    """
     if not disease_tissues:
-        return 0.5, ["No tissue data — neutral immune privilege score applied"]
+        return default_score, [f"No tissue data — neutral {label} score applied"]
 
-    best_score = 0.0
-    best_note = ""
+    scored = []
     for tissue in disease_tissues:
-        score, note = _IMMUNE_PRIVILEGE_SCORES.get(
-            tissue.lower(), (0.5, f"Standard immune surveillance assumed for {tissue}")
-        )
-        if score > best_score:
-            best_score = score
-            best_note = note
+        score, note = table.get(tissue.lower(), (default_score, default_note(tissue)))
+        scored.append((tissue, score, note))
 
-    return best_score, [f"Immune privilege: {best_note}"]
+    mean = round(sum(s for _, s, _ in scored) / len(scored), 3)
+    best = max(scored, key=lambda x: x[1])
+    worst = min(scored, key=lambda x: x[1])
+    if len(scored) == 1:
+        detail = best[2]
+    else:
+        detail = (
+            f"mean across {len(scored)} tissues — best {best[0]} {best[1]:.2f} "
+            f"({best[2]}); lowest {worst[0]} {worst[1]:.2f}"
+        )
+    return mean, [f"{label} ({mean:.2f}): {detail}"]
+
+
+def score_immune_privilege(disease_tissues: list[str]) -> tuple[float, list[str]]:
+    """Score immune privilege as the mean across the disease's target tissue(s)."""
+    return _aggregate_tissue_mean(
+        disease_tissues,
+        _IMMUNE_PRIVILEGE_SCORES,
+        0.5,
+        lambda t: f"standard immune surveillance assumed for {t}",
+        "Immune privilege",
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -749,6 +1168,15 @@ def score_immune_privilege(disease_tissues: list[str]) -> tuple[float, list[str]
 # Liver and retina have the richest catalogue of validated promoters; kidney
 # has almost none in clinical use.
 #
+# LIMITATION: this dimension scores AVAILABILITY (has a validated promoter been
+# published / used in a clinical program?) but not promoter STRENGTH, cell-type
+# specificity within the tissue, or developmental dynamics. A constitutive
+# promoter (CAG, CMV) will score poorly here even though it reliably drives
+# expression; a tissue-specific promoter may be listed as available but require
+# optimisation for the specific disease cell type. Promoter engineering is an
+# active field; treat this as a feasibility floor, not a ceiling.
+# Source: Martini PGV (2021) Hum Gene Ther 32:57-69.
+#
 _PROMOTER_DATA: dict[str, tuple[float, str]] = {
     "liver":         (1.0, "ApoE/hAAT, TBG, transthyretin, albumin — extensively validated; used in Hemgenix, Roctavian, DTX301"),
     "retina":        (1.0, "VMD2, RPGR, GRK1, CRX, IRBP — multiple validated retinal promoters used in Luxturna, GS010, CPCB-RPE1"),
@@ -761,21 +1189,14 @@ _PROMOTER_DATA: dict[str, tuple[float, str]] = {
 
 
 def score_promoter_availability(disease_tissues: list[str]) -> tuple[float, list[str]]:
-    """Score based on availability of validated, tissue-specific promoters."""
-    if not disease_tissues:
-        return 0.5, ["No tissue data — neutral promoter availability score applied"]
-
-    best_score = 0.0
-    best_note = ""
-    for tissue in disease_tissues:
-        score, note = _PROMOTER_DATA.get(
-            tissue.lower(), (0.5, f"Limited clinical-grade promoters validated for {tissue}")
-        )
-        if score > best_score:
-            best_score = score
-            best_note = note
-
-    return best_score, [f"Promoter availability: {best_note}"]
+    """Score mean availability of validated, tissue-specific promoters across tissues."""
+    return _aggregate_tissue_mean(
+        disease_tissues,
+        _PROMOTER_DATA,
+        0.5,
+        lambda t: f"limited clinical-grade promoters validated for {t}",
+        "Promoter availability",
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -804,21 +1225,14 @@ _ROA_DATA: dict[str, tuple[float, str]] = {
 
 
 def score_roa_feasibility(disease_tissues: list[str]) -> tuple[float, list[str]]:
-    """Score the feasibility and precedent of the required delivery route."""
-    if not disease_tissues:
-        return 0.5, ["No tissue data — neutral RoA feasibility score"]
-
-    best_score = 0.0
-    best_note = ""
-    for tissue in disease_tissues:
-        score, note = _ROA_DATA.get(
-            tissue.lower(), (0.5, f"Delivery route to {tissue} not well established in clinical programs")
-        )
-        if score > best_score:
-            best_score = score
-            best_note = note
-
-    return best_score, [f"Route of administration: {best_note}"]
+    """Score mean feasibility of the required delivery route across target tissues."""
+    return _aggregate_tissue_mean(
+        disease_tissues,
+        _ROA_DATA,
+        0.5,
+        lambda t: f"delivery route to {t} not well established in clinical programs",
+        "Route of administration",
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1006,7 +1420,8 @@ def build_review_flags(
         or any(
             term in k
             for k in kws_l
-            for term in ("channel", "transport", "pump", "antiport", "symport", "ion")
+            for term in ("channel", "transport", "pump", "antiport", "symport",
+                         "ion channel", "ion transport")
         )
     )
     if gene_is_lysosomal_membrane:
@@ -1179,6 +1594,13 @@ def build_review_flags(
             "Mechanism evidence does not cleanly support simple gene addition; consider RNA, editing, silencing, mitochondrial, or other non-catalog modalities"
         )
 
+    if not lookup_natural_history(disease.orphanet_id).is_curated:
+        flags.append(
+            "No curated natural-history record; therapeutic-window score is a HPO-keyword "
+            "heuristic — verify age of onset, progression rate, and reversibility against "
+            "published natural-history data before using the tractability score"
+        )
+
     # Combined text for catch-all pattern checks — use safe joins
     combined_mechanism_text = " ".join([
         " ".join(disease.inheritance or []),
@@ -1212,18 +1634,156 @@ def build_review_flags(
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MAIN SCORING FUNCTION: combines all 14 dimensions for one program
+# TRACTABILITY: disease-intrinsic GT amenability (identical across all programs)
 # ══════════════════════════════════════════════════════════════════════════════
-def score_program(
+@dataclass
+class TractabilityResult:
+    """How amenable the DISEASE is to gene therapy, independent of precedent choice."""
+    tractability_score: float
+    tractability_tier: str
+    therapeutic_window: float
+    cross_correction: float
+    immune_privilege: float
+    promoter_availability: float
+    roa_feasibility: float
+    organelle_targeting: float
+    notes: list[str] = field(default_factory=list)
+
+
+def score_tractability(disease: DiseaseInfo, gene: GeneInfo) -> TractabilityResult:
+    """Score the six disease-intrinsic dimensions ONCE per disease.
+
+    These depend only on the disease/gene, never on the program or vector, so they
+    are identical for every catalog precedent. Computing them here (once) instead of
+    inside the per-program loop — and reporting them as a separate score rather than
+    summing them into the ranking — is the core v4 fix. In v3 these dimensions added
+    an identical baseline to every program, inflating the headline number and the
+    confidence tier without ever changing which precedent ranked first.
+    """
+    notes: list[str] = []
+    tw, n = score_therapeutic_window(disease); notes += n
+    cc, n = score_cross_correction(gene); notes += n
+    ip, n = score_immune_privilege(disease.affected_tissues); notes += n
+    pa, n = score_promoter_availability(disease.affected_tissues); notes += n
+    roa, n = score_roa_feasibility(disease.affected_tissues); notes += n
+    ot, n = score_organelle_targeting(gene, disease); notes += n
+
+    dims = {
+        "therapeutic_window": tw, "cross_correction": cc, "immune_privilege": ip,
+        "promoter_availability": pa, "roa_feasibility": roa, "organelle_targeting": ot,
+    }
+    score = normalise_tractability(dims)
+    return TractabilityResult(
+        tractability_score=score,
+        tractability_tier=_tractability_tier(score),
+        therapeutic_window=tw, cross_correction=cc, immune_privilege=ip,
+        promoter_availability=pa, roa_feasibility=roa, organelle_targeting=ot,
+        notes=notes,
+    )
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MATCH: how good a PRECEDENT one program is for the disease (drives the ranking)
+# ══════════════════════════════════════════════════════════════════════════════
+def _fail_breakdown(
+    program: dict,
+    disease: DiseaseInfo,
+    gene: GeneInfo,
+    tract: TractabilityResult,
+    *,
+    packaging_fit: float,
+    notes: list[str],
+    strategy_notes: list[str],
+    v_tropism: list[str],
+) -> ScoreBreakdown:
+    """ScoreBreakdown for a hard-failed program: match_score 0, confidence 'fail'.
+
+    Tractability dimensions are still populated — they are disease-level and remain
+    valid even when this particular program is excluded.
+    """
+    return ScoreBreakdown(
+        program_name=program["name"],
+        program_disease=program["disease"],
+        vector=program["vector"],
+        tissue_target=program["tissue_target"],
+        approval_status=program["approval_status"],
+        match_score=0.0,
+        confidence="fail",
+        tractability_score=tract.tractability_score,
+        tractability_tier=tract.tractability_tier,
+        packaging_fit=packaging_fit,
+        tropism_match=0.0,
+        protein_class_match=0.0,
+        inheritance_match=0.0,
+        pathway_similarity=0.0,
+        modality_compatibility=0.0,
+        approval_weight=0.0,
+        immunogenicity=0.0,
+        therapeutic_window=tract.therapeutic_window,
+        cross_correction=tract.cross_correction,
+        immune_privilege=tract.immune_privilege,
+        promoter_availability=tract.promoter_availability,
+        roa_feasibility=tract.roa_feasibility,
+        organelle_targeting=tract.organelle_targeting,
+        notes=notes,
+        review_flags=build_review_flags(
+            disease=disease,
+            gene=gene,
+            vector_tropism=v_tropism,
+            vector_serotype=program["vector"],
+            tropism_score=0.0,
+            cross_correction_score=tract.cross_correction,
+            therapeutic_window_score=tract.therapeutic_window,
+            strategy_notes=strategy_notes,
+            organelle_targeting_score=tract.organelle_targeting,
+        ),
+    )
+
+
+def score_match(
     disease: DiseaseInfo,   # ← the query disease
     gene: GeneInfo,         # ← its causal gene
     program: dict,          # ← one GT program from the catalog (e.g. Zolgensma row)
     vector: dict,           # ← the vector used by that program (e.g. AAV9 row)
+    tract: TractabilityResult,  # ← precomputed disease-level tractability (same for all programs)
 ) -> ScoreBreakdown:
+    """Score how good a PRECEDENT this program is for the disease.
 
+    Only program-comparative dimensions enter match_score. Two hard gates can
+    exclude a program entirely (match_score 0, confidence 'fail'):
+      Gate 1 — mechanism/modality: an incompatible mechanism (gain-of-function,
+        dominant-negative, toxic gain-of-RNA, overexpression) means gene addition is
+        the wrong modality and cannot be rescued by any vector/construct change. This
+        is checked FIRST because it is the more fundamental exclusion (v4 reorder).
+      Gate 2 — packaging: the coding sequence alone exceeds the capsid.
+    """
     notes: list[str] = []
 
-    # ── Step 1: Packaging (hard gate) ─────────────────────────────────────
+    v_tropism = (
+        json.loads(vector["tissue_tropism"])
+        if isinstance(vector.get("tissue_tropism"), str)
+        else vector.get("tissue_tropism", [])
+    )
+
+    # ── Gate 1 (most fundamental): mechanism / modality ───────────────────
+    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
+    mod, mod_notes = score_gene_addition_compatibility(mechanism)
+
+    if mechanism.gene_addition_compatibility.lower() == "incompatible":
+        # Gene addition is the wrong modality (gain-of-function, dominant-negative,
+        # toxic gain-of-RNA, overexpression). Adding gene copies cannot help and may
+        # worsen disease — no vector or construct change rescues this. Excluded.
+        notes.extend(mod_notes)
+        notes.append(
+            f"Mechanism hard-fail: {mechanism.mechanism_category} — "
+            f"{mechanism.mechanism_detail}"
+        )
+        return _fail_breakdown(
+            program, disease, gene, tract,
+            packaging_fit=0.0, notes=notes, strategy_notes=[], v_tropism=v_tropism,
+        )
+
+    # ── Gate 2: packaging ─────────────────────────────────────────────────
     packaging_gene, strategy_notes = _packaging_gene_for_program(gene, program)
     notes.extend(strategy_notes)
     pkg, pkg_notes = score_packaging(
@@ -1232,190 +1792,54 @@ def score_program(
         vector["cargo_limit_bp"],
     )
     notes.extend(pkg_notes)
-
-    if pkg == 0.0:
-        # ← Gene doesn't fit → immediate fail, skip all other scoring
-        # Organelle targeting still scored on hard-fail so the flag appears in the report
-        ot_fail, ot_fail_notes = score_organelle_targeting(gene, disease)
-        notes.extend(ot_fail_notes)
-        return ScoreBreakdown(
-            program_name=program["name"],
-            program_disease=program["disease"],
-            vector=program["vector"],
-            tissue_target=program["tissue_target"],
-            approval_status=program["approval_status"],
-            composite_score=0.0,
-            confidence="fail",
-            packaging_fit=0.0,
-            tropism_match=0.0,
-            protein_class_match=0.0,
-            inheritance_match=0.0,
-            pathway_similarity=0.0,
-            modality_compatibility=0.0,
-            approval_weight=0.0,
-            immunogenicity=0.0,
-            therapeutic_window=0.0,
-            cross_correction=0.0,
-            immune_privilege=0.0,
-            promoter_availability=0.0,
-            roa_feasibility=0.0,
-            organelle_targeting=ot_fail,
-            notes=notes,
-            review_flags=build_review_flags(
-                disease=disease,
-                gene=gene,
-                vector_tropism=[],
-                vector_serotype=program["vector"],
-                tropism_score=0.0,
-                cross_correction_score=0.0,
-                therapeutic_window_score=0.0,
-                strategy_notes=strategy_notes,
-                organelle_targeting_score=ot_fail,
-            ),
-        )
-
-    # ── Step 2: Tropism ───────────────────────────────────────────────────
-    v_tropism = (
-        json.loads(vector["tissue_tropism"])
-        if isinstance(vector.get("tissue_tropism"), str)
-        else vector.get("tissue_tropism", [])
-    )
-    trp, trp_notes = score_tropism(
-        disease.affected_tissues,
-        v_tropism,
-        program.get("tissue_target"),
-    )
-    notes.extend(trp_notes)
-
-    # ── Step 3: Protein class ─────────────────────────────────────────────
-    prc, prc_notes = score_protein_class(gene, program["protein_class"])
-    notes.extend(prc_notes)
-
-    # ── Step 4: Inheritance ───────────────────────────────────────────────
-    inh, inh_notes = score_inheritance(disease.inheritance, program["inheritance"])
-    notes.extend(inh_notes)
-
-    # ── Step 5: Pathway ───────────────────────────────────────────────────
-    pth, pth_notes = score_pathway(disease, gene, program["pathway"])
-    notes.extend(pth_notes)
-
-    # ── Step 6: Modality compatibility ────────────────────────────────────
-    # ← uses source-linked disease mechanism evidence instead of assuming
-    # ← inheritance always equals loss-of-function gene-addition suitability.
-    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
-    mod, mod_notes = score_gene_addition_compatibility(mechanism)
     notes.extend(mod_notes)
 
-    if mechanism.gene_addition_compatibility.lower() == "incompatible":
-        # ← Mechanism hard gate: gain-of-function, dominant-negative, RNA toxic GOF,
-        #   and gene duplication/overexpression diseases are fundamentally incompatible
-        #   with gene addition. Adding more gene copies would not help and may worsen
-        #   disease. Exclude from ranking entirely, same as the packaging hard-fail.
-        notes.append(
-            f"Mechanism hard-fail: {mechanism.mechanism_category} — "
-            f"{mechanism.mechanism_detail}"
-        )
-        ot_mfail, ot_mfail_notes = score_organelle_targeting(gene, disease)
-        notes.extend(ot_mfail_notes)
-        return ScoreBreakdown(
-            program_name=program["name"],
-            program_disease=program["disease"],
-            vector=program["vector"],
-            tissue_target=program["tissue_target"],
-            approval_status=program["approval_status"],
-            composite_score=0.0,
-            confidence="fail",
-            packaging_fit=pkg,
-            tropism_match=0.0,
-            protein_class_match=0.0,
-            inheritance_match=0.0,
-            pathway_similarity=0.0,
-            modality_compatibility=0.0,
-            approval_weight=0.0,
-            immunogenicity=0.0,
-            therapeutic_window=0.0,
-            cross_correction=0.0,
-            immune_privilege=0.0,
-            promoter_availability=0.0,
-            roa_feasibility=0.0,
-            organelle_targeting=ot_mfail,
-            notes=notes,
-            review_flags=build_review_flags(
-                disease=disease,
-                gene=gene,
-                vector_tropism=[],
-                vector_serotype=program["vector"],
-                tropism_score=0.0,
-                cross_correction_score=0.0,
-                therapeutic_window_score=0.0,
-                strategy_notes=strategy_notes,
-                organelle_targeting_score=ot_mfail,
-            ),
+    if pkg == 0.0:
+        return _fail_breakdown(
+            program, disease, gene, tract,
+            packaging_fit=0.0, notes=notes, strategy_notes=strategy_notes, v_tropism=v_tropism,
         )
 
-    # ── Step 7: Approval ──────────────────────────────────────────────────
+    # ── Remaining program-comparative dimensions ──────────────────────────
+    trp, trp_notes = score_tropism(disease.affected_tissues, v_tropism, program.get("tissue_target"))
+    notes.extend(trp_notes)
+    prc, prc_notes = score_protein_class(gene, program["protein_class"])
+    notes.extend(prc_notes)
+    inh, inh_notes = score_inheritance(
+        disease.inheritance, program["inheritance"], gene_keywords=gene.keywords
+    )
+    notes.extend(inh_notes)
+    pth, pth_notes = score_pathway(disease, gene, program["pathway"])
+    notes.extend(pth_notes)
     apv, apv_notes = score_approval(program["approval_status"])
     notes.extend(apv_notes)
-
-    # ── Step 8: Immunogenicity ────────────────────────────────────────────
-    # ← uses the vector serotype to look up published seroprevalence rates
     imm, imm_notes = score_immunogenicity(program["vector"])
     notes.extend(imm_notes)
 
-    # ── Step 9: Therapeutic window ────────────────────────────────────────
-    # ← uses the disease's HPO terms to infer how wide the treatment window is
-    # ← same score for all precedent programs (it's a property of the query disease)
-    tw, tw_notes = score_therapeutic_window(disease)
-    notes.extend(tw_notes)
+    # ── Match score (program-comparative dims only) ───────────────────────
+    match_dims = {
+        "packaging_fit": pkg,
+        "tropism_match": trp,
+        "modality_compatibility": mod,
+        "protein_class": prc,
+        "pathway_similarity": pth,
+        "inheritance": inh,
+        "approval_weight": apv,
+        "immunogenicity": imm,
+    }
+    match_score = normalise_match(match_dims)
+    confidence = _confidence_for_match(match_score)
 
-    # ── Step 10: Cross-correction ─────────────────────────────────────────
-    # ← uses the gene's protein localisation to determine cross-correction capacity
-    # ← same for all precedent programs (it's a property of the query gene)
-    cc, cc_notes = score_cross_correction(gene)
-    notes.extend(cc_notes)
-
-    # ── Step 11: Immune privilege ─────────────────────────────────────────
-    # ← uses the disease's target tissues to score immunological privilege
-    ip, ip_notes = score_immune_privilege(disease.affected_tissues)
-    notes.extend(ip_notes)
-
-    # ── Step 12: Promoter availability ────────────────────────────────────
-    # ← scores whether validated tissue-specific promoters exist for target tissues
-    pa, pa_notes = score_promoter_availability(disease.affected_tissues)
-    notes.extend(pa_notes)
-
-    # ── Step 13: Route of administration feasibility ──────────────────────
-    # ← scores how accessible the target tissue is via established delivery routes
-    roa, roa_notes = score_roa_feasibility(disease.affected_tissues)
-    notes.extend(roa_notes)
-
-    # ── Step 14: Organelle targeting feasibility (NEW in v2) ──────────────
-    # ← scores whether standard nuclear AAV delivery can produce a functional
-    # ← protein at the correct subcellular compartment.
-    # ← This is the same for all precedent programs — it is a property of the
-    # ← query disease gene, not of the precedent (so it is computed once here,
-    # ← not per-program). It will lower composite scores for MT-* genes (0.0),
-    # ← mitochondrial matrix enzymes (0.5), and peroxisomal proteins (0.7).
-    ot, ot_notes = score_organelle_targeting(gene, disease)
-    notes.extend(ot_notes)
-
-    # ── Final composite score ─────────────────────────────────────────────
-    # Raw sum across all 14 dimensions (max = 21.0 from v2 onwards).
-    # Normalized to out of 10 for consistent interpretation.
-    raw_sum = pkg + trp + prc + pth + mod + inh + apv + imm + tw + cc + ip + pa + roa + ot
-    composite = round((raw_sum / _RAW_MAX) * 10.0, 2)
-
-    confidence = "high" if composite >= 7.5 else "medium" if composite >= 5.0 else "low"
     review_flags = build_review_flags(
         disease=disease,
         gene=gene,
         vector_tropism=v_tropism,
         vector_serotype=program["vector"],
         tropism_score=trp,
-        cross_correction_score=cc,
-        therapeutic_window_score=tw,
+        cross_correction_score=tract.cross_correction,
+        therapeutic_window_score=tract.therapeutic_window,
         strategy_notes=strategy_notes,
-        organelle_targeting_score=ot,
+        organelle_targeting_score=tract.organelle_targeting,
     )
 
     return ScoreBreakdown(
@@ -1424,8 +1848,10 @@ def score_program(
         vector=program["vector"],
         tissue_target=program["tissue_target"],
         approval_status=program["approval_status"],
-        composite_score=composite,
+        match_score=match_score,
         confidence=confidence,
+        tractability_score=tract.tractability_score,
+        tractability_tier=tract.tractability_tier,
         packaging_fit=pkg,
         tropism_match=trp,
         protein_class_match=prc,
@@ -1434,27 +1860,102 @@ def score_program(
         modality_compatibility=mod,
         approval_weight=apv,
         immunogenicity=imm,
-        therapeutic_window=tw,
-        cross_correction=cc,
-        immune_privilege=ip,
-        promoter_availability=pa,
-        roa_feasibility=roa,
-        organelle_targeting=ot,
+        therapeutic_window=tract.therapeutic_window,
+        cross_correction=tract.cross_correction,
+        immune_privilege=tract.immune_privilege,
+        promoter_availability=tract.promoter_availability,
+        roa_feasibility=tract.roa_feasibility,
+        organelle_targeting=tract.organelle_targeting,
         notes=notes,
         review_flags=review_flags,
     )
 
 
+# Backward-compatible alias: some callers/tests refer to score_program.
+def score_program(
+    disease: DiseaseInfo,
+    gene: GeneInfo,
+    program: dict,
+    vector: dict,
+    tract: TractabilityResult | None = None,
+) -> ScoreBreakdown:
+    """Deprecated alias for score_match (computes tractability if not supplied)."""
+    if tract is None:
+        tract = score_tractability(disease, gene)
+    return score_match(disease, gene, program, vector, tract)
+
+
 # ══════════════════════════════════════════════════════════════════════════════
-# RANK ALL PROGRAMS: runs score_program() on every GT program in the database
+# RECOMMENDED STARTING STRATEGY: synthesize an explicit (modality, vector, route,
+# promoter, construct) hypothesis from the top precedent — addresses the goal of
+# "select a method", not just "rank similar programs". NOT a clinical protocol.
+# ══════════════════════════════════════════════════════════════════════════════
+def recommend_strategy(
+    disease: DiseaseInfo,
+    gene: GeneInfo,
+    top_match: ScoreBreakdown | None,
+    tract: TractabilityResult,
+) -> dict[str, str]:
+    """Return a starting-point GT strategy as labelled fields. Hypothesis only."""
+    mechanism = lookup_mechanism(disease.orphanet_id, gene.symbol)
+    compat = mechanism.gene_addition_compatibility.lower()
+    preferred = mechanism.preferred_modality.replace("_", " ")
+    tissues = [t for t in (disease.affected_tissues or []) if t]
+    primary = tissues[0] if tissues else None
+
+    if compat == "incompatible":
+        modality = (
+            f"NOT gene addition. {mechanism.mechanism_category.replace('_', ' ')} requires "
+            f"{preferred} (e.g. silencing/editing/RNA). No gene-addition precedent in this "
+            "catalog applies; the ranking is suppressed for this disease."
+        )
+    elif compat == "conditional":
+        modality = f"Gene addition with constraints — {preferred}; review disease-specific limits."
+    elif compat == "uncertain":
+        modality = (
+            f"Modality uncertain ({preferred}) — confirm the molecular mechanism with "
+            "source-linked evidence before committing to gene addition."
+        )
+    else:
+        modality = f"Gene addition — {preferred}."
+
+    vector = top_match.vector if top_match else "no packagable precedent in catalog"
+    construct = "native CDS"
+    if top_match and any("micro/mini" in n or "engineered" in n for n in top_match.notes):
+        construct = "engineered micro/mini-transgene (native CDS oversized)"
+    elif gene.cds_length_bp and gene.cds_length_bp + _CASSETTE_OVERHEAD_BP > 4700:
+        construct = "minimal-cassette / dual-AAV (native CDS + regulatory elements near capsid limit)"
+
+    if primary:
+        route = _ROA_DATA.get(primary.lower(), (0.5, "no established clinical route"))[1]
+        promoter = _PROMOTER_DATA.get(primary.lower(), (0.5, "few validated tissue-specific promoters"))[1]
+    else:
+        route = "target tissue undefined — declare a primary tissue (--primary-tissue)"
+        promoter = "target tissue undefined"
+
+    return {
+        "modality": modality,
+        "vector": f"{vector} (from top precedent {top_match.program_name})" if top_match else vector,
+        "route": route,
+        "promoter": promoter,
+        "construct": construct,
+        "tractability": f"{tract.tractability_score:.1f}/10 ({tract.tractability_tier})",
+    }
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# RANK ALL PROGRAMS: score every GT program and return ranked by match_score
 # ══════════════════════════════════════════════════════════════════════════════
 def rank_programs(
     disease: DiseaseInfo,
     gene: GeneInfo,
     conn: sqlite3.Connection,
 ) -> list[ScoreBreakdown]:
-    """Score all GT programs and return ranked list (highest first)."""
+    """Score all GT programs and return them ranked by match_score (highest first).
 
+    Tractability is computed ONCE (it is disease-level) and attached to every
+    breakdown so reports can show it as a single disease-level metric.
+    """
     programs = [dict(r) for r in conn.execute("SELECT * FROM gt_programs").fetchall()]
 
     vectors_by_sero = {
@@ -1462,12 +1963,14 @@ def rank_programs(
         for r in conn.execute("SELECT * FROM vectors").fetchall()
     }
 
+    tract = score_tractability(disease, gene)
+
     scores: list[ScoreBreakdown] = []
     for prog in programs:
         vec = vectors_by_sero.get(prog["vector"])
         if vec is None:
             vec = {"cargo_limit_bp": 4700, "tissue_tropism": "[]"}
-        scores.append(score_program(disease, gene, prog, vec))
+        scores.append(score_match(disease, gene, prog, vec, tract))
 
-    scores.sort(key=lambda s: (-s.composite_score, s.program_name))
+    scores.sort(key=lambda s: (-s.match_score, s.program_name))
     return scores

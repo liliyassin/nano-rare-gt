@@ -99,7 +99,7 @@ Every source link is clickable. Diseases are grouped by their role in the cohort
 | **Gene-addition fit** | compatible |
 | **Preferred modality** | ex_vivo_hsc_gene_addition |
 | **Mechanism evidence** | ADA-SCID is a deficiency disorder with approved ex vivo gene-addition precedent |
-| **Evidence source** | [EMA](https://www.ema.europa.eu/en/medicines/human/EPAR/strimvelis) |
+| **Evidence source** | [EMA](https://www.ema.europa.eu/en/documents/product-information/strimvelis-epar-product-information_en.pdf) |
 | **Evidence status** | x |
 
 ---

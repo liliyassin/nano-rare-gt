@@ -1,0 +1,230 @@
+<svg viewBox="0 0 1060 1740" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .dec   { fill:#ffffff; stroke:#0a2342; stroke-width:2.5; }
+      .dect  { fill:#0a2342; font-size:16px; font-weight:bold; }
+      .decs  { fill:#3a4252; font-size:12.5px; }
+      .amber { fill:#fff4e0; stroke:#e0972f; stroke-width:2; }
+      .ambt  { fill:#8a5600; font-size:12.5px; font-weight:bold; }
+      .red   { fill:#fdecea; stroke:#d9534f; stroke-width:2; }
+      .redt  { fill:#a02622; font-size:12.5px; font-weight:bold; }
+      .grey  { fill:#eef0f3; stroke:#8a93a3; stroke-width:2; }
+      .greyt { fill:#3a4252; font-size:12.5px; font-weight:bold; }
+      .pass  { fill:#e7f5f0; stroke:#1f8a70; stroke-width:2.5; }
+      .passt { fill:#0f5c49; font-size:13px; font-weight:bold; }
+      .key   { fill:#efe7f7; stroke:#6a3d9a; stroke-width:3; }
+      .keyt  { fill:#4a2470; font-weight:bold; }
+      .ylab  { fill:#1f8a70; font-size:12px; font-weight:bold; }
+      .nlab  { fill:#c2570f; font-size:12px; font-weight:bold; }
+      .ex    { fill:#5a6472; font-size:11px; font-style:italic; }
+      .spine { stroke:#1f8a70; stroke-width:2.5; fill:none; }
+      .branch{ stroke:#e0972f; stroke-width:2; fill:none; stroke-dasharray:5 3; }
+      .branchr{ stroke:#d9534f; stroke-width:2; fill:none; stroke-dasharray:5 3; }
+    </style>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1f8a70"/></marker>
+    <marker id="aa" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e0972f"/></marker>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d9534f"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1060" height="66" fill="#0a2342"/>
+  <text x="28" y="30" fill="#ffffff" font-size="22" font-weight="bold">Can an AAV vector cure this disease? — molecular decision framework</text>
+  <text x="28" y="52" fill="#9fb3c8" font-size="13">From genome to cure, node by node. Green = continue (biologically feasible) · Amber = engineering workaround · Red = needs a different modality · Grey = knowledge gap</text>
+
+  <!-- spine arrows (drawn first, under boxes) -->
+  <g>
+    <path class="spine" d="M260,150 L260,178" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,262 L260,290" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,374 L260,402" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,486 L260,514" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,598 L260,626" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,710 L260,738" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,822 L260,850" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,934 L260,962" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,1046 L260,1074" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,1158 L260,1186" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,1270 L260,1298" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,1382 L260,1430" marker-end="url(#ag)"/>
+    <path class="spine" d="M260,1514 L260,1556" marker-end="url(#ag)"/>
+  </g>
+
+  <!-- ===== NODE 1 ===== -->
+  <g>
+    <rect class="dec" x="80" y="84" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="112">1 · Monogenic loss-of-function?</text>
+    <text class="decs" x="100" y="134">Is a missing/non-functional protein the cause?</text>
+    <text class="ylab" x="270" y="172">YES ↓</text>
+    <path class="branchr" d="M440,117 L560,117" marker-end="url(#ar)"/>
+    <text class="nlab" x="470" y="110">NO</text>
+    <rect class="red" x="560" y="86" width="420" height="62" rx="8"/>
+    <text class="redt" x="576" y="110">Gain-of-function / dominant-negative / toxic RNA</text>
+    <text class="ex" x="576" y="132">Needs silencing or editing — outside gene-addition scope</text>
+  </g>
+
+  <!-- ===== NODE 2 ===== -->
+  <g>
+    <rect class="dec" x="80" y="196" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="224">2 · Dosage-sensitive / haploinsufficient?</text>
+    <text class="decs" x="100" y="246">Is too much protein also harmful?</text>
+    <text class="ylab" x="258" y="284">NO ↓ (safe)</text>
+    <path class="branch" d="M440,229 L560,229" marker-end="url(#aa)"/>
+    <text class="nlab" x="466" y="222">YES</text>
+    <rect class="amber" x="560" y="198" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="222">Expression must be tightly regulated / tuned</text>
+    <text class="ex" x="576" y="244">e.g. MECP2 (Rett) — MECP2 duplication is itself a disease</text>
+  </g>
+
+  <!-- ===== NODE 3 ===== -->
+  <g>
+    <rect class="dec" x="80" y="308" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="336">3 · CDS ≤ ~4.7 kb (AAV packaging)?</text>
+    <text class="decs" x="100" y="358">Does the coding sequence fit one AAV?</text>
+    <text class="ylab" x="270" y="396">YES ↓</text>
+    <path class="branch" d="M440,341 L560,341" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="334">NO</text>
+    <rect class="amber" x="560" y="310" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="334">Micro/mini-gene · dual/split-AAV · other modality</text>
+    <text class="ex" x="576" y="356">e.g. DMD 11 kb → micro-dystrophin · MYO7A 6.6 kb → dual-AAV</text>
+  </g>
+
+  <!-- ===== NODE 4 ===== -->
+  <g>
+    <rect class="dec" x="80" y="420" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="448">4 · Can the protein cross-correct?</text>
+    <text class="decs" x="100" y="470">Secreted / secretable enzyme vs cell-autonomous</text>
+    <text class="ylab" x="250" y="508">YES ↓ (easier)</text>
+    <path class="branch" d="M440,453 L560,453" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="446">NO</text>
+    <rect class="amber" x="560" y="422" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="446">Cell-autonomous — every target cell must be transduced</text>
+    <text class="ex" x="576" y="468">membrane/transporter (ATP7B) · nuclear (MECP2) — no bystander rescue</text>
+  </g>
+
+  <!-- ===== NODE 5 ===== -->
+  <g>
+    <rect class="dec" x="80" y="532" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="560">5 · Target cell type defined?</text>
+    <text class="decs" x="100" y="582">Do we know which cells to correct?</text>
+    <text class="ylab" x="270" y="620">YES ↓</text>
+    <path class="branch" d="M440,565 L560,565" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="558">NO</text>
+    <rect class="grey" x="560" y="534" width="420" height="62" rx="8"/>
+    <text class="greyt" x="576" y="558">Biology under-characterised</text>
+    <text class="ex" x="576" y="580">Research gap — mechanism work needed before therapy design</text>
+  </g>
+
+  <!-- ===== NODE 6 ===== -->
+  <g>
+    <rect class="dec" x="80" y="644" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="672">6 · Tissue accessible + serotype exists?</text>
+    <text class="decs" x="100" y="694">Is there an AAV with tropism for that tissue?</text>
+    <text class="ylab" x="270" y="732">YES ↓</text>
+    <path class="branchr" d="M440,677 L560,677" marker-end="url(#ar)"/>
+    <text class="nlab" x="470" y="670">NO</text>
+    <rect class="red" x="560" y="646" width="420" height="62" rx="8"/>
+    <text class="redt" x="576" y="670">Bone marrow → ex-vivo HSC (lentiviral), not AAV</text>
+    <text class="ex" x="576" y="692">e.g. ADA-SCID, Wiskott-Aldrich · or capsid engineering needed</text>
+  </g>
+
+  <!-- ===== NODE 7 ===== -->
+  <g>
+    <rect class="dec" x="80" y="756" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="784">7 · Correct subcellular compartment?</text>
+    <text class="decs" x="100" y="806">Can standard nuclear AAV reach where protein acts?</text>
+    <text class="ylab" x="270" y="844">YES ↓</text>
+    <path class="branchr" d="M440,789 L560,789" marker-end="url(#ar)"/>
+    <text class="nlab" x="470" y="782">NO</text>
+    <rect class="red" x="560" y="758" width="420" height="62" rx="8"/>
+    <text class="redt" x="576" y="782">mtDNA gene → allotopic expression; matrix enzyme → MTS</text>
+    <text class="ex" x="576" y="804">e.g. LHON (MT-ND4) · OTC (mitochondrial import sequence)</text>
+  </g>
+
+  <!-- ===== NODE 8 ===== -->
+  <g>
+    <rect class="dec" x="80" y="868" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="896">8 · Validated tissue-specific promoter?</text>
+    <text class="decs" x="100" y="918">Can expression be restricted &amp; tuned?</text>
+    <text class="ylab" x="270" y="956">YES ↓</text>
+    <path class="branch" d="M440,901 L560,901" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="894">NO</text>
+    <rect class="amber" x="560" y="870" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="894">Promoter development needed</text>
+    <text class="ex" x="576" y="916">liver: TBG/hAAT · retina: GRK1/CRX · CNS: synapsin</text>
+  </g>
+
+  <!-- ===== NODE 9 ===== -->
+  <g>
+    <rect class="dec" x="80" y="980" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="1008">9 · Immune barriers manageable?</text>
+    <text class="decs" x="100" y="1030">Pre-existing NAbs · T-cell response · tissue privilege</text>
+    <text class="ylab" x="270" y="1068">YES ↓</text>
+    <path class="branch" d="M440,1013 L560,1013" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="1006">NO</text>
+    <rect class="amber" x="560" y="982" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="1006">Eligibility &amp; durability limits</text>
+    <text class="ex" x="576" y="1028">seropositive patients excluded · retina/CNS are immune-privileged</text>
+  </g>
+
+  <!-- ===== NODE 10 ===== -->
+  <g>
+    <rect class="dec" x="80" y="1092" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="1120">10 · Therapeutic window open?</text>
+    <text class="decs" x="100" y="1142">Can we treat before damage is irreversible?</text>
+    <text class="ylab" x="270" y="1180">YES ↓</text>
+    <path class="branch" d="M440,1125 L560,1125" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="1118">NO</text>
+    <rect class="amber" x="560" y="1094" width="420" height="62" rx="8"/>
+    <text class="ambt" x="576" y="1118">Must treat pre-symptomatically / newborn screening</text>
+    <text class="ex" x="576" y="1140">lost motor neurons (SMA), cones (achromatopsia), neurons (Tay-Sachs)</text>
+  </g>
+
+  <!-- ===== NODE 11 ===== -->
+  <g>
+    <rect class="dec" x="80" y="1204" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="1232">11 · Measurable biomarker / endpoint?</text>
+    <text class="decs" x="100" y="1254">Is there a clear readout for a trial?</text>
+    <text class="ylab" x="270" y="1292">YES ↓</text>
+    <path class="branch" d="M440,1237 L560,1237" marker-end="url(#aa)"/>
+    <text class="nlab" x="470" y="1230">NO</text>
+    <rect class="grey" x="560" y="1206" width="420" height="62" rx="8"/>
+    <text class="greyt" x="576" y="1230">Trial design harder — endpoint development needed</text>
+    <text class="ex" x="576" y="1252">vs FIX activity (Hem B) · bilirubin (CN-1) · enzyme activity (LSDs)</text>
+  </g>
+
+  <!-- ===== NODE 12 ===== -->
+  <g>
+    <rect class="dec" x="80" y="1316" width="360" height="66" rx="10"/>
+    <text class="dect" x="100" y="1344">12 · Does a clinical trial exist?</text>
+    <text class="decs" x="100" y="1366">All biology cleared — is anyone developing it?</text>
+    <text class="ylab" x="250" y="1404">NO ↓</text>
+    <path class="spine" d="M440,1349 L560,1349" marker-end="url(#ag)"/>
+    <text class="ylab" x="470" y="1342">YES</text>
+    <rect class="pass" x="560" y="1318" width="420" height="62" rx="8"/>
+    <text class="passt" x="576" y="1344">Positive control — framework should predict it ✓</text>
+    <text class="ex" x="576" y="1366">Hemophilia B (Hemgenix) · SMA (Zolgensma) · MLD (Libmeldy)</text>
+  </g>
+
+  <!-- ===== ECON NODE ===== -->
+  <g>
+    <rect class="dec" x="80" y="1436" width="360" height="78" rx="10"/>
+    <text class="dect" x="100" y="1464">Only barrier = prevalence / economics?</text>
+    <text class="decs" x="100" y="1486">Too few patients for a commercial trial?</text>
+    <text class="decs" x="100" y="1505">(&lt; ~1000 patients · no orphan incentive)</text>
+    <text class="keyt" x="250" y="1542" font-size="12">YES ↓</text>
+    <path class="branch" d="M440,1475 L560,1475" marker-end="url(#aa)"/>
+    <text class="nlab" x="455" y="1468">NO/?</text>
+    <rect class="grey" x="560" y="1444" width="420" height="62" rx="8"/>
+    <text class="greyt" x="576" y="1468">Unknown barrier — investigate</text>
+    <text class="ex" x="576" y="1490">manufacturing / CMC, no advocacy group, hidden biology</text>
+  </g>
+
+  <!-- ===== KEY FINDING ===== -->
+  <g>
+    <rect class="key" x="120" y="1562" width="700" height="150" rx="14"/>
+    <text class="keyt" x="150" y="1600" font-size="20">★ KEY FINDING</text>
+    <text class="keyt" x="150" y="1632" font-size="16">Biologically feasible — but no therapy exists</text>
+    <text x="150" y="1660" fill="#4a2470" font-size="14">The gap is economics and prevalence, not science.</text>
+    <text x="150" y="1686" fill="#5a6472" font-size="13" font-style="italic">Worked example: Crigler-Najjar type I — small gene, liver-directed,</text>
+    <text x="150" y="1704" fill="#5a6472" font-size="13" font-style="italic">clean biomarker (bilirubin), yet ultra-rare and unfunded.</text>
+  </g>
+</svg>

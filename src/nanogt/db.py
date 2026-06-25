@@ -48,10 +48,15 @@ def init_db(conn: sqlite3.Connection) -> None: #init_db(conn) function creates d
 
 
 def seed_db(conn: sqlite3.Connection) -> None:
+    # Wipes both tables and re-inserts from catalog.py on every call.
+    # This means any change to catalog.py is automatically picked up the next
+    # time setup() / nanogt init runs — no need to manually delete the database.
+    # (A previous version had a misleading comment saying seeding only happened
+    # when the table was empty; that was incorrect — DELETE runs unconditionally.)
     conn.execute("DELETE FROM vectors")
     for v in VECTORS:
         conn.execute("""
-            INSERT OR IGNORE INTO vectors
+            INSERT INTO vectors
             (serotype, cargo_limit_bp, tissue_tropism, cns_tropic, retinal_tropic,
              hepatic_tropic, muscle_tropic, clinical_precedents, freely_available)
             VALUES (?,?,?,?,?,?,?,?,?)
@@ -59,19 +64,19 @@ def seed_db(conn: sqlite3.Connection) -> None:
             v["serotype"],
             v["cargo_limit_bp"],
             json.dumps(v.get("tissue_tropism", [])),
-            v.get("cns_tropic", 0), # use 0 if missing 
+            v.get("cns_tropic", 0),
             v.get("retinal_tropic", 0),
             v.get("hepatic_tropic", 0),
             v.get("muscle_tropic", 0),
             v.get("clinical_precedents", 0),
-            v.get("freely_available", 1), # assume available if missing 
+            v.get("freely_available", 1),
         ))
     conn.commit()
 
     conn.execute("DELETE FROM gt_programs")
     for p in GT_PROGRAMS:
         conn.execute("""
-            INSERT OR IGNORE INTO gt_programs
+            INSERT INTO gt_programs
             (name, disease, gene_symbol, vector, tissue_target, cds_bp,
              approval_status, approval_year, mechanism, protein_class,
              inheritance, pathway, notes)
@@ -80,13 +85,13 @@ def seed_db(conn: sqlite3.Connection) -> None:
             p["name"], p["disease"], p["gene_symbol"], p["vector"],
             p["tissue_target"], p["cds_bp"], p["approval_status"],
             p.get("approval_year"), p["mechanism"], p["protein_class"],
-            p["inheritance"], p["pathway"], p.get("notes"), # these keys must exist or Python will raise an error 
+            p["inheritance"], p["pathway"], p.get("notes"),
         ))
     conn.commit()
-# important limitation is that this seeding only happens when the whole table is empty. If the table already has rows, new or changed catalog entries will not be loaded automatically 
+
 
 def setup(db_path=None) -> sqlite3.Connection:
-    """One-call setup: connect, init schema, seed data."""
+    """One-call setup: connect, init schema, seed data from catalog.py."""
     conn = get_conn(db_path)
     init_db(conn)
     seed_db(conn)
